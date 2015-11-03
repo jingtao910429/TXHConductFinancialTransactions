@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ZWIntroductionViewController.h"
 #import "UnLoginHomePageViewController.h"
+#import "myViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,8 @@
 @property (nonatomic, strong) UnLoginHomePageViewController *UnLoginHomePageVC;
 
 @property (nonatomic, strong) UIButton *enterBtn;
+@property (strong, nonatomic) myViewController* viewController;
+
 
 @end
 
@@ -27,6 +30,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    self.viewController = [[myViewController alloc] init];
+    self.window.rootViewController = self.viewController;
+
+    NSLog(@"dd");
     [self.window makeKeyAndVisible];
     
     [self introduceView];

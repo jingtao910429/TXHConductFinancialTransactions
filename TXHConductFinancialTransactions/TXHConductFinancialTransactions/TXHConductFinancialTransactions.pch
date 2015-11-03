@@ -1,0 +1,50 @@
+//
+//  TXHConductFinancialTransactions.pch
+//  TXHConductFinancialTransactions
+//
+//  Copyright (c) 2015年 rongyu100. All rights reserved.
+//
+
+#ifndef TXHConductFinancialTransactions_TXHConductFinancialTransactions_pch
+#define TXHConductFinancialTransactions_TXHConductFinancialTransactions_pch
+#endif
+
+#ifdef __OBJC__
+//头文件
+#include <Foundation/Foundation.h>
+#include <UIKit/UIKit.h>
+#include "WToast.h"
+
+#define api_domain @"http://192.168.1.18:8888/"
+
+//iOS 系统版本
+#define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
+#define IOS_IS_AT_LEAST_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+#define IOS_IS_AT_LEAST_8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+#define iPhone6P ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+
+//字体
+#define FontName @"HelveticaNeue-Light"
+#define FontNameBold @"HelveticaNeue-Bold"
+
+//定义Frame
+#define kScreenWidth   [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight  [UIScreen mainScreen].bounds.size.height
+
+//定义popViewControllerAnimated
+#define kPop [self.navigationController popViewControllerAnimated:YES]
+
+#ifdef DEBUGLOGGER
+# define DELog(fmt, ...) NSLog((@"[函数名:%s]       " "[行号:%d] \n" fmt),__FUNCTION__, __LINE__, ##__VA_ARGS__);
+# define DFLog(fmt, ...) NSLog((@"[文件名:%s]\n" "[函数名:%s]\n" "[行号:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+# define DELog(...);
+# define DFLog(...);
+#endif
+
+#endif

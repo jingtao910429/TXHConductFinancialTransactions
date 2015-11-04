@@ -94,10 +94,6 @@
 
     [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor redColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
-
-    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor blackColor]  leftTitle:@"ceshi" leftImageName:nil leftAction:@selector(onleftAction) rightTitle:nil rightImageName:nil rightAction:nil];
-
-    
     //添加视图
     [self.view addSubview:self.contentTableView];
 }

@@ -33,4 +33,43 @@ static FactoryManager *shareManager = nil;
     return button;
 }
 
+- (UIView *)createCellViewWithFrame:(CGRect)frame  imageName:(NSString *)imageName placeHolder:(NSString *)placeHoder imageTag:(NSInteger)imageTag textFiledTag:(NSInteger)textFiledTag cellHeight:(NSInteger)cellHeight target:(id)target isNeedImage:(BOOL)isNeedImage {
+    
+    UIView *contentView = [[UIView alloc] initWithFrame:frame];
+    
+    UIImageView *contentImageView = nil;
+    UITextField *contentTextFiled = nil;
+    
+    
+    UIImage *image = [UIImage imageNamed:imageName];
+    
+    if (isNeedImage) {
+        contentImageView =  [[UIImageView alloc] initWithFrame:CGRectMake(10, (cellHeight - image.size.height)/2, image.size.width, image.size.height)];
+        contentImageView.image = image;
+        contentImageView.tag = imageTag;
+        
+        contentTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(contentImageView.frame.origin.x + contentImageView.frame.size.width + 8, 0, kScreenWidth - 50 - contentImageView.frame.size.width, cellHeight)];
+    }else {
+        contentTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(8, 0, kScreenWidth - 50 - contentImageView.frame.size.width, cellHeight)];
+    }
+    
+    
+    contentTextFiled.delegate = target;
+    contentTextFiled.placeholder = placeHoder;
+    contentTextFiled.tag = textFiledTag;
+    
+    if (isNeedImage) {
+        [contentView addSubview:contentImageView];
+    }
+    
+    [contentView addSubview:contentTextFiled];
+    
+    contentView.backgroundColor = [UIColor whiteColor];
+    contentView.layer.cornerRadius = 5;
+    contentView.layer.masksToBounds = YES;
+    
+    return contentView;
+    
+}
+
 @end

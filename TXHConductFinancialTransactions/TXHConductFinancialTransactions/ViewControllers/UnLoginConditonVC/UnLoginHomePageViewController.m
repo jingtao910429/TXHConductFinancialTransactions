@@ -9,7 +9,8 @@
 #import "UnLoginHomePageViewController.h"
 #import "TestAPICmd.h"
 #import "MyaccountnumberVC.h"
-#import "LoginRegisteViewController.h"
+#import "LoginViewController.h"
+#import "RegisterViewController.h"
 
 
 @interface UnLoginHomePageViewController () <APICmdApiCallBackDelegate>
@@ -60,20 +61,17 @@
 //登录
 - (void)loginBtnClick {
     
-    LoginRegisteViewController *loginRegisteViewController = [[LoginRegisteViewController alloc] init];
-    loginRegisteViewController.isLogin = YES;
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
     
-    [self.navigationController pushViewController:loginRegisteViewController animated:YES];
+    [self.navigationController pushViewController:loginViewController animated:YES];
 }
 
 //注册
 - (void)registeBtn {
     
-    LoginRegisteViewController *loginRegisteViewController = [[LoginRegisteViewController alloc] init];
-    loginRegisteViewController.isLogin = NO;
+    RegisterViewController *registerViewController = [[RegisterViewController alloc] init];
     
-    [self.navigationController pushViewController:loginRegisteViewController animated:YES];
-    
+    [self.navigationController pushViewController:registerViewController animated:YES];
 }
 
 
@@ -82,7 +80,7 @@
 //设置UI
 - (void)configUI {
 
-    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"投小猴" titleColor:[UIColor whiteColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
     //添加视图
     [self.view addSubview:self.BackGroudView];
@@ -120,7 +118,7 @@
         _freeRegisteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _freeRegisteBtn.frame = CGRectMake(15, kScreenHeight * 4/ 7, kScreenWidth - 30, 44);
         _freeRegisteBtn.backgroundColor = COLOR(239, 71, 26, 1.0);
-        _freeRegisteBtn.layer.cornerRadius = 6;
+        _freeRegisteBtn.layer.cornerRadius = 4;
         _freeRegisteBtn.layer.masksToBounds = YES;
         [_freeRegisteBtn setTitle:@"免费注册" forState:UIControlStateNormal];
         [_freeRegisteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -133,8 +131,8 @@
     if (!_loginBtn) {
         _loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _loginBtn.frame = CGRectMake(15, self.freeRegisteBtn.frame.origin.y + self.freeRegisteBtn.frame.size.height + 20, kScreenWidth - 30, 44);
-        _loginBtn.backgroundColor = COLOR(12, 141, 225, 1.0);
-        _loginBtn.layer.cornerRadius = 6;
+        _loginBtn.backgroundColor = [UIColor orangeColor];
+        _loginBtn.layer.cornerRadius = 4;
         _loginBtn.layer.masksToBounds = YES;
         [_loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
         [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

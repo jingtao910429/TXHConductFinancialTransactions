@@ -8,8 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface LoginRegisteViewController : BaseViewController
-
-@property (nonatomic, assign) BOOL isLogin;
+@interface LoginViewController : BaseViewController
 
 @end

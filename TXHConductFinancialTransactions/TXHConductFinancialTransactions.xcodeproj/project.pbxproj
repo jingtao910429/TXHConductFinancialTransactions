@@ -100,12 +100,16 @@
 		988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E01BE991BD0064A75B /* BMAdScrollView.m */; };
 		988EE3E51BE9928B0064A75B /* TestAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E41BE9928B0064A75B /* TestAPICmd.m */; };
 		988EE3E91BE9D6240064A75B /* bg_prologue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */; };
-		988EE3EC1BE9DD7D0064A75B /* LoginRegisteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3EB1BE9DD7D0064A75B /* LoginRegisteViewController.m */; };
+		988EE3EC1BE9DD7D0064A75B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3EB1BE9DD7D0064A75B /* LoginViewController.m */; };
 		988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */; };
 		988EE3FC1BE9F0BC0064A75B /* ic_modify_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */; };
 		988EE41A1BEA1A520064A75B /* WithdrawdepositVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE4191BEA1A520064A75B /* WithdrawdepositVC.m */; };
 		988EE41D1BEA1A670064A75B /* RechargeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE41C1BEA1A670064A75B /* RechargeVC.m */; };
 		988EE4201BEA1A870064A75B /* MyaccountnumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE41F1BEA1A870064A75B /* MyaccountnumberVC.m */; };
+		988EE4231BEA2E340064A75B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE4221BEA2E340064A75B /* RegisterViewController.m */; };
+		988EE4251BEA31F00064A75B /* bg_account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE4241BEA31F00064A75B /* bg_account@2x.png */; };
+		988EE4281BEA3AA00064A75B /* RYSmsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE4271BEA3AA00064A75B /* RYSmsManager.m */; };
+		988EE42B1BEA46430064A75B /* GetVertifyCodeAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE42A1BEA46430064A75B /* GetVertifyCodeAPICmd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,8 +306,8 @@
 		988EE3E31BE9928B0064A75B /* TestAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPICmd.h; sourceTree = "<group>"; };
 		988EE3E41BE9928B0064A75B /* TestAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPICmd.m; sourceTree = "<group>"; };
 		988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_prologue@2x.png"; sourceTree = "<group>"; };
-		988EE3EA1BE9DD7D0064A75B /* LoginRegisteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisteViewController.h; sourceTree = "<group>"; };
-		988EE3EB1BE9DD7D0064A75B /* LoginRegisteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisteViewController.m; sourceTree = "<group>"; };
+		988EE3EA1BE9DD7D0064A75B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		988EE3EB1BE9DD7D0064A75B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_login_num@2x.png"; sourceTree = "<group>"; };
 		988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_modify_password@2x.png"; sourceTree = "<group>"; };
 		988EE4181BEA1A520064A75B /* WithdrawdepositVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawdepositVC.h; sourceTree = "<group>"; };
@@ -312,6 +316,13 @@
 		988EE41C1BEA1A670064A75B /* RechargeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeVC.m; sourceTree = "<group>"; };
 		988EE41E1BEA1A870064A75B /* MyaccountnumberVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyaccountnumberVC.h; sourceTree = "<group>"; };
 		988EE41F1BEA1A870064A75B /* MyaccountnumberVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyaccountnumberVC.m; sourceTree = "<group>"; };
+		988EE4211BEA2E340064A75B /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		988EE4221BEA2E340064A75B /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		988EE4241BEA31F00064A75B /* bg_account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_account@2x.png"; sourceTree = "<group>"; };
+		988EE4261BEA3AA00064A75B /* RYSmsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYSmsManager.h; sourceTree = "<group>"; };
+		988EE4271BEA3AA00064A75B /* RYSmsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYSmsManager.m; sourceTree = "<group>"; };
+		988EE4291BEA46430064A75B /* GetVertifyCodeAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetVertifyCodeAPICmd.h; sourceTree = "<group>"; };
+		988EE42A1BEA46430064A75B /* GetVertifyCodeAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetVertifyCodeAPICmd.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,6 +446,7 @@
 		98229ECE1BE8C424005210EC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				988EE4241BEA31F00064A75B /* bg_account@2x.png */,
 				988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */,
 				988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */,
 				95319CF51BE9B86500597AF8 /* bg_account_asset_info.png */,
@@ -822,6 +834,8 @@
 		98229FCF1BE8E3DB005210EC /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				988EE4261BEA3AA00064A75B /* RYSmsManager.h */,
+				988EE4271BEA3AA00064A75B /* RYSmsManager.m */,
 				98229FD01BE8E427005210EC /* FactoryManager.h */,
 				98229FD11BE8E427005210EC /* FactoryManager.m */,
 			);
@@ -857,8 +871,10 @@
 			children = (
 				98229FE81BE8F409005210EC /* UnLoginHomePageViewController.h */,
 				98229FE91BE8F409005210EC /* UnLoginHomePageViewController.m */,
-				988EE3EA1BE9DD7D0064A75B /* LoginRegisteViewController.h */,
-				988EE3EB1BE9DD7D0064A75B /* LoginRegisteViewController.m */,
+				988EE3EA1BE9DD7D0064A75B /* LoginViewController.h */,
+				988EE3EB1BE9DD7D0064A75B /* LoginViewController.m */,
+				988EE4211BEA2E340064A75B /* RegisterViewController.h */,
+				988EE4221BEA2E340064A75B /* RegisterViewController.m */,
 			);
 			path = UnLoginConditonVC;
 			sourceTree = "<group>";
@@ -895,6 +911,8 @@
 			children = (
 				988EE3E31BE9928B0064A75B /* TestAPICmd.h */,
 				988EE3E41BE9928B0064A75B /* TestAPICmd.m */,
+				988EE4291BEA46430064A75B /* GetVertifyCodeAPICmd.h */,
+				988EE42A1BEA46430064A75B /* GetVertifyCodeAPICmd.m */,
 			);
 			name = NetAPI;
 			path = BSAPIManagers/NetAPI;
@@ -986,6 +1004,7 @@
 				98229FE41BE8F0D8005210EC /* guide_3@2x.png in Resources */,
 				95319CF41BE9B75F00597AF8 /* img_account_head@2x.png in Resources */,
 				98229EB41BE8C381005210EC /* LaunchScreen.xib in Resources */,
+				988EE4251BEA31F00064A75B /* bg_account@2x.png in Resources */,
 				988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */,
 				98229FC11BE8DD6B005210EC /* MJRefresh.bundle in Resources */,
 				98229FDE1BE8F02C005210EC /* navigationbar_background_tall1@2x.png in Resources */,
@@ -1015,6 +1034,8 @@
 				98229F351BE8DCFB005210EC /* TelPrompt.m in Sources */,
 				98229EFC1BE8C54F005210EC /* AFURLConnectionOperation.m in Sources */,
 				98229F4D1BE8DD3D005210EC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				988EE4281BEA3AA00064A75B /* RYSmsManager.m in Sources */,
+				988EE4231BEA2E340064A75B /* RegisterViewController.m in Sources */,
 				98229F831BE8DD46005210EC /* UIImageView+HighlightedWebCache.m in Sources */,
 				98229EF71BE8C54F005210EC /* AFHTTPRequestOperation.m in Sources */,
 				98229F771BE8DD46005210EC /* NSData+ImageContentType.m in Sources */,
@@ -1027,10 +1048,11 @@
 				98229F791BE8DD46005210EC /* SDWebImageCompat.m in Sources */,
 				98229FBB1BE8DD6B005210EC /* MJRefreshBackGifFooter.m in Sources */,
 				98229F7D1BE8DD46005210EC /* SDWebImageManager.m in Sources */,
+				988EE42B1BEA46430064A75B /* GetVertifyCodeAPICmd.m in Sources */,
 				98229F031BE8C579005210EC /* WToast.m in Sources */,
 				98229F781BE8DD46005210EC /* SDImageCache.m in Sources */,
 				98229EFD1BE8C54F005210EC /* AFURLRequestSerialization.m in Sources */,
-				988EE3EC1BE9DD7D0064A75B /* LoginRegisteViewController.m in Sources */,
+				988EE3EC1BE9DD7D0064A75B /* LoginViewController.m in Sources */,
 				98229FB81BE8DD6B005210EC /* MJRefreshAutoGifFooter.m in Sources */,
 				98229F7A1BE8DD46005210EC /* SDWebImageDecoder.m in Sources */,
 				98229EA91BE8C381005210EC /* AppDelegate.m in Sources */,

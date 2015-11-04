@@ -6,25 +6,34 @@
 //  Copyright (c) 2015年 rongyu. All rights reserved.
 //
 
-#import "LoginRegisteViewController.h"
+#import "LoginViewController.h"
+#import "RegisterViewController.h"
 
-#define CELL_HEIGHT 40
+#define CELL_HEIGHT 45
+#define CELL_NUMBER 5
 #define CELL_IMAGE_FIRSTTAG   111
 #define CELL_IMAGE_SENCONDTAG 112
 
-@interface LoginRegisteViewController () <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface LoginViewController () <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) UITableView *contentTableView;
 
 @property (nonatomic, strong) UIImageView *contentImageView;
 @property (nonatomic, strong) UITextField *contentTextFiled;
+@property (nonatomic, strong) UIButton    *forgetPasswordBtn;
+@property (nonatomic, strong) UIButton    *loginBtn;
 
 @property (nonatomic, copy) NSArray *images;
 @property (nonatomic, copy) NSArray *placeHolders;
 
+//alertView
+
+@property (nonatomic, strong) UIAlertView *forgetPassWordAlertView;
+
 @end
 
-@implementation LoginRegisteViewController
+@implementation LoginViewController
+
 #pragma mark - life cycle
 
 - (void)viewDidLoad {
@@ -35,6 +44,19 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)configData {
+    self.images = @[@"ic_login_num",@"",@"ic_modify_password"];
+    self.placeHolders = @[@"手机号",@"",@"登录密码"];
+}
+
+- (void)configUI {
+    
+    [self navigationBarStyleWithTitle:@"登录" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:@"注册" rightImageName:nil rightAction:@selector(registeBtnClick)];
+    
+    [self.view addSubview:self.contentTableView];
+    
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -51,13 +73,15 @@
     
     if (1 == indexPath.row) {
         return 10;
+    }else if (4 == indexPath.row) {
+        return CELL_HEIGHT + 30;
     }
     
     return CELL_HEIGHT;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return CELL_NUMBER;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -72,15 +96,25 @@
         tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         if (1 != indexPath.row) {
-            [tableViewCell.contentView addSubview:self.contentImageView];
-            [tableViewCell.contentView addSubview:self.contentTextFiled];
             
-            tableViewCell.layer.cornerRadius = 5;
-            tableViewCell.layer.masksToBounds = YES;
+            if (0 == indexPath.row || 2 == indexPath.row) {
+                
+                [tableViewCell.contentView addSubview:self.contentImageView];
+                [tableViewCell.contentView addSubview:self.contentTextFiled];
+                
+                tableViewCell.layer.cornerRadius = 5;
+                tableViewCell.layer.masksToBounds = YES;
+            }else if (3 == indexPath.row){
+                [tableViewCell.contentView addSubview:self.forgetPasswordBtn];
+            }else{
+                [tableViewCell.contentView addSubview:self.loginBtn];
+            }
+            
+            
         }
     }
     
-    if (1 == indexPath.row) {
+    if (indexPath.row !=0 && indexPath.row != 2) {
         
         tableViewCell.contentView.backgroundColor = COLOR(232, 232, 232, 1.0);
         
@@ -106,30 +140,18 @@
     
 }
 
+
 #pragma mark - event response
 
-
-- (void)configData {
-    self.images = @[@"ic_login_num",@"",@"ic_modify_password"];
-    self.placeHolders = @[@"手机号",@"",@"登录密码"];
+- (void)forgetPasswordBtnClick:(UIButton *)sender {
+    
+    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
+    registerVC.isRestPassword = YES;
+    [self.navigationController pushViewController:registerVC animated:YES];
+    
 }
 
-- (void)configUI {
-    
-    NSString *titleStr = @"";
-    NSString *otherTitleStr = @"";
-    
-    if (self.isLogin) {
-        titleStr = @"登录";
-        otherTitleStr = @"注册";
-    }else {
-        titleStr = @"注册";
-        otherTitleStr = @"登录";
-    }
-    
-    [self navigationBarStyleWithTitle:titleStr titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:otherTitleStr rightImageName:nil rightAction:@selector(navigationBarBtnClick)];
-    
-    [self.view addSubview:self.contentTableView];
+- (void)loginBtnClick {
     
 }
 
@@ -139,17 +161,12 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (void)navigationBarBtnClick {
+- (void)registeBtnClick {
     
-    LoginRegisteViewController *loginRegisteVC = [[LoginRegisteViewController alloc] init];
+    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
+    registerVC.isRestPassword = NO;
+    [self.navigationController pushViewController:registerVC animated:YES];
     
-    if (self.isLogin) {
-        loginRegisteVC.isLogin = NO;
-    }else{
-        loginRegisteVC.isLogin = YES;
-    }
-    
-    [self.navigationController pushViewController:loginRegisteVC animated:YES];
 }
 
 #pragma mark - getters and setters
@@ -182,6 +199,35 @@
     _contentTextFiled.delegate = self;
     
     return _contentTextFiled;
+}
+
+- (UIButton *)forgetPasswordBtn {
+    
+    if (!_forgetPasswordBtn) {
+        _forgetPasswordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _forgetPasswordBtn.frame = CGRectMake(kScreenWidth - 140 , 5, 100, 30);
+        [_forgetPasswordBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
+        [_forgetPasswordBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        _forgetPasswordBtn.titleLabel.font = [UIFont fontWithName:FontName size:18];
+        _forgetPasswordBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+        [_forgetPasswordBtn addTarget:self action:@selector(forgetPasswordBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _forgetPasswordBtn;
+}
+
+- (UIButton *)loginBtn {
+    if (!_loginBtn) {
+        _loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _loginBtn.frame = CGRectMake(0, 20, kScreenWidth - 40, 44);
+        _loginBtn.backgroundColor = [UIColor orangeColor];
+        _loginBtn.layer.cornerRadius = 4;
+        _loginBtn.layer.masksToBounds = YES;
+        [_loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
+        [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _loginBtn;
 }
 
 @end

@@ -16,4 +16,6 @@
 //需要其他属性对应扩展
 - (UIButton *)createBtnWithFrame:(CGRect)frame text:(NSString *)text textColor:(UIColor *)textColor;
 
+- (UIView *)createCellViewWithFrame:(CGRect)frame imageName:(NSString *)imageName placeHolder:(NSString *)placeHoder imageTag:(NSInteger)imageTag textFiledTag:(NSInteger)textFiledTag cellHeight:(NSInteger)cellHeight target:(id)target isNeedImage:(BOOL)isNeedImage;
+
 @end

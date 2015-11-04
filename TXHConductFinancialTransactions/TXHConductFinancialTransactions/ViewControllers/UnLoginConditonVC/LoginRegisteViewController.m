@@ -111,7 +111,7 @@
 
 - (void)configData {
     self.images = @[@"ic_login_num",@"",@"ic_modify_password"];
-    self.placeHolders = @[@"手机号",@"",@"密码"];
+    self.placeHolders = @[@"手机号",@"",@"登录密码"];
 }
 
 - (void)configUI {
@@ -167,22 +167,20 @@
 }
 
 - (UIImageView *)contentImageView {
-    if (!_contentImageView) {
-        UIImage *image = [UIImage imageNamed:self.images[0]];
-        
-        _contentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, (CELL_HEIGHT - image.size.height), image.size.width, image.size.height)];
-        _contentImageView.image = image;
-        _contentImageView.tag = CELL_IMAGE_FIRSTTAG;
-    }
+    
+    UIImage *image = [UIImage imageNamed:self.images[0]];
+    _contentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, (CELL_HEIGHT - image.size.height)/2, image.size.width, image.size.height)];
+    _contentImageView.tag = CELL_IMAGE_FIRSTTAG;
+    
     return _contentImageView;
 }
 
 - (UITextField *)contentTextFiled {
-    if (!_contentTextFiled) {
-        _contentTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(self.contentTableView.frame.origin.x + self.contentTableView.frame.size.width + 5, self.contentTableView.frame.origin.y, kScreenWidth - 50 - self.contentTableView.frame.size.width, self.contentTableView.frame.size.height)];
-        _contentTextFiled.tag = CELL_IMAGE_SENCONDTAG;
-        _contentTextFiled.delegate = self;
-    }
+    
+    _contentTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(self.contentImageView.frame.origin.x + self.contentImageView.frame.size.width + 8, 0, kScreenWidth - 50 - self.contentImageView.frame.size.width, CELL_HEIGHT)];
+    _contentTextFiled.tag = CELL_IMAGE_SENCONDTAG;
+    _contentTextFiled.delegate = self;
+    
     return _contentTextFiled;
 }
 

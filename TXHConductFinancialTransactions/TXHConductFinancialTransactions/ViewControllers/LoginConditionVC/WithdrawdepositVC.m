@@ -30,7 +30,7 @@
     
     [self navigationBarStyleWithTitle:@"提取" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
-    self.view.backgroundColor=BackColor;
+    self.view.backgroundColor = BackColor;
     _bgView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 180)];
     _bgView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:_bgView];

@@ -10,9 +10,9 @@
 
 @interface MyaccountnumberCell : UITableViewCell
 
-@property(nonatomic,strong)UIImageView*leftimageview;
-@property(nonatomic,strong)UILabel*leftlable;
-@property(nonatomic,strong)UILabel*rightlable;
+@property(nonatomic,strong) UIImageView  *leftimageview;
+@property(nonatomic,strong) UILabel      *leftlable;
+@property(nonatomic,strong) UILabel      *rightlable;
 
 
 @end

@@ -19,7 +19,7 @@
     titleLabel.text = titleStr;
     titleLabel.textColor = titleColor;
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = [UIFont fontWithName:FontName size:21];
+    titleLabel.font = [UIFont fontWithName:FontName size:18];
     self.navigationItem.titleView = titleLabel;
     
     //设置左右button

@@ -8,9 +8,15 @@
 
 #import "UnLoginHomePageViewController.h"
 #import "UIViewController+NavigationBarStyle.h"
+#import "TestAPICmd.h"
 
 
-@interface UnLoginHomePageViewController ()
+@interface UnLoginHomePageViewController () <APICmdApiCallBackDelegate,UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *contentTableView;
+
+//网络请求，需要继承RYBaseAPICmd并实现RYBaseAPICmdDelegate，说明接口请求类型和用途
+@property (nonatomic, strong) TestAPICmd *testAPICmd;
 
 @end
 
@@ -28,8 +34,53 @@
     
 }
 
-#pragma mark - UITableViewDelegate
+//代理方法
+#pragma mark - UITableViewDelegate UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 0;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+#pragma mark - APICmdApiCallBackDelegate
+
+//数据请求成功
+- (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
+    
+}
+//请求失败
+- (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
+    
+}
+
 #pragma mark - event response
+
+//按钮点击事件
+- (void)btnClick:(UIButton *)sender {
+    
+}
+
+//通知方法
+- (void)notifyMethod:(NSNotification *)notification {
+    
+}
+
+//触摸事件
+- (void)touchMethod {
+    
+}
+
 #pragma mark - private method
 
 //设置UI
@@ -39,8 +90,29 @@
     //测试
     [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor blackColor]  leftTitle:@"ceshi" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
+    //添加视图
+    [self.view addSubview:self.contentTableView];
 }
 
 #pragma mark - getters and setters
+
+- (UITableView *)contentTableView {
+    if (!_contentTableView) {
+        _contentTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _contentTableView.dataSource = self;
+        _contentTableView.delegate = self;
+    }
+    return _contentTableView;
+}
+
+- (TestAPICmd *)testAPICmd {
+    if (!_testAPICmd) {
+        _testAPICmd = [[TestAPICmd alloc] init];
+        _testAPICmd.delegate = self;
+        _testAPICmd.reformParams = @{};
+    }
+    return _testAPICmd;
+}
+
 
 @end

@@ -37,7 +37,7 @@
     
     [self clearNavigationBar];
     //测试
-    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor whiteColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor blackColor]  leftTitle:@"ceshi" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
 }
 

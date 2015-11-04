@@ -26,7 +26,7 @@
     
     if (leftTitle && !leftImageName) {
         
-        UIButton *leftBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(0, 0, 40, 30) text:leftTitle textColor:[UIColor orangeColor]];
+        UIButton *leftBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(0, 0, 50, 30) text:leftTitle textColor:[UIColor orangeColor]];
         [leftBtn addTarget:self action:leftAction forControlEvents:UIControlEventTouchUpInside];
         
         //如果左是纯文本

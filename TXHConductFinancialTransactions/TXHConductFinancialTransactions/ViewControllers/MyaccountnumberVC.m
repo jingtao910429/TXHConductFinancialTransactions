@@ -115,9 +115,7 @@
         [downview addSubview:xiangxiBtn];
         changeBtn.backgroundColor=[UIColor grayColor];
         
-        
-      
-
+    
         
         
         [_headview addSubview:downview];

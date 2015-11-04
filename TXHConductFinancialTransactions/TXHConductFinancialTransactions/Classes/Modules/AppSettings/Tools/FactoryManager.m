@@ -25,8 +25,8 @@ static FactoryManager *shareManager = nil;
     
     UIButton *button                = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame                    = frame;
-    button.titleLabel.text          = text;
-    button.titleLabel.textColor     = textColor;
+    [button setTitle:text forState:UIControlStateNormal];
+    [button setTitleColor:textColor forState:UIControlStateNormal];
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     return button;

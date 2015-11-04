@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95BC2BA21BE91A53008BFB25 /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BC2BA11BE91A53008BFB25 /* myViewController.m */; settings = {ASSET_TAGS = (); }; };
+		95BC2BA21BE91A53008BFB25 /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BC2BA11BE91A53008BFB25 /* myViewController.m */; };
 		98229EA61BE8C381005210EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229EA51BE8C381005210EC /* main.m */; };
 		98229EA91BE8C381005210EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229EA81BE8C381005210EC /* AppDelegate.m */; };
 		98229EAF1BE8C381005210EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98229EAD1BE8C381005210EC /* Main.storyboard */; };
@@ -94,6 +94,8 @@
 		98229FE41BE8F0D8005210EC /* guide_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98229FE31BE8F0D8005210EC /* guide_3@2x.png */; };
 		98229FEA1BE8F409005210EC /* UnLoginHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229FE91BE8F409005210EC /* UnLoginHomePageViewController.m */; };
 		98229FED1BE8F8C3005210EC /* LoginHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229FEC1BE8F8C3005210EC /* LoginHomePageViewController.m */; };
+		988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E01BE991BD0064A75B /* BMAdScrollView.m */; };
+		988EE3E51BE9928B0064A75B /* TestAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E41BE9928B0064A75B /* TestAPICmd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +283,10 @@
 		98229FE91BE8F409005210EC /* UnLoginHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnLoginHomePageViewController.m; sourceTree = "<group>"; };
 		98229FEB1BE8F8C3005210EC /* LoginHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHomePageViewController.h; sourceTree = "<group>"; };
 		98229FEC1BE8F8C3005210EC /* LoginHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHomePageViewController.m; sourceTree = "<group>"; };
+		988EE3DF1BE991BD0064A75B /* BMAdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdScrollView.h; sourceTree = "<group>"; };
+		988EE3E01BE991BD0064A75B /* BMAdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAdScrollView.m; sourceTree = "<group>"; };
+		988EE3E31BE9928B0064A75B /* TestAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPICmd.h; sourceTree = "<group>"; };
+		988EE3E41BE9928B0064A75B /* TestAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPICmd.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +426,7 @@
 		98229ED01BE8C479005210EC /* APIManagers */ = {
 			isa = PBXGroup;
 			children = (
+				988EE3E21BE9926C0064A75B /* NetAPI */,
 				98229ED11BE8C479005210EC /* BSAPIManagers */,
 			);
 			path = APIManagers;
@@ -496,6 +503,7 @@
 		98229EE21BE8C503005210EC /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				988EE3DE1BE991B00064A75B /* BMAdScrollView */,
 				98229F861BE8DD6B005210EC /* MJRefresh */,
 				98229F541BE8DD46005210EC /* SDWebImage */,
 				98229F3A1BE8DD3D005210EC /* UIKit+AFNetworking */,
@@ -833,6 +841,25 @@
 			path = navImages;
 			sourceTree = "<group>";
 		};
+		988EE3DE1BE991B00064A75B /* BMAdScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				988EE3DF1BE991BD0064A75B /* BMAdScrollView.h */,
+				988EE3E01BE991BD0064A75B /* BMAdScrollView.m */,
+			);
+			path = BMAdScrollView;
+			sourceTree = "<group>";
+		};
+		988EE3E21BE9926C0064A75B /* NetAPI */ = {
+			isa = PBXGroup;
+			children = (
+				988EE3E31BE9928B0064A75B /* TestAPICmd.h */,
+				988EE3E41BE9928B0064A75B /* TestAPICmd.m */,
+			);
+			name = NetAPI;
+			path = BSAPIManagers/NetAPI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -972,8 +999,10 @@
 				98229F4F1BE8DD3D005210EC /* UIButton+AFNetworking.m in Sources */,
 				98229F821BE8DD46005210EC /* UIImage+WebP.m in Sources */,
 				98229EFE1BE8C54F005210EC /* AFURLResponseSerialization.m in Sources */,
+				988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */,
 				98229FCD1BE8DFB8005210EC /* UIViewController+NavigationBarStyle.m in Sources */,
 				98229EDE1BE8C479005210EC /* RYAPILogger.m in Sources */,
+				988EE3E51BE9928B0064A75B /* TestAPICmd.m in Sources */,
 				98229FED1BE8F8C3005210EC /* LoginHomePageViewController.m in Sources */,
 				98229F2E1BE8DCAF005210EC /* MMProgressHUDViewController.m in Sources */,
 				98229FC51BE8DD6B005210EC /* UIView+MJExtension.m in Sources */,

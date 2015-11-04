@@ -21,6 +21,32 @@ static FactoryManager *shareManager = nil;
     return shareManager;
 }
 
+- (UIFont *)appFont:(Fontsize)size;
+{
+    CGFloat fontsize;
+    switch (size) {
+        case TH1Font:
+            fontsize = 16;
+            break;
+        case TH2Font:
+            fontsize = 14;
+            break;
+        case TH3Font:
+            fontsize = 13;
+            break;
+        case TH4Font:
+            fontsize = 12;
+            break;
+        case TH5Font:
+            fontsize = 10;
+            break;
+        default:
+            fontsize = 9;
+            break;
+    }
+    return [UIFont systemFontOfSize:fontsize];
+}
+
 - (UIButton *)createBtnWithFrame:(CGRect)frame text:(NSString *)text textColor:(UIColor *)textColor {
     
     UIButton *button                = [UIButton buttonWithType:UIButtonTypeCustom];

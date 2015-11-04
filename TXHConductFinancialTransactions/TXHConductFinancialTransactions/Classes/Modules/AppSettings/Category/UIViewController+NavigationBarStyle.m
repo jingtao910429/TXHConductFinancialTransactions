@@ -19,7 +19,7 @@
     titleLabel.text = titleStr;
     titleLabel.textColor = titleColor;
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = [UIFont fontWithName:FontName size:18];
+    titleLabel.font = [UIFont fontWithName:FontName size:21];
     self.navigationItem.titleView = titleLabel;
     
     //设置左右button
@@ -46,7 +46,7 @@
         UIButton *rightBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(0, 0, 40, 30) text:rightTitle textColor:[UIColor orangeColor]];
         [rightBtn addTarget:self action:rightAction forControlEvents:UIControlEventTouchUpInside];
         
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:rightTitle style:UIBarButtonItemStylePlain target:self action:rightAction];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
         
     }else if (!rightTitle && rightImageName) {
         

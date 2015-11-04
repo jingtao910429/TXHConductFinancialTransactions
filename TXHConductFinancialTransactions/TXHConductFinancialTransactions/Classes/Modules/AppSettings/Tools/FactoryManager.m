@@ -28,6 +28,7 @@ static FactoryManager *shareManager = nil;
     [button setTitle:text forState:UIControlStateNormal];
     [button setTitleColor:textColor forState:UIControlStateNormal];
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
     
     return button;
 }

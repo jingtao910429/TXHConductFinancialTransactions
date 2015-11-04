@@ -7,9 +7,9 @@
 //
 
 #import "UnLoginHomePageViewController.h"
-#import "UIViewController+NavigationBarStyle.h"
 #import "TestAPICmd.h"
 #import "MyaccountnumberVC.h"
+#import "LoginRegisteViewController.h"
 
 
 @interface UnLoginHomePageViewController () <APICmdApiCallBackDelegate>
@@ -28,6 +28,11 @@
 @implementation UnLoginHomePageViewController
 
 #pragma mark - life cycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self clearNavigationBar];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,10 +60,19 @@
 //登录
 - (void)loginBtnClick {
     
+    LoginRegisteViewController *loginRegisteViewController = [[LoginRegisteViewController alloc] init];
+    loginRegisteViewController.isLogin = YES;
+    
+    [self.navigationController pushViewController:loginRegisteViewController animated:YES];
 }
 
 //注册
 - (void)registeBtn {
+    
+    LoginRegisteViewController *loginRegisteViewController = [[LoginRegisteViewController alloc] init];
+    loginRegisteViewController.isLogin = NO;
+    
+    [self.navigationController pushViewController:loginRegisteViewController animated:YES];
     
 }
 
@@ -67,10 +81,8 @@
 
 //设置UI
 - (void)configUI {
-    
-    [self clearNavigationBar];
 
-    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor whiteColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
     //添加视图
     [self.view addSubview:self.BackGroudView];

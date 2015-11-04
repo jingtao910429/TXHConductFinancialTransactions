@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95319CF41BE9B75F00597AF8 /* img_account_head.png in Resources */ = {isa = PBXBuildFile; fileRef = 95319CF31BE9B75F00597AF8 /* img_account_head.png */; };
+		95319CF41BE9B75F00597AF8 /* img_account_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95319CF31BE9B75F00597AF8 /* img_account_head@2x.png */; };
 		95319CF61BE9B86500597AF8 /* bg_account_asset_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 95319CF51BE9B86500597AF8 /* bg_account_asset_info.png */; };
 		95BC2BA21BE91A53008BFB25 /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BC2BA11BE91A53008BFB25 /* myViewController.m */; };
 		95CDE6B01BE99B1B002B04CA /* MyaccountnumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CDE6AF1BE99B1B002B04CA /* MyaccountnumberVC.m */; };
@@ -101,6 +101,9 @@
 		988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E01BE991BD0064A75B /* BMAdScrollView.m */; };
 		988EE3E51BE9928B0064A75B /* TestAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E41BE9928B0064A75B /* TestAPICmd.m */; };
 		988EE3E91BE9D6240064A75B /* bg_prologue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */; };
+		988EE3EC1BE9DD7D0064A75B /* LoginRegisteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3EB1BE9DD7D0064A75B /* LoginRegisteViewController.m */; };
+		988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */; };
+		988EE3FC1BE9F0BC0064A75B /* ic_modify_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +117,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		95319CF31BE9B75F00597AF8 /* img_account_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_account_head.png; sourceTree = "<group>"; };
+		95319CF31BE9B75F00597AF8 /* img_account_head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_account_head@2x.png"; sourceTree = "<group>"; };
 		95319CF51BE9B86500597AF8 /* bg_account_asset_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_account_asset_info.png; sourceTree = "<group>"; };
 		95BC2BA01BE91A53008BFB25 /* myViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myViewController.h; sourceTree = "<group>"; };
 		95BC2BA11BE91A53008BFB25 /* myViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myViewController.m; sourceTree = "<group>"; };
@@ -299,6 +302,10 @@
 		988EE3E31BE9928B0064A75B /* TestAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPICmd.h; sourceTree = "<group>"; };
 		988EE3E41BE9928B0064A75B /* TestAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPICmd.m; sourceTree = "<group>"; };
 		988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_prologue@2x.png"; sourceTree = "<group>"; };
+		988EE3EA1BE9DD7D0064A75B /* LoginRegisteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisteViewController.h; sourceTree = "<group>"; };
+		988EE3EB1BE9DD7D0064A75B /* LoginRegisteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisteViewController.m; sourceTree = "<group>"; };
+		988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_login_num@2x.png"; sourceTree = "<group>"; };
+		988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_modify_password@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,9 +438,11 @@
 		98229ECE1BE8C424005210EC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */,
+				988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */,
 				95319CF51BE9B86500597AF8 /* bg_account_asset_info.png */,
 				988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */,
-				95319CF31BE9B75F00597AF8 /* img_account_head.png */,
+				95319CF31BE9B75F00597AF8 /* img_account_head@2x.png */,
 				98229FDB1BE8F019005210EC /* introduceImages */,
 				98229FDC1BE8F019005210EC /* navImages */,
 			);
@@ -846,6 +855,8 @@
 			children = (
 				98229FE81BE8F409005210EC /* UnLoginHomePageViewController.h */,
 				98229FE91BE8F409005210EC /* UnLoginHomePageViewController.m */,
+				988EE3EA1BE9DD7D0064A75B /* LoginRegisteViewController.h */,
+				988EE3EB1BE9DD7D0064A75B /* LoginRegisteViewController.m */,
 			);
 			path = UnLoginConditonVC;
 			sourceTree = "<group>";
@@ -971,12 +982,14 @@
 				98229EAF1BE8C381005210EC /* Main.storyboard in Resources */,
 				98229FE01BE8F062005210EC /* guide_1@2x.png in Resources */,
 				98229FE41BE8F0D8005210EC /* guide_3@2x.png in Resources */,
-				95319CF41BE9B75F00597AF8 /* img_account_head.png in Resources */,
+				95319CF41BE9B75F00597AF8 /* img_account_head@2x.png in Resources */,
 				98229EB41BE8C381005210EC /* LaunchScreen.xib in Resources */,
+				988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */,
 				98229FC11BE8DD6B005210EC /* MJRefresh.bundle in Resources */,
 				98229FDE1BE8F02C005210EC /* navigationbar_background_tall1@2x.png in Resources */,
 				95319CF61BE9B86500597AF8 /* bg_account_asset_info.png in Resources */,
 				98229EB11BE8C381005210EC /* Images.xcassets in Resources */,
+				988EE3FC1BE9F0BC0064A75B /* ic_modify_password@2x.png in Resources */,
 				98229FE21BE8F0A1005210EC /* guide_2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1016,6 +1029,7 @@
 				98229F031BE8C579005210EC /* WToast.m in Sources */,
 				98229F781BE8DD46005210EC /* SDImageCache.m in Sources */,
 				98229EFD1BE8C54F005210EC /* AFURLRequestSerialization.m in Sources */,
+				988EE3EC1BE9DD7D0064A75B /* LoginRegisteViewController.m in Sources */,
 				98229FB81BE8DD6B005210EC /* MJRefreshAutoGifFooter.m in Sources */,
 				98229F7A1BE8DD46005210EC /* SDWebImageDecoder.m in Sources */,
 				98229EA91BE8C381005210EC /* AppDelegate.m in Sources */,

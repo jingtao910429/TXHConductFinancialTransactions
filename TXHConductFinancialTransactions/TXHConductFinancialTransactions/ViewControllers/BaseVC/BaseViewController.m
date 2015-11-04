@@ -30,6 +30,8 @@
                                                       forBarMetrics:UIBarMetricsDefault];
     }
     
+    self.view.backgroundColor = COLOR(232, 232, 232, 1.0);
+    
 }
 
 - (void)didReceiveMemoryWarning {

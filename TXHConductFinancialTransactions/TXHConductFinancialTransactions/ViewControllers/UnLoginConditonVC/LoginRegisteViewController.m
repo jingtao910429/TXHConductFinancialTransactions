@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UITextField *contentTextFiled;
 
 @property (nonatomic, copy) NSArray *images;
+@property (nonatomic, copy) NSArray *placeHolders;
 
 @end
 
@@ -76,13 +77,13 @@
             
             tableViewCell.layer.cornerRadius = 5;
             tableViewCell.layer.masksToBounds = YES;
-            tableViewCell.layer.shadowRadius = 1;
-            tableViewCell.layer.shadowColor = [UIColor grayColor].CGColor;
         }
     }
     
     if (1 == indexPath.row) {
+        
         tableViewCell.contentView.backgroundColor = COLOR(232, 232, 232, 1.0);
+        
     }else{
         
         tableViewCell.contentView.backgroundColor = [UIColor whiteColor];
@@ -92,9 +93,11 @@
         imageView.image = [UIImage imageNamed:self.images[indexPath.row]];
         
         UITextField *textField = (UITextField *)[tableViewCell.contentView viewWithTag:CELL_IMAGE_SENCONDTAG];
+        
+        if (0 == textField.text.length) {
+            textField.placeholder = self.placeHolders[indexPath.row];
+        }
     }
-    
-    
     
     return tableViewCell;
 }
@@ -108,6 +111,7 @@
 
 - (void)configData {
     self.images = @[@"ic_login_num",@"",@"ic_modify_password"];
+    self.placeHolders = @[@"手机号",@"",@"密码"];
 }
 
 - (void)configUI {

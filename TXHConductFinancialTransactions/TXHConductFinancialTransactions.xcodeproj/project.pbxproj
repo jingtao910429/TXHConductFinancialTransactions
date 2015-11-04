@@ -10,7 +10,6 @@
 		95319CF41BE9B75F00597AF8 /* img_account_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95319CF31BE9B75F00597AF8 /* img_account_head@2x.png */; };
 		95319CF61BE9B86500597AF8 /* bg_account_asset_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 95319CF51BE9B86500597AF8 /* bg_account_asset_info.png */; };
 		95BC2BA21BE91A53008BFB25 /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BC2BA11BE91A53008BFB25 /* myViewController.m */; };
-		95CDE6B01BE99B1B002B04CA /* MyaccountnumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CDE6AF1BE99B1B002B04CA /* MyaccountnumberVC.m */; };
 		95CDE6B31BE9A2DB002B04CA /* MyaccountnumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CDE6B21BE9A2DB002B04CA /* MyaccountnumberCell.m */; };
 		98229EA61BE8C381005210EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229EA51BE8C381005210EC /* main.m */; };
 		98229EA91BE8C381005210EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229EA81BE8C381005210EC /* AppDelegate.m */; };
@@ -104,6 +103,9 @@
 		988EE3EC1BE9DD7D0064A75B /* LoginRegisteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3EB1BE9DD7D0064A75B /* LoginRegisteViewController.m */; };
 		988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */; };
 		988EE3FC1BE9F0BC0064A75B /* ic_modify_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */; };
+		988EE41A1BEA1A520064A75B /* WithdrawdepositVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE4191BEA1A520064A75B /* WithdrawdepositVC.m */; };
+		988EE41D1BEA1A670064A75B /* RechargeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE41C1BEA1A670064A75B /* RechargeVC.m */; };
+		988EE4201BEA1A870064A75B /* MyaccountnumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE41F1BEA1A870064A75B /* MyaccountnumberVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,8 +123,6 @@
 		95319CF51BE9B86500597AF8 /* bg_account_asset_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_account_asset_info.png; sourceTree = "<group>"; };
 		95BC2BA01BE91A53008BFB25 /* myViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myViewController.h; sourceTree = "<group>"; };
 		95BC2BA11BE91A53008BFB25 /* myViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myViewController.m; sourceTree = "<group>"; };
-		95CDE6AE1BE99B1B002B04CA /* MyaccountnumberVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyaccountnumberVC.h; sourceTree = "<group>"; };
-		95CDE6AF1BE99B1B002B04CA /* MyaccountnumberVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyaccountnumberVC.m; sourceTree = "<group>"; };
 		95CDE6B11BE9A2DB002B04CA /* MyaccountnumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyaccountnumberCell.h; path = TXHConductFinancialTransactions/ViewControllers/MyaccountnumberCell.h; sourceTree = SOURCE_ROOT; };
 		95CDE6B21BE9A2DB002B04CA /* MyaccountnumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyaccountnumberCell.m; path = TXHConductFinancialTransactions/ViewControllers/MyaccountnumberCell.m; sourceTree = SOURCE_ROOT; };
 		98229EA01BE8C381005210EC /* TXHConductFinancialTransactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXHConductFinancialTransactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -306,6 +306,12 @@
 		988EE3EB1BE9DD7D0064A75B /* LoginRegisteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisteViewController.m; sourceTree = "<group>"; };
 		988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_login_num@2x.png"; sourceTree = "<group>"; };
 		988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_modify_password@2x.png"; sourceTree = "<group>"; };
+		988EE4181BEA1A520064A75B /* WithdrawdepositVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawdepositVC.h; sourceTree = "<group>"; };
+		988EE4191BEA1A520064A75B /* WithdrawdepositVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawdepositVC.m; sourceTree = "<group>"; };
+		988EE41B1BEA1A670064A75B /* RechargeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeVC.h; sourceTree = "<group>"; };
+		988EE41C1BEA1A670064A75B /* RechargeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeVC.m; sourceTree = "<group>"; };
+		988EE41E1BEA1A870064A75B /* MyaccountnumberVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyaccountnumberVC.h; sourceTree = "<group>"; };
+		988EE41F1BEA1A870064A75B /* MyaccountnumberVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyaccountnumberVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,15 +332,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		95CDE6AD1BE99AC3002B04CA /* MyaccountnumberVC */ = {
-			isa = PBXGroup;
-			children = (
-				95CDE6AE1BE99B1B002B04CA /* MyaccountnumberVC.h */,
-				95CDE6AF1BE99B1B002B04CA /* MyaccountnumberVC.m */,
-			);
-			name = MyaccountnumberVC;
-			sourceTree = "<group>";
-		};
 		98229E971BE8C381005210EC = {
 			isa = PBXGroup;
 			children = (
@@ -815,7 +812,6 @@
 		98229FC71BE8DEC3005210EC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				95CDE6AD1BE99AC3002B04CA /* MyaccountnumberVC */,
 				98229FDA1BE8EC4F005210EC /* UnLoginConditonVC */,
 				98229FD91BE8EC3E005210EC /* LoginConditionVC */,
 				98229FD51BE8EAE3005210EC /* BaseVC */,
@@ -844,6 +840,12 @@
 		98229FD91BE8EC3E005210EC /* LoginConditionVC */ = {
 			isa = PBXGroup;
 			children = (
+				988EE41E1BEA1A870064A75B /* MyaccountnumberVC.h */,
+				988EE41F1BEA1A870064A75B /* MyaccountnumberVC.m */,
+				988EE41B1BEA1A670064A75B /* RechargeVC.h */,
+				988EE41C1BEA1A670064A75B /* RechargeVC.m */,
+				988EE4181BEA1A520064A75B /* WithdrawdepositVC.h */,
+				988EE4191BEA1A520064A75B /* WithdrawdepositVC.m */,
 				98229FEB1BE8F8C3005210EC /* LoginHomePageViewController.h */,
 				98229FEC1BE8F8C3005210EC /* LoginHomePageViewController.m */,
 			);
@@ -1017,7 +1019,6 @@
 				98229EF71BE8C54F005210EC /* AFHTTPRequestOperation.m in Sources */,
 				98229F771BE8DD46005210EC /* NSData+ImageContentType.m in Sources */,
 				98229EFA1BE8C54F005210EC /* AFNetworkReachabilityManager.m in Sources */,
-				95CDE6B01BE99B1B002B04CA /* MyaccountnumberVC.m in Sources */,
 				98229F291BE8DCAF005210EC /* MMLinearProgressView.m in Sources */,
 				98229F501BE8DD3D005210EC /* UIImageView+AFNetworking.m in Sources */,
 				98229F531BE8DD3D005210EC /* UIWebView+AFNetworking.m in Sources */,
@@ -1051,6 +1052,7 @@
 				98229FED1BE8F8C3005210EC /* LoginHomePageViewController.m in Sources */,
 				98229F2E1BE8DCAF005210EC /* MMProgressHUDViewController.m in Sources */,
 				98229FC51BE8DD6B005210EC /* UIView+MJExtension.m in Sources */,
+				988EE41D1BEA1A670064A75B /* RechargeVC.m in Sources */,
 				98229FB41BE8DD6B005210EC /* MJRefreshBackFooter.m in Sources */,
 				98229EDD1BE8C479005210EC /* RYBaseAPICmd.m in Sources */,
 				98229EF81BE8C54F005210EC /* AFHTTPRequestOperationManager.m in Sources */,
@@ -1059,6 +1061,7 @@
 				98229F4C1BE8DD3D005210EC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				98229FD21BE8E427005210EC /* FactoryManager.m in Sources */,
 				98229EFB1BE8C54F005210EC /* AFSecurityPolicy.m in Sources */,
+				988EE4201BEA1A870064A75B /* MyaccountnumberVC.m in Sources */,
 				98229F2C1BE8DCAF005210EC /* MMProgressHUD.m in Sources */,
 				95BC2BA21BE91A53008BFB25 /* myViewController.m in Sources */,
 				98229F851BE8DD46005210EC /* UIView+WebCacheOperation.m in Sources */,
@@ -1069,6 +1072,7 @@
 				98229FBA1BE8DD6B005210EC /* MJRefreshAutoStateFooter.m in Sources */,
 				98229FB61BE8DD6B005210EC /* MJRefreshFooter.m in Sources */,
 				98229EDF1BE8C479005210EC /* RYAPIManager.m in Sources */,
+				988EE41A1BEA1A520064A75B /* WithdrawdepositVC.m in Sources */,
 				98229F4E1BE8DD3D005210EC /* UIAlertView+AFNetworking.m in Sources */,
 				98229FB91BE8DD6B005210EC /* MJRefreshAutoNormalFooter.m in Sources */,
 				98229FBC1BE8DD6B005210EC /* MJRefreshBackNormalFooter.m in Sources */,
@@ -1168,7 +1172,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1205,7 +1209,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

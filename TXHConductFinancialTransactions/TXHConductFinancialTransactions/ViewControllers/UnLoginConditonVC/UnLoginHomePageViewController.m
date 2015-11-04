@@ -12,12 +12,16 @@
 #import "MyaccountnumberVC.h"
 
 
-@interface UnLoginHomePageViewController () <APICmdApiCallBackDelegate,UITableViewDelegate,UITableViewDataSource>
-
-@property (nonatomic, strong) UITableView *contentTableView;
+@interface UnLoginHomePageViewController () <APICmdApiCallBackDelegate>
 
 //网络请求，需要继承RYBaseAPICmd并实现RYBaseAPICmdDelegate，说明接口请求类型和用途
 @property (nonatomic, strong) TestAPICmd *testAPICmd;
+
+@property (nonatomic, strong) UIImageView *BackGroudView;
+//注册按钮
+@property (nonatomic, strong) UIButton *freeRegisteBtn;
+//登录按钮
+@property (nonatomic, strong) UIButton *loginBtn;
 
 @end
 
@@ -27,32 +31,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
     [self configUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-}
-
-//代理方法
-#pragma mark - UITableViewDelegate UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
@@ -69,20 +52,16 @@
 
 #pragma mark - event response
 
-//按钮点击事件
-- (void)btnClick:(UIButton *)sender {
+//登录
+- (void)loginBtnClick {
     
 }
 
-//通知方法
-- (void)notifyMethod:(NSNotification *)notification {
+//注册
+- (void)registeBtn {
     
 }
 
-//触摸事件
-- (void)touchMethod {
-    
-}
 
 #pragma mark - private method
 
@@ -90,20 +69,21 @@
 - (void)configUI {
     
     [self clearNavigationBar];
-    //测试
 
-    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor redColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor whiteColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
     //添加视图
-    [self.view addSubview:self.contentTableView];
+    [self.view addSubview:self.BackGroudView];
+    [self.view addSubview:self.freeRegisteBtn];
+    [self.view addSubview:self.loginBtn];
 }
 
 
 #pragma mark--测试我的账号
 -(void)onleftAction{
  
-    MyaccountnumberVC*vc=[[MyaccountnumberVC alloc] init];
-    [self .navigationController pushViewController:vc animated:YES];
+    MyaccountnumberVC *vc = [[MyaccountnumberVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -111,13 +91,45 @@
 
 #pragma mark - getters and setters
 
-- (UITableView *)contentTableView {
-    if (!_contentTableView) {
-        _contentTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _contentTableView.dataSource = self;
-        _contentTableView.delegate = self;
+- (UIImageView *)BackGroudView {
+    
+    if (!_BackGroudView) {
+        _BackGroudView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_prologue"]];
+        _BackGroudView.contentMode = UIViewContentModeScaleAspectFit;
+        _BackGroudView.frame = CGRectMake(0, -64, kScreenWidth, kScreenHeight + 64);
     }
-    return _contentTableView;
+    return _BackGroudView;
+}
+
+- (UIButton *)freeRegisteBtn {
+    
+    if (!_freeRegisteBtn) {
+        
+        _freeRegisteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _freeRegisteBtn.frame = CGRectMake(15, kScreenHeight * 4/ 7, kScreenWidth - 30, 44);
+        _freeRegisteBtn.backgroundColor = COLOR(239, 71, 26, 1.0);
+        _freeRegisteBtn.layer.cornerRadius = 6;
+        _freeRegisteBtn.layer.masksToBounds = YES;
+        [_freeRegisteBtn setTitle:@"免费注册" forState:UIControlStateNormal];
+        [_freeRegisteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_freeRegisteBtn addTarget:self action:@selector(registeBtn) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _freeRegisteBtn;
+}
+
+- (UIButton *)loginBtn {
+    if (!_loginBtn) {
+        _loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _loginBtn.frame = CGRectMake(15, self.freeRegisteBtn.frame.origin.y + self.freeRegisteBtn.frame.size.height + 20, kScreenWidth - 30, 44);
+        _loginBtn.backgroundColor = COLOR(12, 141, 225, 1.0);
+        _loginBtn.layer.cornerRadius = 6;
+        _loginBtn.layer.masksToBounds = YES;
+        [_loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
+        [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _loginBtn;
 }
 
 - (TestAPICmd *)testAPICmd {

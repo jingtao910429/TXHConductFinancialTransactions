@@ -9,6 +9,7 @@
 #import "UnLoginHomePageViewController.h"
 #import "UIViewController+NavigationBarStyle.h"
 #import "TestAPICmd.h"
+#import "MyaccountnumberVC.h"
 
 
 @interface UnLoginHomePageViewController () <APICmdApiCallBackDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -26,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
     [self configUI];
 }
 
@@ -88,11 +91,23 @@
     
     [self clearNavigationBar];
     //测试
-    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor blackColor]  leftTitle:@"ceshi" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+
+    [self navigationBarStyleWithTitle:@"某某理财" titleColor:[UIColor redColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
     //添加视图
     [self.view addSubview:self.contentTableView];
 }
+
+
+#pragma mark--测试我的账号
+-(void)onleftAction{
+ 
+    MyaccountnumberVC*vc=[[MyaccountnumberVC alloc] init];
+    [self .navigationController pushViewController:vc animated:YES];
+    
+}
+
+
 
 #pragma mark - getters and setters
 

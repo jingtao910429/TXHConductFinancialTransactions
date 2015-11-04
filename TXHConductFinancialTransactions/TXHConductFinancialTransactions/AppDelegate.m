@@ -33,7 +33,7 @@
     self.viewController = [[myViewController alloc] init];
     self.window.rootViewController = self.viewController;
 
-    NSLog(@"dd");
+
     [self.window makeKeyAndVisible];
     
     [self introduceView];
@@ -75,10 +75,12 @@
 
     __weak AppDelegate *weakSelf = self;
     self.introduceVC.didSelectedEnter = ^() {
+        
         [weakSelf.introduceVC.view removeFromSuperview];
         [weakSelf showHomePage];
+        
     };
-    
+   
     /**
      *  如果欢迎页有跳过时使用该回调
      */

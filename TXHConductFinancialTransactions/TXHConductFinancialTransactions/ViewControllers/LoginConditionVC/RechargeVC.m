@@ -8,11 +8,19 @@
 
 #import "RechargeVC.h"
 #import "UIViewController+NavigationBarStyle.h"
+#import "RechargeCell.h"
 
-
-@interface RechargeVC ()<UITextFieldDelegate>
+@interface RechargeVC ()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UIView *bgView;
 @property (nonatomic, strong) UITextField *textfield;
+
+@property (nonatomic, strong) UITableView *RechargeView;
+
+@property (nonatomic, strong) NSArray *nameArr;
+@property (nonatomic, strong) NSArray *textArr;
+@property (nonatomic, strong) UILabel*firstLable;
+
+
 
 
 
@@ -25,31 +33,96 @@
     
     
     [self configUI];
+    [self createTableview];
+    
 }
 
+
+-(void)createTableview{
+    
+    self.RechargeView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 275)];
+    self.RechargeView.dataSource=self;
+    self.RechargeView.delegate=self;
+    self.RechargeView.rowHeight=55;
+    self.RechargeView.scrollEnabled =NO;
+    
+    self.RechargeView.backgroundColor=[UIColor whiteColor];
+    [self.view addSubview:self.RechargeView];
+    
+    
+
+    
+    
+}
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+    
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+  
+    return 5;
+}
+
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"RechargeCell";
+    RechargeCell *cell = (RechargeCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[ RechargeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        
+    }
+    
+    if (indexPath.row!=0) {
+        cell.textField.placeholder=self.textArr[indexPath.row];
+    }else{
+        cell.textField.hidden=YES;
+        self.firstLable=[[UILabel alloc] initWithFrame:CGRectMake(cell.leftLable.frame.size.width+10, 10, kScreenWidth-cell.leftLable.frame.size.width+10, 40)];
+        [cell.contentView addSubview:self.firstLable];
+        
+        self.firstLable.text=@"0.00";
+        self.firstLable.textColor=[UIColor redColor];
+        
+
+
+        
+    }
+    
+    cell.leftLable.text=self.nameArr[indexPath.row];
+    cell.textField.tag=indexPath.row;
+    cell.textField.delegate=self;
+ 
+ 
+
+
+    return cell;
+    
+}
 -(void)configUI{
     
-      [self navigationBarStyleWithTitle:@"充值" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+      [self navigationBarStyleWithTitle:@"充值" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
-    self.view.backgroundColor=BackColor;
-    _bgView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 180)];
-    _bgView.backgroundColor=[UIColor whiteColor];
-    [self.view addSubview:_bgView];
-    UIButton*querenBtn=[[UIButton alloc] initWithFrame:CGRectMake(10, 200, kScreenWidth-20, 50)];
+    self.nameArr=@[@"账户余额(元):",@"银行卡:",@"身份证:",@"真实姓名:",@"充值金额(元):",];
+    
+    self.textArr=@[@"",@"输入银行卡号",@"输入您的身份证",@"输入您的真实姓名",@"输入充值金额",];
+
+    UIButton*querenBtn=[[UIButton alloc] initWithFrame:CGRectMake(10, 300, kScreenWidth-20, 50)];
     [querenBtn setTitle:@"确认充值" forState:UIControlStateNormal];
     querenBtn.backgroundColor=[UIColor orangeColor];
     [querenBtn addTarget:self action:@selector(onquerenBtn) forControlEvents:UIControlEventTouchUpInside];
     
     [querenBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:querenBtn];
+       //温馨提示
     
-    [self createBgview];
-    
-    
-    
-    //温馨提示
-    
-    UIButton*appcionBtn=[[UIButton alloc] initWithFrame:CGRectMake(12, 300, 18, 18)];
+    UIButton*appcionBtn=[[UIButton alloc] initWithFrame:CGRectMake(12, 370, 18, 18)];
     appcionBtn.backgroundColor=[UIColor orangeColor];
     [appcionBtn setTitle:@"i" forState:UIControlStateNormal];
     appcionBtn.layer.cornerRadius = 9.0;
@@ -58,7 +131,7 @@
     [self.view addSubview:appcionBtn];
     
     
-    UILabel*appcionLable=[[UILabel alloc] initWithFrame:CGRectMake(appcionBtn.frame.size.width+18, 300, 100, 30)];
+    UILabel*appcionLable=[[UILabel alloc] initWithFrame:CGRectMake(appcionBtn.frame.size.width+18, 370, 100, 30)];
     appcionLable.text=@"温馨提示";
     appcionLable.font=[UIFont systemFontOfSize:12];
     appcionLable.textColor=[UIColor grayColor];
@@ -70,67 +143,9 @@
     
   }
 
-
--(void)createBgview{
-    NSArray*labletextArr=@[@"账号余额（元）：",@"移行卡：",@"充值金额（元）："];
-    for (int i=0; i<3; i++) {
-        
-        int col = i%3;
-        
-        int rightcol= i%2;
-        
-        CGRect rect = CGRectMake(10, 10+col*60,130, 50);
-        
-        CGRect rightrect = CGRectMake(145, 10+rightcol*60,kScreenWidth-150, 50);
-        
-        UILabel*onelable=[[UILabel alloc]init];
-        
-        onelable.frame=rect;
-       
-        onelable.textAlignment=NSTextAlignmentLeft;
-        onelable.text=labletextArr[i];
-       
-        
-        
-        onelable.font=[UIFont systemFontOfSize:14];
-        
-        [_bgView addSubview:onelable];
-        
-        
-        UIView*lineview=[[UIView alloc] initWithFrame:CGRectMake(0, 65+rightcol*60, kScreenWidth, 0.5)];
-        lineview.backgroundColor=[UIColor blackColor];
-        [_bgView addSubview:lineview];
-        
-        
-        
-        
-        UILabel*rightlable=[[UILabel alloc]init];
-        
-        rightlable.frame=rightrect;
-        rightlable.textAlignment=NSTextAlignmentLeft;
-        
-        rightlable.text=@"123545454545";
-        rightlable.font=[UIFont systemFontOfSize:14];
-        
-        [_bgView addSubview:rightlable];
-        
-        
-        
-        
-    }
-    
-    _textfield=[[UITextField alloc] initWithFrame:CGRectMake(145, 130,kScreenWidth-150, 50)];
-    _textfield.placeholder=@"输入充值金额";
-   
-    _textfield.delegate=self;
-    _textfield.font=[UIFont systemFontOfSize:14];
-    [_bgView addSubview:_textfield];
-    
-    
-
+- (void)popVC {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
-
 
 -(void)cretedowntext{
     
@@ -141,8 +156,8 @@
     for (int i=0; i<4; i++) {
         
         int col = i%4;
-        CGRect rect = CGRectMake(12, 350+col*40,10, 10);
-        CGRect rect2 = CGRectMake(30, 340+col*40,kScreenWidth-40, 30);
+        CGRect rect = CGRectMake(12, 400+col*40,10, 10);
+        CGRect rect2 = CGRectMake(30, 390+col*40,kScreenWidth-40, 30);
         
         
         UIButton*oneBtn=[[UIButton alloc] init];
@@ -174,7 +189,9 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    [_textfield resignFirstResponder];
+    if (textField.tag==1||textField.tag==2||textField.tag==3||textField.tag==4) {
+        [textField resignFirstResponder];
+    }
     
     
     return YES;

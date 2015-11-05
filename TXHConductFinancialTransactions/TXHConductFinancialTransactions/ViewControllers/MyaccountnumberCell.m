@@ -16,10 +16,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-//        textLabel=[[UILabel alloc] initWithFrame:CGRectMake(25, 10, screenWidth/2, 30)];
-//        textLabel.textColor=[UIColor blackColor];
-//        //        textLabel.backgroundColor=[UIColor redColor];
-//        [self addSubview:textLabel];
+
         
         leftimageview=[[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 30, 30)];
         [self.contentView addSubview:leftimageview];

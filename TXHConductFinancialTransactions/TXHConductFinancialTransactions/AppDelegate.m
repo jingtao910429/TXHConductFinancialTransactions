@@ -35,8 +35,10 @@
 
 
     [self.window makeKeyAndVisible];
+    //登录
+    [self appLogin];
+//    [self introduceView];
     
-    [self introduceView];
     
     return YES;
 }
@@ -73,6 +75,24 @@
 
 #pragma mark - private method
 
+
+//App登陆
+-(void)appLogin
+{
+    //判断是否第一次启动
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstStart"]){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstStart"];
+        [self introduceView];
+       
+    }else{
+        
+        [self showHomePage];
+        
+        
+    }
+    
+}
+
 - (void)introduceView {
     
     NSArray *coverImageNames = @[@"guide_1", @"guide_2", @"guide_3"];
@@ -85,15 +105,16 @@
         [weakSelf.introduceVC.view removeFromSuperview];
         [weakSelf showHomePage];
         
+        
     };
    
     /**
      *  如果欢迎页有跳过时使用该回调
      */
-    self.introduceVC.didSkipedEnter = ^() {
-        [weakSelf.introduceVC.view removeFromSuperview];
-        [weakSelf showHomePage];
-    };
+//    self.introduceVC.didSkipedEnter = ^() {
+//        [weakSelf.introduceVC.view removeFromSuperview];
+//        [weakSelf showHomePage];
+//    };
     
     [self.window addSubview:self.introduceVC.view];
     

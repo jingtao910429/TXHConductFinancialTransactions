@@ -11,6 +11,8 @@
 #import "MyaccountnumberVC.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "RecentdynamicsVC.h"
+#import "RechargeVC.h"
 
 
 @interface UnLoginHomePageViewController () <APICmdApiCallBackDelegate>
@@ -98,7 +100,9 @@
 }
 
 -(void)onbuttonc{
-  
+   
+    RechargeVC*vc=[[RechargeVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

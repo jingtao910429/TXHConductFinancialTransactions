@@ -47,8 +47,13 @@
 }
 
 - (void)configData {
+    
     self.images = @[@"ic_login_num",@"",@"ic_modify_password"];
     self.placeHolders = @[@"手机号",@"",@"登录密码"];
+    
+    
+    
+    
 }
 
 - (void)configUI {
@@ -134,6 +139,8 @@
     }
     
     return tableViewCell;
+    
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -228,6 +235,16 @@
         
     }
     return _loginBtn;
+}
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+
+    
+    
+    return YES;
+    
 }
 
 @end

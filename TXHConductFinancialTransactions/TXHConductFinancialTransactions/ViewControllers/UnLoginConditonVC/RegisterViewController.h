@@ -11,8 +11,8 @@
 @interface RegisterViewController : BaseViewController
 
 @property (nonatomic,strong) NSTimer *timer;
-@property (assign,nonatomic)NSInteger second;
-@property (strong,nonatomic)UIAlertView *alertView;
+@property (assign,nonatomic) NSInteger second;
+@property (strong,nonatomic) UIAlertView *alertView;
 
 @property (nonatomic, assign) BOOL isRestPassword;
 

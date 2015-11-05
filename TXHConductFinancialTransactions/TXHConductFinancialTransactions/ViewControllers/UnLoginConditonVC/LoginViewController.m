@@ -8,18 +8,23 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "LoginAPICmd.h"
+#import "LoginHomePageViewController.h"
+#import "Tool.h"
+#import "RegisterAPICmd.h"
 
 #define CELL_HEIGHT 45
 #define CELL_NUMBER 5
 #define CELL_IMAGE_FIRSTTAG   111
 #define CELL_IMAGE_SENCONDTAG 112
 
-@interface LoginViewController () <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface LoginViewController () <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,APICmdApiCallBackDelegate>
 
 @property (nonatomic, strong) UITableView *contentTableView;
 
 @property (nonatomic, strong) UIImageView *contentImageView;
-@property (nonatomic, strong) UITextField *contentTextFiled;
+@property (nonatomic, strong) UITextField *userNameTextFiled;
+@property (nonatomic, strong) UITextField *passwordTextFiled;
 @property (nonatomic, strong) UIButton    *forgetPasswordBtn;
 @property (nonatomic, strong) UIButton    *loginBtn;
 
@@ -27,8 +32,12 @@
 @property (nonatomic, copy) NSArray *placeHolders;
 
 //alertView
-
 @property (nonatomic, strong) UIAlertView *forgetPassWordAlertView;
+
+//登录
+@property (nonatomic, strong) LoginAPICmd *loginAPICmd;
+//注册/重置密码
+@property (nonatomic, strong) RegisterAPICmd *registerAPICmd;
 
 @end
 
@@ -48,17 +57,32 @@
 
 - (void)configData {
     
-    self.images = @[@"ic_login_num",@"",@"ic_modify_password"];
-    self.placeHolders = @[@"手机号",@"",@"登录密码"];
-    
-    
-    
-    
+    if (self.isSetPassword) {
+        
+        self.images = @[@"ic_modify_password",@"",@"ic_modify_password"];
+        self.placeHolders = @[@"请输入密码、长度6～16位",@"",@"确认密码"];
+        
+    }else {
+        
+        self.images = @[@"ic_login_num",@"",@"ic_modify_password"];
+        self.placeHolders = @[@"手机号",@"",@"登录密码"];
+        
+    }
+
 }
 
 - (void)configUI {
     
-    [self navigationBarStyleWithTitle:@"登录" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:@"注册" rightImageName:nil rightAction:@selector(registeBtnClick)];
+    if (self.isSetPassword) {
+        [self navigationBarStyleWithTitle:@"设置密码" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+    }else{
+        [self navigationBarStyleWithTitle:@"登录" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:@"注册" rightImageName:nil rightAction:@selector(registeBtnClick)];
+    }
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture)];
+    
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+    [self.contentTableView addGestureRecognizer:tapGestureRecognizer];
     
     [self.view addSubview:self.contentTableView];
     
@@ -77,7 +101,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (1 == indexPath.row) {
-        return 10;
+        return 5;
     }else if (4 == indexPath.row) {
         return CELL_HEIGHT + 30;
     }
@@ -105,10 +129,16 @@
             if (0 == indexPath.row || 2 == indexPath.row) {
                 
                 [tableViewCell.contentView addSubview:self.contentImageView];
-                [tableViewCell.contentView addSubview:self.contentTextFiled];
+                
+                if (0 == indexPath.row) {
+                    [tableViewCell.contentView addSubview:self.userNameTextFiled];
+                }else{
+                    [tableViewCell.contentView addSubview:self.passwordTextFiled];
+                }
                 
                 tableViewCell.layer.cornerRadius = 5;
                 tableViewCell.layer.masksToBounds = YES;
+                
             }else if (3 == indexPath.row){
                 [tableViewCell.contentView addSubview:self.forgetPasswordBtn];
             }else{
@@ -139,14 +169,55 @@
     }
     
     return tableViewCell;
-    
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
+
+#pragma mark - APICmdApiCallBackDelegate
+
+- (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
+    
+    if (baseAPICmd == self.loginAPICmd) {
+        
+        NSDictionary *tempDict = (NSDictionary *)responseData;
+        
+        [self.view endEditing:YES];
+        
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+            //登录失败
+            [Tool ToastNotification:tempDict[@"msg"]];
+            
+        }else{
+            //登录成功
+            LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
+            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginHomePageVC];
+            
+        }
+        
+    }
+    
+}
+
+- (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
+    
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    if (textField == self.userNameTextFiled) {
+        [self.passwordTextFiled becomeFirstResponder];
+    }
+    
+    return YES;
+}
 
 #pragma mark - event response
 
@@ -160,7 +231,54 @@
 
 - (void)loginBtnClick {
     
+    if (self.isSetPassword) {
+        
+        [self.view endEditing:YES];
+        
+        UIAlertView *alertView = nil;
+        
+        if (self.userNameTextFiled.text.length == 0 || self.passwordTextFiled.text.length == 0) {
+            
+            alertView = [[UIAlertView alloc]initWithTitle:nil message:@"密码不能为空" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+            [alertView show];
+            
+        }else if (self.userNameTextFiled.text.length < 6 || self.userNameTextFiled.text.length > 18) {
+            
+            alertView = [[UIAlertView alloc]initWithTitle:nil message:@"密码格式不对，长度为6～18位" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+            [alertView show];
+        }else if (![self.userNameTextFiled.text isEqualToString:self.passwordTextFiled.text]){
+            
+            alertView = [[UIAlertView alloc]initWithTitle:nil message:@"两次密码不一致" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+        
+        
+        
+    }else {
+        if ([self isMobileNumber:self.userNameTextFiled.text]) {
+            [self.loginAPICmd loadData];
+        }else{
+            
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"手机号码输入错误" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+    }
+    
 }
+
+- (void)tapGesture {
+    
+    [self.view endEditing:YES];
+    [self.contentTableView endEditing:YES];
+}
+
+//点击屏幕任何地方，键盘隐藏
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+
 
 #pragma mark - private method
 
@@ -174,6 +292,15 @@
     registerVC.isRestPassword = NO;
     [self.navigationController pushViewController:registerVC animated:YES];
     
+}
+
+//手机号码判断
+- (BOOL)isMobileNumber:(NSString *)mobileNum
+{
+    NSString * regex = @"1[0-9]{10}";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    BOOL isMatch = [pred evaluateWithObject:mobileNum];
+    return isMatch;
 }
 
 #pragma mark - getters and setters
@@ -199,13 +326,43 @@
     return _contentImageView;
 }
 
-- (UITextField *)contentTextFiled {
+- (UITextField *)userNameTextFiled {
     
-    _contentTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(self.contentImageView.frame.origin.x + self.contentImageView.frame.size.width + 8, 0, kScreenWidth - 50 - self.contentImageView.frame.size.width, CELL_HEIGHT)];
-    _contentTextFiled.tag = CELL_IMAGE_SENCONDTAG;
-    _contentTextFiled.delegate = self;
+    if (!_userNameTextFiled) {
+        
+        _userNameTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(self.contentImageView.frame.origin.x + self.contentImageView.frame.size.width + 8, 0, kScreenWidth - 60 - self.contentImageView.frame.size.width, CELL_HEIGHT)];
+        
+        if (self.isSetPassword) {
+            _userNameTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
+            _userNameTextFiled.secureTextEntry = YES;
+            _userNameTextFiled.returnKeyType = UIReturnKeyNext;
+        }else{
+            _userNameTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
+            _userNameTextFiled.returnKeyType = UIReturnKeyNext;
+            _userNameTextFiled.keyboardType  = UIKeyboardTypeNumberPad;
+        }
+        
+        
+        _userNameTextFiled.tag = CELL_IMAGE_SENCONDTAG;
+        _userNameTextFiled.delegate = self;
+        
+    }
+    return _userNameTextFiled;
+}
+
+- (UITextField *)passwordTextFiled {
     
-    return _contentTextFiled;
+    if (!_passwordTextFiled) {
+        
+        _passwordTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(self.contentImageView.frame.origin.x + self.contentImageView.frame.size.width + 8, 0, kScreenWidth - 60 - self.contentImageView.frame.size.width, CELL_HEIGHT)];
+        _passwordTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _passwordTextFiled.secureTextEntry = YES;
+        _passwordTextFiled.returnKeyType = UIReturnKeyDone;
+        _passwordTextFiled.tag = CELL_IMAGE_SENCONDTAG;
+        _passwordTextFiled.delegate = self;
+        
+    }
+    return _passwordTextFiled;
 }
 
 - (UIButton *)forgetPasswordBtn {
@@ -219,6 +376,11 @@
         _forgetPasswordBtn.titleLabel.textAlignment = NSTextAlignmentRight;
         [_forgetPasswordBtn addTarget:self action:@selector(forgetPasswordBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    if (self.isSetPassword) {
+        _forgetPasswordBtn.hidden = YES;
+    }
+    
     return _forgetPasswordBtn;
 }
 
@@ -229,7 +391,14 @@
         _loginBtn.backgroundColor = [UIColor orangeColor];
         _loginBtn.layer.cornerRadius = 4;
         _loginBtn.layer.masksToBounds = YES;
-        [_loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
+        
+        if (self.isSetPassword) {
+            [_loginBtn setTitle:@"确认" forState:UIControlStateNormal];
+        }else{
+            [_loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
+        }
+        
+        
         [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
@@ -237,14 +406,26 @@
     return _loginBtn;
 }
 
+- (LoginAPICmd *)loginAPICmd {
+    if (!_loginAPICmd) {
+        _loginAPICmd = [[LoginAPICmd alloc] init];
+        _loginAPICmd.delegate = self;
+        _loginAPICmd.path = API_Login;
+        
+    }
+    _loginAPICmd.reformParams = @{@"username":self.userNameTextFiled.text,
+                                  @"password":self.passwordTextFiled.text};
+    return _loginAPICmd;
+}
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    
-
-    
-    
-    return YES;
-    
+- (RegisterAPICmd *)registerAPICmd {
+    if (!_registerAPICmd) {
+        _registerAPICmd = [[RegisterAPICmd alloc] init];
+        _registerAPICmd.delegate = self;
+        _registerAPICmd.path = API_Register;
+    }
+    _registerAPICmd.reformParams = @{@"type":@"1",@"username":self.userName,@"password":self.passwordTextFiled.text};
+    return _registerAPICmd;
 }
 
 @end

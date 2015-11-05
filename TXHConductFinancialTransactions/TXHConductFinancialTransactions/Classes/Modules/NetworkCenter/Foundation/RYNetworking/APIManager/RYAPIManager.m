@@ -10,6 +10,7 @@
 #import "RYBaseAPICmd.h"
 #import "AFNetworking.h"
 #import "RYAPILogger.h"
+#import "EncryptionManager.h"
 
 @interface RYAPIManager ()
 
@@ -100,9 +101,15 @@
 - (NSInteger)callGETWithParams:(id)params urlString:(NSString *)urlString baseAPICmd:(RYBaseAPICmd *)baseAPICmd
 {
     
+    NSMutableDictionary *paramters = [[NSMutableDictionary alloc] init];
+    
+    NSString *encodeStr = [[EncryptionManager shareManager] encodeWithData:params version:VERSION];
+    [paramters setValue:[NSString stringWithFormat:@"%d",VERSION] forKey:@"v"];
+    [paramters setValue:encodeStr forKey:@"d"];
+    
     NSNumber *requestId = [self generateRequestId];
     __weak __typeof(baseAPICmd) weakBaseAPICmd = baseAPICmd;
-    AFHTTPRequestOperation *operation = [self.httpRequestOperationManager GET:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperation *operation = [self.httpRequestOperationManager GET:urlString parameters:paramters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         __strong __typeof(weakBaseAPICmd) strongBaseAPICmd = weakBaseAPICmd;
         strongBaseAPICmd.reformParams = nil;
         AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
@@ -113,6 +120,9 @@
             // 请求已经完成，将requestId移除
             [self.dispatchTable removeObjectForKey:requestId];
         }
+        
+        responseObject = [[EncryptionManager shareManager] decodeWithStr:responseObject[@"d"] version:VERSION];
+        
 #ifdef DEBUGLOGGER
         [RYAPILogger logDebugInfoWithURL:urlString requestHeader:operation.request.allHTTPHeaderFields responseHeader:operation.response.allHeaderFields requestParams:params responseParams:responseObject httpMethod:@"GET" requestId:requestId apiCmdDescription:strongBaseAPICmd.child.apiCmdDescription apiName:NSStringFromClass([strongBaseAPICmd class])];
 #endif
@@ -159,9 +169,15 @@
 - (NSInteger)callPOSTWithParams:(id)params urlString:(NSString *)urlString baseAPICmd:(RYBaseAPICmd *)baseAPICmd
 {
 
+    NSMutableDictionary *paramters = [[NSMutableDictionary alloc] init];
+    
+    NSString *encodeStr = [[EncryptionManager shareManager] encodeWithData:params version:VERSION];
+    [paramters setValue:[NSString stringWithFormat:@"%d",VERSION] forKey:@"v"];
+    [paramters setValue:encodeStr forKey:@"d"];
+    
     NSNumber *requestId = [self generateRequestId];
     __weak __typeof(baseAPICmd) weakBaseAPICmd = baseAPICmd;
-    AFHTTPRequestOperation *operation = [self.httpRequestOperationManager POST:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperation *operation = [self.httpRequestOperationManager POST:urlString parameters:paramters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         __strong __typeof(weakBaseAPICmd) strongBaseAPICmd = weakBaseAPICmd;
         strongBaseAPICmd.reformParams = nil;
         AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
@@ -172,6 +188,9 @@
             // 请求已经完成，将requestId移除
             [self.dispatchTable removeObjectForKey:requestId];
         }
+        
+        responseObject = [[EncryptionManager shareManager] decodeWithStr:responseObject[@"d"] version:VERSION];
+        
 #ifdef DEBUGLOGGER
         [RYAPILogger logDebugInfoWithURL:urlString requestHeader:operation.request.allHTTPHeaderFields responseHeader:operation.response.allHeaderFields requestParams:params responseParams:responseObject httpMethod:@"POST" requestId:requestId apiCmdDescription:strongBaseAPICmd.child.apiCmdDescription apiName:NSStringFromClass([strongBaseAPICmd class])];
 #endif

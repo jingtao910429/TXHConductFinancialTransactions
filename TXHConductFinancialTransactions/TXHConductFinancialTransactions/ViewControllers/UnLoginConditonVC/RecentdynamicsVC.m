@@ -7,7 +7,6 @@
 //
 
 #import "RecentdynamicsVC.h"
-#import "YFViewPager.h"
 
 #import "RecentdynamicsCell.h"
 

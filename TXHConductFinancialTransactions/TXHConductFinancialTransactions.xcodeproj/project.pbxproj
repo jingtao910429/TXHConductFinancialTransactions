@@ -11,11 +11,8 @@
 		95319CF61BE9B86500597AF8 /* bg_account_asset_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 95319CF51BE9B86500597AF8 /* bg_account_asset_info.png */; };
 		95BC2BA21BE91A53008BFB25 /* myViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BC2BA11BE91A53008BFB25 /* myViewController.m */; };
 		95CDE6B31BE9A2DB002B04CA /* MyaccountnumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CDE6B21BE9A2DB002B04CA /* MyaccountnumberCell.m */; };
-		95D4701C1BEB00BC00EE3AE8 /* RecentdynamicsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D4701B1BEB00BC00EE3AE8 /* RecentdynamicsVC.m */; settings = {ASSET_TAGS = (); }; };
-		95D470311BEB029900EE3AE8 /* YFViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D470301BEB029900EE3AE8 /* YFViewPager.m */; settings = {ASSET_TAGS = (); }; };
-		95D4703A1BEB07E100EE3AE8 /* RecentdynamicsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D470391BEB07E100EE3AE8 /* RecentdynamicsCell.m */; settings = {ASSET_TAGS = (); }; };
-		95D4703C1BEB24DF00EE3AE8 /* bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D4703B1BEB24DF00EE3AE8 /* bg1.png */; settings = {ASSET_TAGS = (); }; };
-		95D4703F1BEB30A200EE3AE8 /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D4703E1BEB30A200EE3AE8 /* RechargeCell.m */; settings = {ASSET_TAGS = (); }; };
+		95D4701C1BEB00BC00EE3AE8 /* RecentdynamicsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D4701B1BEB00BC00EE3AE8 /* RecentdynamicsVC.m */; };
+		95D4703C1BEB24DF00EE3AE8 /* bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D4703B1BEB24DF00EE3AE8 /* bg1.png */; };
 		98229EA61BE8C381005210EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229EA51BE8C381005210EC /* main.m */; };
 		98229EA91BE8C381005210EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229EA81BE8C381005210EC /* AppDelegate.m */; };
 		98229EAF1BE8C381005210EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98229EAD1BE8C381005210EC /* Main.storyboard */; };
@@ -115,6 +112,16 @@
 		988EE4251BEA31F00064A75B /* bg_account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE4241BEA31F00064A75B /* bg_account@2x.png */; };
 		988EE4281BEA3AA00064A75B /* RYSmsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE4271BEA3AA00064A75B /* RYSmsManager.m */; };
 		988EE42B1BEA46430064A75B /* GetVertifyCodeAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE42A1BEA46430064A75B /* GetVertifyCodeAPICmd.m */; };
+		989D5FAE1BEB7C8700FFA998 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 989D5FAD1BEB7C8700FFA998 /* Tool.m */; };
+		989D5FB11BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 989D5FB01BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.m */; };
+		989D5FB41BEB8CC000FFA998 /* RegisterAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 989D5FB31BEB8CC000FFA998 /* RegisterAPICmd.m */; };
+		98AC79BB1BEB6CC80033F6D6 /* RecentdynamicsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79B81BEB6CC80033F6D6 /* RecentdynamicsCell.m */; };
+		98AC79BC1BEB6CC80033F6D6 /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79BA1BEB6CC80033F6D6 /* RechargeCell.m */; };
+		98AC79C01BEB6D1D0033F6D6 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79BF1BEB6D1D0033F6D6 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		98AC79C31BEB6DA20033F6D6 /* EncryptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79C21BEB6DA20033F6D6 /* EncryptionManager.m */; };
+		98AC79C61BEB6DDB0033F6D6 /* LoginAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79C51BEB6DDB0033F6D6 /* LoginAPICmd.m */; };
+		98AC79C91BEB7A270033F6D6 /* EnumDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79C81BEB7A270033F6D6 /* EnumDefine.m */; };
+		98AC79CC1BEB7A740033F6D6 /* ConstantString.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79CB1BEB7A740033F6D6 /* ConstantString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,13 +143,7 @@
 		95CDE6B21BE9A2DB002B04CA /* MyaccountnumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyaccountnumberCell.m; path = TXHConductFinancialTransactions/ViewControllers/MyaccountnumberCell.m; sourceTree = SOURCE_ROOT; };
 		95D4701A1BEB00BC00EE3AE8 /* RecentdynamicsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentdynamicsVC.h; sourceTree = "<group>"; };
 		95D4701B1BEB00BC00EE3AE8 /* RecentdynamicsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentdynamicsVC.m; sourceTree = "<group>"; };
-		95D4702F1BEB029900EE3AE8 /* YFViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFViewPager.h; sourceTree = "<group>"; };
-		95D470301BEB029900EE3AE8 /* YFViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFViewPager.m; sourceTree = "<group>"; };
-		95D470381BEB07E100EE3AE8 /* RecentdynamicsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentdynamicsCell.h; sourceTree = "<group>"; };
-		95D470391BEB07E100EE3AE8 /* RecentdynamicsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentdynamicsCell.m; sourceTree = "<group>"; };
 		95D4703B1BEB24DF00EE3AE8 /* bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg1.png; sourceTree = "<group>"; };
-		95D4703D1BEB30A200EE3AE8 /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RechargeCell.h; path = ../UnLoginConditonVC/RechargeCell.h; sourceTree = "<group>"; };
-		95D4703E1BEB30A200EE3AE8 /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RechargeCell.m; path = ../UnLoginConditonVC/RechargeCell.m; sourceTree = "<group>"; };
 		98229EA01BE8C381005210EC /* TXHConductFinancialTransactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXHConductFinancialTransactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98229EA41BE8C381005210EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98229EA51BE8C381005210EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -337,6 +338,26 @@
 		988EE4271BEA3AA00064A75B /* RYSmsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYSmsManager.m; sourceTree = "<group>"; };
 		988EE4291BEA46430064A75B /* GetVertifyCodeAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetVertifyCodeAPICmd.h; sourceTree = "<group>"; };
 		988EE42A1BEA46430064A75B /* GetVertifyCodeAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetVertifyCodeAPICmd.m; sourceTree = "<group>"; };
+		989D5FAC1BEB7C8700FFA998 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		989D5FAD1BEB7C8700FFA998 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
+		989D5FAF1BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckSmsVerifyCodeAPICmd.h; sourceTree = "<group>"; };
+		989D5FB01BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckSmsVerifyCodeAPICmd.m; sourceTree = "<group>"; };
+		989D5FB21BEB8CC000FFA998 /* RegisterAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterAPICmd.h; sourceTree = "<group>"; };
+		989D5FB31BEB8CC000FFA998 /* RegisterAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterAPICmd.m; sourceTree = "<group>"; };
+		98AC79B71BEB6CC80033F6D6 /* RecentdynamicsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentdynamicsCell.h; sourceTree = "<group>"; };
+		98AC79B81BEB6CC80033F6D6 /* RecentdynamicsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentdynamicsCell.m; sourceTree = "<group>"; };
+		98AC79B91BEB6CC80033F6D6 /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
+		98AC79BA1BEB6CC80033F6D6 /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
+		98AC79BE1BEB6D1D0033F6D6 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		98AC79BF1BEB6D1D0033F6D6 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		98AC79C11BEB6DA20033F6D6 /* EncryptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionManager.h; sourceTree = "<group>"; };
+		98AC79C21BEB6DA20033F6D6 /* EncryptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionManager.m; sourceTree = "<group>"; };
+		98AC79C41BEB6DDB0033F6D6 /* LoginAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAPICmd.h; sourceTree = "<group>"; };
+		98AC79C51BEB6DDB0033F6D6 /* LoginAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAPICmd.m; sourceTree = "<group>"; };
+		98AC79C71BEB7A270033F6D6 /* EnumDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumDefine.h; sourceTree = "<group>"; };
+		98AC79C81BEB7A270033F6D6 /* EnumDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumDefine.m; sourceTree = "<group>"; };
+		98AC79CA1BEB7A740033F6D6 /* ConstantString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantString.h; sourceTree = "<group>"; };
+		98AC79CB1BEB7A740033F6D6 /* ConstantString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantString.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +464,10 @@
 		98229ECC1BE8C424005210EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				98AC79B71BEB6CC80033F6D6 /* RecentdynamicsCell.h */,
+				98AC79B81BEB6CC80033F6D6 /* RecentdynamicsCell.m */,
+				98AC79B91BEB6CC80033F6D6 /* RechargeCell.h */,
+				98AC79BA1BEB6CC80033F6D6 /* RechargeCell.m */,
 				95CDE6B11BE9A2DB002B04CA /* MyaccountnumberCell.h */,
 				95CDE6B21BE9A2DB002B04CA /* MyaccountnumberCell.m */,
 			);
@@ -562,6 +587,7 @@
 		98229EE21BE8C503005210EC /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				98AC79BD1BEB6D1D0033F6D6 /* JSONKit */,
 				988EE3DE1BE991B00064A75B /* BMAdScrollView */,
 				98229F861BE8DD6B005210EC /* MJRefresh */,
 				98229F541BE8DD46005210EC /* SDWebImage */,
@@ -849,10 +875,18 @@
 		98229FCF1BE8E3DB005210EC /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				98AC79C11BEB6DA20033F6D6 /* EncryptionManager.h */,
+				98AC79C21BEB6DA20033F6D6 /* EncryptionManager.m */,
 				988EE4261BEA3AA00064A75B /* RYSmsManager.h */,
 				988EE4271BEA3AA00064A75B /* RYSmsManager.m */,
 				98229FD01BE8E427005210EC /* FactoryManager.h */,
 				98229FD11BE8E427005210EC /* FactoryManager.m */,
+				98AC79C71BEB7A270033F6D6 /* EnumDefine.h */,
+				98AC79C81BEB7A270033F6D6 /* EnumDefine.m */,
+				98AC79CA1BEB7A740033F6D6 /* ConstantString.h */,
+				98AC79CB1BEB7A740033F6D6 /* ConstantString.m */,
+				989D5FAC1BEB7C8700FFA998 /* Tool.h */,
+				989D5FAD1BEB7C8700FFA998 /* Tool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -873,14 +907,10 @@
 				988EE41F1BEA1A870064A75B /* MyaccountnumberVC.m */,
 				988EE41B1BEA1A670064A75B /* RechargeVC.h */,
 				988EE41C1BEA1A670064A75B /* RechargeVC.m */,
-				95D4703D1BEB30A200EE3AE8 /* RechargeCell.h */,
-				95D4703E1BEB30A200EE3AE8 /* RechargeCell.m */,
 				988EE4181BEA1A520064A75B /* WithdrawdepositVC.h */,
 				988EE4191BEA1A520064A75B /* WithdrawdepositVC.m */,
 				98229FEB1BE8F8C3005210EC /* LoginHomePageViewController.h */,
 				98229FEC1BE8F8C3005210EC /* LoginHomePageViewController.m */,
-				95D470381BEB07E100EE3AE8 /* RecentdynamicsCell.h */,
-				95D470391BEB07E100EE3AE8 /* RecentdynamicsCell.m */,
 			);
 			path = LoginConditionVC;
 			sourceTree = "<group>";
@@ -896,8 +926,6 @@
 				988EE4221BEA2E340064A75B /* RegisterViewController.m */,
 				95D4701A1BEB00BC00EE3AE8 /* RecentdynamicsVC.h */,
 				95D4701B1BEB00BC00EE3AE8 /* RecentdynamicsVC.m */,
-				95D4702F1BEB029900EE3AE8 /* YFViewPager.h */,
-				95D470301BEB029900EE3AE8 /* YFViewPager.m */,
 			);
 			path = UnLoginConditonVC;
 			sourceTree = "<group>";
@@ -932,13 +960,28 @@
 		988EE3E21BE9926C0064A75B /* NetAPI */ = {
 			isa = PBXGroup;
 			children = (
+				98AC79C41BEB6DDB0033F6D6 /* LoginAPICmd.h */,
+				98AC79C51BEB6DDB0033F6D6 /* LoginAPICmd.m */,
 				988EE3E31BE9928B0064A75B /* TestAPICmd.h */,
 				988EE3E41BE9928B0064A75B /* TestAPICmd.m */,
 				988EE4291BEA46430064A75B /* GetVertifyCodeAPICmd.h */,
 				988EE42A1BEA46430064A75B /* GetVertifyCodeAPICmd.m */,
+				989D5FAF1BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.h */,
+				989D5FB01BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.m */,
+				989D5FB21BEB8CC000FFA998 /* RegisterAPICmd.h */,
+				989D5FB31BEB8CC000FFA998 /* RegisterAPICmd.m */,
 			);
 			name = NetAPI;
 			path = BSAPIManagers/NetAPI;
+			sourceTree = "<group>";
+		};
+		98AC79BD1BEB6D1D0033F6D6 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				98AC79BE1BEB6D1D0033F6D6 /* JSONKit.h */,
+				98AC79BF1BEB6D1D0033F6D6 /* JSONKit.m */,
+			);
+			path = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1057,11 +1100,13 @@
 				98229F2B1BE8DCAF005210EC /* MMProgressHUD+Class.m in Sources */,
 				98229F351BE8DCFB005210EC /* TelPrompt.m in Sources */,
 				98229EFC1BE8C54F005210EC /* AFURLConnectionOperation.m in Sources */,
+				989D5FB11BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.m in Sources */,
 				98229F4D1BE8DD3D005210EC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				988EE4281BEA3AA00064A75B /* RYSmsManager.m in Sources */,
 				988EE4231BEA2E340064A75B /* RegisterViewController.m in Sources */,
 				98229F831BE8DD46005210EC /* UIImageView+HighlightedWebCache.m in Sources */,
 				98229EF71BE8C54F005210EC /* AFHTTPRequestOperation.m in Sources */,
+				98AC79C61BEB6DDB0033F6D6 /* LoginAPICmd.m in Sources */,
 				98229F771BE8DD46005210EC /* NSData+ImageContentType.m in Sources */,
 				98229EFA1BE8C54F005210EC /* AFNetworkReachabilityManager.m in Sources */,
 				98229F291BE8DCAF005210EC /* MMLinearProgressView.m in Sources */,
@@ -1080,6 +1125,7 @@
 				98229FB81BE8DD6B005210EC /* MJRefreshAutoGifFooter.m in Sources */,
 				98229F7A1BE8DD46005210EC /* SDWebImageDecoder.m in Sources */,
 				98229EA91BE8C381005210EC /* AppDelegate.m in Sources */,
+				989D5FAE1BEB7C8700FFA998 /* Tool.m in Sources */,
 				98229F391BE8DD1D005210EC /* Reachability.m in Sources */,
 				98229FC21BE8DD6B005210EC /* MJRefreshConst.m in Sources */,
 				98229FB31BE8DD6B005210EC /* MJRefreshAutoFooter.m in Sources */,
@@ -1087,14 +1133,17 @@
 				98229F281BE8DCAF005210EC /* MMHud.m in Sources */,
 				98229F0C1BE8D6FE005210EC /* EAIntroPage.m in Sources */,
 				98229F811BE8DD46005210EC /* UIImage+MultiFormat.m in Sources */,
-				95D4703F1BEB30A200EE3AE8 /* RechargeCell.m in Sources */,
+				98AC79BC1BEB6CC80033F6D6 /* RechargeCell.m in Sources */,
+				98AC79C01BEB6D1D0033F6D6 /* JSONKit.m in Sources */,
 				98229FBE1BE8DD6B005210EC /* MJRefreshGifHeader.m in Sources */,
+				989D5FB41BEB8CC000FFA998 /* RegisterAPICmd.m in Sources */,
 				98229F4F1BE8DD3D005210EC /* UIButton+AFNetworking.m in Sources */,
 				98229F821BE8DD46005210EC /* UIImage+WebP.m in Sources */,
 				98229EFE1BE8C54F005210EC /* AFURLResponseSerialization.m in Sources */,
 				988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */,
 				98229FCD1BE8DFB8005210EC /* UIViewController+NavigationBarStyle.m in Sources */,
 				98229EDE1BE8C479005210EC /* RYAPILogger.m in Sources */,
+				98AC79CC1BEB7A740033F6D6 /* ConstantString.m in Sources */,
 				988EE3E51BE9928B0064A75B /* TestAPICmd.m in Sources */,
 				98229FED1BE8F8C3005210EC /* LoginHomePageViewController.m in Sources */,
 				98229F2E1BE8DCAF005210EC /* MMProgressHUDViewController.m in Sources */,
@@ -1116,12 +1165,13 @@
 				95CDE6B31BE9A2DB002B04CA /* MyaccountnumberCell.m in Sources */,
 				98229F301BE8DCAF005210EC /* MMRadialProgressView.m in Sources */,
 				98229FBF1BE8DD6B005210EC /* MJRefreshNormalHeader.m in Sources */,
+				98AC79C91BEB7A270033F6D6 /* EnumDefine.m in Sources */,
 				98229FBA1BE8DD6B005210EC /* MJRefreshAutoStateFooter.m in Sources */,
 				98229FB61BE8DD6B005210EC /* MJRefreshFooter.m in Sources */,
 				98229EDF1BE8C479005210EC /* RYAPIManager.m in Sources */,
 				988EE41A1BEA1A520064A75B /* WithdrawdepositVC.m in Sources */,
 				98229F4E1BE8DD3D005210EC /* UIAlertView+AFNetworking.m in Sources */,
-				95D4703A1BEB07E100EE3AE8 /* RecentdynamicsCell.m in Sources */,
+				98AC79BB1BEB6CC80033F6D6 /* RecentdynamicsCell.m in Sources */,
 				98229FB91BE8DD6B005210EC /* MJRefreshAutoNormalFooter.m in Sources */,
 				98229FBC1BE8DD6B005210EC /* MJRefreshBackNormalFooter.m in Sources */,
 				98229F801BE8DD46005210EC /* UIImage+GIF.m in Sources */,
@@ -1132,8 +1182,8 @@
 				98229F761BE8DD46005210EC /* MKAnnotationView+WebCache.m in Sources */,
 				98229FBD1BE8DD6B005210EC /* MJRefreshBackStateFooter.m in Sources */,
 				98229F2A1BE8DCAF005210EC /* MMProgressHUD+Animations.m in Sources */,
-				95D470311BEB029900EE3AE8 /* YFViewPager.m in Sources */,
 				98229F7C1BE8DD46005210EC /* SDWebImageDownloaderOperation.m in Sources */,
+				98AC79C31BEB6DA20033F6D6 /* EncryptionManager.m in Sources */,
 				98229EA61BE8C381005210EC /* main.m in Sources */,
 				98229EF91BE8C54F005210EC /* AFHTTPSessionManager.m in Sources */,
 				98229FB71BE8DD6B005210EC /* MJRefreshHeader.m in Sources */,

@@ -14,12 +14,23 @@
 #include <Foundation/Foundation.h>
 #include <UIKit/UIKit.h>
 #import "UnLoginHomePageViewController.h"
+#import "EncryptionManager.h"
+#import "ConstantString.h"
+#import "Tool.h"
 #include "WToast.h"
 #import "UIViewController+NavigationBarStyle.h"
 
+#define VERSION 2
 
-
-#define api_domain @"http://192.168.1.18:8888/"
+#define api_domain @"http://app.aiben123.com/"
+//登录
+#define API_Login @"nblc/api/account/login"
+//获取验证码
+#define API_VertifyCode @"nblc/api/account/getSmsVerifyCode"
+//校验验证码
+#define API_CheckVertifyCode @"nblc/api/account/checkSmsVerifyCode"
+//注册／重置密码
+#define API_Register @"nblc/api/account/register"
 
 #define BackColor TomColor(0xefeff4)
 

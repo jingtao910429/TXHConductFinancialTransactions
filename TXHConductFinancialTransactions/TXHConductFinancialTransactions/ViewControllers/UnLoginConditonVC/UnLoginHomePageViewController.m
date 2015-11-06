@@ -99,10 +99,14 @@
     [self.view addSubview:self.loginBtn];
 }
 
+
+#pragma mark-测试按钮
 -(void)onbuttonc{
    
-    RechargeVC*vc=[[RechargeVC alloc] init];
+  
+    RecentdynamicsVC*vc=[[RecentdynamicsVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 

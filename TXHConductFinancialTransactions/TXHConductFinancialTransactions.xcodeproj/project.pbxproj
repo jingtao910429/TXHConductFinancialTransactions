@@ -13,6 +13,7 @@
 		95CDE6B31BE9A2DB002B04CA /* MyaccountnumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CDE6B21BE9A2DB002B04CA /* MyaccountnumberCell.m */; };
 		95D4701C1BEB00BC00EE3AE8 /* RecentdynamicsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D4701B1BEB00BC00EE3AE8 /* RecentdynamicsVC.m */; };
 		95D4703C1BEB24DF00EE3AE8 /* bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D4703B1BEB24DF00EE3AE8 /* bg1.png */; };
+		95FA8FD81BEC78C90063BF09 /* Recentdynamicsmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FA8FD71BEC78C90063BF09 /* Recentdynamicsmd.m */; settings = {ASSET_TAGS = (); }; };
 		98229EA61BE8C381005210EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229EA51BE8C381005210EC /* main.m */; };
 		98229EA91BE8C381005210EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98229EA81BE8C381005210EC /* AppDelegate.m */; };
 		98229EAF1BE8C381005210EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98229EAD1BE8C381005210EC /* Main.storyboard */; };
@@ -145,6 +146,8 @@
 		95D4701A1BEB00BC00EE3AE8 /* RecentdynamicsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentdynamicsVC.h; sourceTree = "<group>"; };
 		95D4701B1BEB00BC00EE3AE8 /* RecentdynamicsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentdynamicsVC.m; sourceTree = "<group>"; };
 		95D4703B1BEB24DF00EE3AE8 /* bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg1.png; sourceTree = "<group>"; };
+		95FA8FD61BEC78C90063BF09 /* Recentdynamicsmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recentdynamicsmd.h; sourceTree = "<group>"; };
+		95FA8FD71BEC78C90063BF09 /* Recentdynamicsmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recentdynamicsmd.m; sourceTree = "<group>"; };
 		98229EA01BE8C381005210EC /* TXHConductFinancialTransactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXHConductFinancialTransactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98229EA41BE8C381005210EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98229EA51BE8C381005210EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -975,6 +978,8 @@
 				989D5FB01BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.m */,
 				989D5FB21BEB8CC000FFA998 /* RegisterAPICmd.h */,
 				989D5FB31BEB8CC000FFA998 /* RegisterAPICmd.m */,
+				95FA8FD61BEC78C90063BF09 /* Recentdynamicsmd.h */,
+				95FA8FD71BEC78C90063BF09 /* Recentdynamicsmd.m */,
 			);
 			name = NetAPI;
 			path = BSAPIManagers/NetAPI;
@@ -1132,6 +1137,7 @@
 				98229EA91BE8C381005210EC /* AppDelegate.m in Sources */,
 				989D5FAE1BEB7C8700FFA998 /* Tool.m in Sources */,
 				98229F391BE8DD1D005210EC /* Reachability.m in Sources */,
+				95FA8FD81BEC78C90063BF09 /* Recentdynamicsmd.m in Sources */,
 				98229FC21BE8DD6B005210EC /* MJRefreshConst.m in Sources */,
 				98229FB31BE8DD6B005210EC /* MJRefreshAutoFooter.m in Sources */,
 				98229F7B1BE8DD46005210EC /* SDWebImageDownloader.m in Sources */,

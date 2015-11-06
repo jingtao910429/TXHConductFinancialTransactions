@@ -9,14 +9,17 @@
 #import "RecentdynamicsVC.h"
 
 #import "RecentdynamicsCell.h"
+#import "Recentdynamicsmd.h"
 
-@interface RecentdynamicsVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface RecentdynamicsVC ()<UITableViewDelegate,UITableViewDataSource,APICmdApiCallBackDelegate>
 
 {
  UITableView         *_lefttableView;
 
   
 }
+
+@property (nonatomic, strong) Recentdynamicsmd *recentdynamicsmd;
 @end
 @implementation RecentdynamicsVC
 - (void)viewDidLoad {
@@ -27,6 +30,11 @@
     
     [self navigationBarStyleWithTitle:@"最近动态" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     [self configUI];
+    [self.recentdynamicsmd loadData];
+    
+    
+    
+    
 }
 #pragma mark - 配置视图
 - (void)configUI{
@@ -35,6 +43,7 @@
     _lefttableView.dataSource = self;
        _lefttableView.rowHeight = 160;
      _lefttableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     [self.view addSubview:_lefttableView];
     
   }
@@ -75,6 +84,33 @@
     
     
     
+}
+
+
+#pragma mark - APICmdApiCallBackDelegate
+
+-(void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData
+{
+    if (baseAPICmd ==self.recentdynamicsmd) {
+         NSDictionary *tempDict = (NSDictionary *)responseData;
+        
+    }
+}
+
+-(void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error{
+ 
+}
+
+
+
+- (Recentdynamicsmd *)recentdynamicsmd {
+    if (!_recentdynamicsmd) {
+        _recentdynamicsmd = [[Recentdynamicsmd alloc] init];
+        _recentdynamicsmd.delegate = self;
+        _recentdynamicsmd.path = API_List;
+    }
+    _recentdynamicsmd.reformParams = @{@"type":@"1"};
+    return _recentdynamicsmd;
 }
 
 

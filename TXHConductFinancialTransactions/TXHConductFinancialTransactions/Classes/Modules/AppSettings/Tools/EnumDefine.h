@@ -11,7 +11,7 @@
 
 typedef NS_ENUM(NSInteger, LoginType){
     /// 成功
-    LoginTypeSuccess = 200,
+    LoginTypeSuccess = 1,
     /// 未验证身份
     LoginTypeNoAuthenticationStatus = 401,
     /// 账号或密码错误

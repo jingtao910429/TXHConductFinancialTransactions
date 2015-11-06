@@ -40,7 +40,6 @@
 
 - (void)configUI {
     
-    
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

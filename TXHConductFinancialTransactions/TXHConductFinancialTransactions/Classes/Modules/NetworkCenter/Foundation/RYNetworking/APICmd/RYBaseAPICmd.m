@@ -77,6 +77,7 @@
  */
 - (NSDictionary *)cookie
 {
+    /*
     if ([self.child respondsToSelector:@selector(apiCookie)]) {
         return [self.child apiCookie];
     }
@@ -90,6 +91,7 @@
     }
     NSDictionary *sheaders = [NSHTTPCookie requestHeaderFieldsWithCookies:arcCookies];
     _cookie = sheaders;
+     */
     return _cookie;
 }
 /**

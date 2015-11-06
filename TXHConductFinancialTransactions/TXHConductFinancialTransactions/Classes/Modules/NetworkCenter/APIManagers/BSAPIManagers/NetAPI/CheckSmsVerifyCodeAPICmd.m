@@ -1,14 +1,14 @@
 //
-//  GetVertifyCodeAPICmd.m
+//  CheckSmsVerifyCodeAPICmd.m
 //  TXHConductFinancialTransactions
 //
-//  Created by wwt on 15/11/4.
+//  Created by wwt on 15/11/5.
 //  Copyright (c) 2015年 rongyu. All rights reserved.
 //
 
-#import "GetVertifyCodeAPICmd.h"
+#import "CheckSmsVerifyCodeAPICmd.h"
 
-@implementation GetVertifyCodeAPICmd
+@implementation CheckSmsVerifyCodeAPICmd
 
 - (RYBaseAPICmdRequestType)requestType
 {
@@ -17,7 +17,7 @@
 
 - (NSString *)apiCmdDescription
 {
-    return @"获取验证码";
+    return @"校对验证码";
 }
 
 @end

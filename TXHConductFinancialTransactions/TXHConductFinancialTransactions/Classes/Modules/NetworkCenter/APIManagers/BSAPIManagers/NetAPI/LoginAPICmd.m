@@ -1,14 +1,14 @@
 //
-//  GetVertifyCodeAPICmd.m
+//  LoginAPICmd.m
 //  TXHConductFinancialTransactions
 //
-//  Created by wwt on 15/11/4.
+//  Created by wwt on 15/11/5.
 //  Copyright (c) 2015年 rongyu. All rights reserved.
 //
 
-#import "GetVertifyCodeAPICmd.h"
+#import "LoginAPICmd.h"
 
-@implementation GetVertifyCodeAPICmd
+@implementation LoginAPICmd
 
 - (RYBaseAPICmdRequestType)requestType
 {
@@ -17,7 +17,7 @@
 
 - (NSString *)apiCmdDescription
 {
-    return @"获取验证码";
+    return @"注册/重置密码";
 }
 
 @end

@@ -37,8 +37,6 @@
         //如果左是纯图片
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:leftImageName] style:UIBarButtonItemStylePlain target:self action:leftAction];
         
-    }else{
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] init];
     }
     
     if (rightTitle && !rightImageName) {
@@ -52,8 +50,6 @@
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:rightImageName] style:UIBarButtonItemStylePlain target:self action:rightAction];
         
-    }else {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] init];
     }
     
 }

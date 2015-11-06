@@ -444,7 +444,7 @@
         _registerAPICmd.delegate = self;
         _registerAPICmd.path = API_Register;
     }
-    _registerAPICmd.reformParams = @{@"type":self.isRegisterSetPassword?@"1":@"2",@"username":self.userName,@"password":self.passwordTextFiled.text};
+    _registerAPICmd.reformParams = @{@"type":self.isRegisterSetPassword?@"2":@"1",@"username":self.userName,@"password":self.passwordTextFiled.text};
     return _registerAPICmd;
 }
 

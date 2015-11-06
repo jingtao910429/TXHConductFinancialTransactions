@@ -32,6 +32,9 @@
 //注册／重置密码
 #define API_Register @"nblc/api/account/register"
 
+//公告列表
+#define API_List      @"nblc/api/notice/list"
+
 #define BackColor TomColor(0xefeff4)
 
 //iOS 系统版本

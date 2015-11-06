@@ -253,6 +253,7 @@
         
         //网络请求
         [self.getVertifyCodeAPICmd loadData];
+        
     }
     else
     {

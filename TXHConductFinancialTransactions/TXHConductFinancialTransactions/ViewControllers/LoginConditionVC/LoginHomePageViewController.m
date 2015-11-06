@@ -52,6 +52,10 @@
     return 0.001;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
 #pragma mark - event response
 
 //活动banner点击事件

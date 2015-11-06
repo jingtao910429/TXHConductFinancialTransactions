@@ -33,6 +33,8 @@
 #define API_Register @"nblc/api/account/register"
 //活动列表
 #define API_NoticeList @"nblc/api/notice/list"
+//用户资产信息
+#define API_UserAsset @"nblc/api/asset/info"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"

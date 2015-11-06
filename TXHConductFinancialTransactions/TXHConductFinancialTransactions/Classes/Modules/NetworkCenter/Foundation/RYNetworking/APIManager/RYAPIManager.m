@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "RYAPILogger.h"
 #import "EncryptionManager.h"
+#import "JSONKit.h"
 
 @interface RYAPIManager ()
 
@@ -121,6 +122,9 @@
             [self.dispatchTable removeObjectForKey:requestId];
         }
         
+        NSData *datas = (NSData *)responseObject;
+        responseObject = [datas objectFromJSONData];
+        
         responseObject = [[EncryptionManager shareManager] decodeWithStr:responseObject[@"d"] version:VERSION];
         
 #ifdef DEBUGLOGGER
@@ -188,6 +192,9 @@
             // 请求已经完成，将requestId移除
             [self.dispatchTable removeObjectForKey:requestId];
         }
+        
+        NSData *datas = (NSData *)responseObject;
+        responseObject = [datas objectFromJSONData];
         
         responseObject = [[EncryptionManager shareManager] decodeWithStr:responseObject[@"d"] version:VERSION];
         
@@ -274,6 +281,7 @@
         _httpRequestOperationManager = [AFHTTPRequestOperationManager manager];
         _httpRequestOperationManager.operationQueue.maxConcurrentOperationCount = 10;
         _httpRequestOperationManager.requestSerializer = [AFJSONRequestSerializer serializer];
+        _httpRequestOperationManager.responseSerializer = [AFHTTPResponseSerializer serializer];
         _httpRequestOperationManager.requestSerializer.timeoutInterval = kNetworkingTimeoutSeconds;
     }
     return _httpRequestOperationManager;

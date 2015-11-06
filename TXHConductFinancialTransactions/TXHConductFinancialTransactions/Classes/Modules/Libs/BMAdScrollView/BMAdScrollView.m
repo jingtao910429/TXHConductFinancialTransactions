@@ -195,7 +195,7 @@ static  int pageNumber;//页码
         [imageSV addSubview:imageView];
     }
     [imageSV setContentOffset:CGPointMake(0, 0)];
-    [imageSV scrollRectToVisible:CGRectMake(WIDTH,0,WIDTH,self.frame.size.height) animated:NO]; // 默认从序号1位置放第1页 ，序号0位置位置放第4页
+    [imageSV scrollRectToVisible:CGRectMake(WIDTH,0,WIDTH,self.frame.size.height) animated:YES]; // 默认从序号1位置放第1页 ，序号0位置位置放第4页
 
 }
 - (void)addPageControl:(NSInteger)count
@@ -237,18 +237,18 @@ static  int pageNumber;//页码
     //    NSLog(@"currentPage_==%d",currentPage_);
     if (currentPage==0)
     {
-        [imageSV scrollRectToVisible:CGRectMake(WIDTH * [imageNameArr count],0,WIDTH,HEIGHT) animated:NO]; // 序号0 最后1页
+        [imageSV scrollRectToVisible:CGRectMake(WIDTH * [imageNameArr count],0,WIDTH,HEIGHT) animated:YES]; // 序号0 最后1页
     }
     else if (currentPage==([imageNameArr count]+1))
     {
-        [imageSV scrollRectToVisible:CGRectMake(WIDTH,0,WIDTH,HEIGHT) animated:NO]; // 最后+1,循环第1页
+        [imageSV scrollRectToVisible:CGRectMake(WIDTH,0,WIDTH,HEIGHT) animated:YES]; // 最后+1,循环第1页
     }
 }
 // pagecontrol 选择器的方法
 - (void)turnPage
 {
     int page = pageControl.currentPage; // 获取当前的page
-    [imageSV scrollRectToVisible:CGRectMake(WIDTH*(page+1),0,WIDTH,HEIGHT) animated:NO]; // 触摸pagecontroller那个点点 往后翻一页 +1
+    [imageSV scrollRectToVisible:CGRectMake(WIDTH*(page+1),0,WIDTH,HEIGHT) animated:YES]; // 触摸pagecontroller那个点点 往后翻一页 +1
 }
 // 定时器 绑定的方法
 - (void)runTimePage

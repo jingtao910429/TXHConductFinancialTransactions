@@ -192,6 +192,9 @@
             [Tool ToastNotification:tempDict[@"msg"]];
             
         }else{
+            
+            [Tool setUserInfoWithDict:@{@"id":tempDict[@"id"],@"username":self.userNameTextFiled.text,@"password":self.passwordTextFiled.text}];
+            
             //登录成功
             LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
             UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginHomePageVC];
@@ -223,6 +226,8 @@
 }
 
 - (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
+    
+    [Tool ToastNotification:@"登录失败"];
     
 }
 

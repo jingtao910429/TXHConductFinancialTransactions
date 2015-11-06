@@ -1,5 +1,5 @@
 //
-//  NoticeListAPICmd.h
+//  UserAssetAPICmd.h
 //  TXHConductFinancialTransactions
 //
 //  Created by wwt on 15/11/6.
@@ -8,6 +8,6 @@
 
 #import "RYBaseAPICmd.h"
 
-@interface NoticeListAPICmd : RYBaseAPICmd <RYBaseAPICmdDelegate>
+@interface UserAssetAPICmd : RYBaseAPICmd <RYBaseAPICmdDelegate>
 
 @end

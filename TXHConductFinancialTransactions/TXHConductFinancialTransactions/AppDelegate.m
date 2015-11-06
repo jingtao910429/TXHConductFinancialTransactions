@@ -10,14 +10,19 @@
 #import "ZWIntroductionViewController.h"
 #import "UnLoginHomePageViewController.h"
 #import "myViewController.h"
+#import "LoginHomePageViewController.h"
+#import "LoginAPICmd.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <APICmdApiCallBackDelegate>
 
 @property (nonatomic, strong) ZWIntroductionViewController *introduceVC;
 @property (nonatomic, strong) UnLoginHomePageViewController *UnLoginHomePageVC;
 
 @property (nonatomic, strong) UIButton *enterBtn;
 @property (strong, nonatomic) myViewController* viewController;
+
+//登录
+@property (nonatomic, strong) LoginAPICmd *loginAPICmd;
 
 
 @end
@@ -35,11 +40,13 @@
 
 
     [self.window makeKeyAndVisible];
-    //登录
-    [self appLogin];
-//    [self introduceView];
     
-    
+    if (![Tool getUserInfo] || [[Tool getUserInfo] isKindOfClass:[NSNull class]]) {
+        //表示没有用户，则登录
+        [self appLogin];
+    }else{
+       [self.loginAPICmd loadData];
+    }
     return YES;
 }
 
@@ -71,6 +78,35 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+#pragma mark - APICmdApiCallBackDelegate
+
+- (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
+    
+    NSDictionary *tempDict = (NSDictionary *)responseData;
+    
+    if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+        
+        [self appLogin];
+        
+    }else{
+        
+        [Tool setUserInfoWithDict:@{@"id":tempDict[@"id"],@"username":[Tool getUserInfo][@"username"],@"password":[Tool getUserInfo][@"password"]}];
+        
+        //登录成功
+        LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
+        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginHomePageVC];
+        [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginNav];
+    }
+    
+}
+
+- (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
+    
+    //登录
+    [self appLogin];
+    
+}
+
 #pragma mark - event response
 
 #pragma mark - private method
@@ -87,8 +123,6 @@
     }else{
         
         [self showHomePage];
-        
-        
     }
     
 }
@@ -149,6 +183,18 @@
         _UnLoginHomePageVC = [[UnLoginHomePageViewController alloc] init];
     }
     return _UnLoginHomePageVC;
+}
+
+- (LoginAPICmd *)loginAPICmd {
+    if (!_loginAPICmd) {
+        _loginAPICmd = [[LoginAPICmd alloc] init];
+        _loginAPICmd.delegate = self;
+        _loginAPICmd.path = API_Login;
+        
+    }
+    _loginAPICmd.reformParams = @{@"username":[Tool getUserInfo][@"username"],
+                                  @"password":[Tool getUserInfo][@"password"]};
+    return _loginAPICmd;
 }
 
 @end

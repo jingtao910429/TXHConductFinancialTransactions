@@ -20,7 +20,7 @@
 //底部button （立即投资）
 @property (nonatomic, strong) UIButton           *bottomButton;
 
-@property (nonatomic, copy)   NSMutableArray     *images;
+@property (nonatomic, strong)   NSMutableArray     *images;
 
 @end
 
@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configData];
     [self configUI];
 }
 
@@ -38,8 +39,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)configData {
+    
+    self.images = [[NSMutableArray alloc] initWithObjects:@"bg1",@"bg1",@"bg1", nil];
+    
+}
+
 - (void)configUI {
     
+    [self navigationBarStyleWithTitle:@"首页" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    
+    [self.view addSubview:self.contentTableView];
+    [self.view addSubview:self.bottomButton];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -52,8 +63,30 @@
     return 0.001;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 45;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    [self.topBackGroudView addSubview:self.unloginImgView];
+    return self.topBackGroudView;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellID = @"CELL_ID";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    
+    return cell;
 }
 
 #pragma mark - event response
@@ -69,10 +102,7 @@
 
 - (UITableView *)contentTableView {
     if (!_contentTableView) {
-        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(20, 30, kScreenWidth - 40, kScreenHeight - 100) style:UITableViewStyleGrouped];
-        _contentTableView.backgroundColor = [UIColor clearColor];
-        _contentTableView.scrollEnabled = NO;
-        _contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 50 - 64) style:UITableViewStyleGrouped];
         _contentTableView.delegate = self;
         _contentTableView.dataSource = self;
     }
@@ -86,7 +116,6 @@
         _bmadScrollView = [[BMAdScrollView alloc] initWithNameArr:self.images height:self.topBackGroudView.frame.size.height offsetY:0];
         _bmadScrollView.vDelegate = self;
         _bmadScrollView.pageCenter = CGPointMake(kScreenWidth - 30, self.topBackGroudView.frame.size.height - 30);
-        [self.topBackGroudView addSubview:self.bmadScrollView];
         
     }
     return _bmadScrollView;
@@ -96,21 +125,28 @@
 {
     if (!_topBackGroudView) {
         _topBackGroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0.3*self.view.frame.size.height + 20)];
-        UIImage *image = [UIImage imageNamed:@"topBanner"];
-        self.unloginImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.topBackGroudView.frame.size.width, self.topBackGroudView.frame.size.height)];
-        self.unloginImgView.image = image;
-        [_topBackGroudView addSubview:self.unloginImgView];
     }
     return _topBackGroudView;
+}
+
+- (UIImageView *)unloginImgView {
+    if (!_unloginImgView) {
+        UIImage *image = [UIImage imageNamed:@"topBanner"];
+        _unloginImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.topBackGroudView.frame.size.width, self.topBackGroudView.frame.size.height)];
+        _unloginImgView.image = image;
+    }
+    return _unloginImgView;
 }
 
 - (UIButton *)bottomButton {
     if (!_bottomButton) {
         
         _bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _bottomButton.frame = CGRectMake(0, self.view.frame.size.height - 50, kScreenWidth, 50);
+        _bottomButton.frame = CGRectMake(0, self.view.frame.size.height - 50 - 64, kScreenWidth, 50);
         [_bottomButton setTitle:@"立即投资" forState:UIControlStateNormal];
-        [_bottomButton setTitleColor:COLOR(239, 71, 26, 1.0) forState:UIControlStateNormal];
+        [_bottomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        _bottomButton.backgroundColor = COLOR(239, 71, 26, 1.0);
         
     }
     return _bottomButton;

@@ -194,7 +194,8 @@
         }else{
             //登录成功
             LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
-            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginHomePageVC];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginHomePageVC];
+            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginNav];
             
         }
         
@@ -212,7 +213,8 @@
         }else{
             //登录成功
             LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
-            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginHomePageVC];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginHomePageVC];
+            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginNav];
             
         }
         

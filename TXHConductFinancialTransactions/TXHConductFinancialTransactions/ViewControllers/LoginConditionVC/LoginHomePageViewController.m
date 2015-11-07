@@ -21,6 +21,7 @@
 #import "MyaccountnumberVC.h"
 #import "NSString+Additions.h"
 #import "DealDetailViewController.h"
+#import "InvestmentListViewController.h"
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
@@ -330,7 +331,15 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     
 }
 
+- (void)invast {
+    
+    InvestmentListViewController *investmentListViewController = [[InvestmentListViewController alloc] init];
+    [self.navigationController pushViewController:investmentListViewController animated:YES];
+}
+
 #pragma mark - private method
+
+
 
 #pragma mark - getters and setters
 
@@ -385,7 +394,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         _bottomButton.frame = CGRectMake(0, self.view.frame.size.height - 50 - 64, kScreenWidth, 50);
         [_bottomButton setTitle:@"立即投资" forState:UIControlStateNormal];
         [_bottomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        
+        [_bottomButton addTarget:self action:@selector(invast) forControlEvents:UIControlEventTouchUpInside];
         _bottomButton.backgroundColor = COLOR(239, 71, 26, 1.0);
         
     }

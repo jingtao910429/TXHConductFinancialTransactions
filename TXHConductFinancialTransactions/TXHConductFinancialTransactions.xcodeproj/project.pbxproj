@@ -147,6 +147,14 @@
 		98BCD38C1BEDE3CD00168B00 /* HomeAssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98BCD3801BEDE3CD00168B00 /* HomeAssetTableViewCell.xib */; };
 		98BCD38D1BEDE3CD00168B00 /* RecentdynamicsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3821BEDE3CD00168B00 /* RecentdynamicsCell.m */; };
 		98BCD38E1BEDE3CD00168B00 /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3841BEDE3CD00168B00 /* RechargeCell.m */; };
+		98BCD3911BEDE95900168B00 /* InvestmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3901BEDE95900168B00 /* InvestmentListViewController.m */; };
+		98BCD3941BEDE97F00168B00 /* InvestmentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3931BEDE97F00168B00 /* InvestmentListModel.m */; };
+		98BCD3971BEDE99300168B00 /* InvestmentListAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3961BEDE99300168B00 /* InvestmentListAPICmd.m */; };
+		98BCD39B1BEDF1FE00168B00 /* InvestmentTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3991BEDF1FE00168B00 /* InvestmentTopTableViewCell.m */; };
+		98BCD39C1BEDF1FE00168B00 /* InvestmentTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98BCD39A1BEDF1FE00168B00 /* InvestmentTopTableViewCell.xib */; };
+		98BCD3AA1BEDF52100168B00 /* InvestmentBottomMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3A91BEDF52100168B00 /* InvestmentBottomMTableViewCell.m */; };
+		98BCD3AE1BEDF6CF00168B00 /* ZDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3AD1BEDF6CF00168B00 /* ZDProgressView.m */; };
+		98BCD3B11BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B01BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -426,6 +434,21 @@
 		98BCD3821BEDE3CD00168B00 /* RecentdynamicsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentdynamicsCell.m; sourceTree = "<group>"; };
 		98BCD3831BEDE3CD00168B00 /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
 		98BCD3841BEDE3CD00168B00 /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
+		98BCD38F1BEDE95900168B00 /* InvestmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentListViewController.h; sourceTree = "<group>"; };
+		98BCD3901BEDE95900168B00 /* InvestmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentListViewController.m; sourceTree = "<group>"; };
+		98BCD3921BEDE97F00168B00 /* InvestmentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentListModel.h; sourceTree = "<group>"; };
+		98BCD3931BEDE97F00168B00 /* InvestmentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentListModel.m; sourceTree = "<group>"; };
+		98BCD3951BEDE99300168B00 /* InvestmentListAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentListAPICmd.h; sourceTree = "<group>"; };
+		98BCD3961BEDE99300168B00 /* InvestmentListAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentListAPICmd.m; sourceTree = "<group>"; };
+		98BCD3981BEDF1FE00168B00 /* InvestmentTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentTopTableViewCell.h; sourceTree = "<group>"; };
+		98BCD3991BEDF1FE00168B00 /* InvestmentTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentTopTableViewCell.m; sourceTree = "<group>"; };
+		98BCD39A1BEDF1FE00168B00 /* InvestmentTopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestmentTopTableViewCell.xib; sourceTree = "<group>"; };
+		98BCD3A81BEDF52100168B00 /* InvestmentBottomMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentBottomMTableViewCell.h; sourceTree = "<group>"; };
+		98BCD3A91BEDF52100168B00 /* InvestmentBottomMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentBottomMTableViewCell.m; sourceTree = "<group>"; };
+		98BCD3AC1BEDF6CE00168B00 /* ZDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDProgressView.h; sourceTree = "<group>"; };
+		98BCD3AD1BEDF6CF00168B00 /* ZDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDProgressView.m; sourceTree = "<group>"; };
+		98BCD3AF1BEDF78B00168B00 /* InvestmentBottomLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentBottomLTableViewCell.h; sourceTree = "<group>"; };
+		98BCD3B01BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentBottomLTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -638,6 +661,7 @@
 		98229EE21BE8C503005210EC /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				98BCD3AB1BEDF6BB00168B00 /* ZDProgressView */,
 				987037B81BED93D900F1679E /* KxMenu */,
 				98AC79BD1BEB6D1D0033F6D6 /* JSONKit */,
 				988EE3DE1BE991B00064A75B /* BMAdScrollView */,
@@ -950,6 +974,8 @@
 				98BCD2F61BEDE24C00168B00 /* RechargeVC.m */,
 				98BCD2F71BEDE24C00168B00 /* WithdrawdepositVC.h */,
 				98BCD2F81BEDE24C00168B00 /* WithdrawdepositVC.m */,
+				98BCD38F1BEDE95900168B00 /* InvestmentListViewController.h */,
+				98BCD3901BEDE95900168B00 /* InvestmentListViewController.m */,
 			);
 			path = LoginConditionVC;
 			sourceTree = "<group>";
@@ -1046,6 +1072,8 @@
 				98BCD32C1BEDE31300168B00 /* UserAssetModel.m */,
 				98BCD32D1BEDE31300168B00 /* UserInfoModel.h */,
 				98BCD32E1BEDE31300168B00 /* UserInfoModel.m */,
+				98BCD3921BEDE97F00168B00 /* InvestmentListModel.h */,
+				98BCD3931BEDE97F00168B00 /* InvestmentListModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1073,6 +1101,8 @@
 				98BCD3641BEDE37700168B00 /* UserAssetAPICmd.m */,
 				98BCD3651BEDE37700168B00 /* UserInfoAPICmd.h */,
 				98BCD3661BEDE37700168B00 /* UserInfoAPICmd.m */,
+				98BCD3951BEDE99300168B00 /* InvestmentListAPICmd.h */,
+				98BCD3961BEDE99300168B00 /* InvestmentListAPICmd.m */,
 			);
 			path = NetAPI;
 			sourceTree = "<group>";
@@ -1098,8 +1128,24 @@
 				98BCD3841BEDE3CD00168B00 /* RechargeCell.m */,
 				98BCD3721BEDE3C300168B00 /* MyaccountnumberCell.h */,
 				98BCD3731BEDE3C300168B00 /* MyaccountnumberCell.m */,
+				98BCD3981BEDF1FE00168B00 /* InvestmentTopTableViewCell.h */,
+				98BCD3991BEDF1FE00168B00 /* InvestmentTopTableViewCell.m */,
+				98BCD39A1BEDF1FE00168B00 /* InvestmentTopTableViewCell.xib */,
+				98BCD3A81BEDF52100168B00 /* InvestmentBottomMTableViewCell.h */,
+				98BCD3A91BEDF52100168B00 /* InvestmentBottomMTableViewCell.m */,
+				98BCD3AF1BEDF78B00168B00 /* InvestmentBottomLTableViewCell.h */,
+				98BCD3B01BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		98BCD3AB1BEDF6BB00168B00 /* ZDProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				98BCD3AC1BEDF6CE00168B00 /* ZDProgressView.h */,
+				98BCD3AD1BEDF6CF00168B00 /* ZDProgressView.m */,
+			);
+			path = ZDProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1190,6 +1236,7 @@
 				95319CF41BE9B75F00597AF8 /* img_account_head@2x.png in Resources */,
 				98229EB41BE8C381005210EC /* LaunchScreen.xib in Resources */,
 				988EE4251BEA31F00064A75B /* bg_account@2x.png in Resources */,
+				98BCD39C1BEDF1FE00168B00 /* InvestmentTopTableViewCell.xib in Resources */,
 				988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */,
 				98BCD3881BEDE3CD00168B00 /* HomeAssetBottomTableViewCell.xib in Resources */,
 				98229FC11BE8DD6B005210EC /* MJRefresh.bundle in Resources */,
@@ -1229,6 +1276,7 @@
 				98229F351BE8DCFB005210EC /* TelPrompt.m in Sources */,
 				98229EFC1BE8C54F005210EC /* AFURLConnectionOperation.m in Sources */,
 				98BCD2EB1BEDE23700168B00 /* RegisterViewController.m in Sources */,
+				98BCD3B11BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m in Sources */,
 				98BCD38D1BEDE3CD00168B00 /* RecentdynamicsCell.m in Sources */,
 				98229F4D1BE8DD3D005210EC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				98BCD3111BEDE2AF00168B00 /* EnumDefine.m in Sources */,
@@ -1265,6 +1313,7 @@
 				98229FB31BE8DD6B005210EC /* MJRefreshAutoFooter.m in Sources */,
 				98BCD2EC1BEDE23700168B00 /* UnLoginHomePageViewController.m in Sources */,
 				98BCD32F1BEDE31300168B00 /* CommonModel.m in Sources */,
+				98BCD39B1BEDF1FE00168B00 /* InvestmentTopTableViewCell.m in Sources */,
 				98229F7B1BE8DD46005210EC /* SDWebImageDownloader.m in Sources */,
 				98BCD2FC1BEDE24C00168B00 /* MyaccountnumberVC.m in Sources */,
 				98229F281BE8DCAF005210EC /* MMHud.m in Sources */,
@@ -1293,6 +1342,7 @@
 				98229EF81BE8C54F005210EC /* AFHTTPRequestOperationManager.m in Sources */,
 				98229FB51BE8DD6B005210EC /* MJRefreshComponent.m in Sources */,
 				98229FC01BE8DD6B005210EC /* MJRefreshStateHeader.m in Sources */,
+				98BCD3AA1BEDF52100168B00 /* InvestmentBottomMTableViewCell.m in Sources */,
 				98BCD3741BEDE3C300168B00 /* MyaccountnumberCell.m in Sources */,
 				98229F4C1BE8DD3D005210EC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				98229EFB1BE8C54F005210EC /* AFSecurityPolicy.m in Sources */,
@@ -1301,6 +1351,7 @@
 				98BCD36B1BEDE37700168B00 /* NoticeListAPICmd.m in Sources */,
 				98229F851BE8DD46005210EC /* UIView+WebCacheOperation.m in Sources */,
 				98229F7E1BE8DD46005210EC /* SDWebImagePrefetcher.m in Sources */,
+				98BCD3AE1BEDF6CF00168B00 /* ZDProgressView.m in Sources */,
 				98BCD3321BEDE31300168B00 /* UserAssetModel.m in Sources */,
 				98229F301BE8DCAF005210EC /* MMRadialProgressView.m in Sources */,
 				98BCD2FB1BEDE24C00168B00 /* LoginHomePageViewController.m in Sources */,
@@ -1317,9 +1368,11 @@
 				98229F801BE8DD46005210EC /* UIImage+GIF.m in Sources */,
 				98229F0E1BE8D6FE005210EC /* ZWIntroductionViewController.m in Sources */,
 				98BCD3011BEDE26200168B00 /* BaseViewController.m in Sources */,
+				98BCD3971BEDE99300168B00 /* InvestmentListAPICmd.m in Sources */,
 				98229F521BE8DD3D005210EC /* UIRefreshControl+AFNetworking.m in Sources */,
 				98229F511BE8DD3D005210EC /* UIProgressView+AFNetworking.m in Sources */,
 				98229F761BE8DD46005210EC /* MKAnnotationView+WebCache.m in Sources */,
+				98BCD3941BEDE97F00168B00 /* InvestmentListModel.m in Sources */,
 				98229FBD1BE8DD6B005210EC /* MJRefreshBackStateFooter.m in Sources */,
 				98BCD3131BEDE2AF00168B00 /* RYSmsManager.m in Sources */,
 				98BCD36E1BEDE37700168B00 /* TestAPICmd.m in Sources */,
@@ -1330,6 +1383,7 @@
 				98229FB71BE8DD6B005210EC /* MJRefreshHeader.m in Sources */,
 				98229F841BE8DD46005210EC /* UIImageView+WebCache.m in Sources */,
 				98229FC31BE8DD6B005210EC /* UIScrollView+MJExtension.m in Sources */,
+				98BCD3911BEDE95900168B00 /* InvestmentListViewController.m in Sources */,
 				98229FC41BE8DD6B005210EC /* UIScrollView+MJRefresh.m in Sources */,
 				98BCD30F1BEDE2AF00168B00 /* ConstantString.m in Sources */,
 				98BCD3871BEDE3CD00168B00 /* HomeAssetBottomTableViewCell.m in Sources */,

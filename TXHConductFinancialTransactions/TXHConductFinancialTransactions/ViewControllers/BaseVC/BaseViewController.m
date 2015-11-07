@@ -32,6 +32,13 @@
     
     self.view.backgroundColor = COLOR(232, 232, 232, 1.0);
     
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if(IOS_IS_AT_LEAST_7)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

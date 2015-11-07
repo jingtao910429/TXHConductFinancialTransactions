@@ -10,6 +10,21 @@
 
 @interface UserInfoModel : CommonModel
 
+/*
+ 作者:
+ {
+ "realName":"xxx", // 真实姓名
+ "phoneNumber":"xxxxx", // 电话
+ "idCard":"xxxx", // 身份证
+ "bankCardNum":"xxxx", // 银行卡信息
+ "remainAsset":0, // 剩余资产,单位分
+ "income":0,  // 总收益,单位分
+ "yesterdayIncome":0, // 昨日收益,单位分
+ "appVersion":"1.0", //app版本号
+ "kfPhone":"xxxx" //客服电话
+ }
+ */
+
 @property (nonatomic, copy) NSString *appVersion;
 @property (nonatomic, copy) NSString *bankCardNum;
 @property (nonatomic, copy) NSString *idCard;

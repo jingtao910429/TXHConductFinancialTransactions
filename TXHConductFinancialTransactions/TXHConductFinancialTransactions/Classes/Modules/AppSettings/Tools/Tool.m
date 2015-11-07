@@ -16,4 +16,23 @@
     
 }
 
++ (void)setUserInfoWithDict:(NSDictionary *)userInfos {
+    NSString *userInfoStr = [[EncryptionManager shareManager] encodeWithData:userInfos version:VERSION];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:userInfoStr forKey:@"userInfo"];
+    [defaults synchronize];
+}
+
++ (NSDictionary *)getUserInfo {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [[EncryptionManager shareManager] decodeWithStr:[defaults objectForKey:@"userInfo"] version:VERSION];
+}
+
++ (void)clearUserInfo {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *userInfoStr = [[EncryptionManager shareManager] encodeWithData:[NSDictionary dictionary] version:VERSION];
+    [defaults setValue:userInfoStr forKey:@"userInfo"];
+    [defaults synchronize];
+}
+
 @end

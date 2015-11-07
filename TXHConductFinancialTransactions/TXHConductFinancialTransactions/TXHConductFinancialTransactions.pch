@@ -20,7 +20,10 @@
 #include "WToast.h"
 #import "UIViewController+NavigationBarStyle.h"
 
+//加密key
 #define VERSION 2
+
+//17090872779 147258
 
 #define api_domain @"http://app.aiben123.com/"
 //登录
@@ -31,6 +34,14 @@
 #define API_CheckVertifyCode @"nblc/api/account/checkSmsVerifyCode"
 //注册／重置密码
 #define API_Register @"nblc/api/account/register"
+//活动列表
+#define API_NoticeList @"nblc/api/notice/list"
+//用户资产信息
+#define API_UserAsset @"nblc/api/asset/info"
+//理财用户信息
+#define API_UserInfo  @"nblc/api/account/info"
+//交易记录
+#define API_DealDetail @"nblc/api/deal/logs"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"

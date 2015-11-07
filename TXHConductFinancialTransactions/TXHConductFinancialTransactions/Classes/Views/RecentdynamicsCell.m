@@ -17,30 +17,21 @@
         
         
         
-        bgview=[[UIView alloc] initWithFrame:CGRectMake(10, 10, kScreenWidth-20, 150)];
+        bgview=[[UIView alloc] initWithFrame:CGRectMake(10, 5, kScreenWidth - 20, 180)];
+        bgimageview.layer.cornerRadius = 5;
+        bgimageview.layer.masksToBounds = YES;
         bgview.backgroundColor=[UIColor whiteColor];
         [self.contentView addSubview:bgview];
         
-        
-        
-        
-        
-        bgimageview=[[UIImageView alloc] initWithFrame:CGRectMake(10, 10, bgview.frame.size.width-20 , 100)];
-        
+        bgimageview=[[UIImageView alloc] initWithFrame:CGRectMake(10, 10, bgview.frame.size.width-20 , 135)];
         
         [bgview addSubview:bgimageview];
         
       
         
-        textlable=[[UILabel alloc] initWithFrame:CGRectMake(10, bgimageview.frame.size.height+15, bgview.frame.size.width-20, 32)];
-        
-  
+        textlable=[[UILabel alloc] initWithFrame:CGRectMake(10, bgimageview.frame.size.height+15, bgview.frame.size.width-20, 30)];
+        textlable.font = [UIFont systemFontOfSize:15];
         [bgview addSubview:textlable];
-        
-        
-        
-        
-        
         
     }
     return self;

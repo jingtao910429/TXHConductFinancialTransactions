@@ -200,8 +200,17 @@
             [self.timer invalidate];
             [self canGetVerifyCode];
             
+            //设置密码
+            
             LoginViewController *registerLoginVC = [[LoginViewController alloc] init];
-            registerLoginVC.isSetPassword = YES;
+            registerLoginVC.isConfirmPassword = YES;
+            
+            if ([self.navigationController.title isEqualToString:@"注册"]) {
+                registerLoginVC.isRegisterSetPassword = YES;
+            }else{
+                registerLoginVC.isRegisterSetPassword = NO;
+            }
+            
             registerLoginVC.userName = self.phoneNumberTF.text;
             [self.navigationController pushViewController:registerLoginVC animated:YES];
             
@@ -263,7 +272,7 @@
     
 }
 
-//立即注册
+//验证手机号
 - (void)registerBtnClick {
     
     if (0 == self.smsTF.text.length) {
@@ -333,7 +342,7 @@
     if ([RYSmsManager defaultManager].infoDictionary.count > 0 ) {
         NSString *secondString = [[RYSmsManager defaultManager].infoDictionary  objectForKey:[RYSmsManager defaultManager].mobile];
         
-        if ([RYSmsManager defaultManager].mobile) {
+        if ([RYSmsManager defaultManager].mobile && !self.isRestPassword) {
             self.phoneNumberTF.text = [RYSmsManager defaultManager].mobile;
         }
         if (secondString != nil) {

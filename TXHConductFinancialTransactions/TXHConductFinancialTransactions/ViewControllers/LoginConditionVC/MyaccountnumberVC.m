@@ -9,14 +9,25 @@
 #import "MyaccountnumberVC.h"
 #import "UIViewController+NavigationBarStyle.h"
 #import "MyaccountnumberCell.h"
+#import "UnLoginHomePageViewController.h"
+#import "UserInfoAPICmd.h"
+#import "UserInfoModel.h"
+#import "NSString+Additions.h"
 
-@interface MyaccountnumberVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface MyaccountnumberVC () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
+
+
 @property (nonatomic, strong) UITableView *contentTableView;
 @property (nonatomic, strong) UIView*headview;
 @property (nonatomic, strong) NSArray *leftDataArr;
+@property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) UILabel*nameLable;//账号名字
 
 @property (nonatomic, strong) UILabel*priceLable;//余额
+
+//网络请求
+@property (nonatomic, strong) UserInfoAPICmd *userInfoAPICmd;
+@property (nonatomic, strong) UserInfoModel *userInfoModel;
 
 
 @end
@@ -28,21 +39,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     [self configUI];
+    
+    [self.userInfoAPICmd loadData];
 }
 
--(void)configUI{
- 
-    [self clearNavigationBar];
+-(void)configUI{    
     
-    
-    [self navigationBarStyleWithTitle:@"我的账号" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"我的账号" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     //添加视图
     [self.view addSubview:self.contentTableView];
     
     self.leftDataArr=[[NSArray alloc] initWithObjects:@"身份证号",@"银行卡号",@"客服电话",@"QQ官方群",@"关于我们",@"检测更新", nil];
-    
+    self.dataSource = [[NSArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"", nil];
 }
 
 //代理方法
@@ -53,7 +62,80 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return self.leftDataArr.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 200;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    _headview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+    
+    UIView*topview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
+    
+    UIImageView*topimageview=[[UIImageView alloc] initWithFrame:CGRectMake(6, 15, 40, 40)];
+    topimageview.image=[UIImage imageNamed:@"img_account_head"];
+    
+    
+    [topview addSubview:topimageview];
+    
+    _nameLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 15, 140, 20)];
+    _nameLable.text = self.userInfoModel.phoneNumber?self.userInfoModel.phoneNumber:@"";
+    
+    [topview addSubview:_nameLable];
+    
+    
+    _priceLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 35, 140, 30)];
+    
+    NSString *priceStr = [[NSString stringWithFormat:@"%@",self.userInfoModel.income?self.userInfoModel.income:@""] changeFormatwithMoneyAmount];
+    _priceLable.text = [NSString stringWithFormat:@"金额：%@",priceStr];
+    _priceLable.textColor=[UIColor redColor];
+    
+    
+    [topview addSubview:_priceLable];
+    
+    //修改密码
+    UIButton*changeBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-100, 25, 80, 25)];
+    
+    [changeBtn setTitle:@"修改密码" forState:UIControlStateNormal];
+    changeBtn.imageView.frame =changeBtn.bounds;
+    changeBtn.hidden = NO;
+    
+    [changeBtn addTarget:self action:@selector(onchangeBtn) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    changeBtn.imageView.backgroundColor=[UIColor redColor];
+    [topview addSubview:changeBtn];
+    changeBtn.backgroundColor=[UIColor grayColor];
+    
+    
+    [_headview addSubview:topview];
+    
+    
+    
+    
+    UIImageView*downview=[[UIImageView alloc] initWithFrame:CGRectMake(0, topview.frame.size.height, kScreenWidth, 120)];
+    
+    downview.image=[UIImage imageNamed:@"bg_account_asset_info"];
+    downview.userInteractionEnabled=YES;
+    
+    //详细介绍
+    UIButton*xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-80, 60, 30, 30)];
+    
+    [xiangxiBtn setTitle:@" ？" forState:UIControlStateNormal];
+    
+    
+    xiangxiBtn.userInteractionEnabled=YES;
+    [xiangxiBtn addTarget:self action:@selector(onxiangxiBtn) forControlEvents:UIControlEventTouchUpInside];
+    xiangxiBtn.backgroundColor=[UIColor blackColor];
+    [downview addSubview:xiangxiBtn];
+    changeBtn.backgroundColor=[UIColor grayColor];
+    
+    [_headview addSubview:downview];
+    
+    return _headview;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,13 +145,16 @@
     if (cell == nil) {
         cell = [[ MyaccountnumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
+    if (4 != indexPath.row) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
  
     cell.leftimageview.image=[UIImage imageNamed:@"img_account_head"];
 
     cell.leftlable.text=self.leftDataArr[indexPath.row];
     
-    cell.rightlable.text=self.leftDataArr[indexPath.row];
-    
+    cell.rightlable.text = self.dataSource[indexPath.row];
     
     return cell;
     
@@ -79,12 +164,16 @@
     
     return 70;
 }
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView* myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 70)];
    
     
-    UIButton*baocunBTN=[[UIButton alloc] initWithFrame:CGRectMake(30, 10, kScreenWidth-60,40)];
+    UIButton*baocunBTN=[[UIButton alloc] initWithFrame:CGRectMake(15, 10, kScreenWidth-30,44)];
     baocunBTN.backgroundColor=[UIColor orangeColor];
+    baocunBTN.layer.cornerRadius = 4;
+    baocunBTN.layer.masksToBounds = YES;
     
     [baocunBTN setTitle:@"退出账号" forState:UIControlStateNormal];
     [baocunBTN addTarget:self action:@selector(onbaocunBTN) forControlEvents:UIControlEventTouchUpInside];
@@ -103,21 +192,60 @@
     
 }
 
+#pragma mark - APICmdApiCallBackDelegate
+
+- (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
+    
+    if (baseAPICmd ==self.userInfoAPICmd) {
+        
+        NSDictionary *tempDict = (NSDictionary *)responseData;
+        
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+            [Tool ToastNotification:tempDict[@"msg"]];
+            
+        }else{
+            
+            self.userInfoModel = [[UserInfoModel alloc] init];
+            [self.userInfoModel setValuesForKeysWithDictionary:tempDict[@"data"]];
+            
+            self.dataSource = [[NSArray alloc] initWithObjects:self.userInfoModel.idCard?self.userInfoModel.idCard:@"",self.userInfoModel.bankCardNum?self.userInfoModel.bankCardNum:@"",self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@"",self.userInfoModel.idCard?self.userInfoModel.idCard:@"",@"",self.userInfoModel.appVersion?self.userInfoModel.appVersion:@"", nil];
+            
+            [self.contentTableView reloadData];
+        }
+    }
+    
+}
+
+- (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
+    [Tool ToastNotification:@"加载失败"];
+}
+
 #pragma mark - event response
 
 #pragma mark - private method
 
 //退出账号
--(void)onbaocunBTN{
- 
+- (void)onbaocunBTN {
+    
+    UnLoginHomePageViewController *unLoginHomePageVC = [[UnLoginHomePageViewController alloc] init];
+    [[[[UIApplication sharedApplication] delegate] window] setRootViewController:[[UINavigationController alloc] initWithRootViewController:unLoginHomePageVC]];
+    
+    [Tool clearUserInfo];
+    
 }
 
 //修改密码
 -(void)onchangeBtn{
     
 }
+
 -(void)onxiangxiBtn{
     
+}
+
+- (void)popVC {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -125,91 +253,26 @@
 
 - (UITableView *)contentTableView {
     if (!_contentTableView) {
-        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,kScreenWidth , kScreenHeight) style:UITableViewStylePlain];
-        
-        _headview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
-        
-        
-        
-        UIView*topview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
-        
-        UIImageView*topimageview=[[UIImageView alloc] initWithFrame:CGRectMake(6, 15, 40, 40)];
-        topimageview.image=[UIImage imageNamed:@"img_account_head"];
-        
-        
-        [topview addSubview:topimageview];
-        
-        _nameLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 15, 140, 20)];
-        _nameLable.text=@"1234567890";
-        
-        [topview addSubview:_nameLable];
-        
-        
-        _priceLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 35, 140, 30)];
-        _priceLable.text=@"余额:00";
-        _priceLable.textColor=[UIColor redColor];
-        
-        
-        [topview addSubview:_priceLable];
-        
-        //修改密码
-        UIButton*changeBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-100, 25, 80, 25)];
-        
-        [changeBtn setTitle:@"修改密码" forState:UIControlStateNormal];
-        changeBtn.imageView.frame =changeBtn.bounds;
-        changeBtn.hidden = NO;
-        
-        [changeBtn addTarget:self action:@selector(onchangeBtn) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        changeBtn.imageView.backgroundColor=[UIColor redColor];
-        [topview addSubview:changeBtn];
-        changeBtn.backgroundColor=[UIColor grayColor];
-        
-        
-        [_headview addSubview:topview];
-        
-        
-        
-        
-        UIImageView*downview=[[UIImageView alloc] initWithFrame:CGRectMake(0, topview.frame.size.height, kScreenWidth, 120)];
-        
-        downview.image=[UIImage imageNamed:@"bg_account_asset_info"];
-        downview.userInteractionEnabled=YES;
-        
-        
-        
-        
-        //详细介绍
-        UIButton*xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-80, 60, 30, 30)];
-        
-        [xiangxiBtn setTitle:@" ？" forState:UIControlStateNormal];
-        
-        
-        xiangxiBtn.userInteractionEnabled=YES;
-        [xiangxiBtn addTarget:self action:@selector(onxiangxiBtn) forControlEvents:UIControlEventTouchUpInside];
-        xiangxiBtn.backgroundColor=[UIColor blackColor];
-        [downview addSubview:xiangxiBtn];
-        changeBtn.backgroundColor=[UIColor grayColor];
-        
-        
-        
-        
-        [_headview addSubview:downview];
-        
-        
-        _contentTableView.tableHeaderView=_headview;
+        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,kScreenWidth , kScreenHeight - 64) style:UITableViewStylePlain];
         
         UIView*footview=[[UIView alloc] init];
         _contentTableView.tableFooterView=footview;
         footview.backgroundColor=[UIColor whiteColor];
         
-        
-        
         _contentTableView.dataSource = self;
         _contentTableView.delegate = self;
     }
     return _contentTableView;
+}
+
+- (UserInfoAPICmd *)userInfoAPICmd {
+    if (!_userInfoAPICmd) {
+        _userInfoAPICmd = [[UserInfoAPICmd alloc] init];
+        _userInfoAPICmd.delegate = self;
+        _userInfoAPICmd.path = API_UserInfo;
+    }
+    _userInfoAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"]};
+    return _userInfoAPICmd;
 }
 
 

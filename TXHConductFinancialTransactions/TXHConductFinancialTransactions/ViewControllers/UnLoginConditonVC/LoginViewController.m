@@ -57,7 +57,7 @@
 
 - (void)configData {
     
-    if (self.isSetPassword) {
+    if (self.isConfirmPassword) {
         
         self.images = @[@"ic_modify_password",@"",@"ic_modify_password"];
         self.placeHolders = @[@"请输入密码、长度6～16位",@"",@"确认密码"];
@@ -68,12 +68,12 @@
         self.placeHolders = @[@"手机号",@"",@"登录密码"];
         
     }
-
+    
 }
 
 - (void)configUI {
     
-    if (self.isSetPassword) {
+    if (self.isConfirmPassword) {
         [self navigationBarStyleWithTitle:@"设置密码" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     }else{
         [self navigationBarStyleWithTitle:@"登录" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:@"注册" rightImageName:nil rightAction:@selector(registeBtnClick)];
@@ -182,9 +182,31 @@
     
     if (baseAPICmd == self.loginAPICmd) {
         
+        [self.view endEditing:YES];
+        
         NSDictionary *tempDict = (NSDictionary *)responseData;
         
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+            //登录失败
+            [Tool ToastNotification:tempDict[@"msg"]];
+            
+        }else{
+            
+            [Tool setUserInfoWithDict:@{@"id":tempDict[@"id"],@"username":self.userNameTextFiled.text,@"password":self.passwordTextFiled.text}];
+            
+            //登录成功
+            LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginHomePageVC];
+            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginNav];
+            
+        }
+        
+    }else if (baseAPICmd == self.registerAPICmd) {
+        
         [self.view endEditing:YES];
+        
+        NSDictionary *tempDict = (NSDictionary *)responseData;
         
         if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
             
@@ -194,7 +216,8 @@
         }else{
             //登录成功
             LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
-            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginHomePageVC];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginHomePageVC];
+            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginNav];
             
         }
         
@@ -203,6 +226,8 @@
 }
 
 - (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
+    
+    [Tool ToastNotification:@"登录失败"];
     
 }
 
@@ -231,7 +256,7 @@
 
 - (void)loginBtnClick {
     
-    if (self.isSetPassword) {
+    if (self.isConfirmPassword) {
         
         [self.view endEditing:YES];
         
@@ -250,8 +275,10 @@
             
             alertView = [[UIAlertView alloc]initWithTitle:nil message:@"两次密码不一致" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
             [alertView show];
+        }else{
+            
+            [self.registerAPICmd loadData];
         }
-        
         
         
     }else {
@@ -332,7 +359,7 @@
         
         _userNameTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(self.contentImageView.frame.origin.x + self.contentImageView.frame.size.width + 8, 0, kScreenWidth - 60 - self.contentImageView.frame.size.width, CELL_HEIGHT)];
         
-        if (self.isSetPassword) {
+        if (self.isConfirmPassword) {
             _userNameTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
             _userNameTextFiled.secureTextEntry = YES;
             _userNameTextFiled.returnKeyType = UIReturnKeyNext;
@@ -377,7 +404,7 @@
         [_forgetPasswordBtn addTarget:self action:@selector(forgetPasswordBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    if (self.isSetPassword) {
+    if (self.isConfirmPassword) {
         _forgetPasswordBtn.hidden = YES;
     }
     
@@ -392,7 +419,7 @@
         _loginBtn.layer.cornerRadius = 4;
         _loginBtn.layer.masksToBounds = YES;
         
-        if (self.isSetPassword) {
+        if (self.isConfirmPassword) {
             [_loginBtn setTitle:@"确认" forState:UIControlStateNormal];
         }else{
             [_loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
@@ -424,7 +451,7 @@
         _registerAPICmd.delegate = self;
         _registerAPICmd.path = API_Register;
     }
-    _registerAPICmd.reformParams = @{@"type":@"1",@"username":self.userName,@"password":self.passwordTextFiled.text};
+    _registerAPICmd.reformParams = @{@"type":self.isRegisterSetPassword?@"2":@"1",@"username":self.userName,@"password":self.passwordTextFiled.text};
     return _registerAPICmd;
 }
 

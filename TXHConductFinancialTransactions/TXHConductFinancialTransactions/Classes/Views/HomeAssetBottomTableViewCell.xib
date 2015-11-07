@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="101" id="KGk-i7-Jjw" customClass="HomeAssetBottomTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7B-OF-vD0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="22" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_withdrawals.png" translatesAutoresizingMaskIntoConstraints="NO" id="44F-Fa-DZn">
+                                <rect key="frame" x="160" y="13" width="160" height="73"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_recharge.png" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-jL-iRf">
+                                <rect key="frame" x="0.0" y="13" width="160" height="73"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="44F-Fa-DZn" firstAttribute="top" secondItem="F7B-OF-vD0" secondAttribute="top" constant="13" id="6hL-3T-B54"/>
+                            <constraint firstItem="44F-Fa-DZn" firstAttribute="height" secondItem="AhN-jL-iRf" secondAttribute="height" id="7PM-p7-Xbf"/>
+                            <constraint firstAttribute="bottom" secondItem="AhN-jL-iRf" secondAttribute="bottom" constant="14" id="LyM-ux-a4K"/>
+                            <constraint firstItem="AhN-jL-iRf" firstAttribute="top" secondItem="F7B-OF-vD0" secondAttribute="top" constant="13" id="P02-EF-u1u"/>
+                            <constraint firstAttribute="centerY" secondItem="44F-Fa-DZn" secondAttribute="centerY" constant="0.5" id="U5A-Uw-7Ul"/>
+                            <constraint firstAttribute="trailing" secondItem="44F-Fa-DZn" secondAttribute="trailing" id="YRb-Fc-knw"/>
+                            <constraint firstItem="44F-Fa-DZn" firstAttribute="width" secondItem="AhN-jL-iRf" secondAttribute="width" id="e00-X5-Ow0"/>
+                            <constraint firstAttribute="centerX" secondItem="44F-Fa-DZn" secondAttribute="centerX" constant="-80" id="iez-ds-r3m"/>
+                            <constraint firstItem="AhN-jL-iRf" firstAttribute="leading" secondItem="F7B-OF-vD0" secondAttribute="leading" id="iyn-w4-1Qf"/>
+                            <constraint firstItem="44F-Fa-DZn" firstAttribute="leading" secondItem="AhN-jL-iRf" secondAttribute="trailing" id="oBO-ee-T0W"/>
+                            <constraint firstAttribute="centerY" secondItem="AhN-jL-iRf" secondAttribute="centerY" constant="0.5" id="t10-yZ-1vD"/>
+                            <constraint firstAttribute="centerX" secondItem="AhN-jL-iRf" secondAttribute="centerX" constant="80" id="tax-ki-UtX"/>
+                            <constraint firstAttribute="bottom" secondItem="44F-Fa-DZn" secondAttribute="bottom" constant="14" id="v9B-iD-D41"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="F7B-OF-vD0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="CVx-Fi-iM2"/>
+                    <constraint firstAttribute="centerX" secondItem="F7B-OF-vD0" secondAttribute="centerX" id="JHg-4a-1ws"/>
+                    <constraint firstAttribute="centerY" secondItem="F7B-OF-vD0" secondAttribute="centerY" id="Za0-dR-ffw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="F7B-OF-vD0" secondAttribute="bottom" constant="-8" id="rt3-tv-Hcz"/>
+                    <constraint firstItem="F7B-OF-vD0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="ufH-Yx-bXe"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="F7B-OF-vD0" secondAttribute="trailing" constant="-8" id="vkn-g5-ocV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="rechargeImageView" destination="AhN-jL-iRf" id="Qg6-0o-moN"/>
+                <outlet property="withDrawImageView" destination="44F-Fa-DZn" id="706-Cv-YcD"/>
+            </connections>
+            <point key="canvasLocation" x="309" y="352.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_recharge.png" width="68" height="91"/>
+        <image name="ic_withdrawals.png" width="68" height="91"/>
+    </resources>
+</document>

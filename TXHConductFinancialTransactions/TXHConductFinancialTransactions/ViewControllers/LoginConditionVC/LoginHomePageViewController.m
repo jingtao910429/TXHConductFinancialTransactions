@@ -8,19 +8,47 @@
 
 #import "LoginHomePageViewController.h"
 #import "BMAdScrollView.h"
+#import "NoticeListAPICmd.h"
+#import "UserAssetAPICmd.h"
+#import "NoticeListModel.h"
+#import "UserAssetModel.h"
+#import "HomeAssetTableViewCell.h"
+#import "HomeAssetMiddleTableViewCell.h"
+#import "HomeAssetBottomTableViewCell.h"
+#import "KxMenu.h"
+#import "ActivityDetailViewController.h"
+#import "RecentdynamicsVC.h"
+#import "MyaccountnumberVC.h"
+#import "NSString+Additions.h"
+#import "DealDetailViewController.h"
 
-@interface LoginHomePageViewController () <ValueClickDelegate,UITableViewDataSource,UITableViewDelegate>
+
+static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
+static NSString *HomeAssetMiddleTableViewCellID = @"HomeAssetMiddleTableViewCellID";
+static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCellID";
+
+@interface LoginHomePageViewController () <ValueClickDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
 
 @property (nonatomic, strong) UITableView        *contentTableView;
 
 @property (nonatomic, strong) UIView             *topBackGroudView;
 @property (nonatomic, strong) BMAdScrollView     *bmadScrollView;
 @property (nonatomic, strong) UIImageView        *unloginImgView;
-
 //底部button （立即投资）
 @property (nonatomic, strong) UIButton           *bottomButton;
+//用户视图
 
-@property (nonatomic, copy)   NSMutableArray     *images;
+//广告image
+@property (nonatomic, strong)   NSMutableArray     *images;
+//itemName
+@property (nonatomic, copy)     NSArray  *menuItems;
+//广告
+@property (nonatomic, strong)   NoticeListAPICmd   *noticeListAPICmd;
+//用户资产
+@property (nonatomic, strong)   UserAssetAPICmd    *userAssetAPICmd;
+
+//用户资产model
+@property (nonatomic, strong)   UserAssetModel     *userAssetModel;
 
 @end
 
@@ -30,6 +58,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configData];
     [self configUI];
 }
 
@@ -38,9 +67,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)configData {
+    
+    [self.noticeListAPICmd loadData];
+    [self.userAssetAPICmd  loadData];
+}
+
 - (void)configUI {
     
+    [self navigationBarStyleWithTitle:@"首页" titleColor:[UIColor blackColor]  leftTitle:@"活动" leftImageName:nil leftAction:@selector(activityList) rightTitle:nil rightImageName:@"img_account_head" rightAction:@selector(selectItem:)];
     
+    [self.view addSubview:self.contentTableView];
+    [self.view addSubview:self.bottomButton];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -53,10 +91,242 @@
     return 0.001;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (0 == indexPath.row) {
+        return 0.26*self.view.frame.size.height;
+    }else if (1 == indexPath.row) {
+        return 60;
+    }
+    return 100;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    for (UIView *subView in self.topBackGroudView.subviews) {
+        [subView removeFromSuperview];
+    }
+    
+    if (self.images &&  self.images.count != 0) {
+        [self.topBackGroudView addSubview:self.bmadScrollView];
+    }else{
+        [self.topBackGroudView addSubview:self.unloginImgView];
+    }
+    
+    return self.topBackGroudView;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (0 == indexPath.row) {
+        
+        HomeAssetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HomeAssetTableViewCellID];
+        
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetTableViewCell" owner:self options:nil] lastObject];
+        }
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeFormatwithMoneyAmount];
+        cell.rateLabel.text = [NSString stringWithFormat:@"昨日年华收益率    %@%%",self.userAssetModel.rate?self.userAssetModel.rate:@"0.00"];
+        
+        return cell;
+        
+    }else if (1 == indexPath.row) {
+        
+        HomeAssetMiddleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HomeAssetMiddleTableViewCellID];
+        
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetMiddleTableViewCell" owner:self options:nil] lastObject];
+        }
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.putMoneyLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.remainAsset?self.userAssetModel.remainAsset:@"0.00"] changeFormatwithMoneyAmount];
+        cell.yestadyIncomeLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.yesterdayIncome?self.userAssetModel.yesterdayIncome:@"0.00"] changeFormatwithMoneyAmount];
+        
+        return cell;
+        
+    }else if (2 == indexPath.row) {
+        
+        HomeAssetBottomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HomeAssetBottomTableViewCellID];
+        
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetBottomTableViewCell" owner:self options:nil] lastObject];
+            
+            UITapGestureRecognizer *tapGesRecharge = [[UITapGestureRecognizer alloc] init];
+            [tapGesRecharge addTarget:self action:@selector(tapGesRecharge)];
+            [cell.rechargeImageView addGestureRecognizer:tapGesRecharge];
+            
+            UITapGestureRecognizer *tapGesDaw = [[UITapGestureRecognizer alloc] init];
+            [tapGesDaw addTarget:self action:@selector(tapGesDaw)];
+            [cell.withDrawImageView addGestureRecognizer:tapGesDaw];
+            
+        }
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        return cell;
+        
+    }
+    
+    static NSString *cellID = @"CELL_ID";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    
+    return cell;
+}
+
+#pragma mark - APICmdApiCallBackDelegate
+
+- (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
+    
+    if (baseAPICmd == self.noticeListAPICmd) {
+        
+        NSDictionary *tempDict = (NSDictionary *)responseData;
+        
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+            [Tool ToastNotification:tempDict[@"msg"]];
+            
+        }else{
+            
+            NSArray *data = tempDict[@"data"];
+            
+            if (data && ![data isKindOfClass:[NSNull class]] && data.count != 0) {
+                
+                self.images = [[NSMutableArray alloc] initWithCapacity:20];
+                
+                for (NSDictionary *subDict in data) {
+                    
+                    NoticeListModel *model = [[NoticeListModel alloc] init];
+                    [model setValuesForKeysWithDictionary:subDict];
+                    [self.images addObject:model];
+                }
+                
+                [self.contentTableView reloadData];
+            }
+            
+        }
+        
+    }else if (baseAPICmd == self.userAssetAPICmd) {
+        
+        NSDictionary *tempDict = (NSDictionary *)responseData;
+        
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+            [Tool ToastNotification:tempDict[@"msg"]];
+            
+        }else{
+            
+            self.userAssetModel = [[UserAssetModel alloc] init];
+            
+            [self.userAssetModel setValuesForKeysWithDictionary:tempDict[@"data"]];
+            
+            [self.contentTableView reloadData];
+            
+        }
+        
+    }
+    
+}
+
+- (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
+    [Tool ToastNotification:@"获取数据失败"];
+}
+
 #pragma mark - event response
 
 //活动banner点击事件
 -(void)buttonClick:(int)vid {
+    
+    ActivityDetailViewController *activityDetailVC = [[ActivityDetailViewController alloc] init];
+    
+    NoticeListModel *model = self.images[vid - 1];
+    activityDetailVC.url = model.url;
+    
+    [self.navigationController pushViewController:activityDetailVC animated:YES];
+    
+}
+
+//我要提现
+- (void)tapGesRecharge {
+    
+}
+
+// 我要充值
+- (void)tapGesDaw {
+    
+}
+
+// 活动列表
+- (void)activityList {
+    
+    RecentdynamicsVC *recentdynamicsVC = [[RecentdynamicsVC alloc] init];
+    [self.navigationController pushViewController:recentdynamicsVC animated:YES];
+}
+
+- (void)selectItem:(UIButton *)sender {
+    
+    [[KxMenu sharedMenu] setIsShowPopView:YES];
+    
+    self.menuItems = @[[KxMenuItem menuItem:@" 收益记录 "
+                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                     target:self
+                                     action:@selector(pushMenuItem:) tag:1 isSelect:NO],
+                       
+                       [KxMenuItem menuItem:@" 交易记录 "
+                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                     target:self
+                                     action:@selector(pushMenuItem:) tag:2 isSelect:NO],
+                       
+                       [KxMenuItem menuItem:@" 我的账户 "
+                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                     target:self
+                                     action:@selector(pushMenuItem:) tag:3 isSelect:NO]];
+    
+    CGRect rect = sender.frame;
+    rect.origin.y = 54;
+    [KxMenu showMenuInView:self.navigationController.view
+                  fromRect:rect
+                 menuItems:self.menuItems];
+    
+}
+
+//右上角类型选择
+- (void)pushMenuItem:(id)sender {
+    
+    [[KxMenu sharedMenu] setIsShowPopView:NO];
+    
+    KxMenuItem *item = (KxMenuItem *)sender;
+    
+    switch (item.tag) {
+        case 1:
+            
+            break;
+        case 2:{
+            DealDetailViewController *dealDetailViewController = [[DealDetailViewController alloc] init];
+            [self.navigationController pushViewController:dealDetailViewController animated:YES];
+        }
+            break;
+        case 3:{
+            //我的账户
+            MyaccountnumberVC *myaccountnumberVC = [[MyaccountnumberVC alloc] init];
+            [self.navigationController pushViewController:myaccountnumberVC animated:YES];
+        }
+            
+            break;
+        default:
+            break;
+    }
+
     
 }
 
@@ -66,10 +336,7 @@
 
 - (UITableView *)contentTableView {
     if (!_contentTableView) {
-        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(20, 30, kScreenWidth - 40, kScreenHeight - 100) style:UITableViewStyleGrouped];
-        _contentTableView.backgroundColor = [UIColor clearColor];
-        _contentTableView.scrollEnabled = NO;
-        _contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 50 - 64) style:UITableViewStyleGrouped];
         _contentTableView.delegate = self;
         _contentTableView.dataSource = self;
     }
@@ -80,10 +347,15 @@
     
     if (!_bmadScrollView) {
         
-        _bmadScrollView = [[BMAdScrollView alloc] initWithNameArr:self.images height:self.topBackGroudView.frame.size.height offsetY:0];
+        NSMutableArray *tempImages = [[NSMutableArray alloc] init];
+        
+        for (NoticeListModel *model in self.images) {
+            [tempImages addObject:model.titleImg];
+        }
+        
+        _bmadScrollView = [[BMAdScrollView alloc] initWithNameArr:tempImages height:self.topBackGroudView.frame.size.height offsetY:0];
         _bmadScrollView.vDelegate = self;
         _bmadScrollView.pageCenter = CGPointMake(kScreenWidth - 30, self.topBackGroudView.frame.size.height - 30);
-        [self.topBackGroudView addSubview:self.bmadScrollView];
         
     }
     return _bmadScrollView;
@@ -93,24 +365,51 @@
 {
     if (!_topBackGroudView) {
         _topBackGroudView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0.3*self.view.frame.size.height + 20)];
-        UIImage *image = [UIImage imageNamed:@"topBanner"];
-        self.unloginImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.topBackGroudView.frame.size.width, self.topBackGroudView.frame.size.height)];
-        self.unloginImgView.image = image;
-        [_topBackGroudView addSubview:self.unloginImgView];
     }
     return _topBackGroudView;
+}
+
+- (UIImageView *)unloginImgView {
+    if (!_unloginImgView) {
+        UIImage *image = [UIImage imageNamed:@"ic_empty.jpg"];
+        _unloginImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.topBackGroudView.frame.size.width, self.topBackGroudView.frame.size.height)];
+        _unloginImgView.image = image;
+    }
+    return _unloginImgView;
 }
 
 - (UIButton *)bottomButton {
     if (!_bottomButton) {
         
         _bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _bottomButton.frame = CGRectMake(0, self.view.frame.size.height - 50, kScreenWidth, 50);
+        _bottomButton.frame = CGRectMake(0, self.view.frame.size.height - 50 - 64, kScreenWidth, 50);
         [_bottomButton setTitle:@"立即投资" forState:UIControlStateNormal];
-        [_bottomButton setTitleColor:COLOR(239, 71, 26, 1.0) forState:UIControlStateNormal];
+        [_bottomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        _bottomButton.backgroundColor = COLOR(239, 71, 26, 1.0);
         
     }
     return _bottomButton;
+}
+
+- (NoticeListAPICmd *)noticeListAPICmd {
+    if (!_noticeListAPICmd) {
+        _noticeListAPICmd = [[NoticeListAPICmd alloc] init];
+        _noticeListAPICmd.delegate = self;
+        _noticeListAPICmd.path = API_NoticeList;
+    }
+    _noticeListAPICmd.reformParams = @{@"type":@"1",@"pageNum":@"1"};
+    return _noticeListAPICmd;
+}
+
+- (UserAssetAPICmd *)userAssetAPICmd {
+    if (!_userAssetAPICmd) {
+        _userAssetAPICmd = [[UserAssetAPICmd alloc] init];
+        _userAssetAPICmd.delegate = self;
+        _userAssetAPICmd.path = API_UserAsset;
+    }
+    _userAssetAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"]};
+    return _userAssetAPICmd;
 }
 
 @end

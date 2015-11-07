@@ -20,11 +20,6 @@
 @property (nonatomic, strong) NSArray *textArr;
 @property (nonatomic, strong) UILabel*firstLable;
 
-
-
-
-
-
 @end
 
 @implementation RechargeVC
@@ -48,11 +43,6 @@
     
     self.RechargeView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:self.RechargeView];
-    
-    
-
-    
-    
 }
 
 
@@ -107,7 +97,7 @@
 }
 -(void)configUI{
     
-      [self navigationBarStyleWithTitle:@"充值" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"充值" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
     self.nameArr=@[@"账户余额(元):",@"银行卡:",@"身份证:",@"真实姓名:",@"充值金额(元):",];
     

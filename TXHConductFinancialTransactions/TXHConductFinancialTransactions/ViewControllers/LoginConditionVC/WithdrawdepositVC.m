@@ -22,13 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     [self configUI];
 }
 
 -(void)configUI{
     
-    [self navigationBarStyleWithTitle:@"提取" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"提取" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
     self.view.backgroundColor = BackColor;
     _bgView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 180)];
@@ -69,6 +68,9 @@
     
 }
 
+- (void)popVC {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 -(void)createBgview{
     NSArray*labletextArr=@[@"可提金额（元）：",@"移行卡：",@"提现金额（元）："];

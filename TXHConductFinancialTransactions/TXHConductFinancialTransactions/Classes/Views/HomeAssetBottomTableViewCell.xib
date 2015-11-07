@@ -18,10 +18,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7B-OF-vD0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="22" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_withdrawals.png" translatesAutoresizingMaskIntoConstraints="NO" id="44F-Fa-DZn">
+                            <imageView tag="22" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_withdrawals.png" translatesAutoresizingMaskIntoConstraints="NO" id="44F-Fa-DZn">
                                 <rect key="frame" x="160" y="13" width="160" height="73"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_recharge.png" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-jL-iRf">
+                            <imageView tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_recharge.png" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-jL-iRf">
                                 <rect key="frame" x="0.0" y="13" width="160" height="73"/>
                             </imageView>
                         </subviews>

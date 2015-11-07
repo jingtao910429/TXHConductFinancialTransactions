@@ -21,13 +21,15 @@
 #import "MyaccountnumberVC.h"
 #import "NSString+Additions.h"
 #import "DealDetailViewController.h"
+#import "RechargeVC.h"
+#import "WithdrawdepositVC.h"
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
 static NSString *HomeAssetMiddleTableViewCellID = @"HomeAssetMiddleTableViewCellID";
 static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCellID";
 
-@interface LoginHomePageViewController () <ValueClickDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
+@interface LoginHomePageViewController () <ValueClickDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UITableView        *contentTableView;
 
@@ -158,10 +160,17 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetBottomTableViewCell" owner:self options:nil] lastObject];
             
             UITapGestureRecognizer *tapGesRecharge = [[UITapGestureRecognizer alloc] init];
+            tapGesRecharge.delegate=self;
             [tapGesRecharge addTarget:self action:@selector(tapGesRecharge)];
+            cell.rechargeImageView.userInteractionEnabled=YES;
             [cell.rechargeImageView addGestureRecognizer:tapGesRecharge];
             
+            
+            
             UITapGestureRecognizer *tapGesDaw = [[UITapGestureRecognizer alloc] init];
+            tapGesRecharge.delegate=self;
+            
+             cell.withDrawImageView.userInteractionEnabled=YES;
             [tapGesDaw addTarget:self action:@selector(tapGesDaw)];
             [cell.withDrawImageView addGestureRecognizer:tapGesDaw];
             
@@ -258,11 +267,16 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 //我要提现
 - (void)tapGesRecharge {
-    
+    WithdrawdepositVC*vc=[[WithdrawdepositVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 // 我要充值
 - (void)tapGesDaw {
+    RechargeVC*vc=[[RechargeVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+   
     
 }
 

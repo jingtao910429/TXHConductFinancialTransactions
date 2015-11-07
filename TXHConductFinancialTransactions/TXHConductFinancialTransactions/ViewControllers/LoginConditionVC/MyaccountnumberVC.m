@@ -25,6 +25,9 @@
 
 @property (nonatomic, strong) UILabel*priceLable;//余额
 
+@property (nonatomic, strong) UILabel*shouyiLable;//收益
+@property (nonatomic, strong) UILabel*lastDayiLable;//昨日收益
+
 //网络请求
 @property (nonatomic, strong) UserInfoAPICmd *userInfoAPICmd;
 @property (nonatomic, strong) UserInfoModel *userInfoModel;
@@ -134,6 +137,44 @@
     changeBtn.backgroundColor=[UIColor grayColor];
     
     [_headview addSubview:downview];
+    
+    
+    
+    UILabel*leijiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, 5, 160, 30)];
+    leijiLable.text=@"累计收益（元）";
+    [downview addSubview:leijiLable];
+    leijiLable.textColor=[UIColor whiteColor];
+    
+    
+    
+    _shouyiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, leijiLable.frame.size.height, 160, 30)];
+    
+
+
+NSString *shouyiLabletext = [NSString stringWithFormat :@"%@",self.userInfoModel.income?self.userInfoModel.income:@""];
+
+    
+    _shouyiLable.text=shouyiLabletext;
+    
+    _shouyiLable.textColor=[UIColor whiteColor];
+    [downview addSubview:_shouyiLable];
+    
+    
+    _lastDayiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, _shouyiLable.frame.size.height+35, 160, 30)];
+    
+
+    NSString *lastDayiLableStr = [NSString stringWithFormat:@"昨日收益：%@",self.userInfoModel.yesterdayIncome?self.userInfoModel.yesterdayIncome:@""];
+    
+    
+    _lastDayiLable.text=lastDayiLableStr;
+    
+    
+    
+    _lastDayiLable.textColor=[UIColor whiteColor];
+    
+    [downview addSubview:_lastDayiLable];
+
+    
     
     return _headview;
 }

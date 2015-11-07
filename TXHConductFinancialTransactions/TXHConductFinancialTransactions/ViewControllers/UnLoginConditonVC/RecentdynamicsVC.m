@@ -38,14 +38,13 @@
     
     [self configData];
     [self configUI];
-<<<<<<< HEAD
+
     
     
     [self.recentdynamicsmd loadData];
     
     
-=======
->>>>>>> jingtao910429/master
+
     
     [self.recentdynamicsmd loadData];
     
@@ -209,13 +208,13 @@
 }
 
 -(void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error{
-<<<<<<< HEAD
+
     
     NSLog(@"%@",error.description);
  
-=======
+
     [Tool ToastNotification:@"加载失败"];
->>>>>>> jingtao910429/master
+
 }
 
 #pragma mark - life cycle
@@ -224,7 +223,9 @@
 #pragma mark - private method
 
 - (void)popVC {
+    
     [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 //下拉刷新

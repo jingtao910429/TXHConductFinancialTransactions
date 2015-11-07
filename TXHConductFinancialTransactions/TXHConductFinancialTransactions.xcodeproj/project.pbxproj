@@ -141,6 +141,7 @@
 		98AC79CC1BEB7A740033F6D6 /* ConstantString.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79CB1BEB7A740033F6D6 /* ConstantString.m */; };
 		98BCD2B81BEDACDD00168B00 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2B71BEDACDD00168B00 /* UserInfoModel.m */; };
 		98BCD2BB1BEDAD0E00168B00 /* UserInfoAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2BA1BEDAD0E00168B00 /* UserInfoAPICmd.m */; };
+		98BCD2BE1BEDB9A600168B00 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2BD1BEDB9A600168B00 /* NSString+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +410,8 @@
 		98BCD2B71BEDACDD00168B00 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		98BCD2B91BEDAD0E00168B00 /* UserInfoAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoAPICmd.h; sourceTree = "<group>"; };
 		98BCD2BA1BEDAD0E00168B00 /* UserInfoAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoAPICmd.m; sourceTree = "<group>"; };
+		98BCD2BC1BEDB9A600168B00 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		98BCD2BD1BEDB9A600168B00 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -930,6 +933,8 @@
 			children = (
 				98229FCB1BE8DFB8005210EC /* UIViewController+NavigationBarStyle.h */,
 				98229FCC1BE8DFB8005210EC /* UIViewController+NavigationBarStyle.m */,
+				98BCD2BC1BEDB9A600168B00 /* NSString+Additions.h */,
+				98BCD2BD1BEDB9A600168B00 /* NSString+Additions.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1221,6 +1226,7 @@
 				98229F781BE8DD46005210EC /* SDImageCache.m in Sources */,
 				98229EFD1BE8C54F005210EC /* AFURLRequestSerialization.m in Sources */,
 				988EE3EC1BE9DD7D0064A75B /* LoginViewController.m in Sources */,
+				98BCD2BE1BEDB9A600168B00 /* NSString+Additions.m in Sources */,
 				98229FB81BE8DD6B005210EC /* MJRefreshAutoGifFooter.m in Sources */,
 				98229F7A1BE8DD46005210EC /* SDWebImageDecoder.m in Sources */,
 				98229EA91BE8C381005210EC /* AppDelegate.m in Sources */,

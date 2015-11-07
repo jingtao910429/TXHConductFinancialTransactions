@@ -17,7 +17,7 @@
 #import "HomeAssetBottomTableViewCell.h"
 #import "KxMenu.h"
 #import "ActivityDetailViewController.h"
-#import "ActivityListsViewController.h"
+#import "RecentdynamicsVC.h"
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
@@ -266,8 +266,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 // 活动列表
 - (void)activityList {
     
-    ActivityListsViewController *acctivityListsVC = [[ActivityListsViewController alloc] init];
-    [self.navigationController pushViewController:acctivityListsVC animated:YES];
+    RecentdynamicsVC *recentdynamicsVC = [[RecentdynamicsVC alloc] init];
+    [self.navigationController pushViewController:recentdynamicsVC animated:YES];
 }
 
 - (void)selectItem:(UIButton *)sender {

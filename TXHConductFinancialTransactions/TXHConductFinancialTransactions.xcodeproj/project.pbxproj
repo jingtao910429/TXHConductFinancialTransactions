@@ -142,6 +142,9 @@
 		98BCD2B81BEDACDD00168B00 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2B71BEDACDD00168B00 /* UserInfoModel.m */; };
 		98BCD2BB1BEDAD0E00168B00 /* UserInfoAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2BA1BEDAD0E00168B00 /* UserInfoAPICmd.m */; };
 		98BCD2BE1BEDB9A600168B00 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2BD1BEDB9A600168B00 /* NSString+Additions.m */; };
+		98BCD2C11BEDBC0100168B00 /* DealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2C01BEDBC0100168B00 /* DealDetailViewController.m */; };
+		98BCD2C41BEDBC1A00168B00 /* DealDetailAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2C31BEDBC1A00168B00 /* DealDetailAPICmd.m */; };
+		98BCD2C71BEDBC3200168B00 /* DealDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2C61BEDBC3200168B00 /* DealDetailModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -412,6 +415,12 @@
 		98BCD2BA1BEDAD0E00168B00 /* UserInfoAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoAPICmd.m; sourceTree = "<group>"; };
 		98BCD2BC1BEDB9A600168B00 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
 		98BCD2BD1BEDB9A600168B00 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
+		98BCD2BF1BEDBC0100168B00 /* DealDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealDetailViewController.h; sourceTree = "<group>"; };
+		98BCD2C01BEDBC0100168B00 /* DealDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailViewController.m; sourceTree = "<group>"; };
+		98BCD2C21BEDBC1A00168B00 /* DealDetailAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealDetailAPICmd.h; sourceTree = "<group>"; };
+		98BCD2C31BEDBC1A00168B00 /* DealDetailAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailAPICmd.m; sourceTree = "<group>"; };
+		98BCD2C51BEDBC3200168B00 /* DealDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealDetailModel.h; sourceTree = "<group>"; };
+		98BCD2C61BEDBC3200168B00 /* DealDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -654,6 +663,8 @@
 				98AA6AB41BECDEC8002439B8 /* UserAssetModel.m */,
 				98BCD2B61BEDACDD00168B00 /* UserInfoModel.h */,
 				98BCD2B71BEDACDD00168B00 /* UserInfoModel.m */,
+				98BCD2C51BEDBC3200168B00 /* DealDetailModel.h */,
+				98BCD2C61BEDBC3200168B00 /* DealDetailModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -990,6 +1001,8 @@
 				98229FEC1BE8F8C3005210EC /* LoginHomePageViewController.m */,
 				987037BC1BED987400F1679E /* ActivityDetailViewController.h */,
 				987037BD1BED987400F1679E /* ActivityDetailViewController.m */,
+				98BCD2BF1BEDBC0100168B00 /* DealDetailViewController.h */,
+				98BCD2C01BEDBC0100168B00 /* DealDetailViewController.m */,
 			);
 			path = LoginConditionVC;
 			sourceTree = "<group>";
@@ -1066,6 +1079,8 @@
 				98AA6AB11BECDC83002439B8 /* UserAssetAPICmd.m */,
 				98BCD2B91BEDAD0E00168B00 /* UserInfoAPICmd.h */,
 				98BCD2BA1BEDAD0E00168B00 /* UserInfoAPICmd.m */,
+				98BCD2C21BEDBC1A00168B00 /* DealDetailAPICmd.h */,
+				98BCD2C31BEDBC1A00168B00 /* DealDetailAPICmd.m */,
 			);
 			name = NetAPI;
 			path = BSAPIManagers/NetAPI;
@@ -1205,6 +1220,7 @@
 				98229EFC1BE8C54F005210EC /* AFURLConnectionOperation.m in Sources */,
 				989D5FB11BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.m in Sources */,
 				98229F4D1BE8DD3D005210EC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				98BCD2C11BEDBC0100168B00 /* DealDetailViewController.m in Sources */,
 				988EE4281BEA3AA00064A75B /* RYSmsManager.m in Sources */,
 				988EE4231BEA2E340064A75B /* RegisterViewController.m in Sources */,
 				98229F831BE8DD46005210EC /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1267,6 +1283,7 @@
 				98229FC01BE8DD6B005210EC /* MJRefreshStateHeader.m in Sources */,
 				987037BE1BED987400F1679E /* ActivityDetailViewController.m in Sources */,
 				98229F4C1BE8DD3D005210EC /* AFNetworkActivityIndicatorManager.m in Sources */,
+				98BCD2C71BEDBC3200168B00 /* DealDetailModel.m in Sources */,
 				98229FD21BE8E427005210EC /* FactoryManager.m in Sources */,
 				98229EFB1BE8C54F005210EC /* AFSecurityPolicy.m in Sources */,
 				988EE4201BEA1A870064A75B /* MyaccountnumberVC.m in Sources */,
@@ -1283,6 +1300,7 @@
 				98229FB61BE8DD6B005210EC /* MJRefreshFooter.m in Sources */,
 				98229EDF1BE8C479005210EC /* RYAPIManager.m in Sources */,
 				988EE41A1BEA1A520064A75B /* WithdrawdepositVC.m in Sources */,
+				98BCD2C41BEDBC1A00168B00 /* DealDetailAPICmd.m in Sources */,
 				987037BB1BED93EF00F1679E /* KxMenu.m in Sources */,
 				98229F4E1BE8DD3D005210EC /* UIAlertView+AFNetworking.m in Sources */,
 				98AC79BB1BEB6CC80033F6D6 /* RecentdynamicsCell.m in Sources */,

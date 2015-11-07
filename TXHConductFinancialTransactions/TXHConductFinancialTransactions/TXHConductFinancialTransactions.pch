@@ -40,6 +40,8 @@
 #define API_UserAsset @"nblc/api/asset/info"
 //理财用户信息
 #define API_UserInfo  @"nblc/api/account/info"
+//交易记录
+#define API_DealDetail @"nblc/api/deal/logs"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"

@@ -16,6 +16,7 @@
 #import "HomeAssetMiddleTableViewCell.h"
 #import "HomeAssetBottomTableViewCell.h"
 #import "KxMenu.h"
+#import "ActivityDetailViewController.h"
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
@@ -242,6 +243,13 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 //活动banner点击事件
 -(void)buttonClick:(int)vid {
     
+    ActivityDetailViewController *activityDetailVC = [[ActivityDetailViewController alloc] init];
+    
+    NoticeListModel *model = self.images[vid - 1];
+    activityDetailVC.url = model.url;
+    
+    [self.navigationController pushViewController:activityDetailVC animated:YES];
+    
 }
 
 //我要提现
@@ -290,7 +298,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     
     switch (item.tag) {
         case 1:
-           break;
+            
+            break;
         case 2:
             break;
         case 3:

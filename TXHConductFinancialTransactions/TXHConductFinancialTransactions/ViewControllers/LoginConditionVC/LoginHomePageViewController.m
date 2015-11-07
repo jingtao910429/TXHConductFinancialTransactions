@@ -67,7 +67,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 - (void)configUI {
     
-    [self navigationBarStyleWithTitle:@"首页" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"首页" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:@"img_account_head" rightAction:@selector(selectItem)];
     
     [self.view addSubview:self.contentTableView];
     [self.view addSubview:self.bottomButton];
@@ -251,6 +251,11 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     
 }
 
+//右上角类型选择
+- (void)selectItem {
+    
+}
+
 #pragma mark - private method
 
 #pragma mark - getters and setters
@@ -292,7 +297,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 - (UIImageView *)unloginImgView {
     if (!_unloginImgView) {
-        UIImage *image = [UIImage imageNamed:@"bg_account"];
+        UIImage *image = [UIImage imageNamed:@"ic_empty.jpg"];
         _unloginImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.topBackGroudView.frame.size.width, self.topBackGroudView.frame.size.height)];
         _unloginImgView.image = image;
     }

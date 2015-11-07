@@ -28,12 +28,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="44F-Fa-DZn" firstAttribute="top" secondItem="F7B-OF-vD0" secondAttribute="top" constant="13" id="6hL-3T-B54"/>
+                            <constraint firstItem="44F-Fa-DZn" firstAttribute="height" secondItem="AhN-jL-iRf" secondAttribute="height" id="7PM-p7-Xbf"/>
                             <constraint firstAttribute="bottom" secondItem="AhN-jL-iRf" secondAttribute="bottom" constant="14" id="LyM-ux-a4K"/>
                             <constraint firstItem="AhN-jL-iRf" firstAttribute="top" secondItem="F7B-OF-vD0" secondAttribute="top" constant="13" id="P02-EF-u1u"/>
                             <constraint firstAttribute="centerY" secondItem="44F-Fa-DZn" secondAttribute="centerY" constant="0.5" id="U5A-Uw-7Ul"/>
                             <constraint firstAttribute="trailing" secondItem="44F-Fa-DZn" secondAttribute="trailing" id="YRb-Fc-knw"/>
+                            <constraint firstItem="44F-Fa-DZn" firstAttribute="width" secondItem="AhN-jL-iRf" secondAttribute="width" id="e00-X5-Ow0"/>
                             <constraint firstAttribute="centerX" secondItem="44F-Fa-DZn" secondAttribute="centerX" constant="-80" id="iez-ds-r3m"/>
                             <constraint firstItem="AhN-jL-iRf" firstAttribute="leading" secondItem="F7B-OF-vD0" secondAttribute="leading" id="iyn-w4-1Qf"/>
+                            <constraint firstItem="44F-Fa-DZn" firstAttribute="leading" secondItem="AhN-jL-iRf" secondAttribute="trailing" id="oBO-ee-T0W"/>
                             <constraint firstAttribute="centerY" secondItem="AhN-jL-iRf" secondAttribute="centerY" constant="0.5" id="t10-yZ-1vD"/>
                             <constraint firstAttribute="centerX" secondItem="AhN-jL-iRf" secondAttribute="centerX" constant="80" id="tax-ki-UtX"/>
                             <constraint firstAttribute="bottom" secondItem="44F-Fa-DZn" secondAttribute="bottom" constant="14" id="v9B-iD-D41"/>

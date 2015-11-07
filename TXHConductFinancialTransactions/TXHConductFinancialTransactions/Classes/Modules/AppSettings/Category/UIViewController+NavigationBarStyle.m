@@ -34,8 +34,14 @@
         
     }else if (!leftTitle && leftImageName){
         
+        UIButton *leftBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(-5, 0, 40, 30) text:nil textColor:nil];
+        [leftBtn setImage:[UIImage imageNamed:leftImageName] forState:UIControlStateNormal];
+        leftBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [leftBtn addTarget:self action:leftAction forControlEvents:UIControlEventTouchUpInside];
+        
         //如果左是纯图片
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:leftImageName] style:UIBarButtonItemStylePlain target:self action:leftAction];
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
         
     }
     
@@ -48,7 +54,12 @@
         
     }else if (!rightTitle && rightImageName) {
         
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:rightImageName] style:UIBarButtonItemStylePlain target:self action:rightAction];
+        UIButton *rightBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(0, 0, 40, 30) text:nil textColor:nil];
+        [rightBtn setImage:[UIImage imageNamed:rightImageName] forState:UIControlStateNormal];
+        rightBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [rightBtn addTarget:self action:rightAction forControlEvents:UIControlEventTouchUpInside];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
         
     }
     

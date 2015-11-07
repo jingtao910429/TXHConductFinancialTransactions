@@ -46,6 +46,9 @@
 //公告列表
 #define API_List      @"nblc/api/notice/list"
 
+//理财项目列表
+#define  API_product   @"nblc/api/product/list"
+
 #define BackColor TomColor(0xefeff4)
 
 //iOS 系统版本

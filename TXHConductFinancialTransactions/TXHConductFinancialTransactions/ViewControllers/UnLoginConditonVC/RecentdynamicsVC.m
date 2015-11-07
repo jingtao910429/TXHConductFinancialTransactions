@@ -38,6 +38,16 @@
     
     [self configData];
     [self configUI];
+<<<<<<< HEAD
+
+    
+    
+    [self.recentdynamicsmd loadData];
+    
+    
+
+=======
+>>>>>>> jingtao910429/master
     
     [self.recentdynamicsmd loadData];
     
@@ -201,6 +211,26 @@
 }
 
 -(void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error{
+<<<<<<< HEAD
+
+    
+    NSLog(@"%@",error.description);
+ 
+
+    [Tool ToastNotification:@"加载失败"];
+
+}
+
+#pragma mark - life cycle
+
+#pragma mark - event response
+#pragma mark - private method
+
+- (void)popVC {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+=======
     [Tool ToastNotification:@"加载失败"];
 }
 
@@ -211,6 +241,7 @@
 
 - (void)popVC {
     [self.navigationController popViewControllerAnimated:YES];
+>>>>>>> jingtao910429/master
 }
 
 //下拉刷新

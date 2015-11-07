@@ -28,7 +28,7 @@
 
 -(void)configUI{
     
-    [self navigationBarStyleWithTitle:@"提取" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"提取" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(oppok)  rightTitle:nil rightImageName:nil rightAction:nil];
     
     self.view.backgroundColor = BackColor;
     _bgView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 180)];
@@ -69,6 +69,10 @@
     
 }
 
+-(void)oppok{
+    kPop;
+    
+}
 
 -(void)createBgview{
     NSArray*labletextArr=@[@"可提金额（元）：",@"移行卡：",@"提现金额（元）："];

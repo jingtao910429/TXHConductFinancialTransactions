@@ -205,7 +205,11 @@
             LoginViewController *registerLoginVC = [[LoginViewController alloc] init];
             registerLoginVC.isConfirmPassword = YES;
             
+<<<<<<< HEAD
+            if ([self.navigationController.title isEqualToString:@"注册"]) {
+=======
             if (!self.isRestPassword) {
+>>>>>>> jingtao910429/master
                 registerLoginVC.isRegisterSetPassword = YES;
             }else{
                 registerLoginVC.isRegisterSetPassword = NO;

@@ -21,13 +21,22 @@
 #import "MyaccountnumberVC.h"
 #import "NSString+Additions.h"
 #import "DealDetailViewController.h"
+<<<<<<< HEAD
+#import "RechargeVC.h"
+#import "WithdrawdepositVC.h"
+=======
+>>>>>>> jingtao910429/master
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
 static NSString *HomeAssetMiddleTableViewCellID = @"HomeAssetMiddleTableViewCellID";
 static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCellID";
 
+<<<<<<< HEAD
+@interface LoginHomePageViewController () <ValueClickDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate,UIGestureRecognizerDelegate>
+=======
 @interface LoginHomePageViewController () <ValueClickDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
+>>>>>>> jingtao910429/master
 
 @property (nonatomic, strong) UITableView        *contentTableView;
 
@@ -158,10 +167,24 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetBottomTableViewCell" owner:self options:nil] lastObject];
             
             UITapGestureRecognizer *tapGesRecharge = [[UITapGestureRecognizer alloc] init];
+<<<<<<< HEAD
+            tapGesRecharge.delegate=self;
+            [tapGesRecharge addTarget:self action:@selector(tapGesRecharge)];
+            cell.rechargeImageView.userInteractionEnabled=YES;
+            [cell.rechargeImageView addGestureRecognizer:tapGesRecharge];
+            
+            
+            
+            UITapGestureRecognizer *tapGesDaw = [[UITapGestureRecognizer alloc] init];
+            tapGesRecharge.delegate=self;
+            
+             cell.withDrawImageView.userInteractionEnabled=YES;
+=======
             [tapGesRecharge addTarget:self action:@selector(tapGesRecharge)];
             [cell.rechargeImageView addGestureRecognizer:tapGesRecharge];
             
             UITapGestureRecognizer *tapGesDaw = [[UITapGestureRecognizer alloc] init];
+>>>>>>> jingtao910429/master
             [tapGesDaw addTarget:self action:@selector(tapGesDaw)];
             [cell.withDrawImageView addGestureRecognizer:tapGesDaw];
             
@@ -258,11 +281,23 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 //我要提现
 - (void)tapGesRecharge {
+<<<<<<< HEAD
+    WithdrawdepositVC*vc=[[WithdrawdepositVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+=======
     
+>>>>>>> jingtao910429/master
 }
 
 // 我要充值
 - (void)tapGesDaw {
+<<<<<<< HEAD
+    RechargeVC*vc=[[RechargeVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+   
+=======
+>>>>>>> jingtao910429/master
     
 }
 

@@ -10,9 +10,12 @@
 
 @interface DealDetailModel : CommonModel
 
+<<<<<<< HEAD
+=======
 @property (nonatomic, copy) NSString *date;
 @property (nonatomic, copy) NSString *money;
 @property (nonatomic, copy) NSString *productName;
 @property (nonatomic, copy) NSString *type;
 
+>>>>>>> jingtao910429/master
 @end

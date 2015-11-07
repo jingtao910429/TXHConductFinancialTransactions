@@ -145,6 +145,8 @@
     
     if (0 == indexPath.row % 2) {
         
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
         NoticeListModel *model = self.dataSource[indexPath.row / 2];
         
         ActivityDetailViewController *activityDetailVC = [[ActivityDetailViewController alloc] init];
@@ -154,6 +156,8 @@
         [self.navigationController pushViewController:activityDetailVC animated:YES];
         
     }
+    
+    
     
 }
 

@@ -145,6 +145,8 @@
 		98BCD2C11BEDBC0100168B00 /* DealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2C01BEDBC0100168B00 /* DealDetailViewController.m */; };
 		98BCD2C41BEDBC1A00168B00 /* DealDetailAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2C31BEDBC1A00168B00 /* DealDetailAPICmd.m */; };
 		98BCD2C71BEDBC3200168B00 /* DealDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2C61BEDBC3200168B00 /* DealDetailModel.m */; };
+		98BCD2CB1BEDC07600168B00 /* DealDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2C91BEDC07600168B00 /* DealDetailTableViewCell.m */; };
+		98BCD2CC1BEDC07600168B00 /* DealDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98BCD2CA1BEDC07600168B00 /* DealDetailTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -421,6 +423,9 @@
 		98BCD2C31BEDBC1A00168B00 /* DealDetailAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailAPICmd.m; sourceTree = "<group>"; };
 		98BCD2C51BEDBC3200168B00 /* DealDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealDetailModel.h; sourceTree = "<group>"; };
 		98BCD2C61BEDBC3200168B00 /* DealDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailModel.m; sourceTree = "<group>"; };
+		98BCD2C81BEDC07600168B00 /* DealDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealDetailTableViewCell.h; sourceTree = "<group>"; };
+		98BCD2C91BEDC07600168B00 /* DealDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailTableViewCell.m; sourceTree = "<group>"; };
+		98BCD2CA1BEDC07600168B00 /* DealDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealDetailTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,6 +547,9 @@
 				98AA6AC41BECE38B002439B8 /* HomeAssetBottomTableViewCell.h */,
 				98AA6AC51BECE38B002439B8 /* HomeAssetBottomTableViewCell.m */,
 				98AA6AC61BECE38B002439B8 /* HomeAssetBottomTableViewCell.xib */,
+				98BCD2C81BEDC07600168B00 /* DealDetailTableViewCell.h */,
+				98BCD2C91BEDC07600168B00 /* DealDetailTableViewCell.m */,
+				98BCD2CA1BEDC07600168B00 /* DealDetailTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1181,6 +1189,7 @@
 				98229FE41BE8F0D8005210EC /* guide_3@2x.png in Resources */,
 				95319CF41BE9B75F00597AF8 /* img_account_head@2x.png in Resources */,
 				98229EB41BE8C381005210EC /* LaunchScreen.xib in Resources */,
+				98BCD2CC1BEDC07600168B00 /* DealDetailTableViewCell.xib in Resources */,
 				988EE4251BEA31F00064A75B /* bg_account@2x.png in Resources */,
 				98AA6ABA1BECE0A2002439B8 /* HomeAssetTableViewCell.xib in Resources */,
 				98AA6AC81BECE38B002439B8 /* HomeAssetBottomTableViewCell.xib in Resources */,
@@ -1273,6 +1282,7 @@
 				988EE3E51BE9928B0064A75B /* TestAPICmd.m in Sources */,
 				98229FED1BE8F8C3005210EC /* LoginHomePageViewController.m in Sources */,
 				98229F2E1BE8DCAF005210EC /* MMProgressHUDViewController.m in Sources */,
+				98BCD2CB1BEDC07600168B00 /* DealDetailTableViewCell.m in Sources */,
 				98229FC51BE8DD6B005210EC /* UIView+MJExtension.m in Sources */,
 				988EE41D1BEA1A670064A75B /* RechargeVC.m in Sources */,
 				98229FB41BE8DD6B005210EC /* MJRefreshBackFooter.m in Sources */,

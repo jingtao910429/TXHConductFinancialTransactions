@@ -20,6 +20,7 @@
 #import "RecentdynamicsVC.h"
 #import "MyaccountnumberVC.h"
 #import "NSString+Additions.h"
+#import "DealDetailViewController.h"
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
@@ -306,13 +307,14 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     
     KxMenuItem *item = (KxMenuItem *)sender;
     
-    
-    
     switch (item.tag) {
         case 1:
             
             break;
-        case 2:
+        case 2:{
+            DealDetailViewController *dealDetailViewController = [[DealDetailViewController alloc] init];
+            [self.navigationController pushViewController:dealDetailViewController animated:YES];
+        }
             break;
         case 3:{
             //我的账户

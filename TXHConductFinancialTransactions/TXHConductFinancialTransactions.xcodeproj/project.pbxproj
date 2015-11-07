@@ -155,6 +155,7 @@
 		98BCD3AA1BEDF52100168B00 /* InvestmentBottomMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3A91BEDF52100168B00 /* InvestmentBottomMTableViewCell.m */; };
 		98BCD3AE1BEDF6CF00168B00 /* ZDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3AD1BEDF6CF00168B00 /* ZDProgressView.m */; };
 		98BCD3B11BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B01BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m */; };
+		98BCD3B41BEE0A5E00168B00 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B31BEE0A5E00168B00 /* ItemDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -449,6 +450,8 @@
 		98BCD3AD1BEDF6CF00168B00 /* ZDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDProgressView.m; sourceTree = "<group>"; };
 		98BCD3AF1BEDF78B00168B00 /* InvestmentBottomLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentBottomLTableViewCell.h; sourceTree = "<group>"; };
 		98BCD3B01BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentBottomLTableViewCell.m; sourceTree = "<group>"; };
+		98BCD3B21BEE0A5E00168B00 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		98BCD3B31BEE0A5E00168B00 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -976,6 +979,8 @@
 				98BCD2F81BEDE24C00168B00 /* WithdrawdepositVC.m */,
 				98BCD38F1BEDE95900168B00 /* InvestmentListViewController.h */,
 				98BCD3901BEDE95900168B00 /* InvestmentListViewController.m */,
+				98BCD3B21BEE0A5E00168B00 /* ItemDetailViewController.h */,
+				98BCD3B31BEE0A5E00168B00 /* ItemDetailViewController.m */,
 			);
 			path = LoginConditionVC;
 			sourceTree = "<group>";
@@ -1352,6 +1357,7 @@
 				98229F851BE8DD46005210EC /* UIView+WebCacheOperation.m in Sources */,
 				98229F7E1BE8DD46005210EC /* SDWebImagePrefetcher.m in Sources */,
 				98BCD3AE1BEDF6CF00168B00 /* ZDProgressView.m in Sources */,
+				98BCD3B41BEE0A5E00168B00 /* ItemDetailViewController.m in Sources */,
 				98BCD3321BEDE31300168B00 /* UserAssetModel.m in Sources */,
 				98229F301BE8DCAF005210EC /* MMRadialProgressView.m in Sources */,
 				98BCD2FB1BEDE24C00168B00 /* LoginHomePageViewController.m in Sources */,

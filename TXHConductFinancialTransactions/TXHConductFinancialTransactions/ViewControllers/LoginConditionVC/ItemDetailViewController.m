@@ -1,54 +1,39 @@
 //
-//  InvestmentListViewController.m
+//  ItemDetailViewController.m
 //  TXHConductFinancialTransactions
 //
 //  Created by wwt on 15/11/7.
 //  Copyright (c) 2015年 rongyu. All rights reserved.
 //
 
-#import "InvestmentListViewController.h"
-#import "MJRefresh.h"
-#import "InvestmentListAPICmd.h"
-#import "InvestmentListModel.h"
+#import "ItemDetailViewController.h"
 #import "InvestmentTopTableViewCell.h"
 #import "InvestmentBottomMTableViewCell.h"
 #import "InvestmentBottomLTableViewCell.h"
-#import "ItemDetailViewController.h"
 
-#define Header_Height 40
-
-@interface InvestmentListViewController () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
+@interface ItemDetailViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView     *contentTableView;
-@property (nonatomic,retain) UIRefreshControl *refreshControl;
 
-@property (nonatomic, strong) NSMutableArray *dataSource;
-
-//分页
-@property (nonatomic, assign) NSInteger index;
-
-@property (nonatomic, strong) InvestmentListAPICmd *investmentListAPICmd;
+@property (nonatomic, strong) NSArray *names;
 
 @end
 
-@implementation InvestmentListViewController
+@implementation ItemDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self configData];
     [self configUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
 }
 
 - (void)configData {
-    
-    self.index = 1;
-    self.dataSource = [[NSMutableArray alloc] init];
-    [self.investmentListAPICmd loadData];
+    self.names = @[@"计息时间",@"项目期限",@"保障措施",@"项目类型"];
 }
 
 - (void)configUI {
@@ -56,11 +41,6 @@
     [self navigationBarStyleWithTitle:@"投资列表" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
     [self.view addSubview:self.contentTableView];
-    
-    [self.contentTableView addSubview:self.refreshControl];
-    
-    //上拉加载
-    self.contentTableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pollUpReloadData)];
     
 }
 
@@ -81,50 +61,67 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (0 == indexPath.row) {
-        return 50;
-    }else if (1 == indexPath.row) {
-        return 65;
+    if (0 == indexPath.section) {
+        if (0 == indexPath.row) {
+            return 50;
+        }else if (1 == indexPath.row) {
+            return 65;
+        }else{
+            
+            if (3 == [self.investmentListModel.status intValue]) {
+                return 140;
+            }
+            
+            return 60;
+        }
     }
     
-    InvestmentListModel *investmentListModel = self.dataSource[indexPath.section / 2];
-    
-    if (3 == [investmentListModel.status intValue]) {
-        return 140;
-    }
-    
-    return 60;
+    return 50;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSource.count * 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     if (1 == section % 2) {
         return 0;
+    }else if (0 == section) {
+        return 3;
     }
     
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (1 == indexPath.section % 2) {
+    if (1 == indexPath.section % 2 || 2 == indexPath.section) {
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL_ID"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL_ID"];
             
+            if (1 != indexPath.section % 2) {
+                
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 49.5, kScreenWidth, 0.5)];
+                imageView.backgroundColor = [UIColor grayColor];
+                
+                [cell.contentView addSubview:imageView];
+                
+            }
+            
         }
         
-        cell.contentView.backgroundColor = COLOR(232, 232, 232, 1.0);
-        
+        if (1 == indexPath.section % 2) {
+            cell.contentView.backgroundColor = COLOR(232, 232, 232, 1.0);
+        }else{
+            
+            cell.textLabel.text = self.names[indexPath.row];
+            
+        }
         return cell;
     }
-    
-    InvestmentListModel *investmentListModel = self.dataSource[indexPath.section / 2];
     
     if (0 == indexPath.row) {
         
@@ -139,7 +136,7 @@
             
         }
         cell.imageView.image = [UIImage imageNamed:@"ic_login_num"];
-        cell.textLabel.text = investmentListModel.name;
+        cell.textLabel.text = self.investmentListModel.name;
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
@@ -153,9 +150,9 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"InvestmentTopTableViewCell" owner:self options:nil] lastObject];
         }
         
-        cell.totalMoneyLabel.text = [NSString stringWithFormat:@"%@万",investmentListModel.money?investmentListModel.money:@"0.00"];
-        cell.rateLabel.text = [NSString stringWithFormat:@"%@",investmentListModel.rate?investmentListModel.rate:@"0.00%起"];
-        cell.investNumberLabel.text = [NSString stringWithFormat:@"%@",investmentListModel.version?investmentListModel.version:@"0"];
+        cell.totalMoneyLabel.text = [NSString stringWithFormat:@"%@万",self.investmentListModel.money?self.investmentListModel.money:@"0.00"];
+        cell.rateLabel.text = [NSString stringWithFormat:@"%@",self.investmentListModel.rate?self.investmentListModel.rate:@"0.00%起"];
+        cell.investNumberLabel.text = [NSString stringWithFormat:@"%@",self.investmentListModel.version?self.investmentListModel.version:@"0"];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -164,7 +161,7 @@
         
         
         
-        if (3 == [investmentListModel.status intValue]) {
+        if (3 == [self.investmentListModel.status intValue]) {
             //开始状态
             
             static NSString *CellIdentifier = @"InvestmentBottomMTableViewCellID";
@@ -174,9 +171,9 @@
                 cell = [[InvestmentBottomMTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             }
             
-            cell.zdProgressView.progress = [investmentListModel.rate floatValue] / 100.00;
-            cell.zdProgressView.text = [NSString stringWithFormat:@"%.2f%%",[investmentListModel.rate floatValue]];
-            cell.contentLabel.text =  [NSString stringWithFormat:@"还可以投资%@万",investmentListModel.realMoney?investmentListModel.realMoney:@"0.00"];
+            cell.zdProgressView.progress = [self.investmentListModel.rate floatValue] / 100.00;
+            cell.zdProgressView.text = [NSString stringWithFormat:@"%.2f%%",[self.investmentListModel.rate floatValue]];
+            cell.contentLabel.text =  [NSString stringWithFormat:@"还可以投资%@万",self.investmentListModel.realMoney?self.investmentListModel.realMoney:@"0.00"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             return cell;
@@ -204,80 +201,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (0 == indexPath.section % 2 && 0 == indexPath.row) {
-        
-        ItemDetailViewController *itemDetailViewController = [[ItemDetailViewController alloc] init];
-        itemDetailViewController.investmentListModel = self.dataSource[indexPath.section/2];
-        [self.navigationController pushViewController:itemDetailViewController animated:YES];
-    }
-    
-}
-
-#pragma mark - APICmdApiCallBackDelegate
-
-- (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
-    
-    if (baseAPICmd == self.investmentListAPICmd) {
-        
-        NSDictionary *tempDict = (NSDictionary *)responseData;
-        
-        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
-            
-            [Tool ToastNotification:tempDict[@"msg"]];
-            
-        }else{
-            
-            NSArray *data = tempDict[@"data"];
-            
-            if (data && ![data isKindOfClass:[NSNull class]] && data.count != 0) {
-                
-                self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
-                
-                for (NSDictionary *subDict in data) {
-                    
-                    InvestmentListModel *model = [[InvestmentListModel alloc] init];
-                    [model setValuesForKeysWithDictionary:subDict];
-                    [self.dataSource addObject:model];
-                }
-                
-                [self.contentTableView reloadData];
-            }else{
-                
-                [Tool ToastNotification:@"没有更多内容"];
-                
-            }
-            
-        }
-        
-        [self.refreshControl endRefreshing];
-        [self.contentTableView.footer endRefreshing];
-    }
-    
-}
-
-- (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
-    
-    [Tool ToastNotification:@"加载失败"];
-    
 }
 
 #pragma mark - private method
-
-//下拉刷新
-- (void)reload:(__unused id)sender {
-    
-    self.index = 1;
-    [self.investmentListAPICmd loadData];
-}
-
-- (void)pollUpReloadData {
-    
-    self.index ++;
-    [self.investmentListAPICmd loadData];
-    
-}
-
 
 - (void)popVC {
     [self.navigationController popViewControllerAnimated:YES];
@@ -295,27 +221,6 @@
         _contentTableView.showsVerticalScrollIndicator = NO;
     }
     return _contentTableView;
-}
-
-- (UIRefreshControl *)refreshControl {
-    
-    if (!_refreshControl) {
-        
-        _refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.contentTableView.frame.size.width, Header_Height)];
-        [_refreshControl addTarget:self action:@selector(reload:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _refreshControl;
-}
-
-- (InvestmentListAPICmd *)investmentListAPICmd {
-    if (!_investmentListAPICmd) {
-        _investmentListAPICmd = [[InvestmentListAPICmd alloc] init];
-        _investmentListAPICmd.delegate = self;
-        _investmentListAPICmd.path = API_product;
-    }
-    
-    _investmentListAPICmd.reformParams = @{@"pageNum":[NSString stringWithFormat:@"%d",(int)self.index]};
-    return _investmentListAPICmd;
 }
 
 @end

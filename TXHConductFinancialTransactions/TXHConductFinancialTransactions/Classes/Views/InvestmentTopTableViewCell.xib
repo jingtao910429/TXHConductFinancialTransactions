@@ -68,8 +68,6 @@
                             <constraint firstItem="yz0-PB-Ezv" firstAttribute="baseline" secondItem="Vvi-0G-duN" secondAttribute="baseline" id="1IM-Z9-ZrV"/>
                             <constraint firstItem="kNQ-ry-N3j" firstAttribute="baseline" secondItem="caX-AU-O2e" secondAttribute="firstBaseline" id="1OU-pq-No6"/>
                             <constraint firstItem="Jgb-jP-OoM" firstAttribute="width" secondItem="Vvi-0G-duN" secondAttribute="width" id="BK9-lb-9kJ"/>
-                            <constraint firstItem="Jgb-jP-OoM" firstAttribute="width" secondItem="kNQ-ry-N3j" secondAttribute="width" id="Bay-8Y-sMB"/>
-                            <constraint firstItem="Jgb-jP-OoM" firstAttribute="width" secondItem="caX-AU-O2e" secondAttribute="width" id="CwH-va-AAO"/>
                             <constraint firstItem="kNQ-ry-N3j" firstAttribute="baseline" secondItem="caX-AU-O2e" secondAttribute="baseline" id="HQt-FG-DNb"/>
                             <constraint firstItem="yz0-PB-Ezv" firstAttribute="firstBaseline" secondItem="Jgb-jP-OoM" secondAttribute="firstBaseline" id="J5Z-F3-GtK"/>
                             <constraint firstItem="Jgb-jP-OoM" firstAttribute="height" secondItem="yz0-PB-Ezv" secondAttribute="height" id="JGf-QW-4XA"/>
@@ -85,24 +83,18 @@
                             <constraint firstItem="Aks-kW-Swn" firstAttribute="leading" secondItem="Vvi-0G-duN" secondAttribute="leading" id="U0J-dg-BqC"/>
                             <constraint firstAttribute="trailing" secondItem="Vvi-0G-duN" secondAttribute="trailing" id="U0a-zF-VWX"/>
                             <constraint firstItem="Jgb-jP-OoM" firstAttribute="height" secondItem="kNQ-ry-N3j" secondAttribute="height" id="Wi9-7l-M0A"/>
+                            <constraint firstItem="kNQ-ry-N3j" firstAttribute="top" secondItem="8Ya-Gz-VpY" secondAttribute="top" constant="8" id="Zom-tX-pay"/>
                             <constraint firstItem="Jgb-jP-OoM" firstAttribute="top" secondItem="caX-AU-O2e" secondAttribute="bottom" constant="3" id="apM-ag-KMH"/>
                             <constraint firstItem="kNQ-ry-N3j" firstAttribute="baseline" secondItem="Aks-kW-Swn" secondAttribute="baseline" id="duw-1v-jEb"/>
                             <constraint firstItem="Jgb-jP-OoM" firstAttribute="leading" secondItem="8Ya-Gz-VpY" secondAttribute="leading" id="g8p-TG-81Q"/>
                             <constraint firstItem="Jgb-jP-OoM" firstAttribute="baseline" secondItem="yz0-PB-Ezv" secondAttribute="baseline" id="m0e-xy-VMy"/>
                             <constraint firstItem="caX-AU-O2e" firstAttribute="top" secondItem="8Ya-Gz-VpY" secondAttribute="topMargin" id="p8x-La-eoU"/>
                             <constraint firstAttribute="bottom" secondItem="Jgb-jP-OoM" secondAttribute="bottom" constant="9" id="rUR-m6-4DS"/>
-                            <constraint firstItem="Jgb-jP-OoM" firstAttribute="width" secondItem="Aks-kW-Swn" secondAttribute="width" id="t2j-WV-OCK"/>
+                            <constraint firstItem="Aks-kW-Swn" firstAttribute="top" secondItem="8Ya-Gz-VpY" secondAttribute="top" constant="8" id="rdl-gk-sb8"/>
                             <constraint firstItem="kNQ-ry-N3j" firstAttribute="leading" secondItem="caX-AU-O2e" secondAttribute="trailing" id="tG4-Rm-FK0"/>
                             <constraint firstItem="Jgb-jP-OoM" firstAttribute="trailing" secondItem="caX-AU-O2e" secondAttribute="trailing" id="uTd-in-Y8Q"/>
                             <constraint firstItem="Aks-kW-Swn" firstAttribute="leading" secondItem="kNQ-ry-N3j" secondAttribute="trailing" id="zZr-FM-L9m"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Bay-8Y-sMB"/>
-                                <exclude reference="CwH-va-AAO"/>
-                                <exclude reference="t2j-WV-OCK"/>
-                            </mask>
-                        </variation>
                     </view>
                 </subviews>
                 <constraints>

@@ -25,9 +25,12 @@
 
 @property (nonatomic, strong) UILabel*priceLable;//余额
 
+<<<<<<< HEAD
 @property (nonatomic, strong) UILabel*shouyiLable;//收益
 @property (nonatomic, strong) UILabel*lastDayiLable;//昨日收益
 
+=======
+>>>>>>> jingtao910429/master
 //网络请求
 @property (nonatomic, strong) UserInfoAPICmd *userInfoAPICmd;
 @property (nonatomic, strong) UserInfoModel *userInfoModel;
@@ -138,6 +141,7 @@
     
     [_headview addSubview:downview];
     
+<<<<<<< HEAD
     
     
     UILabel*leijiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, 5, 160, 30)];
@@ -176,6 +180,8 @@ NSString *shouyiLabletext = [NSString stringWithFormat :@"%@",self.userInfoModel
 
     
     
+=======
+>>>>>>> jingtao910429/master
     return _headview;
 }
 

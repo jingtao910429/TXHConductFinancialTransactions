@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface DealDetailTableViewCell : UITableViewCell
+<<<<<<< HEAD
+=======
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+>>>>>>> jingtao910429/master
 
 @end

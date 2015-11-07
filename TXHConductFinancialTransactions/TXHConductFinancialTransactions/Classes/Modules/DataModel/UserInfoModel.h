@@ -13,7 +13,11 @@
 @property (nonatomic, copy) NSString *appVersion;
 @property (nonatomic, copy) NSString *bankCardNum;
 @property (nonatomic, copy) NSString *idCard;
+<<<<<<< HEAD
 @property (nonatomic, copy) NSNumber *income;
+=======
+@property (nonatomic, copy) NSString *income;
+>>>>>>> jingtao910429/master
 @property (nonatomic, copy) NSString *kfPhone;
 @property (nonatomic, copy) NSString *phoneNumber;
 @property (nonatomic, copy) NSString *realName;

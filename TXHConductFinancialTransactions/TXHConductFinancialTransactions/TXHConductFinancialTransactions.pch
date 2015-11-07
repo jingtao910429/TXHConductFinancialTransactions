@@ -42,6 +42,8 @@
 #define API_UserInfo  @"nblc/api/account/info"
 //交易记录
 #define API_DealDetail @"nblc/api/deal/logs"
+//收益记录
+#define API_EarnDetail @"nblc/api/income/logs"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"

@@ -156,6 +156,9 @@
 		98BCD3AE1BEDF6CF00168B00 /* ZDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3AD1BEDF6CF00168B00 /* ZDProgressView.m */; };
 		98BCD3B11BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B01BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m */; };
 		98BCD3B41BEE0A5E00168B00 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B31BEE0A5E00168B00 /* ItemDetailViewController.m */; };
+		98BCD3B71BEE2FC500168B00 /* EarningsRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B61BEE2FC500168B00 /* EarningsRecordViewController.m */; };
+		98BCD3BA1BEE30CB00168B00 /* EarnDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */; };
+		98BCD3BD1BEE30F600168B00 /* EarnDetailAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -452,6 +455,12 @@
 		98BCD3B01BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentBottomLTableViewCell.m; sourceTree = "<group>"; };
 		98BCD3B21BEE0A5E00168B00 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		98BCD3B31BEE0A5E00168B00 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
+		98BCD3B51BEE2FC500168B00 /* EarningsRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarningsRecordViewController.h; sourceTree = "<group>"; };
+		98BCD3B61BEE2FC500168B00 /* EarningsRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarningsRecordViewController.m; sourceTree = "<group>"; };
+		98BCD3B81BEE30CB00168B00 /* EarnDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarnDetailModel.h; sourceTree = "<group>"; };
+		98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarnDetailModel.m; sourceTree = "<group>"; };
+		98BCD3BB1BEE30F600168B00 /* EarnDetailAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarnDetailAPICmd.h; sourceTree = "<group>"; };
+		98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarnDetailAPICmd.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -981,6 +990,8 @@
 				98BCD3901BEDE95900168B00 /* InvestmentListViewController.m */,
 				98BCD3B21BEE0A5E00168B00 /* ItemDetailViewController.h */,
 				98BCD3B31BEE0A5E00168B00 /* ItemDetailViewController.m */,
+				98BCD3B51BEE2FC500168B00 /* EarningsRecordViewController.h */,
+				98BCD3B61BEE2FC500168B00 /* EarningsRecordViewController.m */,
 			);
 			path = LoginConditionVC;
 			sourceTree = "<group>";
@@ -1079,6 +1090,8 @@
 				98BCD32E1BEDE31300168B00 /* UserInfoModel.m */,
 				98BCD3921BEDE97F00168B00 /* InvestmentListModel.h */,
 				98BCD3931BEDE97F00168B00 /* InvestmentListModel.m */,
+				98BCD3B81BEE30CB00168B00 /* EarnDetailModel.h */,
+				98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1108,6 +1121,8 @@
 				98BCD3661BEDE37700168B00 /* UserInfoAPICmd.m */,
 				98BCD3951BEDE99300168B00 /* InvestmentListAPICmd.h */,
 				98BCD3961BEDE99300168B00 /* InvestmentListAPICmd.m */,
+				98BCD3BB1BEE30F600168B00 /* EarnDetailAPICmd.h */,
+				98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */,
 			);
 			path = NetAPI;
 			sourceTree = "<group>";
@@ -1318,6 +1333,7 @@
 				98229FB31BE8DD6B005210EC /* MJRefreshAutoFooter.m in Sources */,
 				98BCD2EC1BEDE23700168B00 /* UnLoginHomePageViewController.m in Sources */,
 				98BCD32F1BEDE31300168B00 /* CommonModel.m in Sources */,
+				98BCD3BA1BEE30CB00168B00 /* EarnDetailModel.m in Sources */,
 				98BCD39B1BEDF1FE00168B00 /* InvestmentTopTableViewCell.m in Sources */,
 				98229F7B1BE8DD46005210EC /* SDWebImageDownloader.m in Sources */,
 				98BCD2FC1BEDE24C00168B00 /* MyaccountnumberVC.m in Sources */,
@@ -1383,10 +1399,12 @@
 				98BCD3131BEDE2AF00168B00 /* RYSmsManager.m in Sources */,
 				98BCD36E1BEDE37700168B00 /* TestAPICmd.m in Sources */,
 				98229F2A1BE8DCAF005210EC /* MMProgressHUD+Animations.m in Sources */,
+				98BCD3B71BEE2FC500168B00 /* EarningsRecordViewController.m in Sources */,
 				98229F7C1BE8DD46005210EC /* SDWebImageDownloaderOperation.m in Sources */,
 				98229EA61BE8C381005210EC /* main.m in Sources */,
 				98229EF91BE8C54F005210EC /* AFHTTPSessionManager.m in Sources */,
 				98229FB71BE8DD6B005210EC /* MJRefreshHeader.m in Sources */,
+				98BCD3BD1BEE30F600168B00 /* EarnDetailAPICmd.m in Sources */,
 				98229F841BE8DD46005210EC /* UIImageView+WebCache.m in Sources */,
 				98229FC31BE8DD6B005210EC /* UIScrollView+MJExtension.m in Sources */,
 				98BCD3911BEDE95900168B00 /* InvestmentListViewController.m in Sources */,

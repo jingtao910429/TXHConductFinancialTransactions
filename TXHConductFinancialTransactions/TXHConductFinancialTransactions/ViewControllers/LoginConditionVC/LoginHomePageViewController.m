@@ -15,6 +15,7 @@
 #import "HomeAssetTableViewCell.h"
 #import "HomeAssetMiddleTableViewCell.h"
 #import "HomeAssetBottomTableViewCell.h"
+#import "KxMenu.h"
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
@@ -32,8 +33,10 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 @property (nonatomic, strong) UIButton           *bottomButton;
 //用户视图
 
-
+//广告image
 @property (nonatomic, strong)   NSMutableArray     *images;
+//itemName
+@property (nonatomic, copy)     NSArray  *menuItems;
 //广告
 @property (nonatomic, strong)   NoticeListAPICmd   *noticeListAPICmd;
 //用户资产
@@ -67,7 +70,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 - (void)configUI {
     
-    [self navigationBarStyleWithTitle:@"首页" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:@"img_account_head" rightAction:@selector(selectItem)];
+    [self navigationBarStyleWithTitle:@"首页" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:@"img_account_head" rightAction:@selector(selectItem:)];
     
     [self.view addSubview:self.contentTableView];
     [self.view addSubview:self.bottomButton];
@@ -251,8 +254,51 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     
 }
 
+- (void)selectItem:(UIButton *)sender {
+    
+    [[KxMenu sharedMenu] setIsShowPopView:YES];
+    
+    self.menuItems = @[[KxMenuItem menuItem:@" 收益记录 "
+                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                     target:self
+                                     action:@selector(pushMenuItem:) tag:1 isSelect:NO],
+                       
+                       [KxMenuItem menuItem:@" 交易记录 "
+                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                     target:self
+                                     action:@selector(pushMenuItem:) tag:2 isSelect:NO],
+                       
+                       [KxMenuItem menuItem:@" 我的账户 "
+                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                     target:self
+                                     action:@selector(pushMenuItem:) tag:3 isSelect:NO]];
+    
+    CGRect rect = sender.frame;
+    rect.origin.y = 54;
+    [KxMenu showMenuInView:self.navigationController.view
+                  fromRect:rect
+                 menuItems:self.menuItems];
+    
+}
+
 //右上角类型选择
-- (void)selectItem {
+- (void)pushMenuItem:(id)sender {
+    
+    [[KxMenu sharedMenu] setIsShowPopView:NO];
+    
+    KxMenuItem *item = (KxMenuItem *)sender;
+    
+    switch (item.tag) {
+        case 1:
+           break;
+        case 2:
+            break;
+        case 3:
+            break;
+        default:
+            break;
+    }
+
     
 }
 

@@ -165,7 +165,8 @@ typedef enum {
         self.backgroundColor = [UIColor clearColor];
         self.opaque = YES;
         self.alpha = .98f;
-        
+        self.layer.cornerRadius = 4;
+        self.layer.masksToBounds = YES;
 //        self.layer.shadowOpacity = 0.5;
 //        self.layer.shadowOffset = CGSizeMake(1, 1);
 //        self.layer.shadowRadius = 5;

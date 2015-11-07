@@ -13,6 +13,7 @@
 #import "MJRefresh.h"
 #import "NoticeListModel.h"
 #import "UIImageView+WebCache.h"
+#import "ActivityDetailViewController.h"
 
 #define Header_Height 40
 
@@ -140,11 +141,21 @@
     return nil;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (0 == indexPath.row % 2) {
+        
+        NoticeListModel *model = self.dataSource[indexPath.row / 2];
+        
+        ActivityDetailViewController *activityDetailVC = [[ActivityDetailViewController alloc] init];
+    
+        activityDetailVC.url = model.url;
+        
+        [self.navigationController pushViewController:activityDetailVC animated:YES];
+        
+    }
     
 }
-
 
 #pragma mark - APICmdApiCallBackDelegate
 
@@ -186,7 +197,7 @@
 }
 
 -(void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error{
- 
+    [Tool ToastNotification:@"加载失败"];
 }
 
 #pragma mark - life cycle

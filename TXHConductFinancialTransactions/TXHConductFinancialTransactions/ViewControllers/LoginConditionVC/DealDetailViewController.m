@@ -7,10 +7,6 @@
 //
 
 #import "DealDetailViewController.h"
-<<<<<<< HEAD
-
-@interface DealDetailViewController ()
-=======
 #import "DealDetailTableViewCell.h"
 #import "DealDetailModel.h"
 #import "DealDetailAPICmd.h"
@@ -29,16 +25,11 @@
 
 //分页
 @property (nonatomic, assign) NSInteger index;
->>>>>>> jingtao910429/master
 
 @end
 
 @implementation DealDetailViewController
 
-<<<<<<< HEAD
-- (void)viewDidLoad {
-    [super viewDidLoad];
-=======
 #pragma mark - life cycle
 
 - (void)viewDidLoad {
@@ -46,15 +37,12 @@
     
     [self configData];
     [self configUI];
->>>>>>> jingtao910429/master
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-<<<<<<< HEAD
-=======
 - (void)configData {
     
     self.index = 1;
@@ -254,5 +242,4 @@
     return _dealDetailAPICmd;
 }
 
->>>>>>> jingtao910429/master
 @end

@@ -37,15 +37,15 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.viewController = [[myViewController alloc] init];
     self.window.rootViewController = self.viewController;
-
-
+    
+    
     [self.window makeKeyAndVisible];
     
     if (![Tool getUserInfo] || [[Tool getUserInfo] isKindOfClass:[NSNull class]] || [[Tool getUserInfo] count] == 0) {
         //表示没有用户，则登录
         [self appLogin];
     }else{
-       [self.loginAPICmd loadData];
+        [self.loginAPICmd loadData];
     }
     return YES;
 }
@@ -119,7 +119,7 @@
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstStart"]){
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstStart"];
         [self introduceView];
-       
+        
     }else{
         
         [self showHomePage];
@@ -132,7 +132,7 @@
     NSArray *coverImageNames = @[@"guide_1", @"guide_2", @"guide_3"];
     
     self.introduceVC = [[ZWIntroductionViewController alloc] initWithCoverImgNames:coverImageNames backgroundImageNames:nil enterBtn:self.enterBtn kipButton:nil];
-
+    
     __weak AppDelegate *weakSelf = self;
     self.introduceVC.didSelectedEnter = ^() {
         
@@ -141,14 +141,14 @@
         
         
     };
-   
+    
     /**
      *  如果欢迎页有跳过时使用该回调
      */
-//    self.introduceVC.didSkipedEnter = ^() {
-//        [weakSelf.introduceVC.view removeFromSuperview];
-//        [weakSelf showHomePage];
-//    };
+    //    self.introduceVC.didSkipedEnter = ^() {
+    //        [weakSelf.introduceVC.view removeFromSuperview];
+    //        [weakSelf showHomePage];
+    //    };
     
     [self.window addSubview:self.introduceVC.view];
     

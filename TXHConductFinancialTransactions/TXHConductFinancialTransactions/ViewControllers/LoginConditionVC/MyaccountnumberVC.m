@@ -13,13 +13,19 @@
 #import "UserInfoAPICmd.h"
 #import "UserInfoModel.h"
 
-@interface MyaccountnumberVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface MyaccountnumberVC () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
+
+
 @property (nonatomic, strong) UITableView *contentTableView;
 @property (nonatomic, strong) UIView*headview;
 @property (nonatomic, strong) NSArray *leftDataArr;
 @property (nonatomic, strong) UILabel*nameLable;//账号名字
 
 @property (nonatomic, strong) UILabel*priceLable;//余额
+
+//网络请求
+@property (nonatomic, strong) UserInfoAPICmd *userInfoAPICmd;
+@property (nonatomic, strong) UserInfoModel *userInfoModel;
 
 
 @end
@@ -31,8 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     [self configUI];
+    
+    [self.userInfoAPICmd loadData];
 }
 
 -(void)configUI{    
@@ -101,6 +108,32 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+#pragma mark - APICmdApiCallBackDelegate
+
+- (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
+    
+    if (baseAPICmd ==self.userInfoAPICmd) {
+        
+        NSDictionary *tempDict = (NSDictionary *)responseData;
+        
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+            [Tool ToastNotification:tempDict[@"msg"]];
+            
+        }else{
+            
+            self.userInfoModel = [[UserInfoModel alloc] init];
+            [self.userInfoModel setValuesForKeysWithDictionary:tempDict[@"data"]];
+            [self.contentTableView reloadData];
+        }
+    }
+    
+}
+
+- (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
+    [Tool ToastNotification:@"加载失败"];
 }
 
 #pragma mark - event response
@@ -220,6 +253,16 @@
         _contentTableView.delegate = self;
     }
     return _contentTableView;
+}
+
+- (UserInfoAPICmd *)userInfoAPICmd {
+    if (!_userInfoAPICmd) {
+        _userInfoAPICmd = [[UserInfoAPICmd alloc] init];
+        _userInfoAPICmd.delegate = self;
+        _userInfoAPICmd.path = API_UserInfo;
+    }
+    _userInfoAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"]};
+    return _userInfoAPICmd;
 }
 
 

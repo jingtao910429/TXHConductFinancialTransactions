@@ -84,31 +84,11 @@
 
     [self navigationBarStyleWithTitle:@"投小猴" titleColor:[UIColor whiteColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     
-    
-    UIButton*buttonc=[[UIButton alloc] initWithFrame:CGRectMake(20, 300, 60, 40)];
-    buttonc.backgroundColor=[UIColor redColor];
-    [buttonc setTitle:@"测试" forState:UIControlStateNormal];
-    [buttonc addTarget:self action:@selector(onbuttonc) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    [self.view addSubview:buttonc];
-    
     //添加视图
     [self.view addSubview:self.BackGroudView];
     [self.view addSubview:self.freeRegisteBtn];
     [self.view addSubview:self.loginBtn];
 }
-
-
-#pragma mark-测试按钮
--(void)onbuttonc{
-   
-  
-    RecentdynamicsVC*vc=[[RecentdynamicsVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-
-}
-
 
 #pragma mark--测试我的账号
 -(void)onleftAction{

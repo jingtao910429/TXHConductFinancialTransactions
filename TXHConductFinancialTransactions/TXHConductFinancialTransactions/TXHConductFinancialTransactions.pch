@@ -20,7 +20,10 @@
 #include "WToast.h"
 #import "UIViewController+NavigationBarStyle.h"
 
+//加密key
 #define VERSION 2
+
+//17090872779 147258
 
 #define api_domain @"http://app.aiben123.com/"
 //登录

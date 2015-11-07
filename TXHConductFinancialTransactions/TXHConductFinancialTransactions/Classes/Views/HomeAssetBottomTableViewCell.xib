@@ -15,30 +15,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_recharge.png" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-jL-iRf">
-                        <rect key="frame" x="0.0" y="14" width="160" height="73"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7B-OF-vD0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="22" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_withdrawals.png" translatesAutoresizingMaskIntoConstraints="NO" id="44F-Fa-DZn">
+                                <rect key="frame" x="160" y="13" width="160" height="73"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_recharge.png" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-jL-iRf">
+                                <rect key="frame" x="0.0" y="13" width="160" height="73"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="FpC-IJ-u56"/>
-                            <constraint firstAttribute="height" constant="73" id="QUz-oZ-IaW"/>
-                            <constraint firstAttribute="width" constant="160" id="e0W-Eq-PIu"/>
+                            <constraint firstItem="44F-Fa-DZn" firstAttribute="top" secondItem="F7B-OF-vD0" secondAttribute="top" constant="13" id="6hL-3T-B54"/>
+                            <constraint firstAttribute="bottom" secondItem="AhN-jL-iRf" secondAttribute="bottom" constant="14" id="LyM-ux-a4K"/>
+                            <constraint firstItem="AhN-jL-iRf" firstAttribute="top" secondItem="F7B-OF-vD0" secondAttribute="top" constant="13" id="P02-EF-u1u"/>
+                            <constraint firstAttribute="centerY" secondItem="44F-Fa-DZn" secondAttribute="centerY" constant="0.5" id="U5A-Uw-7Ul"/>
+                            <constraint firstAttribute="trailing" secondItem="44F-Fa-DZn" secondAttribute="trailing" id="YRb-Fc-knw"/>
+                            <constraint firstAttribute="centerX" secondItem="44F-Fa-DZn" secondAttribute="centerX" constant="-80" id="iez-ds-r3m"/>
+                            <constraint firstItem="AhN-jL-iRf" firstAttribute="leading" secondItem="F7B-OF-vD0" secondAttribute="leading" id="iyn-w4-1Qf"/>
+                            <constraint firstAttribute="centerY" secondItem="AhN-jL-iRf" secondAttribute="centerY" constant="0.5" id="t10-yZ-1vD"/>
+                            <constraint firstAttribute="centerX" secondItem="AhN-jL-iRf" secondAttribute="centerX" constant="80" id="tax-ki-UtX"/>
+                            <constraint firstAttribute="bottom" secondItem="44F-Fa-DZn" secondAttribute="bottom" constant="14" id="v9B-iD-D41"/>
                         </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" tag="22" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_withdrawals.png" translatesAutoresizingMaskIntoConstraints="NO" id="44F-Fa-DZn">
-                        <rect key="frame" x="160" y="14" width="160" height="73"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="160" id="TB3-Cs-8eQ"/>
-                            <constraint firstAttribute="height" constant="73" id="hop-Fh-3sa"/>
-                        </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="AhN-jL-iRf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="4qk-aW-Lqs"/>
-                    <constraint firstItem="44F-Fa-DZn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LTf-gg-pVf"/>
-                    <constraint firstItem="44F-Fa-DZn" firstAttribute="leading" secondItem="AhN-jL-iRf" secondAttribute="trailing" id="VU9-8A-hMC"/>
-                    <constraint firstItem="44F-Fa-DZn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="fCQ-bN-5RM"/>
-                    <constraint firstItem="AhN-jL-iRf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jcU-Vw-eMa"/>
-                    <constraint firstItem="44F-Fa-DZn" firstAttribute="bottom" secondItem="AhN-jL-iRf" secondAttribute="bottom" id="kxe-E0-UHG"/>
-                    <constraint firstAttribute="trailing" secondItem="44F-Fa-DZn" secondAttribute="trailing" id="tnw-dX-Uco"/>
+                    <constraint firstItem="F7B-OF-vD0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="CVx-Fi-iM2"/>
+                    <constraint firstAttribute="centerX" secondItem="F7B-OF-vD0" secondAttribute="centerX" id="JHg-4a-1ws"/>
+                    <constraint firstAttribute="centerY" secondItem="F7B-OF-vD0" secondAttribute="centerY" id="Za0-dR-ffw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="F7B-OF-vD0" secondAttribute="bottom" constant="-8" id="rt3-tv-Hcz"/>
+                    <constraint firstItem="F7B-OF-vD0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="ufH-Yx-bXe"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="F7B-OF-vD0" secondAttribute="trailing" constant="-8" id="vkn-g5-ocV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

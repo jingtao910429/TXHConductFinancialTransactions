@@ -11,4 +11,5 @@
 @interface HomeAssetTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *totalMoney;
 
+@property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @end

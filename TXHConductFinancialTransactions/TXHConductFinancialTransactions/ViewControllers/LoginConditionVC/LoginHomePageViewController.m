@@ -72,6 +72,10 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     [self configData];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -153,6 +157,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             self.step = sqrt([self.userAssetModel.allAsset doubleValue]);
             self.totalMoney = 0.00;
             self.totalMondyCell = cell;
+            
+            self.timers = [[NSMutableArray alloc] init];
             
             for (int i = 0; i < TimerNumber; i ++ ) {
                 
@@ -391,6 +397,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         for (int i = 0; i < TimerNumber; i ++) {
             NSTimer * timer = self.timers[i];
             [timer invalidate];
+            timer = nil;
         }
         
         self.timers = nil;

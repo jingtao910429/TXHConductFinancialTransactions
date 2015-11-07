@@ -25,13 +25,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-vL-n6H">
-                        <rect key="frame" x="0.0" y="49" width="320" height="72"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                        <rect key="frame" x="0.0" y="49" width="320" height="60"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3u-w5-UkI">
-                        <rect key="frame" x="0.0" y="141" width="320" height="30"/>
+                        <rect key="frame" x="0.0" y="129" width="320" height="42"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昨日年化收益率     8.00%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8M3-z1-Sm2">
                                 <rect key="frame" x="100" y="0.0" width="220" height="20"/>

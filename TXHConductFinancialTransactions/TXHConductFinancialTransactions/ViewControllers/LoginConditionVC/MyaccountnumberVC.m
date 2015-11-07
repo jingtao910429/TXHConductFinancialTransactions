@@ -12,6 +12,7 @@
 #import "UnLoginHomePageViewController.h"
 #import "UserInfoAPICmd.h"
 #import "UserInfoModel.h"
+#import "NSString+Additions.h"
 
 @interface MyaccountnumberVC () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
 
@@ -87,7 +88,9 @@
     
     
     _priceLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 35, 140, 30)];
-    _priceLable.text = [NSString stringWithFormat:@"金额：%@",self.userInfoModel.income?self.userInfoModel.income:@""];
+    
+    NSString *priceStr = [[NSString stringWithFormat:@"%@",self.userInfoModel.income?self.userInfoModel.income:@""] changeFormatwithMoneyAmount];
+    _priceLable.text = [NSString stringWithFormat:@"金额：%@",priceStr];
     _priceLable.textColor=[UIColor redColor];
     
     

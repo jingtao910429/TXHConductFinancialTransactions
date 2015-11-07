@@ -19,6 +19,7 @@
 #import "ActivityDetailViewController.h"
 #import "RecentdynamicsVC.h"
 #import "MyaccountnumberVC.h"
+#import "NSString+Additions.h"
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
@@ -92,7 +93,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (0 == indexPath.row) {
-        return 0.28*self.view.frame.size.height;
+        return 0.26*self.view.frame.size.height;
     }else if (1 == indexPath.row) {
         return 60;
     }
@@ -129,7 +130,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.totalMoney.text = [NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"];
+        cell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeFormatwithMoneyAmount];
         cell.rateLabel.text = [NSString stringWithFormat:@"昨日年华收益率    %@%%",self.userAssetModel.rate?self.userAssetModel.rate:@"0.00"];
         
         return cell;
@@ -143,8 +144,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.putMoneyLabel.text = [NSString stringWithFormat:@"%@",self.userAssetModel.remainAsset?self.userAssetModel.remainAsset:@"0.00"];
-        cell.yestadyIncomeLabel.text = [NSString stringWithFormat:@"%@",self.userAssetModel.yesterdayIncome?self.userAssetModel.yesterdayIncome:@"0.00"];
+        cell.putMoneyLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.remainAsset?self.userAssetModel.remainAsset:@"0.00"] changeFormatwithMoneyAmount];
+        cell.yestadyIncomeLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.yesterdayIncome?self.userAssetModel.yesterdayIncome:@"0.00"] changeFormatwithMoneyAmount];
         
         return cell;
         

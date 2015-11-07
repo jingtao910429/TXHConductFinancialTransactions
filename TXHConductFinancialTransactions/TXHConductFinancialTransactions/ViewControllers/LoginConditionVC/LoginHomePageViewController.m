@@ -71,7 +71,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 - (void)configUI {
     
-    [self navigationBarStyleWithTitle:@"首页" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:nil leftAction:nil rightTitle:nil rightImageName:@"img_account_head" rightAction:@selector(selectItem:)];
+    [self navigationBarStyleWithTitle:@"首页" titleColor:[UIColor blackColor]  leftTitle:@"活动" leftImageName:nil leftAction:@selector(activityList) rightTitle:nil rightImageName:@"img_account_head" rightAction:@selector(selectItem:)];
     
     [self.view addSubview:self.contentTableView];
     [self.view addSubview:self.bottomButton];
@@ -259,6 +259,13 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 // 我要充值
 - (void)tapGesDaw {
+    
+}
+
+// 活动列表
+- (void)activityList {
+    
+    
     
 }
 

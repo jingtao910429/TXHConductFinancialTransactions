@@ -15,5 +15,6 @@
 //存储用户信息
 + (void)setUserInfoWithDict:(NSDictionary *)userInfos;
 + (NSDictionary *)getUserInfo;
++ (void)clearUserInfo;
 
 @end

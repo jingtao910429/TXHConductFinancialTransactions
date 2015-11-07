@@ -18,6 +18,7 @@
 #import "KxMenu.h"
 #import "ActivityDetailViewController.h"
 #import "RecentdynamicsVC.h"
+#import "MyaccountnumberVC.h"
 
 
 static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
@@ -304,13 +305,20 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     
     KxMenuItem *item = (KxMenuItem *)sender;
     
+    
+    
     switch (item.tag) {
         case 1:
             
             break;
         case 2:
             break;
-        case 3:
+        case 3:{
+            //我的账户
+            MyaccountnumberVC *myaccountnumberVC = [[MyaccountnumberVC alloc] init];
+            [self.navigationController pushViewController:myaccountnumberVC animated:YES];
+        }
+            
             break;
         default:
             break;

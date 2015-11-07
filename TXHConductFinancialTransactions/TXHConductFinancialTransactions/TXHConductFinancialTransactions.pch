@@ -35,6 +35,8 @@
 #define API_NoticeList @"nblc/api/notice/list"
 //用户资产信息
 #define API_UserAsset @"nblc/api/asset/info"
+//理财用户信息
+#define API_UserInfo  @"nblc/api/account/info"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"

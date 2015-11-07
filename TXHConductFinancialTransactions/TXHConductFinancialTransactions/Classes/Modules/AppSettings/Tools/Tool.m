@@ -28,4 +28,11 @@
     return [[EncryptionManager shareManager] decodeWithStr:[defaults objectForKey:@"userInfo"] version:VERSION];
 }
 
++ (void)clearUserInfo {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *userInfoStr = [[EncryptionManager shareManager] encodeWithData:[NSDictionary dictionary] version:VERSION];
+    [defaults setValue:userInfoStr forKey:@"userInfo"];
+    [defaults synchronize];
+}
+
 @end

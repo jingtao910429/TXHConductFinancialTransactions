@@ -139,6 +139,8 @@
 		98AC79C61BEB6DDB0033F6D6 /* LoginAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79C51BEB6DDB0033F6D6 /* LoginAPICmd.m */; };
 		98AC79C91BEB7A270033F6D6 /* EnumDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79C81BEB7A270033F6D6 /* EnumDefine.m */; };
 		98AC79CC1BEB7A740033F6D6 /* ConstantString.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79CB1BEB7A740033F6D6 /* ConstantString.m */; };
+		98BCD2B81BEDACDD00168B00 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2B71BEDACDD00168B00 /* UserInfoModel.m */; };
+		98BCD2BB1BEDAD0E00168B00 /* UserInfoAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2BA1BEDAD0E00168B00 /* UserInfoAPICmd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -403,6 +405,10 @@
 		98AC79C81BEB7A270033F6D6 /* EnumDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumDefine.m; sourceTree = "<group>"; };
 		98AC79CA1BEB7A740033F6D6 /* ConstantString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantString.h; sourceTree = "<group>"; };
 		98AC79CB1BEB7A740033F6D6 /* ConstantString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantString.m; sourceTree = "<group>"; };
+		98BCD2B61BEDACDD00168B00 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		98BCD2B71BEDACDD00168B00 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		98BCD2B91BEDAD0E00168B00 /* UserInfoAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoAPICmd.h; sourceTree = "<group>"; };
+		98BCD2BA1BEDAD0E00168B00 /* UserInfoAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoAPICmd.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -643,6 +649,8 @@
 				98AA6AAE1BECD5F8002439B8 /* NoticeListModel.m */,
 				98AA6AB31BECDEC8002439B8 /* UserAssetModel.h */,
 				98AA6AB41BECDEC8002439B8 /* UserAssetModel.m */,
+				98BCD2B61BEDACDD00168B00 /* UserInfoModel.h */,
+				98BCD2B71BEDACDD00168B00 /* UserInfoModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1051,6 +1059,8 @@
 				95FA8FD71BEC78C90063BF09 /* Recentdynamicsmd.m */,
 				98AA6AB01BECDC83002439B8 /* UserAssetAPICmd.h */,
 				98AA6AB11BECDC83002439B8 /* UserAssetAPICmd.m */,
+				98BCD2B91BEDAD0E00168B00 /* UserInfoAPICmd.h */,
+				98BCD2BA1BEDAD0E00168B00 /* UserInfoAPICmd.m */,
 			);
 			name = NetAPI;
 			path = BSAPIManagers/NetAPI;
@@ -1185,6 +1195,7 @@
 			files = (
 				98229F7F1BE8DD46005210EC /* UIButton+WebCache.m in Sources */,
 				98229F2B1BE8DCAF005210EC /* MMProgressHUD+Class.m in Sources */,
+				98BCD2B81BEDACDD00168B00 /* UserInfoModel.m in Sources */,
 				98229F351BE8DCFB005210EC /* TelPrompt.m in Sources */,
 				98229EFC1BE8C54F005210EC /* AFURLConnectionOperation.m in Sources */,
 				989D5FB11BEB8C7900FFA998 /* CheckSmsVerifyCodeAPICmd.m in Sources */,
@@ -1234,6 +1245,7 @@
 				988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */,
 				98229FCD1BE8DFB8005210EC /* UIViewController+NavigationBarStyle.m in Sources */,
 				98229EDE1BE8C479005210EC /* RYAPILogger.m in Sources */,
+				98BCD2BB1BEDAD0E00168B00 /* UserInfoAPICmd.m in Sources */,
 				98AA6AB91BECE0A2002439B8 /* HomeAssetTableViewCell.m in Sources */,
 				98AC79CC1BEB7A740033F6D6 /* ConstantString.m in Sources */,
 				988EE3E51BE9928B0064A75B /* TestAPICmd.m in Sources */,

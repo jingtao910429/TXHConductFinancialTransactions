@@ -41,7 +41,7 @@
 
     [self.window makeKeyAndVisible];
     
-    if (![Tool getUserInfo] || [[Tool getUserInfo] isKindOfClass:[NSNull class]]) {
+    if (![Tool getUserInfo] || [[Tool getUserInfo] isKindOfClass:[NSNull class]] || [[Tool getUserInfo] count] == 0) {
         //表示没有用户，则登录
         [self appLogin];
     }else{

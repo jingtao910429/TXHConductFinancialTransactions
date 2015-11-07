@@ -9,6 +9,9 @@
 #import "MyaccountnumberVC.h"
 #import "UIViewController+NavigationBarStyle.h"
 #import "MyaccountnumberCell.h"
+#import "UnLoginHomePageViewController.h"
+#import "UserInfoAPICmd.h"
+#import "UserInfoModel.h"
 
 @interface MyaccountnumberVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *contentTableView;
@@ -32,12 +35,9 @@
     [self configUI];
 }
 
--(void)configUI{
- 
-    [self clearNavigationBar];
+-(void)configUI{    
     
-    
-    [self navigationBarStyleWithTitle:@"我的账号" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"我的账号" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     //添加视图
     [self.view addSubview:self.contentTableView];
     
@@ -108,16 +108,26 @@
 #pragma mark - private method
 
 //退出账号
--(void)onbaocunBTN{
- 
+- (void)onbaocunBTN {
+    
+    UnLoginHomePageViewController *unLoginHomePageVC = [[UnLoginHomePageViewController alloc] init];
+    [[[[UIApplication sharedApplication] delegate] window] setRootViewController:[[UINavigationController alloc] initWithRootViewController:unLoginHomePageVC]];
+    
+    [Tool clearUserInfo];
+    
 }
 
 //修改密码
 -(void)onchangeBtn{
     
 }
+
 -(void)onxiangxiBtn{
     
+}
+
+- (void)popVC {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

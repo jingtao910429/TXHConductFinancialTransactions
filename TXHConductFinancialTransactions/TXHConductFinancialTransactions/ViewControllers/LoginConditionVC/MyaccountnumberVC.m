@@ -89,7 +89,7 @@
     
     _priceLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 35, 140, 30)];
     
-    NSString *priceStr = [[NSString stringWithFormat:@"%@",self.userInfoModel.income?self.userInfoModel.income:@""] changeFormatwithMoneyAmount];
+    NSString *priceStr = [[NSString stringWithFormat:@"%@",self.userInfoModel.income?self.userInfoModel.income:@""] changeYFormatWithMoneyAmount];
     _priceLable.text = [NSString stringWithFormat:@"金额：%@",priceStr];
     _priceLable.textColor=[UIColor redColor];
     

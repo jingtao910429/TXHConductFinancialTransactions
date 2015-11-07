@@ -10,6 +10,7 @@
 #import "InvestmentTopTableViewCell.h"
 #import "InvestmentBottomMTableViewCell.h"
 #import "InvestmentBottomLTableViewCell.h"
+#import "NSString+Additions.h"
 
 @interface ItemDetailViewController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -105,7 +106,7 @@
             if (1 != indexPath.section % 2) {
                 
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 49.5, kScreenWidth, 0.5)];
-                imageView.backgroundColor = [UIColor grayColor];
+                imageView.backgroundColor = COLOR(221, 221, 221, 1.0f);
                 
                 [cell.contentView addSubview:imageView];
                 
@@ -130,15 +131,13 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL_ID"];
             
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 49.5, kScreenWidth, 0.5)];
-            imageView.backgroundColor = [UIColor grayColor];
+            imageView.backgroundColor = COLOR(221, 221, 221, 1.0f);
             
             [cell.contentView addSubview:imageView];
             
         }
         cell.imageView.image = [UIImage imageNamed:@"ic_login_num"];
         cell.textLabel.text = self.investmentListModel.name;
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
         
     }else if (1 == indexPath.row) {
@@ -150,7 +149,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"InvestmentTopTableViewCell" owner:self options:nil] lastObject];
         }
         
-        cell.totalMoneyLabel.text = [NSString stringWithFormat:@"%@万",self.investmentListModel.money?self.investmentListModel.money:@"0.00"];
+        cell.totalMoneyLabel.text = [NSString stringWithFormat:@"%@万",[[NSString stringWithFormat:@"%@",self.investmentListModel.money?self.investmentListModel.money:@"0.00"] changeWYFormatWithMoneyAmount]];
         cell.rateLabel.text = [NSString stringWithFormat:@"%@",self.investmentListModel.rate?self.investmentListModel.rate:@"0.00%起"];
         cell.investNumberLabel.text = [NSString stringWithFormat:@"%@",self.investmentListModel.version?self.investmentListModel.version:@"0"];
         
@@ -173,7 +172,7 @@
             
             cell.zdProgressView.progress = [self.investmentListModel.rate floatValue] / 100.00;
             cell.zdProgressView.text = [NSString stringWithFormat:@"%.2f%%",[self.investmentListModel.rate floatValue]];
-            cell.contentLabel.text =  [NSString stringWithFormat:@"还可以投资%@万",self.investmentListModel.realMoney?self.investmentListModel.realMoney:@"0.00"];
+            cell.contentLabel.text =  [NSString stringWithFormat:@"还可以投资%@元",[[NSString stringWithFormat:@"%@",self.investmentListModel.realMoney?self.investmentListModel.realMoney:@"0.00"] changeYFormatWithMoneyAmount]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             return cell;

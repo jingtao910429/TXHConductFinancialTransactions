@@ -10,7 +10,9 @@
 
 @interface NSString (Additions)
 
-//字符串金钱格式化
--(NSString *)changeFormatwithMoneyAmount;
+//字符串金钱格式化(元)
+-(NSString *)changeYFormatWithMoneyAmount;
+//字符串金钱格式化(万元)
+-(NSString *)changeWYFormatWithMoneyAmount;
 
 @end

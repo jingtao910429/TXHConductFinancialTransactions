@@ -23,8 +23,9 @@
 #import "DealDetailViewController.h"
 #import "InvestmentListViewController.h"
 
+#define TimerNumber 15
 
-static NSString *HomeAssetTableViewCellID = @"HomeAssetTableViewCellID";
+static NSString *HomeAssetTableViewCellID       = @"HomeAssetTableViewCellID";
 static NSString *HomeAssetMiddleTableViewCellID = @"HomeAssetMiddleTableViewCellID";
 static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCellID";
 
@@ -50,6 +51,13 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 //用户资产model
 @property (nonatomic, strong)   UserAssetModel     *userAssetModel;
+
+
+//动画timer
+@property (nonatomic, strong)   NSMutableArray *timers;
+@property (nonatomic, assign)   double step;
+@property (nonatomic, assign)   NSInteger totalMoney;
+@property (nonatomic, strong)   HomeAssetTableViewCell *totalMondyCell;
 
 @end
 
@@ -131,8 +139,25 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetTableViewCell" owner:self options:nil] lastObject];
         }
         
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeFormatwithMoneyAmount];
+        
+        if (self.userAssetModel) {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            self.step = sqrt([self.userAssetModel.allAsset doubleValue]);
+            self.totalMoney = 0.00;
+            self.totalMondyCell = cell;
+            
+            for (int i = 0; i < TimerNumber; i ++ ) {
+                
+                NSTimer *timer = [NSTimer timerWithTimeInterval:0.001  target:self selector:@selector(changeTotalMoney) userInfo:nil repeats:YES];
+                [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+                [timer fire];
+                [self.timers addObject:timer];
+                
+            }
+            
+        }
+        
         cell.rateLabel.text = [NSString stringWithFormat:@"昨日年华收益率    %@%%",self.userAssetModel.rate?self.userAssetModel.rate:@"0.00"];
         
         return cell;
@@ -146,8 +171,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.putMoneyLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.remainAsset?self.userAssetModel.remainAsset:@"0.00"] changeFormatwithMoneyAmount];
-        cell.yestadyIncomeLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.yesterdayIncome?self.userAssetModel.yesterdayIncome:@"0.00"] changeFormatwithMoneyAmount];
+        cell.putMoneyLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.remainAsset?self.userAssetModel.remainAsset:@"0.00"] changeYFormatWithMoneyAmount];
+        cell.yestadyIncomeLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.yesterdayIncome?self.userAssetModel.yesterdayIncome:@"0.00"] changeYFormatWithMoneyAmount];
         
         return cell;
         
@@ -245,6 +270,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 #pragma mark - event response
 
+
+
 //活动banner点击事件
 -(void)buttonClick:(int)vid {
     
@@ -339,7 +366,31 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 #pragma mark - private method
 
-
+- (void)changeTotalMoney {
+    
+    self.totalMoney += self.step;
+    
+    if (self.totalMoney > [self.userAssetModel.allAsset intValue]) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.totalMondyCell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeYFormatWithMoneyAmount];
+        });
+        
+        
+        for (int i = 0; i < TimerNumber; i ++) {
+            NSTimer * timer = self.timers[i];
+            [timer invalidate];
+        }
+        
+        self.timers = nil;
+        
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.totalMondyCell.totalMoney.text = [[NSString stringWithFormat:@"%d",(int)self.totalMoney] changeYFormatWithMoneyAmount];
+        });
+    }
+    
+}
 
 #pragma mark - getters and setters
 

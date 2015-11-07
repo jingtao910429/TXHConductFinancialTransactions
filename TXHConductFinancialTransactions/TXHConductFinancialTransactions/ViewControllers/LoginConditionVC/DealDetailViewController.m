@@ -109,7 +109,7 @@
         }
         
         
-        cell.moneyLabel.text = [[NSString stringWithFormat:@"%@",model.money?model.money:@"0.00"] changeFormatwithMoneyAmount];
+        cell.moneyLabel.text = [[NSString stringWithFormat:@"%@",model.money?model.money:@"0.00"] changeYFormatWithMoneyAmount];
         cell.contentLabel.text = [NSString stringWithFormat:@"%@",model.productName?model.productName:@""];
         
         NSString *timeStr = [NSString stringWithFormat:@"%@",model.date?model.date:@""];

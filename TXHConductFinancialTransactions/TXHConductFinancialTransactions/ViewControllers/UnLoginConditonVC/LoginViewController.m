@@ -217,12 +217,19 @@
             
         }else{
             
-            [Tool setUserInfoWithDict:@{@"id":tempDict[@"id"],@"username":self.userName,@"password":self.passwordTextFiled.text}];
-            
-            //登录成功
-            LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
-            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginHomePageVC];
-            [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginNav];
+            if (self.isRegisterSetPassword) {
+                [Tool setUserInfoWithDict:@{@"id":tempDict[@"id"],@"username":self.userName,@"password":self.passwordTextFiled.text}];
+                //登录成功
+                LoginHomePageViewController *loginHomePageVC = [[LoginHomePageViewController alloc] init];
+                UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginHomePageVC];
+                [[[[UIApplication sharedApplication] delegate] window] setRootViewController:loginNav];
+            }else{
+                
+                LoginViewController *loginViewController = [[LoginViewController alloc] init];
+                
+                [self.navigationController pushViewController:loginViewController animated:YES];
+                
+            }
             
         }
         
@@ -456,7 +463,7 @@
         _registerAPICmd.delegate = self;
         _registerAPICmd.path = API_Register;
     }
-    _registerAPICmd.reformParams = @{@"type":self.isRegisterSetPassword?@"2":@"1",@"username":self.userName,@"password":self.passwordTextFiled.text};
+    _registerAPICmd.reformParams = @{@"type":self.isRegisterSetPassword?@"1":@"2",@"username":self.userName,@"password":self.passwordTextFiled.text};
     return _registerAPICmd;
 }
 

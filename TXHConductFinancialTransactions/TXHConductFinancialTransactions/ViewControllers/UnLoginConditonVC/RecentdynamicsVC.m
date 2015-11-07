@@ -30,6 +30,8 @@
     
     [self navigationBarStyleWithTitle:@"最近动态" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:nil rightTitle:nil rightImageName:nil rightAction:nil];
     [self configUI];
+    
+    
     [self.recentdynamicsmd loadData];
     
     
@@ -98,6 +100,8 @@
 }
 
 -(void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error{
+    
+    NSLog(@"%@",error.description);
  
 }
 

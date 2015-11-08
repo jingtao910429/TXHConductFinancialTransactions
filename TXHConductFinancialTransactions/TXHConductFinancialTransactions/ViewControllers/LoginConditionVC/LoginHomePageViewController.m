@@ -114,7 +114,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (0 == indexPath.row) {
-        return 0.26*self.view.frame.size.height;
+        return 150;
     }else if (1 == indexPath.row) {
         return 60;
     }

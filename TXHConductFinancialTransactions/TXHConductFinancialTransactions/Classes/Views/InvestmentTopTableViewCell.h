@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface InvestmentTopTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *totalMoneyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *investNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalMoneyHintLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rateHintLabel;
+@property (weak, nonatomic) IBOutlet UILabel *investNumberHintLabel;
 
+- (void)updateUI;
 @end

@@ -164,6 +164,7 @@
         InvestmentTopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"InvestmentTopTableViewCell" owner:self options:nil] lastObject];
+            [cell updateUI];
         }
         
         cell.totalMoneyLabel.text = [NSString stringWithFormat:@"%@万",[[NSString stringWithFormat:@"%@",self.investmentListModel.money?self.investmentListModel.money:@"0.00"] changeWYFormatWithMoneyAmount]];

@@ -23,6 +23,11 @@
 //加密key
 #define VERSION 2
 
+//url文件
+#define API_Help  @"http://s.aiben123.com/help/help.html"
+#define API_About @"http://s.aiben123.com/about/about.html"
+#define API_Item  @"http://s.aiben123.com/item/item.html"
+
 //17090872779 147258
 
 #define api_domain @"http://app.aiben123.com/"

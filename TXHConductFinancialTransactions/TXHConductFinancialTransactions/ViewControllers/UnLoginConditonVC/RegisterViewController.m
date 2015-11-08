@@ -298,7 +298,14 @@
 #pragma mark - private method
 
 - (void)popVC {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    if (![Tool getUserInfo] || [[Tool getUserInfo] isKindOfClass:[NSNull class]] || [[Tool getUserInfo] count] == 0) {
+        //没有登录过
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 
 //登录

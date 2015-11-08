@@ -322,7 +322,12 @@
 #pragma mark - private method
 
 - (void)popVC {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    if (![Tool getUserInfo] || [[Tool getUserInfo] isKindOfClass:[NSNull class]] || [[Tool getUserInfo] count] == 0) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)registeBtnClick {

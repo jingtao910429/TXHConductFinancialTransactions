@@ -160,6 +160,8 @@
 		98BCD3BA1BEE30CB00168B00 /* EarnDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */; };
 		98BCD3BD1BEE30F600168B00 /* EarnDetailAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */; };
 		98C9F43A1BEF3850009C46B5 /* HelpCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F4391BEF3850009C46B5 /* HelpCenterVC.m */; };
+		98C9F43D1BEF3E93009C46B5 /* ItemTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F43C1BEF3E93009C46B5 /* ItemTypeViewController.m */; };
+		98C9F4401BEF438F009C46B5 /* InvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -464,6 +466,10 @@
 		98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarnDetailAPICmd.m; sourceTree = "<group>"; };
 		98C9F4381BEF3850009C46B5 /* HelpCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCenterVC.h; sourceTree = "<group>"; };
 		98C9F4391BEF3850009C46B5 /* HelpCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCenterVC.m; sourceTree = "<group>"; };
+		98C9F43B1BEF3E93009C46B5 /* ItemTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTypeViewController.h; sourceTree = "<group>"; };
+		98C9F43C1BEF3E93009C46B5 /* ItemTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTypeViewController.m; sourceTree = "<group>"; };
+		98C9F43E1BEF438F009C46B5 /* InvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentViewController.h; sourceTree = "<group>"; };
+		98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -997,6 +1003,10 @@
 				98BCD3B31BEE0A5E00168B00 /* ItemDetailViewController.m */,
 				98BCD3B51BEE2FC500168B00 /* EarningsRecordViewController.h */,
 				98BCD3B61BEE2FC500168B00 /* EarningsRecordViewController.m */,
+				98C9F43B1BEF3E93009C46B5 /* ItemTypeViewController.h */,
+				98C9F43C1BEF3E93009C46B5 /* ItemTypeViewController.m */,
+				98C9F43E1BEF438F009C46B5 /* InvestmentViewController.h */,
+				98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */,
 			);
 			path = LoginConditionVC;
 			sourceTree = "<group>";
@@ -1342,9 +1352,11 @@
 				98BCD3BA1BEE30CB00168B00 /* EarnDetailModel.m in Sources */,
 				98BCD39B1BEDF1FE00168B00 /* InvestmentTopTableViewCell.m in Sources */,
 				98229F7B1BE8DD46005210EC /* SDWebImageDownloader.m in Sources */,
+				98C9F43D1BEF3E93009C46B5 /* ItemTypeViewController.m in Sources */,
 				98BCD2FC1BEDE24C00168B00 /* MyaccountnumberVC.m in Sources */,
 				98229F281BE8DCAF005210EC /* MMHud.m in Sources */,
 				98229F0C1BE8D6FE005210EC /* EAIntroPage.m in Sources */,
+				98C9F4401BEF438F009C46B5 /* InvestmentViewController.m in Sources */,
 				98BCD3671BEDE37700168B00 /* CheckSmsVerifyCodeAPICmd.m in Sources */,
 				98BCD2EA1BEDE23700168B00 /* RecentdynamicsVC.m in Sources */,
 				98229F811BE8DD46005210EC /* UIImage+MultiFormat.m in Sources */,

@@ -11,12 +11,14 @@
 #import "InvestmentBottomMTableViewCell.h"
 #import "InvestmentBottomLTableViewCell.h"
 #import "NSString+Additions.h"
+#import "ItemTypeViewController.h"
 
 @interface ItemDetailViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView     *contentTableView;
 
-@property (nonatomic, strong) NSArray *names;
+@property (nonatomic, copy) NSArray *names;
+@property (nonatomic, copy) NSArray *texts;
 
 @end
 
@@ -35,6 +37,7 @@
 
 - (void)configData {
     self.names = @[@"计息时间",@"项目期限",@"保障措施",@"项目类型"];
+    self.texts = @[@"投资后立即计息",@"活期",@"100%本息保障",@"查看项目类型"];
 }
 
 - (void)configUI {
@@ -110,6 +113,11 @@
                 
                 [cell.contentView addSubview:imageView];
                 
+                UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 5, kScreenWidth - 150, 40)];
+                contentLabel.textAlignment = NSTextAlignmentRight;
+                contentLabel.font = [UIFont systemFontOfSize:16];
+                contentLabel.tag = 1;
+                [cell.contentView addSubview:contentLabel];
             }
             
         }
@@ -119,6 +127,15 @@
         }else{
             
             cell.textLabel.text = self.names[indexPath.row];
+            
+            UILabel *contentLabel = (UILabel *)[cell.contentView viewWithTag:1];
+            contentLabel.text = self.texts[indexPath.row];
+            
+            if (3 == indexPath.row) {
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }else{
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
             
         }
         return cell;
@@ -200,6 +217,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (2 == indexPath.section) {
+        
+        if (3 == indexPath.row) {
+            ItemTypeViewController *itemTypeViewController = [[ItemTypeViewController alloc] init];
+            [self.navigationController pushViewController:itemTypeViewController animated:YES];
+        }
+        
+    }
 }
 
 #pragma mark - private method

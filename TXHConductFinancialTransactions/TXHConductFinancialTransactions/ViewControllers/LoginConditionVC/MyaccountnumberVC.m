@@ -77,6 +77,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     _headview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+    _headview.backgroundColor = [UIColor whiteColor];
     
     UIView*topview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
     
@@ -128,10 +129,11 @@
     downview.userInteractionEnabled=YES;
     
     //详细介绍
-    UIButton*xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-80, 60, 30, 30)];
+    UIButton*xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth * 4.0 / 5.0, 80, 20, 20)];
     
     [xiangxiBtn setTitle:@" ？" forState:UIControlStateNormal];
-    xiangxiBtn.layer.cornerRadius = 15;
+    xiangxiBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    xiangxiBtn.layer.cornerRadius = 10;
     xiangxiBtn.layer.borderWidth = 0.1;
     
     
@@ -235,6 +237,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row==4) {
         HelpCenterVC*vc=[[HelpCenterVC alloc] init];

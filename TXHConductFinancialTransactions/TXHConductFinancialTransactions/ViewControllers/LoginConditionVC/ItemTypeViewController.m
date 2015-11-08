@@ -1,60 +1,45 @@
 //
-//  HelpCenterVC.m
+//  ItemTypeViewController.m
 //  TXHConductFinancialTransactions
 //
-//  Created by 吴建良 on 15/11/8.
-//  Copyright © 2015年 rongyu. All rights reserved.
+//  Created by wwt on 15/11/7.
+//  Copyright (c) 2015年 rongyu. All rights reserved.
 //
 
-#import "HelpCenterVC.h"
+#import "ItemTypeViewController.h"
 
 #define NowYEAR 12345
-@interface HelpCenterVC ()
+
+@interface ItemTypeViewController ()
 
 @end
-@implementation HelpCenterVC
+
+@implementation ItemTypeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setUI];
+    [self setBodyUI];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    
+}
 
--(void)setUI{
+- (void)setBodyUI{
     
+    [self navigationBarStyleWithTitle:@"项目类型" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
-    NSString*url=@"";
-    
-    
-
-    
-    
-    if (self.isGTturl) {
-        [self navigationBarStyleWithTitle:@"帮助中心" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
-        url=API_Help;
-        
-        
-
-    }else{
-        [self navigationBarStyleWithTitle:@"关于我们" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
-        url=API_About;
-        
-
-    }
-    
-    [self.contentWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+    [self.contentWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:API_Item]]];
     
     [self.view addSubview:self.contentWebView];
     
- 
 }
 
-
--(void)popVC{
+- (void)popVC {
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 
 #pragma mark - getters and setters
@@ -105,15 +90,12 @@
     [acView removeFromSuperview];
 }
 
-
-
 #pragma mark - event response
 
-//- (void)onClickBack:(UIButton*)sender{
-//    
-//    self.navigationController.navigationBar.translucent = YES;
-//    kPop;
-//}
-
+- (void)onClickBack:(UIButton*)sender{
+    
+    self.navigationController.navigationBar.translucent = YES;
+    kPop;
+}
 
 @end

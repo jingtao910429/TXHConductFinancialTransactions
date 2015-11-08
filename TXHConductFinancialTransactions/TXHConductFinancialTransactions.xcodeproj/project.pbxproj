@@ -159,6 +159,7 @@
 		98BCD3B71BEE2FC500168B00 /* EarningsRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B61BEE2FC500168B00 /* EarningsRecordViewController.m */; };
 		98BCD3BA1BEE30CB00168B00 /* EarnDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */; };
 		98BCD3BD1BEE30F600168B00 /* EarnDetailAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */; };
+		98C9F43A1BEF3850009C46B5 /* HelpCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F4391BEF3850009C46B5 /* HelpCenterVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -461,6 +462,8 @@
 		98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarnDetailModel.m; sourceTree = "<group>"; };
 		98BCD3BB1BEE30F600168B00 /* EarnDetailAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarnDetailAPICmd.h; sourceTree = "<group>"; };
 		98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarnDetailAPICmd.m; sourceTree = "<group>"; };
+		98C9F4381BEF3850009C46B5 /* HelpCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCenterVC.h; sourceTree = "<group>"; };
+		98C9F4391BEF3850009C46B5 /* HelpCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCenterVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -974,6 +977,8 @@
 		98229FD91BE8EC3E005210EC /* LoginConditionVC */ = {
 			isa = PBXGroup;
 			children = (
+				98C9F4381BEF3850009C46B5 /* HelpCenterVC.h */,
+				98C9F4391BEF3850009C46B5 /* HelpCenterVC.m */,
 				98BCD2ED1BEDE24C00168B00 /* ActivityDetailViewController.h */,
 				98BCD2EE1BEDE24C00168B00 /* ActivityDetailViewController.m */,
 				98BCD2EF1BEDE24C00168B00 /* DealDetailViewController.h */,
@@ -1329,6 +1334,7 @@
 				98229F7A1BE8DD46005210EC /* SDWebImageDecoder.m in Sources */,
 				98229EA91BE8C381005210EC /* AppDelegate.m in Sources */,
 				98229F391BE8DD1D005210EC /* Reachability.m in Sources */,
+				98C9F43A1BEF3850009C46B5 /* HelpCenterVC.m in Sources */,
 				98229FC21BE8DD6B005210EC /* MJRefreshConst.m in Sources */,
 				98229FB31BE8DD6B005210EC /* MJRefreshAutoFooter.m in Sources */,
 				98BCD2EC1BEDE23700168B00 /* UnLoginHomePageViewController.m in Sources */,

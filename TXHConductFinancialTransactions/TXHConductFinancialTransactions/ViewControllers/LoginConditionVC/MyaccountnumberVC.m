@@ -13,6 +13,8 @@
 #import "UserInfoAPICmd.h"
 #import "UserInfoModel.h"
 #import "NSString+Additions.h"
+#import "HelpCenterVC.h"
+#import "RegisterViewController.h"
 
 @interface MyaccountnumberVC () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
 
@@ -28,6 +30,9 @@
 //网络请求
 @property (nonatomic, strong) UserInfoAPICmd *userInfoAPICmd;
 @property (nonatomic, strong) UserInfoModel *userInfoModel;
+
+@property (nonatomic, strong) UILabel*shouyiLable;//收益
+@property (nonatomic, strong) UILabel*lastDayiLable;//昨日收益
 
 
 @end
@@ -100,6 +105,7 @@
     UIButton*changeBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-100, 25, 80, 25)];
     
     [changeBtn setTitle:@"修改密码" forState:UIControlStateNormal];
+    changeBtn.imageEdgeInsets = UIEdgeInsetsMake(5,13,21,changeBtn.titleLabel.bounds.size.width);
     changeBtn.imageView.frame =changeBtn.bounds;
     changeBtn.hidden = NO;
     
@@ -125,13 +131,53 @@
     UIButton*xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-80, 60, 30, 30)];
     
     [xiangxiBtn setTitle:@" ？" forState:UIControlStateNormal];
+    xiangxiBtn.layer.cornerRadius = 15;
+    xiangxiBtn.layer.borderWidth = 0.1;
     
     
     xiangxiBtn.userInteractionEnabled=YES;
     [xiangxiBtn addTarget:self action:@selector(onxiangxiBtn) forControlEvents:UIControlEventTouchUpInside];
-    xiangxiBtn.backgroundColor=[UIColor blackColor];
+    [xiangxiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    xiangxiBtn.backgroundColor=[UIColor whiteColor];
     [downview addSubview:xiangxiBtn];
     changeBtn.backgroundColor=[UIColor grayColor];
+    
+    
+    
+    
+    UILabel*leijiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, 5, 160, 30)];
+    leijiLable.text=@"累计收益（元）";
+    [downview addSubview:leijiLable];
+    leijiLable.textColor=[UIColor whiteColor];
+    
+    
+    
+    _shouyiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, leijiLable.frame.size.height, 160, 30)];
+    
+    
+    
+    NSString *shouyiLabletext = [NSString stringWithFormat :@"%@",self.userInfoModel.income?self.userInfoModel.income:@""];
+    
+    
+    _shouyiLable.text=shouyiLabletext;
+    
+    _shouyiLable.textColor=[UIColor whiteColor];
+    [downview addSubview:_shouyiLable];
+    
+    
+    _lastDayiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, _shouyiLable.frame.size.height+35, 160, 30)];
+    
+    
+    NSString *lastDayiLableStr = [NSString stringWithFormat:@"昨日收益：%@",self.userInfoModel.yesterdayIncome?self.userInfoModel.yesterdayIncome:@""];
+    
+    
+    _lastDayiLable.text=lastDayiLableStr;
+    
+    
+    
+    _lastDayiLable.textColor=[UIColor whiteColor];
+    
+    [downview addSubview:_lastDayiLable];
     
     [_headview addSubview:downview];
     
@@ -190,6 +236,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.row==4) {
+        HelpCenterVC*vc=[[HelpCenterVC alloc] init];
+        vc.isGTturl=NO;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        
+    }
+    if (indexPath.row==2) {
+        UIWebView*callWebview =[[UIWebView alloc] init];
+        NSString *telUrl = [NSString stringWithFormat:@"tel://%@", self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@""];
+        NSURL *telURL =[NSURL URLWithString:telUrl];
+        [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+        [self.view addSubview:callWebview];
+    }
+    
 }
 
 #pragma mark - APICmdApiCallBackDelegate
@@ -238,9 +299,17 @@
 //修改密码
 -(void)onchangeBtn{
     
+    RegisterViewController *registerVC = [[RegisterViewController alloc] init];
+    registerVC.isRestPassword = YES;
+    [self.navigationController pushViewController:registerVC animated:YES];
+    
 }
 
 -(void)onxiangxiBtn{
+    
+    HelpCenterVC*vc=[[HelpCenterVC alloc] init];
+    vc.isGTturl=YES;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

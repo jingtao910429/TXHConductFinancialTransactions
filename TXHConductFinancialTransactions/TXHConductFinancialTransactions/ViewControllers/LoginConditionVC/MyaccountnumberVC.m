@@ -67,123 +67,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.leftDataArr.count;
+    return self.leftDataArr.count + 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 200;
+    return 0.001;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    _headview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
-    _headview.backgroundColor = [UIColor whiteColor];
-    
-    UIView*topview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
-    
-    UIImageView*topimageview=[[UIImageView alloc] initWithFrame:CGRectMake(6, 15, 40, 40)];
-    topimageview.image=[UIImage imageNamed:@"img_account_head"];
-    
-    
-    [topview addSubview:topimageview];
-    
-    _nameLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 15, 140, 20)];
-    _nameLable.text = self.userInfoModel.phoneNumber?self.userInfoModel.phoneNumber:@"";
-    
-    [topview addSubview:_nameLable];
-    
-    
-    _priceLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 35, 140, 30)];
-    
-    NSString *priceStr = [[NSString stringWithFormat:@"%@",self.userInfoModel.income?self.userInfoModel.income:@""] changeYFormatWithMoneyAmount];
-    _priceLable.text = [NSString stringWithFormat:@"金额：%@",priceStr];
-    _priceLable.textColor=[UIColor redColor];
-    
-    
-    [topview addSubview:_priceLable];
-    
-    //修改密码
-    UIButton*changeBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-100, 25, 80, 25)];
-    
-    [changeBtn setTitle:@"修改密码" forState:UIControlStateNormal];
-    changeBtn.imageEdgeInsets = UIEdgeInsetsMake(5,13,21,changeBtn.titleLabel.bounds.size.width);
-    changeBtn.imageView.frame =changeBtn.bounds;
-    changeBtn.hidden = NO;
-    
-    [changeBtn addTarget:self action:@selector(onchangeBtn) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    changeBtn.imageView.backgroundColor=[UIColor redColor];
-    [topview addSubview:changeBtn];
-    changeBtn.backgroundColor=[UIColor grayColor];
-    
-    
-    [_headview addSubview:topview];
-    
-    
-    
-    
-    UIImageView*downview=[[UIImageView alloc] initWithFrame:CGRectMake(0, topview.frame.size.height, kScreenWidth, 120)];
-    
-    downview.image=[UIImage imageNamed:@"bg_account_asset_info"];
-    downview.userInteractionEnabled=YES;
-    
-    //详细介绍
-    UIButton*xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth * 4.0 / 5.0, 80, 20, 20)];
-    
-    [xiangxiBtn setTitle:@" ？" forState:UIControlStateNormal];
-    xiangxiBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    xiangxiBtn.layer.cornerRadius = 10;
-    xiangxiBtn.layer.borderWidth = 0.1;
-    
-    
-    xiangxiBtn.userInteractionEnabled=YES;
-    [xiangxiBtn addTarget:self action:@selector(onxiangxiBtn) forControlEvents:UIControlEventTouchUpInside];
-    [xiangxiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    xiangxiBtn.backgroundColor=[UIColor whiteColor];
-    [downview addSubview:xiangxiBtn];
-    changeBtn.backgroundColor=[UIColor grayColor];
-    
-    
-    
-    
-    UILabel*leijiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, 5, 160, 30)];
-    leijiLable.text=@"累计收益（元）";
-    [downview addSubview:leijiLable];
-    leijiLable.textColor=[UIColor whiteColor];
-    
-    
-    
-    _shouyiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, leijiLable.frame.size.height, 160, 30)];
-    
-    
-    
-    NSString *shouyiLabletext = [NSString stringWithFormat :@"%@",self.userInfoModel.income?self.userInfoModel.income:@""];
-    
-    
-    _shouyiLable.text=shouyiLabletext;
-    
-    _shouyiLable.textColor=[UIColor whiteColor];
-    [downview addSubview:_shouyiLable];
-    
-    
-    _lastDayiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, _shouyiLable.frame.size.height+35, 160, 30)];
-    
-    
-    NSString *lastDayiLableStr = [NSString stringWithFormat:@"昨日收益：%@",self.userInfoModel.yesterdayIncome?self.userInfoModel.yesterdayIncome:@""];
-    
-    
-    _lastDayiLable.text=lastDayiLableStr;
-    
-    
-    
-    _lastDayiLable.textColor=[UIColor whiteColor];
-    
-    [downview addSubview:_lastDayiLable];
-    
-    [_headview addSubview:downview];
-    
-    return _headview;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (0 == indexPath.row) {
+        return 200;
+    }
+    return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -191,18 +86,31 @@
     static NSString *CellIdentifier = @"MyaccountnumberCell";
     MyaccountnumberCell *cell = (MyaccountnumberCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+        
         cell = [[ MyaccountnumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    if (0 == indexPath.row) {
+        
+        [self.headview removeFromSuperview];
+        
+        [cell.contentView addSubview:self.headview];
     }
     
     if (4 != indexPath.row) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
- 
-    cell.leftimageview.image=[UIImage imageNamed:@"img_account_head"];
-
-    cell.leftlable.text=self.leftDataArr[indexPath.row];
     
-    cell.rightlable.text = self.dataSource[indexPath.row];
+    if (0 != indexPath.row) {
+
+        cell.leftimageview.image=[UIImage imageNamed:@"img_account_head"];
+        
+        cell.leftlable.text=self.leftDataArr[indexPath.row - 1];
+        
+        cell.rightlable.text = self.dataSource[indexPath.row - 1];
+        
+    }
+    
     
     return cell;
     
@@ -346,6 +254,116 @@
     }
     _userInfoAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"]};
     return _userInfoAPICmd;
+}
+
+- (UIView *)headview {
+    
+    _headview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+    _headview.backgroundColor = [UIColor whiteColor];
+    
+    UIView*topview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
+    
+    UIImageView*topimageview=[[UIImageView alloc] initWithFrame:CGRectMake(6, 15, 40, 40)];
+    topimageview.image=[UIImage imageNamed:@"img_account_head"];
+    
+    
+    [topview addSubview:topimageview];
+    
+    _nameLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 15, 140, 20)];
+    _nameLable.text = self.userInfoModel.phoneNumber?self.userInfoModel.phoneNumber:@"";
+    
+    [topview addSubview:_nameLable];
+    
+    
+    _priceLable=[[UILabel alloc] initWithFrame:CGRectMake(topimageview.frame.size.width+15, 35, 140, 30)];
+    
+    NSString *priceStr = [[NSString stringWithFormat:@"%@",self.userInfoModel.income?self.userInfoModel.income:@""] changeYFormatWithMoneyAmount];
+    _priceLable.text = [NSString stringWithFormat:@"金额：%@",priceStr];
+    _priceLable.textColor=[UIColor redColor];
+    
+    
+    [topview addSubview:_priceLable];
+    
+    //修改密码
+    UIButton*changeBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-100, 25, 80, 25)];
+    
+    [changeBtn setTitle:@"修改密码" forState:UIControlStateNormal];
+    changeBtn.imageEdgeInsets = UIEdgeInsetsMake(5,13,21,changeBtn.titleLabel.bounds.size.width);
+    changeBtn.imageView.frame =changeBtn.bounds;
+    changeBtn.hidden = NO;
+    
+    [changeBtn addTarget:self action:@selector(onchangeBtn) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    changeBtn.imageView.backgroundColor=[UIColor redColor];
+    [topview addSubview:changeBtn];
+    changeBtn.backgroundColor=[UIColor grayColor];
+    
+    
+    [_headview addSubview:topview];
+    
+    
+    
+    
+    UIImageView*downview=[[UIImageView alloc] initWithFrame:CGRectMake(0, topview.frame.size.height, kScreenWidth, 120)];
+    
+    downview.image=[UIImage imageNamed:@"bg_account_asset_info"];
+    downview.userInteractionEnabled=YES;
+    
+    //详细介绍
+    UIButton*xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth * 4.0 / 5.0, 80, 20, 20)];
+    
+    [xiangxiBtn setTitle:@" ？" forState:UIControlStateNormal];
+    xiangxiBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    xiangxiBtn.layer.cornerRadius = 10;
+    xiangxiBtn.layer.borderWidth = 0.1;
+    
+    
+    xiangxiBtn.userInteractionEnabled=YES;
+    [xiangxiBtn addTarget:self action:@selector(onxiangxiBtn) forControlEvents:UIControlEventTouchUpInside];
+    [xiangxiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    xiangxiBtn.backgroundColor=[UIColor whiteColor];
+    [downview addSubview:xiangxiBtn];
+    changeBtn.backgroundColor=[UIColor grayColor];
+    
+    
+    
+    
+    UILabel*leijiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, 5, 160, 30)];
+    leijiLable.text=@"累计收益（元）";
+    [downview addSubview:leijiLable];
+    leijiLable.textColor=[UIColor whiteColor];
+    
+    _shouyiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, leijiLable.frame.size.height, 160, 30)];
+    
+    
+    
+    NSString *shouyiLabletext = [NSString stringWithFormat :@"%@",self.userInfoModel.income?self.userInfoModel.income:@""];
+    
+    
+    _shouyiLable.text=shouyiLabletext;
+    
+    _shouyiLable.textColor=[UIColor whiteColor];
+    [downview addSubview:_shouyiLable];
+    
+    
+    _lastDayiLable=[[UILabel alloc] initWithFrame:CGRectMake(6, _shouyiLable.frame.size.height+35, 160, 30)];
+    
+    
+    NSString *lastDayiLableStr = [NSString stringWithFormat:@"昨日收益：%@",self.userInfoModel.yesterdayIncome?self.userInfoModel.yesterdayIncome:@""];
+    
+    
+    _lastDayiLable.text=lastDayiLableStr;
+    
+    
+    
+    _lastDayiLable.textColor=[UIColor whiteColor];
+    
+    [downview addSubview:_lastDayiLable];
+    
+    [_headview addSubview:downview];
+    
+    return _headview;
 }
 
 

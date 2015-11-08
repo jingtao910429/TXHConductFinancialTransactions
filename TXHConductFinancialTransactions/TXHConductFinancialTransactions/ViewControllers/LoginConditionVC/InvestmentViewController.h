@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "InvestmentListModel.h"
 
 @interface InvestmentViewController : BaseViewController
+
+@property (nonatomic, strong) InvestmentListModel *investmentListModel;
 
 @end

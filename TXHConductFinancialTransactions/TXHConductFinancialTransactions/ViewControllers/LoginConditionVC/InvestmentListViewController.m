@@ -15,6 +15,7 @@
 #import "InvestmentBottomLTableViewCell.h"
 #import "ItemDetailViewController.h"
 #import "NSString+Additions.h"
+#import "InvestmentViewController.h"
 
 #define Header_Height 40
 
@@ -179,6 +180,10 @@
             cell.zdProgressView.text = [NSString stringWithFormat:@"%.2f%%",[investmentListModel.rate floatValue]];
             
             cell.contentLabel.text =  [NSString stringWithFormat:@"还可以投资%@元",[[NSString stringWithFormat:@"%@",investmentListModel.realMoney?investmentListModel.realMoney:@"0.00"] changeYFormatWithMoneyAmount]];
+            
+            cell.investmentButton.tag = indexPath.section;
+            
+            [cell.investmentButton addTarget:self action:@selector(investmentButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             return cell;
@@ -261,6 +266,16 @@
 - (void)apiCmdDidFailed:(RYBaseAPICmd *)baseAPICmd error:(NSError *)error {
     
     [Tool ToastNotification:@"加载失败"];
+    
+}
+
+#pragma mark - event response
+
+- (void)investmentButtonClick:(UIButton *)sender {
+    
+    InvestmentViewController *investmentViewController = [[InvestmentViewController alloc] init];
+    investmentViewController.investmentListModel = self.dataSource[sender.tag/2];
+    [self.navigationController pushViewController:investmentViewController animated:YES];
     
 }
 

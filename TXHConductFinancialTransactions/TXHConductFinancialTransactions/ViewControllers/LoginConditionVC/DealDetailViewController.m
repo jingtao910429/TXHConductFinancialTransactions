@@ -96,6 +96,7 @@
         DealDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"DealDetailTableViewCell" owner:self options:nil] lastObject];
+            [cell updateUI];
             cell.layer.cornerRadius = 4;
             cell.layer.masksToBounds = YES;
         }

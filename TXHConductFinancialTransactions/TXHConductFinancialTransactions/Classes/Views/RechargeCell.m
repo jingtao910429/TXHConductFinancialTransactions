@@ -15,11 +15,11 @@
     if (self) {
         
         
-        leftLable=[[UILabel alloc] initWithFrame:CGRectMake(10, 10, 100, 40)];
+        leftLable=[[UILabel alloc] initWithFrame:CGRectMake(10, 5, 100, 40)];
         leftLable.font=[UIFont systemFontOfSize:14];
         [self.contentView addSubview:leftLable];
         
-        textField=[[UITextField alloc] initWithFrame:CGRectMake(leftLable.frame.size.width+10, 10, kScreenWidth-leftLable.frame.size.width+10, 40)];
+        textField=[[UITextField alloc] initWithFrame:CGRectMake(leftLable.frame.size.width+10, 5, kScreenWidth-leftLable.frame.size.width+10, 40)];
         [self.contentView addSubview:textField];
         
         

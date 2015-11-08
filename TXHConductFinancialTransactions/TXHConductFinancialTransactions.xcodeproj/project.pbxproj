@@ -162,6 +162,7 @@
 		98C9F43A1BEF3850009C46B5 /* HelpCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F4391BEF3850009C46B5 /* HelpCenterVC.m */; };
 		98C9F43D1BEF3E93009C46B5 /* ItemTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F43C1BEF3E93009C46B5 /* ItemTypeViewController.m */; };
 		98C9F4401BEF438F009C46B5 /* InvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */; };
+		98C9F4431BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F4421BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -470,6 +471,8 @@
 		98C9F43C1BEF3E93009C46B5 /* ItemTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTypeViewController.m; sourceTree = "<group>"; };
 		98C9F43E1BEF438F009C46B5 /* InvestmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentViewController.h; sourceTree = "<group>"; };
 		98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentViewController.m; sourceTree = "<group>"; };
+		98C9F4411BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeWithDrawDepositViewController.h; sourceTree = "<group>"; };
+		98C9F4421BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeWithDrawDepositViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1007,6 +1010,8 @@
 				98C9F43C1BEF3E93009C46B5 /* ItemTypeViewController.m */,
 				98C9F43E1BEF438F009C46B5 /* InvestmentViewController.h */,
 				98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */,
+				98C9F4411BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.h */,
+				98C9F4421BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m */,
 			);
 			path = LoginConditionVC;
 			sourceTree = "<group>";
@@ -1339,6 +1344,7 @@
 				98BCD3331BEDE31300168B00 /* UserInfoModel.m in Sources */,
 				98BCD3141BEDE2AF00168B00 /* Tool.m in Sources */,
 				98BCD2FD1BEDE24C00168B00 /* RechargeVC.m in Sources */,
+				98C9F4431BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m in Sources */,
 				98229FB81BE8DD6B005210EC /* MJRefreshAutoGifFooter.m in Sources */,
 				98BCD3851BEDE3CD00168B00 /* DealDetailTableViewCell.m in Sources */,
 				98229F7A1BE8DD46005210EC /* SDWebImageDecoder.m in Sources */,

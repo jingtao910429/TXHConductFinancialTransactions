@@ -22,8 +22,7 @@
 #import "NSString+Additions.h"
 #import "DealDetailViewController.h"
 #import "InvestmentListViewController.h"
-#import "RechargeVC.h"
-#import "WithdrawdepositVC.h"
+#import "RechargeWithDrawDepositViewController.h"
 
 #define TimerNumber 15
 
@@ -300,14 +299,16 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 //我要提现
 - (void)tapGesRecharge {
     
-    WithdrawdepositVC *withdrawdepositVC = [[WithdrawdepositVC alloc] init];
+    RechargeWithDrawDepositViewController *withdrawdepositVC = [[RechargeWithDrawDepositViewController alloc] init];
+    withdrawdepositVC.isDeposite = YES;
     [self.navigationController pushViewController:withdrawdepositVC animated:YES];
 }
 
 // 我要充值
 - (void)tapGesDaw {
     
-    RechargeVC *rechargeVC = [[RechargeVC alloc] init];
+    RechargeWithDrawDepositViewController *rechargeVC = [[RechargeWithDrawDepositViewController alloc] init];
+    rechargeVC.isDeposite = NO;
     [self.navigationController pushViewController:rechargeVC animated:YES];
 }
 

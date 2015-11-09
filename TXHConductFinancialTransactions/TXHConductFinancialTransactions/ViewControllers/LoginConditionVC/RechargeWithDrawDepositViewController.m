@@ -14,7 +14,16 @@
 #import "NSString+Additions.h"
 #import "CashPreAPICmd.h"
 #import "CashApplayAPICmd.h"
+#import "PayPreAPICmd.h"
 
+//支付
+//#import "LLPayUtil.h"
+
+
+static NSString *kLLOidPartner = @"201510201000546503";   // 商户号
+static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
+
+//,LLPaySdkDelegate
 @interface RechargeWithDrawDepositViewController () <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
 
 @property (nonatomic, strong) UIView *bgView;
@@ -24,16 +33,23 @@
 
 @property (nonatomic, strong) NSArray *nameArr;
 @property (nonatomic, strong) NSArray *textArr;
-@property (nonatomic, strong) UILabel*firstLable;
+@property (nonatomic, strong) UILabel *firstLable;
 
 @property (nonatomic, strong) UIView          *tipView;
 
-//网络请求
 @property (nonatomic, strong) UserInfoModel *userInfoModel;
+
 //提现前
 @property (nonatomic, strong) CashPreAPICmd *cashPreAPICmd;
 //提现申请
 @property (nonatomic, strong) CashApplayAPICmd *cashApplayAPICmd;
+//充值前
+@property (nonatomic, strong) PayPreAPICmd *payPreAPICmd;
+
+@property (nonatomic, strong) NSDictionary *dataDict;
+//是否是第一次充值
+
+@property (nonatomic, assign) BOOL isFirstPay;
 
 @end
 
@@ -57,7 +73,13 @@
     
     [self.view addSubview:self.RechargeView];
     
-    [self.cashPreAPICmd loadData];
+    if (self.isDeposite) {
+        [self.cashPreAPICmd loadData];
+    }else{
+        [self.payPreAPICmd loadData];
+    }
+    
+    
 }
 
 
@@ -70,7 +92,7 @@
 {
     
     if (!self.isDeposite) {
-        if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
+        if (self.isFirstPay) {
             //如果没有银行卡
             
             self.nameArr=@[@"账户余额(元)：",@"银行卡：",@"身份证：",@"真实姓名：",@"提现金额(元)："];
@@ -92,7 +114,7 @@
     BOOL isChangeFrame = YES;
     
     if (!self.isDeposite) {
-        if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
+        if (self.isFirstPay) {
             //如果没有银行卡
             isChangeFrame = NO;
         }
@@ -123,14 +145,12 @@
     NSInteger indexSecond = 4;
     
     if (!self.isDeposite) {
-        if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
+        if (self.isFirstPay) {
             //如果没有银行卡
             indexFirst = 5;
             indexSecond = 6;
         }
     }
-    
-    NSLog(@"indexpath.row = %ld %ld %ld",(long)indexPath.row,(long)indexFirst,(long)indexSecond);
     
     if (indexFirst == indexPath.row || indexSecond == indexPath.row) {
         
@@ -279,6 +299,22 @@
             [self.navigationController popViewControllerAnimated:YES];
             
         }
+    }else if (baseAPICmd == self.payPreAPICmd){
+        
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+            [Tool ToastNotification:tempDict[@"msg"]];
+            
+        }else{
+            
+            self.dataDict = [[NSDictionary alloc] initWithDictionary:tempDict[@"data"]];
+            
+            self.isFirstPay = [self.dataDict[@"isFirstPay"] boolValue];
+            
+            [self.RechargeView reloadData];
+            
+        }
+        
     }
     
 }
@@ -310,6 +346,117 @@
     return canChange;
 }
 
+/*
+
+#pragma -mark 支付结果 LLPaySdkDelegate
+// 订单支付结果返回，主要是异常和成功的不同状态
+// TODO: 开发人员需要根据实际业务调整逻辑
+- (void)paymentEnd:(LLPayResult)resultCode withResultDic:(NSDictionary *)dic
+{
+    NSString *msg = @"支付异常";
+    switch (resultCode) {
+        case kLLPayResultSuccess:
+        {
+            msg = @"支付成功";
+            
+            NSString* result_pay = dic[@"result_pay"];
+            if ([result_pay isEqualToString:@"SUCCESS"])
+            {
+                //
+                //NSString *payBackAgreeNo = dic[@"agreementno"];
+                // TODO: 协议号
+            }
+            else if ([result_pay isEqualToString:@"PROCESSING"])
+            {
+                msg = @"支付单处理中";
+            }
+            else if ([result_pay isEqualToString:@"FAILURE"])
+            {
+                msg = @"支付单失败";
+            }
+            else if ([result_pay isEqualToString:@"REFUND"])
+            {
+                msg = @"支付单已退款";
+            }
+        }
+            break;
+        case kLLPayResultFail:
+        {
+            msg = @"支付失败";
+        }
+            break;
+        case kLLPayResultCancel:
+        {
+            msg = @"支付取消";
+        }
+            break;
+        case kLLPayResultInitError:
+        {
+            msg = @"sdk初始化异常";
+        }
+            break;
+        case kLLPayResultInitParamError:
+        {
+            msg = dic[@"ret_msg"];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    NSString *showMsg = [msg stringByAppendingString:[LLPayUtil jsonStringOfObj:dic]];
+    
+    [[[UIAlertView alloc] initWithTitle:@"结果"
+                                message:showMsg
+                               delegate:nil
+                      cancelButtonTitle:@"确认"
+                      otherButtonTitles:nil] show];
+}
+
+
+#pragma mark - 订单支付
+- (void)pay {
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:self.dataDict[@"config_ll"]];
+    
+    if (self.isFirstPay) {
+        
+        //如果是第一次支付
+        
+        [dict addEntriesFromDictionary:@{
+                                          @"id_no":self.dataDict[@"idCard"],
+                                          //证件号码 id_no 否 String
+                                          @"acct_name":self.dataDict[@"realName"],
+                                          //银行账号姓名 acct_name 否 String
+                                          }];
+        
+    }
+    
+    LLPayUtil *payUtil = [[LLPayUtil alloc] init];
+    
+    
+    // 进行签名
+    NSDictionary *signedOrder = [payUtil signedOrderDic:dict
+                                             andSignKey:kLLPartnerKey];
+    
+    
+    [LLPaySdk sharedSdk].sdkDelegate = self;
+    
+    // TODO: 根据需要使用特定支付方式
+    
+    // 快捷支付
+    //[self.sdk presentQuickPaySdkInViewController:self withTraderInfo:signedOrder];
+    
+    // 认证支付
+    [[LLPaySdk sharedSdk] presentVerifyPaySdkInViewController:self withTraderInfo:signedOrder];
+    
+    // 预授权
+    //[self.sdk presentPreAuthPaySdkInViewController:self withTraderInfo:signedOrder];
+    
+}
+
+*/
+
 #pragma mark - event response
 
 - (void)tap {
@@ -338,6 +485,8 @@
         }
         
     }else{
+        
+        
         
     }
     
@@ -475,6 +624,16 @@
     }
     _cashApplayAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"],@"money":[NSNumber numberWithChar:[self.inputMoneyTF.text doubleValue]]};
     return _cashApplayAPICmd;
+}
+
+- (PayPreAPICmd *)payPreAPICmd {
+    if (!_payPreAPICmd) {
+        _payPreAPICmd = [[PayPreAPICmd alloc] init];
+        _payPreAPICmd.delegate = self;
+        _payPreAPICmd.path = API_PayPre;
+    }
+    _payPreAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"]};
+    return _payPreAPICmd;
 }
 
 

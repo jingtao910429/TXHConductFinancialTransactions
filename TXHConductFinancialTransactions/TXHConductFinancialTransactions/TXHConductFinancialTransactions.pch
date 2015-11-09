@@ -54,6 +54,8 @@
 #define API_CashPre @"nblc/api/deal/cashPre"
 //提现申请
 #define API_CashApplay @"nblc/api/deal/cashApply"
+//充值前
+#define API_PayPre     @"nblc/api/pay/ll/payPre"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"

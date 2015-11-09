@@ -177,6 +177,7 @@
 		98D9EEAF1BF0CAC0007C11D0 /* LLPayUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D9EEA31BF0CAC0007C11D0 /* LLPayUtil.m */; };
 		98D9EEB21BF0D083007C11D0 /* CashPreAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D9EEB11BF0D083007C11D0 /* CashPreAPICmd.m */; };
 		98D9EEB51BF0D6A2007C11D0 /* CashApplayAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D9EEB41BF0D6A2007C11D0 /* CashApplayAPICmd.m */; };
+		98D9EEB81BF0DCF1007C11D0 /* PayPreAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D9EEB71BF0DCF1007C11D0 /* PayPreAPICmd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -586,6 +587,8 @@
 		98D9EEB11BF0D083007C11D0 /* CashPreAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPreAPICmd.m; sourceTree = "<group>"; };
 		98D9EEB31BF0D6A2007C11D0 /* CashApplayAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashApplayAPICmd.h; sourceTree = "<group>"; };
 		98D9EEB41BF0D6A2007C11D0 /* CashApplayAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashApplayAPICmd.m; sourceTree = "<group>"; };
+		98D9EEB61BF0DCF1007C11D0 /* PayPreAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPreAPICmd.h; sourceTree = "<group>"; };
+		98D9EEB71BF0DCF1007C11D0 /* PayPreAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayPreAPICmd.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1264,6 +1267,8 @@
 				98D9EEB11BF0D083007C11D0 /* CashPreAPICmd.m */,
 				98D9EEB31BF0D6A2007C11D0 /* CashApplayAPICmd.h */,
 				98D9EEB41BF0D6A2007C11D0 /* CashApplayAPICmd.m */,
+				98D9EEB61BF0DCF1007C11D0 /* PayPreAPICmd.h */,
+				98D9EEB71BF0DCF1007C11D0 /* PayPreAPICmd.m */,
 			);
 			path = NetAPI;
 			sourceTree = "<group>";
@@ -1639,6 +1644,7 @@
 				98229FB31BE8DD6B005210EC /* MJRefreshAutoFooter.m in Sources */,
 				98BCD2EC1BEDE23700168B00 /* UnLoginHomePageViewController.m in Sources */,
 				98D9EEB21BF0D083007C11D0 /* CashPreAPICmd.m in Sources */,
+				98D9EEB81BF0DCF1007C11D0 /* PayPreAPICmd.m in Sources */,
 				98BCD32F1BEDE31300168B00 /* CommonModel.m in Sources */,
 				98BCD3BA1BEE30CB00168B00 /* EarnDetailModel.m in Sources */,
 				98BCD39B1BEDF1FE00168B00 /* InvestmentTopTableViewCell.m in Sources */,

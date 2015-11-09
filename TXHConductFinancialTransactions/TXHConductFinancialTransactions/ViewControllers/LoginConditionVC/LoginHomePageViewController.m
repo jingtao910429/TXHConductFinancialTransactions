@@ -24,7 +24,7 @@
 #import "InvestmentListViewController.h"
 #import "RechargeWithDrawDepositViewController.h"
 
-#define TimerNumber 15
+#define TimerNumber 10
 
 static NSString *HomeAssetTableViewCellID       = @"HomeAssetTableViewCellID";
 static NSString *HomeAssetMiddleTableViewCellID = @"HomeAssetMiddleTableViewCellID";

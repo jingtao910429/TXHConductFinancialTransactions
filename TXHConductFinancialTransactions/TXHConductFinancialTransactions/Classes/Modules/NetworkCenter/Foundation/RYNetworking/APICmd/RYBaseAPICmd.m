@@ -39,6 +39,7 @@
     return _absouteUrlString;
 }
 
+
 - (NSString *)host
 {
     if ([self.child respondsToSelector:@selector(apiHost)]) {

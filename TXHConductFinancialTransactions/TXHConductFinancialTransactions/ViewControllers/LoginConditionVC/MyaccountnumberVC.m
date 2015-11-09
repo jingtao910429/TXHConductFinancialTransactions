@@ -88,6 +88,7 @@
     if (cell == nil) {
         
         cell = [[ MyaccountnumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
     }
     
     if (0 == indexPath.row) {
@@ -98,6 +99,7 @@
     }
     
     if (4 != indexPath.row) {
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     

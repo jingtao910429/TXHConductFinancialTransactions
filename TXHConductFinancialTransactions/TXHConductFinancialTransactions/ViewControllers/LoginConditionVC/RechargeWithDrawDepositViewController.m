@@ -125,7 +125,7 @@
         }
     }
     
-    NSLog(@"indexpath.row = %d %d %d",indexPath.row,indexFirst,indexSecond);
+    NSLog(@"indexpath.row = %ld %ld %ld",(long)indexPath.row,(long)indexFirst,(long)indexSecond);
     
     if (indexFirst == indexPath.row || indexSecond == indexPath.row) {
         

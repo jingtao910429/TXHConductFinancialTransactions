@@ -344,6 +344,7 @@
         _investMoneyTF = [[UITextField alloc] initWithFrame:CGRectMake(120, 5, kScreenWidth - 120, 40)];
         _investMoneyTF.placeholder = @"请输入投资金额";
         _investMoneyTF.delegate = self;
+        _investMoneyTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     }
     return _investMoneyTF;
 }

@@ -59,20 +59,52 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    
+    if (!self.isDeposite) {
+        if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
+            //如果没有银行卡
+            
+            self.nameArr=@[@"账户余额(元)：",@"银行卡：",@"身份证：",@"真实姓名：",@"提现金额(元)："];
+            self.textArr = @[@"",@"",@"输入您的身份证",@"输入您的真实姓名",@"输入提现金额"];
+            
+            return 7;
+        }else{
+            return 5;
+        }
+    }else{
+        return 5;
+    }
+    
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (3 == indexPath.row) {
-        return 100;
-    }else if (4 == indexPath.row) {
-        return 250;
+    BOOL isChangeFrame = YES;
+    
+    if (!self.isDeposite) {
+        if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
+            //如果没有银行卡
+            isChangeFrame = NO;
+        }
+    }
+    
+    if (!isChangeFrame) {
+        if (5 == indexPath.row) {
+            return 100;
+        }else if (6 == indexPath.row) {
+            return 250;
+        }
+    }else{
+        if (3 == indexPath.row) {
+            return 100;
+        }else if (4 == indexPath.row) {
+            return 250;
+        }
     }
     
     return 50;
@@ -82,13 +114,26 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (3 == indexPath.row || 4 == indexPath.row) {
+    NSInteger indexFirst = 3;
+    NSInteger indexSecond = 4;
+    
+    if (!self.isDeposite) {
+        if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
+            //如果没有银行卡
+            indexFirst = 5;
+            indexSecond = 6;
+        }
+    }
+    
+    NSLog(@"indexpath.row = %d %d %d",indexPath.row,indexFirst,indexSecond);
+    
+    if (indexFirst == indexPath.row || indexSecond == indexPath.row) {
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL_ID"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL_ID"];
             
-            if (3 == indexPath.row) {
+            if (indexFirst == indexPath.row) {
                 
                 UIButton*querenBtn=[[UIButton alloc] initWithFrame:CGRectMake(10, 20, kScreenWidth-20, 44)];
                 
@@ -98,18 +143,26 @@
                     [querenBtn setTitle:@"确认充值" forState:UIControlStateNormal];
                 }
                 
-                
+                querenBtn.enabled = YES;
                 querenBtn.backgroundColor=[UIColor orangeColor];
                 [querenBtn addTarget:self action:@selector(onquerenBtn) forControlEvents:UIControlEventTouchUpInside];
                 
                 [querenBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 [cell.contentView addSubview:querenBtn];
                 
+                if (self.isDeposite) {
+                    //提现
+                    if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
+                        querenBtn.enabled = NO;
+                        querenBtn.backgroundColor = [UIColor grayColor];
+                    }
+                }
+                
             }
             
         }
         
-        if (4 == indexPath.row) {
+        if (indexSecond == indexPath.row) {
             
             [self.tipView removeFromSuperview];
             [cell.contentView addSubview:self.tipView];
@@ -141,13 +194,15 @@
         }
     }
     
-    if (indexPath.row == 2) {
+    if (indexPath.row != 0 && indexPath.row != 1) {
         
-        cell.textField.placeholder=self.textArr[indexPath.row];
+        cell.textField.placeholder = self.textArr[indexPath.row];
+        
+        cell.textField.hidden = NO;
         
     }else{
         
-        cell.textField.hidden=YES;
+        cell.textField.hidden = YES;
         
         UILabel *tempLabel = (UILabel *)[cell.contentView viewWithTag:indexPath.row + 11];
         
@@ -248,13 +303,13 @@
         [self navigationBarStyleWithTitle:@"提现" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
         self.nameArr=@[@"账户余额(元):",@"银行卡:",@"提现金额(元):",];
         
-        self.textArr=@[@"",@"",@"输入提现金额",];
+        self.textArr=@[@"",@"",@"输入提现金额"];
         
     }else{
         [self navigationBarStyleWithTitle:@"充值" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
         self.nameArr=@[@"账户余额(元):",@"银行卡:",@"充值金额(元):",];
         
-        self.textArr=@[@"",@"",@"输入充值金额",];
+        self.textArr=@[@"",@"",@"输入充值金额"];
     }
     
     

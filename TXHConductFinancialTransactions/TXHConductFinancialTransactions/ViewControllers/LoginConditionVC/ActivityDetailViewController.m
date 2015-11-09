@@ -71,6 +71,7 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
     
+    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [view setTag:NowYEAR];
     [view setBackgroundColor:[UIColor whiteColor]];

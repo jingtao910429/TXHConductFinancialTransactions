@@ -29,6 +29,7 @@
 }
 
 + (void)clearUserInfo {
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *userInfoStr = [[EncryptionManager shareManager] encodeWithData:[NSDictionary dictionary] version:VERSION];
     [defaults setValue:userInfoStr forKey:@"userInfo"];

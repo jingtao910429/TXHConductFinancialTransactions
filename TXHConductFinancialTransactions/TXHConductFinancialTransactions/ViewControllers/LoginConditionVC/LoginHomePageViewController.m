@@ -206,7 +206,9 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             [tapGesDaw addTarget:self action:@selector(tapGesDaw)];
             [cell.withDrawImageView addGestureRecognizer:tapGesDaw];
             
+            
         }
+        
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -223,6 +225,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     }
     
     return cell;
+    
 }
 
 #pragma mark - APICmdApiCallBackDelegate

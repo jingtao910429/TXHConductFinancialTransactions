@@ -136,6 +136,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return 3;
 }
 
@@ -145,12 +146,14 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         
         HomeAssetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HomeAssetTableViewCellID];
         
+        
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetTableViewCell" owner:self options:nil] lastObject];
         }
         
         
         if (self.userAssetModel) {
+            
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             self.step = sqrt([self.userAssetModel.allAsset doubleValue]);

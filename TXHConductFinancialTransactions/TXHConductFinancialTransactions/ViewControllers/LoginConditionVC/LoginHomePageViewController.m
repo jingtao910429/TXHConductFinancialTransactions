@@ -296,20 +296,22 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     
 }
 
-//我要提现
-- (void)tapGesRecharge {
-    
-    RechargeWithDrawDepositViewController *withdrawdepositVC = [[RechargeWithDrawDepositViewController alloc] init];
-    withdrawdepositVC.isDeposite = YES;
-    [self.navigationController pushViewController:withdrawdepositVC animated:YES];
-}
-
 // 我要充值
-- (void)tapGesDaw {
+- (void)tapGesRecharge {
     
     RechargeWithDrawDepositViewController *rechargeVC = [[RechargeWithDrawDepositViewController alloc] init];
     rechargeVC.isDeposite = NO;
     [self.navigationController pushViewController:rechargeVC animated:YES];
+    
+}
+
+//我要提现
+- (void)tapGesDaw {
+    
+    RechargeWithDrawDepositViewController *withdrawdepositVC = [[RechargeWithDrawDepositViewController alloc] init];
+    withdrawdepositVC.isDeposite = YES;
+    [self.navigationController pushViewController:withdrawdepositVC animated:YES];
+    
 }
 
 // 活动列表

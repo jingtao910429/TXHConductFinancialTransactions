@@ -1876,6 +1876,10 @@
 					"$(PROJECT_DIR)/TXHConductFinancialTransactions/LLPay/LLPay_iOS_SDK_V2.4",
 					"$(PROJECT_DIR)/TXHConductFinancialTransactions/LLPay/LLPayUtils/crypto",
 				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(SRCROOT)/TXHConductFinancialTransactions/LLPay/LLPay_iOS_SDK_V2.4/libPaySdkColor.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1898,6 +1902,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXHConductFinancialTransactions/LLPay/LLPay_iOS_SDK_V2.4",
 					"$(PROJECT_DIR)/TXHConductFinancialTransactions/LLPay/LLPayUtils/crypto",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(SRCROOT)/TXHConductFinancialTransactions/LLPay/LLPay_iOS_SDK_V2.4/libPaySdkColor.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

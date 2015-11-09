@@ -16,15 +16,10 @@
 #import "CashApplayAPICmd.h"
 #import "PayPreAPICmd.h"
 
-//支付
-//#import "LLPayUtil.h"
-
-
 static NSString *kLLOidPartner = @"201510201000546503";   // 商户号
 static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
 
-//,LLPaySdkDelegate
-@interface RechargeWithDrawDepositViewController () <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
+@interface RechargeWithDrawDepositViewController () <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate,LLPaySdkDelegate>
 
 @property (nonatomic, strong) UIView *bgView;
 @property (nonatomic, strong) UITextField *inputMoneyTF;
@@ -346,8 +341,6 @@ static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
     return canChange;
 }
 
-/*
-
 #pragma -mark 支付结果 LLPaySdkDelegate
 // 订单支付结果返回，主要是异常和成功的不同状态
 // TODO: 开发人员需要根据实际业务调整逻辑
@@ -455,7 +448,7 @@ static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
     
 }
 
-*/
+
 
 #pragma mark - event response
 

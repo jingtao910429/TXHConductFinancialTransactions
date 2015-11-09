@@ -20,6 +20,10 @@
 #include "WToast.h"
 #import "UIViewController+NavigationBarStyle.h"
 
+//支付
+#import "LLPayUtil.h"
+#import "LLPaySdk.h"
+
 //加密key
 #define VERSION 2
 

@@ -78,7 +78,7 @@
     if (0 == indexPath.row) {
         return 200;
     }
-    return 50;
+    return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -148,14 +148,14 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row==4) {
+    if (indexPath.row==5) {
         HelpCenterVC*vc=[[HelpCenterVC alloc] init];
         vc.isGTturl=NO;
         [self.navigationController pushViewController:vc animated:YES];
         
         
     }
-    if (indexPath.row==2) {
+    if (indexPath.row==3) {
         UIWebView*callWebview =[[UIWebView alloc] init];
         NSString *telUrl = [NSString stringWithFormat:@"tel://%@", self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@""];
         NSURL *telURL =[NSURL URLWithString:telUrl];
@@ -180,11 +180,14 @@
         }else{
             
             self.userInfoModel = [[UserInfoModel alloc] init];
+            
             [self.userInfoModel setValuesForKeysWithDictionary:tempDict[@"data"]];
             
             self.dataSource = [[NSArray alloc] initWithObjects:self.userInfoModel.idCard?self.userInfoModel.idCard:@"",self.userInfoModel.bankCardNum?self.userInfoModel.bankCardNum:@"",self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@"",self.userInfoModel.idCard?self.userInfoModel.idCard:@"",@"",self.userInfoModel.appVersion?self.userInfoModel.appVersion:@"", nil];
             
             [self.contentTableView reloadData];
+            
+            
         }
     }
     

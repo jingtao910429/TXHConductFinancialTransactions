@@ -160,6 +160,7 @@
         cell.investNumberLabel.text = [NSString stringWithFormat:@"%@",investmentListModel.version?investmentListModel.version:@"0"];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         return cell;
         
     }else {
@@ -210,6 +211,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (0 == indexPath.section % 2 && 0 == indexPath.row) {

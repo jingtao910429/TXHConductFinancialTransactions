@@ -29,7 +29,6 @@
 #define API_Item  @"http://s.aiben123.com/item/item.html"
 
 //17090872779 147258
-
 #define api_domain @"http://app.aiben123.com/"
 //登录
 #define API_Login @"nblc/api/account/login"
@@ -51,6 +50,10 @@
 #define API_EarnDetail @"nblc/api/income/logs"
 //投资
 #define API_Investment @"nblc/api/deal/invest"
+//提现前
+#define API_CashPre @"nblc/api/deal/cashPre"
+//提现申请
+#define API_CashApplay @"nblc/api/deal/cashApply"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"

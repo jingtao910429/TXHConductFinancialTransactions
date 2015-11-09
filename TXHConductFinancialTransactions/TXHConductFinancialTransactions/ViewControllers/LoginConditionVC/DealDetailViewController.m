@@ -104,9 +104,9 @@
         DealDetailModel *model = self.dataSource[indexPath.row / 2];
         
         if (1 == [model.type intValue]) {
-            cell.titleLabel.text = @"投资";
-        }else{
             cell.titleLabel.text = @"充值";
+        }else{
+            cell.titleLabel.text = @"投资";
         }
         
         

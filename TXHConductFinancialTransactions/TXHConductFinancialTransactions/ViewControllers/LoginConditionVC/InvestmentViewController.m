@@ -127,7 +127,7 @@
                 }
                 
                 
-                
+                contentLabel.tag = indexPath.row * 11;
                 [cell.contentView addSubview:contentLabel];
                 
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 49.5, kScreenWidth, 0.5)];
@@ -157,6 +157,13 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
+        if (1 == indexPath.row) {
+            
+            UILabel *contentLabel = (UILabel *)[cell.contentView viewWithTag:indexPath.row * 11];
+            NSString *priceStr = [[NSString stringWithFormat:@"%@",self.userInfoModel.income?self.userInfoModel.income:@""] changeYFormatWithMoneyAmount];
+            contentLabel.text = priceStr;
+        }
+        
         return cell;
     }else if (2 == indexPath.row) {
         
@@ -173,9 +180,9 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        cell.titlePutMoneyLabels.text = @"项目在投金额（元）";
+        cell.titlePutMoneyLabels.text = @"项目可投金额（元）";
         cell.titleGetMoneyLabels.text = @"预计收益（元）";
-        cell.putMoneyLabel.text = [[NSString stringWithFormat:@"%@",self.userInfoModel.remainAsset?self.userInfoModel.remainAsset:@"0.00"] changeYFormatWithMoneyAmount];
+        cell.putMoneyLabel.text = [[NSString stringWithFormat:@"%@",self.investmentListModel.canInvest?self.investmentListModel.canInvest:@"0.00"] changeYFormatWithMoneyAmount];
         cell.yestadyIncomeLabel.text = [[NSString stringWithFormat:@"%@",self.userInfoModel.yesterdayIncome?self.userInfoModel.yesterdayIncome:@"0.00"] changeYFormatWithMoneyAmount];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -208,9 +215,9 @@
 
 - (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
     
+    NSDictionary *tempDict = (NSDictionary *)responseData;
+    
     if (baseAPICmd ==self.userInfoAPICmd) {
-        
-        NSDictionary *tempDict = (NSDictionary *)responseData;
         
         if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
             
@@ -223,6 +230,16 @@
             
             [self.contentTableView reloadData];
         }
+    }else{
+        
+        [Tool ToastNotification:tempDict[@"msg"]];
+        
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+        }else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
     }
     
 }
@@ -232,6 +249,14 @@
 }
 
 #pragma mark  UITextFieldDelegate
+
+//- (void)textFieldDidBeginEditing:(UITextField *)textField {
+//    [self.contentTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+//}
+//
+//- (void)textFieldDidEndEditing:(UITextField *)textField {
+//    [self.contentTableView scrollRectToVisible:self.contentTableView.frame animated:YES];
+//}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -247,7 +272,17 @@
 
 #pragma mark - event response
 
+//确认投资
 - (void)confirmInvest {
+    
+    if ([self.investMoneyTF.text intValue] < 50){
+        
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"单笔投资最低50.0元" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+        [alertView show];
+        
+    }else{
+        [self.investmentListAPICmd loadData];
+    }
     
 }
 
@@ -259,6 +294,14 @@
 
 - (void)popVC {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (BOOL)isRightNumber:(NSString *)numStr
+{
+    NSString * regex = @"[0-9]";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    BOOL isMatch = [pred evaluateWithObject:numStr];
+    return isMatch;
 }
 
 -(void)cretedowntextWithView:(UIView *)contentView{
@@ -344,7 +387,7 @@
         _investMoneyTF = [[UITextField alloc] initWithFrame:CGRectMake(120, 5, kScreenWidth - 120, 40)];
         _investMoneyTF.placeholder = @"请输入投资金额";
         _investMoneyTF.delegate = self;
-        _investMoneyTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        _investMoneyTF.keyboardType = UIKeyboardTypeNumberPad;
     }
     return _investMoneyTF;
 }

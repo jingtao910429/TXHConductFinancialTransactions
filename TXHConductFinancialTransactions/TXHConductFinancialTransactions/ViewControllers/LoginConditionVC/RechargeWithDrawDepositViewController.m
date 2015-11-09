@@ -12,11 +12,13 @@
 #import "UserInfoAPICmd.h"
 #import "UserInfoModel.h"
 #import "NSString+Additions.h"
+#import "CashPreAPICmd.h"
+#import "CashApplayAPICmd.h"
 
 @interface RechargeWithDrawDepositViewController () <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
 
 @property (nonatomic, strong) UIView *bgView;
-@property (nonatomic, strong) UITextField *textfield;
+@property (nonatomic, strong) UITextField *inputMoneyTF;
 
 @property (nonatomic, strong) UITableView *RechargeView;
 
@@ -27,8 +29,11 @@
 @property (nonatomic, strong) UIView          *tipView;
 
 //网络请求
-@property (nonatomic, strong) UserInfoAPICmd *userInfoAPICmd;
 @property (nonatomic, strong) UserInfoModel *userInfoModel;
+//提现前
+@property (nonatomic, strong) CashPreAPICmd *cashPreAPICmd;
+//提现申请
+@property (nonatomic, strong) CashApplayAPICmd *cashApplayAPICmd;
 
 @end
 
@@ -52,7 +57,7 @@
     
     [self.view addSubview:self.RechargeView];
     
-    [self.userInfoAPICmd loadData];
+    [self.cashPreAPICmd loadData];
 }
 
 
@@ -146,20 +151,28 @@
                 querenBtn.enabled = YES;
                 querenBtn.backgroundColor=[UIColor orangeColor];
                 [querenBtn addTarget:self action:@selector(onquerenBtn) forControlEvents:UIControlEventTouchUpInside];
+                querenBtn.tag = indexPath.row * 11;
                 
                 [querenBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 [cell.contentView addSubview:querenBtn];
                 
-                if (self.isDeposite) {
-                    //提现
-                    if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
-                        querenBtn.enabled = NO;
-                        querenBtn.backgroundColor = [UIColor grayColor];
-                    }
-                }
+                
                 
             }
             
+        }
+        
+        UIButton* querenBtn = (UIButton *)[cell.contentView viewWithTag:indexPath.row * 11];
+        
+        if (self.isDeposite) {
+            //提现
+            if (!self.userInfoModel || !self.userInfoModel.bankCardNum || [self.userInfoModel.bankCardNum isKindOfClass:[NSNull class]] || [self.userInfoModel.bankCardNum isEqualToString:@"未绑定"]) {
+                querenBtn.enabled = NO;
+                querenBtn.backgroundColor = [UIColor grayColor];
+            }else{
+                querenBtn.enabled = YES;
+                querenBtn.backgroundColor=[UIColor orangeColor];
+            }
         }
         
         if (indexSecond == indexPath.row) {
@@ -238,9 +251,9 @@
 
 - (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
     
-    if (baseAPICmd ==self.userInfoAPICmd) {
-        
-        NSDictionary *tempDict = (NSDictionary *)responseData;
+    NSDictionary *tempDict = (NSDictionary *)responseData;
+    
+    if (baseAPICmd == self.cashPreAPICmd) {
         
         if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
             
@@ -249,9 +262,22 @@
         }else{
             
             self.userInfoModel = [[UserInfoModel alloc] init];
-            [self.userInfoModel setValuesForKeysWithDictionary:tempDict[@"data"]];
+            self.userInfoModel.bankCardNum = tempDict[@"data"][@"bankCardNum"];
+            self.userInfoModel.income = tempDict[@"data"][@"allAsset"];
             
             [self.RechargeView reloadData];
+        }
+        
+    }else if (baseAPICmd == self.cashApplayAPICmd) {
+        
+        [Tool ToastNotification:tempDict[@"msg"]];
+        
+        if ([tempDict[@"result"] intValue] != LoginTypeSuccess) {
+            
+        }else{
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
         }
     }
     
@@ -273,6 +299,17 @@
     
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    //invertedSet方法是去反字符,把所有的除了kNumber里的字符都找出来(包含去空格功能)
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:kkNumber] invertedSet];
+    //按cs分离出数组,数组按@""分离出字符串
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    BOOL canChange = [string isEqualToString:filtered];
+    
+    return canChange;
+}
+
 #pragma mark - event response
 
 - (void)tap {
@@ -286,6 +323,19 @@
 -(void)onquerenBtn{
     
     if (self.isDeposite) {
+        
+        RechargeCell * cell = (RechargeCell *)[self.RechargeView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+        
+        self.inputMoneyTF = (UITextField *)[cell.contentView viewWithTag:2];
+        
+        if ([self.inputMoneyTF.text intValue] < 100){
+            
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"提现金额必须大于100" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+            [alertView show];
+            
+        }else{
+            [self.cashApplayAPICmd loadData];
+        }
         
     }else{
         
@@ -407,14 +457,24 @@
     return _tipView;
 }
 
-- (UserInfoAPICmd *)userInfoAPICmd {
-    if (!_userInfoAPICmd) {
-        _userInfoAPICmd = [[UserInfoAPICmd alloc] init];
-        _userInfoAPICmd.delegate = self;
-        _userInfoAPICmd.path = API_UserInfo;
+- (CashPreAPICmd *)cashPreAPICmd {
+    if (!_cashPreAPICmd) {
+        _cashPreAPICmd = [[CashPreAPICmd alloc] init];
+        _cashPreAPICmd.delegate = self;
+        _cashPreAPICmd.path = API_CashPre;
     }
-    _userInfoAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"]};
-    return _userInfoAPICmd;
+    _cashPreAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"]};
+    return _cashPreAPICmd;
+}
+
+- (CashApplayAPICmd *)cashApplayAPICmd {
+    if (!_cashApplayAPICmd) {
+        _cashApplayAPICmd = [[CashApplayAPICmd alloc] init];
+        _cashApplayAPICmd.delegate = self;
+        _cashApplayAPICmd.path = API_CashApplay;
+    }
+    _cashApplayAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"],@"money":[NSNumber numberWithChar:[self.inputMoneyTF.text doubleValue]]};
+    return _cashApplayAPICmd;
 }
 
 

@@ -247,6 +247,7 @@
                     
                     InvestmentListModel *model = [[InvestmentListModel alloc] init];
                     [model setValuesForKeysWithDictionary:subDict];
+                    model.ID = subDict[@"id"];
                     [self.dataSource addObject:model];
                 }
                 

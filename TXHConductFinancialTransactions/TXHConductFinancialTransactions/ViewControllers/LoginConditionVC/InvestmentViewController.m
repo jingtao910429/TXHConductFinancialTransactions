@@ -12,10 +12,11 @@
 #import "UserInfoAPICmd.h"
 #import "UserInfoModel.h"
 #import "NSString+Additions.h"
+#import "InvestmentListAPICmd.h"
 
 #define CELL_NUMBER 6
 
-@interface InvestmentViewController () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
+@interface InvestmentViewController () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) UITableView     *contentTableView;
 
@@ -27,6 +28,9 @@
 //网络请求
 @property (nonatomic, strong) UserInfoAPICmd *userInfoAPICmd;
 @property (nonatomic, strong) UserInfoModel *userInfoModel;
+
+//投资
+@property (nonatomic, strong) InvestmentListAPICmd *investmentListAPICmd;
 
 @end
 
@@ -168,6 +172,9 @@
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        cell.titlePutMoneyLabels.text = @"项目在投金额（元）";
+        cell.titleGetMoneyLabels.text = @"预计收益（元）";
         cell.putMoneyLabel.text = [[NSString stringWithFormat:@"%@",self.userInfoModel.remainAsset?self.userInfoModel.remainAsset:@"0.00"] changeYFormatWithMoneyAmount];
         cell.yestadyIncomeLabel.text = [[NSString stringWithFormat:@"%@",self.userInfoModel.yesterdayIncome?self.userInfoModel.yesterdayIncome:@"0.00"] changeYFormatWithMoneyAmount];
         
@@ -224,6 +231,18 @@
     [Tool ToastNotification:@"加载失败"];
 }
 
+#pragma mark  UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    //invertedSet方法是去反字符,把所有的除了kNumber里的字符都找出来(包含去空格功能)
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:kkNumber] invertedSet];
+    //按cs分离出数组,数组按@""分离出字符串
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    BOOL canChange = [string isEqualToString:filtered];
+    
+    return canChange;
+}
 
 
 #pragma mark - event response
@@ -324,6 +343,7 @@
     if (!_investMoneyTF) {
         _investMoneyTF = [[UITextField alloc] initWithFrame:CGRectMake(120, 5, kScreenWidth - 120, 40)];
         _investMoneyTF.placeholder = @"请输入投资金额";
+        _investMoneyTF.delegate = self;
     }
     return _investMoneyTF;
 }
@@ -337,6 +357,19 @@
     }
     _userInfoAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"]};
     return _userInfoAPICmd;
+}
+
+- (InvestmentListAPICmd *)investmentListAPICmd {
+    if (!_investmentListAPICmd) {
+        
+        _investmentListAPICmd = [[InvestmentListAPICmd alloc] init];
+        _investmentListAPICmd.delegate = self;
+        _investmentListAPICmd.path = API_Investment;
+        
+    }
+    
+    _investmentListAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"],@"pid":self.investmentListModel.ID,@"money":[NSNumber numberWithDouble:[self.investMoneyTF.text doubleValue]]};
+    return _investmentListAPICmd;
 }
 
 

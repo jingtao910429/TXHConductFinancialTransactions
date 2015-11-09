@@ -49,12 +49,17 @@
 #define API_DealDetail @"nblc/api/deal/logs"
 //收益记录
 #define API_EarnDetail @"nblc/api/income/logs"
+//投资
+#define API_Investment @"nblc/api/deal/invest"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"
 
 //理财项目列表
 #define  API_product   @"nblc/api/product/list"
+
+#define kkValidChar   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+#define kkNumber @"0123456789"
 
 #define BackColor TomColor(0xefeff4)
 

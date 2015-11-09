@@ -21,7 +21,7 @@
                             <constraint firstAttribute="width" constant="164" id="a2s-lo-Zkz"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昨日收益（元）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGR-Hg-yiw">
@@ -30,7 +30,7 @@
                             <constraint firstAttribute="width" constant="157" id="x7P-o9-aiJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-GN-za6">
@@ -69,6 +69,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="putMoneyLabel" destination="Yb5-GN-za6" id="h2A-KF-t6m"/>
+                <outlet property="titleGetMoneyLabels" destination="lGR-Hg-yiw" id="woU-r6-fUV"/>
+                <outlet property="titlePutMoneyLabels" destination="f5x-eR-0Pu" id="gEe-bM-CwS"/>
                 <outlet property="yestadyIncomeLabel" destination="kFT-Hi-ceR" id="EAA-P5-FYm"/>
             </connections>
             <point key="canvasLocation" x="308" y="346"/>

@@ -11,5 +11,7 @@
 @interface HomeAssetMiddleTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *yestadyIncomeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *putMoneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titlePutMoneyLabels;
+@property (weak, nonatomic) IBOutlet UILabel *titleGetMoneyLabels;
 
 @end

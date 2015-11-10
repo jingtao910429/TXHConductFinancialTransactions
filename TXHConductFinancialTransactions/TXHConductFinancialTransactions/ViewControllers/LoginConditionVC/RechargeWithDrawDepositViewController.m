@@ -435,6 +435,8 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
 - (void)paymentEnd:(LLPayResult)resultCode withResultDic:(NSDictionary *)dic
 {
     
+    NSLog(@"dic = %@",dic);
+    
     NSString *msg = @"支付异常";
     switch (resultCode) {
         case kLLPayResultSuccess:
@@ -448,11 +450,10 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
                 //NSString *payBackAgreeNo = dic[@"agreementno"];
                 // TODO: 协议号
                 
-                if (self.isFirstPay) {
-                    //用户第一次支付并且成功发送银行卡信息
-                    self.payBankCardAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"],@"bankCardNum":self.bankNumberTextFiled.text};
-                    [self.payBankCardAPICmd loadData];
-                }
+                
+                //用户第一次支付并且成功发送银行卡信息
+                self.payBankCardAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"],@"bankCardNum":self.bankNumberTextFiled.text};
+                [self.payBankCardAPICmd loadData];
                 
             }
             else if ([result_pay isEqualToString:@"PROCESSING"])
@@ -471,10 +472,6 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
             break;
         case kLLPayResultFail:{
             msg = @"支付失败";
-            
-            //self.failedLogAPICmd.reformParams = @{@"aid":[Tool getUserInfo][@"id"],@"realName":self.payPreModel.realName,@"idCard":self.payPreModel.idCard,@"bankCardNum":self.payPreModel.bankCardNum,@"money":@"",@"errorOrderNum":@"",@"errorCode":@"",@"errorMsg":@""};
-            //[self.failedLogAPICmd loadData];
-            
         }
             break;
         case kLLPayResultCancel:{
@@ -494,7 +491,6 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
                                delegate:nil
                       cancelButtonTitle:@"确认"
                       otherButtonTitles:nil] show];
-    
 }
 
 
@@ -511,13 +507,14 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
     
     [LLPaySdk sharedSdk].sdkDelegate = self;
     
-    // 认证支付
-    [[LLPaySdk sharedSdk] presentVerifyPaySdkInViewController:self withTraderInfo:signedOrder];
-    
     // TODO: 根据需要使用特定支付方式
     
     // 快捷支付
-    //[[LLPaySdk sharedSdk] presentQuickPaySdkInViewController:self withTraderInfo:signedOrder];
+    //[self.sdk presentQuickPaySdkInViewController:self withTraderInfo:signedOrder];
+    
+    // 认证支付
+    [[LLPaySdk sharedSdk] presentVerifyPaySdkInViewController:self withTraderInfo:signedOrder];
+    
     // 预授权
     //[self.sdk presentPreAuthPaySdkInViewController:self withTraderInfo:signedOrder];
     
@@ -539,9 +536,9 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
     [dict setValue:simOrder forKey:@"info_order"];
     
     //正式环境
-//    [dict setValue:self.configModel.notify_url forKey:@"notify_url"];
+    [dict setValue:self.configModel.notify_url forKey:@"notify_url"];
     //测试环境
-    [dict setValue:@"http://app.aiben123.com/api/pay/ll/payResult" forKey:@"notify_url"];
+    //[dict setValue:@"http://app.aiben123.com/api/pay/ll/payResult" forKey:@"notify_url"];
     
     [dict setValue:self.configModel.sign_type forKey:@"sign_type"];
     [dict setValue:self.configModel.valid_order forKey:@"valid_order"];
@@ -549,7 +546,7 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
     [dict setValue:self.inputMoneyTF.text forKey:@"money_order"];
     
     //风险控制参数
-    NSDictionary *ristDict = [NSDictionary dictionaryWithObjectsAndKeys:@"13072142829",@"user_info_bind_phone",
+    NSDictionary *ristDict = [NSDictionary dictionaryWithObjectsAndKeys:@"13958069593",@"user_info_bind_phone",
                               @"201407251110120",@"user_info_dt_register",@"4.0",@"frms_ware_category",@"1122111221",@"request_imei",nil];
     [dict setValue: [LLPayUtil jsonStringOfObj:ristDict] forKey:@"risk_item"];
     
@@ -642,7 +639,9 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
             }
         }else {
             
+            self.inputMoneyTF = (UITextField *)[[self.RechargeView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]].contentView viewWithTag:2];
             
+            [self pay];
             
         }
         

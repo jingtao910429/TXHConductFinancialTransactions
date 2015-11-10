@@ -16,8 +16,8 @@
 #import "CashApplayAPICmd.h"
 #import "PayPreAPICmd.h"
 
-static NSString *kLLOidPartner = @"201510201000546503";   // 商户号
-static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
+NSString *kLLOidPartner = @"201408071000001543";   // 商户号
+NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
 
 @interface RechargeWithDrawDepositViewController () <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate,LLPaySdkDelegate>
 
@@ -304,6 +304,10 @@ static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
             
             self.dataDict = [[NSDictionary alloc] initWithDictionary:tempDict[@"data"]];
             
+            self.userInfoModel = [[UserInfoModel alloc] init];
+            self.userInfoModel.bankCardNum = self.dataDict[@"bankCardNum"];
+            self.userInfoModel.income = self.dataDict[@"remainAsset"];
+            
             self.isFirstPay = [self.dataDict[@"isFirstPay"] boolValue];
             
             [self.RechargeView reloadData];
@@ -410,9 +414,29 @@ static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
 #pragma mark - 订单支付
 - (void)pay {
     
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:self.dataDict[@"config_ll"]];
+    NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
+    [dateFormater setDateFormat:@"yyyyMMddHHmmss"];
+    NSString *simOrder = [dateFormater stringFromDate:[NSDate date]];
     
-    if (self.isFirstPay) {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    [dict setValue:self.dataDict[@"config_ll"][@"busi_partner"] forKey:@"busi_partner"];
+    [dict setValue:self.dataDict[@"orderNum"] forKey:@"no_order"];
+    [dict setValue:@"投小猴 充值" forKey:@"name_goods"];
+    [dict setValue:simOrder forKey:@"dt_order"];
+    [dict setValue:self.dataDict[@"config_ll"][@"notify_url"] forKey:@"notify_url"];
+    [dict setValue:self.dataDict[@"config_ll"][@"sign_type"] forKey:@"sign_type"];
+    [dict setValue:self.dataDict[@"config_ll"][@"valid_order"] forKey:@"valid_order"];
+    [dict setValue:[NSString stringWithFormat:@"%@",[Tool getUserInfo][@"id"]] forKey:@"user_id"];
+    [dict setValue:self.dataDict[@"signNum"] forKey:@"no_agree"];
+    [dict setValue:@"0.001" forKey:@"money_order"];
+    
+    //风险控制参数
+    NSDictionary *ristDict = [NSDictionary dictionaryWithObjectsAndKeys:@"13958069593",@"user_info_bind_phone",
+                              @"201407251110120",@"user_info_dt_register",@"4.0",@"frms_ware_category",@"1122111221",@"request_imei",nil];
+    [dict setValue: [LLPayUtil jsonStringOfObj:ristDict] forKey:@"risk_item"];
+    
+    if (!self.isFirstPay) {
         
         //如果是第一次支付
         
@@ -425,8 +449,17 @@ static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
         
     }
     
-    LLPayUtil *payUtil = [[LLPayUtil alloc] init];
+    if ([self.dataDict[@"config_ll"][@"sign_type"] isEqualToString:@"MD5"]) {
+        
+        kLLPartnerKey = self.dataDict[@"config_ll"][@"md5_key"];
+        
+    }else{
+        
+        kLLPartnerKey = self.dataDict[@"config_ll"][@"rsa_private"];
+        
+    }
     
+    LLPayUtil *payUtil = [[LLPayUtil alloc] init];
     
     // 进行签名
     NSDictionary *signedOrder = [payUtil signedOrderDic:dict
@@ -479,7 +512,7 @@ static NSString *kLLPartnerKey = @"ihzb1l7xgv20151020";   // 密钥
         
     }else{
         
-        
+        [self pay];
         
     }
     

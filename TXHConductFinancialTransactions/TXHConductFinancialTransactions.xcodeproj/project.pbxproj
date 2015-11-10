@@ -163,6 +163,10 @@
 		98C9F43D1BEF3E93009C46B5 /* ItemTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F43C1BEF3E93009C46B5 /* ItemTypeViewController.m */; };
 		98C9F4401BEF438F009C46B5 /* InvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */; };
 		98C9F4431BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F4421BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m */; };
+		98CAC2A21BF1F2D600C39576 /* ConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CAC2A11BF1F2D600C39576 /* ConfigModel.m */; };
+		98CAC2A51BF1F31E00C39576 /* PayPreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CAC2A41BF1F31E00C39576 /* PayPreModel.m */; };
+		98CAC2A81BF2187700C39576 /* PayBankCardAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CAC2A71BF2187700C39576 /* PayBankCardAPICmd.m */; };
+		98CAC2AB1BF218DC00C39576 /* FailedLogAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CAC2AA1BF218DC00C39576 /* FailedLogAPICmd.m */; };
 		98D9EEA41BF0CAC0007C11D0 /* CHANGELIST.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98D9EE3F1BF0CAC0007C11D0 /* CHANGELIST.txt */; };
 		98D9EEA51BF0CAC0007C11D0 /* libPaySdkColor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D9EE401BF0CAC0007C11D0 /* libPaySdkColor.a */; };
 		98D9EEA61BF0CAC0007C11D0 /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98D9EE421BF0CAC0007C11D0 /* Readme.txt */; };
@@ -488,6 +492,14 @@
 		98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentViewController.m; sourceTree = "<group>"; };
 		98C9F4411BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeWithDrawDepositViewController.h; sourceTree = "<group>"; };
 		98C9F4421BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeWithDrawDepositViewController.m; sourceTree = "<group>"; };
+		98CAC2A01BF1F2D600C39576 /* ConfigModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigModel.h; sourceTree = "<group>"; };
+		98CAC2A11BF1F2D600C39576 /* ConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigModel.m; sourceTree = "<group>"; };
+		98CAC2A31BF1F31E00C39576 /* PayPreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPreModel.h; sourceTree = "<group>"; };
+		98CAC2A41BF1F31E00C39576 /* PayPreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayPreModel.m; sourceTree = "<group>"; };
+		98CAC2A61BF2187700C39576 /* PayBankCardAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayBankCardAPICmd.h; sourceTree = "<group>"; };
+		98CAC2A71BF2187700C39576 /* PayBankCardAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayBankCardAPICmd.m; sourceTree = "<group>"; };
+		98CAC2A91BF218DC00C39576 /* FailedLogAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailedLogAPICmd.h; sourceTree = "<group>"; };
+		98CAC2AA1BF218DC00C39576 /* FailedLogAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailedLogAPICmd.m; sourceTree = "<group>"; };
 		98D9EE3F1BF0CAC0007C11D0 /* CHANGELIST.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELIST.txt; sourceTree = "<group>"; };
 		98D9EE401BF0CAC0007C11D0 /* libPaySdkColor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaySdkColor.a; sourceTree = "<group>"; };
 		98D9EE411BF0CAC0007C11D0 /* LLPaySdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPaySdk.h; sourceTree = "<group>"; };
@@ -1232,6 +1244,10 @@
 				98BCD3931BEDE97F00168B00 /* InvestmentListModel.m */,
 				98BCD3B81BEE30CB00168B00 /* EarnDetailModel.h */,
 				98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */,
+				98CAC2A01BF1F2D600C39576 /* ConfigModel.h */,
+				98CAC2A11BF1F2D600C39576 /* ConfigModel.m */,
+				98CAC2A31BF1F31E00C39576 /* PayPreModel.h */,
+				98CAC2A41BF1F31E00C39576 /* PayPreModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1269,6 +1285,10 @@
 				98D9EEB41BF0D6A2007C11D0 /* CashApplayAPICmd.m */,
 				98D9EEB61BF0DCF1007C11D0 /* PayPreAPICmd.h */,
 				98D9EEB71BF0DCF1007C11D0 /* PayPreAPICmd.m */,
+				98CAC2A61BF2187700C39576 /* PayBankCardAPICmd.h */,
+				98CAC2A71BF2187700C39576 /* PayBankCardAPICmd.m */,
+				98CAC2A91BF218DC00C39576 /* FailedLogAPICmd.h */,
+				98CAC2AA1BF218DC00C39576 /* FailedLogAPICmd.m */,
 			);
 			path = NetAPI;
 			sourceTree = "<group>";
@@ -1610,12 +1630,14 @@
 				98229F4D1BE8DD3D005210EC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				98BCD3111BEDE2AF00168B00 /* EnumDefine.m in Sources */,
 				98229F831BE8DD46005210EC /* UIImageView+HighlightedWebCache.m in Sources */,
+				98CAC2AB1BF218DC00C39576 /* FailedLogAPICmd.m in Sources */,
 				98BCD2E91BEDE23700168B00 /* LoginViewController.m in Sources */,
 				98229EF71BE8C54F005210EC /* AFHTTPRequestOperation.m in Sources */,
 				98BCD38E1BEDE3CD00168B00 /* RechargeCell.m in Sources */,
 				98229F771BE8DD46005210EC /* NSData+ImageContentType.m in Sources */,
 				98229EFA1BE8C54F005210EC /* AFNetworkReachabilityManager.m in Sources */,
 				98229F291BE8DCAF005210EC /* MMLinearProgressView.m in Sources */,
+				98CAC2A51BF1F31E00C39576 /* PayPreModel.m in Sources */,
 				98229F501BE8DD3D005210EC /* UIImageView+AFNetworking.m in Sources */,
 				98BCD36A1BEDE37700168B00 /* LoginAPICmd.m in Sources */,
 				98BCD36F1BEDE37700168B00 /* UserAssetAPICmd.m in Sources */,
@@ -1670,6 +1692,7 @@
 				98229FCD1BE8DFB8005210EC /* UIViewController+NavigationBarStyle.m in Sources */,
 				98229EDE1BE8C479005210EC /* RYAPILogger.m in Sources */,
 				98229F2E1BE8DCAF005210EC /* MMProgressHUDViewController.m in Sources */,
+				98CAC2A81BF2187700C39576 /* PayBankCardAPICmd.m in Sources */,
 				98229FC51BE8DD6B005210EC /* UIView+MJExtension.m in Sources */,
 				98BCD36C1BEDE37700168B00 /* Recentdynamicsmd.m in Sources */,
 				98229FB41BE8DD6B005210EC /* MJRefreshBackFooter.m in Sources */,
@@ -1736,6 +1759,7 @@
 				98BCD3101BEDE2AF00168B00 /* EncryptionManager.m in Sources */,
 				98BCD3681BEDE37700168B00 /* DealDetailAPICmd.m in Sources */,
 				98229F311BE8DCAF005210EC /* MMVectorImage.m in Sources */,
+				98CAC2A21BF1F2D600C39576 /* ConfigModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

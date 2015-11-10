@@ -60,6 +60,10 @@
 #define API_CashApplay @"nblc/api/deal/cashApply"
 //充值前
 #define API_PayPre     @"nblc/api/pay/ll/payPre"
+//用户第一次支付并且成功，发送银行卡信息
+#define API_PaySuceess @"nblc/api/pay/ll/payBankCard"
+//充值失败日志记录
+#define API_FailedLog  @"nblc/api/failLog/record"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"
@@ -68,7 +72,7 @@
 #define  API_product   @"nblc/api/product/list"
 
 #define kkValidChar   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-#define kkNumber @"0123456789"
+#define kkNumber @"0123456789."
 
 #define BackColor TomColor(0xefeff4)
 

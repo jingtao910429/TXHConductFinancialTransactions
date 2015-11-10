@@ -156,19 +156,23 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            self.step = sqrt([self.userAssetModel.allAsset doubleValue]);
-            self.totalMoney = 0.00;
-            self.totalMondyCell = cell;
-            
-            self.timers = [[NSMutableArray alloc] init];
-            
-            for (int i = 0; i < TimerNumber; i ++ ) {
+            if ([self.userAssetModel.allAsset intValue] == 0) {
+                self.totalMondyCell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeYFormatWithMoneyAmount];
+            }else{
+                self.step = sqrt([self.userAssetModel.allAsset doubleValue]);
+                self.totalMoney = 0.00;
+                self.totalMondyCell = cell;
                 
-                NSTimer *timer = [NSTimer timerWithTimeInterval:0.001  target:self selector:@selector(changeTotalMoney) userInfo:nil repeats:YES];
-                [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-                [timer fire];
-                [self.timers addObject:timer];
+                self.timers = [[NSMutableArray alloc] init];
                 
+                for (int i = 0; i < TimerNumber; i ++ ) {
+                    
+                    NSTimer *timer = [NSTimer timerWithTimeInterval:0.001  target:self selector:@selector(changeTotalMoney) userInfo:nil repeats:YES];
+                    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+                    [timer fire];
+                    [self.timers addObject:timer];
+                    
+                }
             }
             
         }

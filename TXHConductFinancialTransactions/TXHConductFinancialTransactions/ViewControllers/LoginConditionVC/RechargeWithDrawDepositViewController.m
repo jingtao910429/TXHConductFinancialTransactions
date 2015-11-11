@@ -450,10 +450,12 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
                 //NSString *payBackAgreeNo = dic[@"agreementno"];
                 // TODO: 协议号
                 
+                if (self.isFirstPay) {
+                    //用户第一次支付并且成功发送银行卡信息
+                    self.payBankCardAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"],@"bankCardNum":self.bankNumberTextFiled.text};
+                    [self.payBankCardAPICmd loadData];
+                }
                 
-                //用户第一次支付并且成功发送银行卡信息
-                self.payBankCardAPICmd.reformParams = @{@"id":[Tool getUserInfo][@"id"],@"bankCardNum":self.bankNumberTextFiled.text};
-                [self.payBankCardAPICmd loadData];
                 
             }
             else if ([result_pay isEqualToString:@"PROCESSING"])
@@ -538,11 +540,13 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
     //正式环境
     //[dict setValue:self.configModel.notify_url forKey:@"notify_url"];
     //测试环境
-    [dict setValue:@"http://app.aiben123.com/api/pay/ll/payResult" forKey:@"notify_url"];
+    [dict setValue:@"http://app.aiben123.com/nblc/api/pay/ll/payResult" forKey:@"notify_url"];
     
     [dict setValue:self.configModel.sign_type forKey:@"sign_type"];
     [dict setValue:self.configModel.valid_order forKey:@"valid_order"];
-    [dict setValue:[NSString stringWithFormat:@"%@",[Tool getUserInfo][@"id"]] forKey:@"user_id"];
+    [dict setValue:[NSString stringWithFormat:@"%@",[Tool getUserInfo][@"username"]] forKey:@"user_id"];
+    //唯一标示用户（正式）
+    //[dict setValue:[NSString stringWithFormat:@"%@",[Tool getUserInfo][@"id"]] forKey:@"user_id"];
     [dict setValue:self.inputMoneyTF.text forKey:@"money_order"];
     
     //风险控制参数
@@ -560,7 +564,7 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
                                          //证件号码 id_no 否 String
                                          @"acct_name":self.payPreModel.realName,
                                          //银行账号姓名 acct_name 否 String
-                                         @"no_agree":self.payPreModel.signNum
+                                         //@"no_agree":self.payPreModel.signNum
                                          }];
         
     }else{

@@ -151,31 +151,31 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetTableViewCell" owner:self options:nil] lastObject];
         }
         
-        
-        if (self.userAssetModel) {
-            
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            if ([self.userAssetModel.allAsset intValue] == 0) {
-                self.totalMondyCell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeYFormatWithMoneyAmount];
-            }else{
-                self.step = sqrt([self.userAssetModel.allAsset doubleValue]);
-                self.totalMoney = 0.00;
-                self.totalMondyCell = cell;
-                
-                self.timers = [[NSMutableArray alloc] init];
-                
-                for (int i = 0; i < TimerNumber; i ++ ) {
-                    
-                    NSTimer *timer = [NSTimer timerWithTimeInterval:0.001  target:self selector:@selector(changeTotalMoney) userInfo:nil repeats:YES];
-                    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-                    [timer fire];
-                    [self.timers addObject:timer];
-                    
-                }
-            }
-            
-        }
+        self.totalMondyCell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeYFormatWithMoneyAmount];
+//        if (self.userAssetModel) {
+//            
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//            
+//            if ([self.userAssetModel.allAsset intValue] == 0) {
+//                self.totalMondyCell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeYFormatWithMoneyAmount];
+//            }else{
+//                self.step = sqrt([self.userAssetModel.allAsset doubleValue]);
+//                self.totalMoney = 0.00;
+//                self.totalMondyCell = cell;
+//                
+//                self.timers = [[NSMutableArray alloc] init];
+//                
+//                for (int i = 0; i < TimerNumber; i ++ ) {
+//                    
+//                    NSTimer *timer = [NSTimer timerWithTimeInterval:0.001  target:self selector:@selector(changeTotalMoney) userInfo:nil repeats:YES];
+//                    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+//                    [timer fire];
+//                    [self.timers addObject:timer];
+//                    
+//                }
+//            }
+//            
+//        }
         
         cell.rateLabel.text = [NSString stringWithFormat:@"昨日年华收益率    %@%%",self.userAssetModel.rate?self.userAssetModel.rate:@"0.00"];
         

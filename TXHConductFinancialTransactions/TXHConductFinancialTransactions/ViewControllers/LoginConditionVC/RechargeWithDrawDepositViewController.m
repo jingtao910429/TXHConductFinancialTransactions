@@ -536,9 +536,9 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
     [dict setValue:simOrder forKey:@"info_order"];
     
     //正式环境
-    [dict setValue:self.configModel.notify_url forKey:@"notify_url"];
+    //[dict setValue:self.configModel.notify_url forKey:@"notify_url"];
     //测试环境
-    //[dict setValue:@"http://app.aiben123.com/api/pay/ll/payResult" forKey:@"notify_url"];
+    [dict setValue:@"http://app.aiben123.com/api/pay/ll/payResult" forKey:@"notify_url"];
     
     [dict setValue:self.configModel.sign_type forKey:@"sign_type"];
     [dict setValue:self.configModel.valid_order forKey:@"valid_order"];
@@ -554,7 +554,7 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
     
     if (!self.isFirstPay) {
         
-        //如果是第一次支付
+        
         [dict addEntriesFromDictionary:@{
                                          @"id_no":self.payPreModel.idCard,
                                          //证件号码 id_no 否 String
@@ -564,6 +564,8 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
                                          }];
         
     }else{
+        
+        //如果是第一次支付
         
         [dict addEntriesFromDictionary:@{
                                          @"id_no":self.cardNumberTextField.text,

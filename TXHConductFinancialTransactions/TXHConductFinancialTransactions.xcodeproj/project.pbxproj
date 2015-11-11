@@ -1541,6 +1541,7 @@
 				TargetAttributes = {
 					98229E9F1BE8C381005210EC = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = NQ4P4JL6BH;
 					};
 					98229EB81BE8C381005210EC = {
 						CreatedOnToolsVersion = 6.4;
@@ -1886,6 +1887,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TXHConductFinancialTransactions/TXHConductFinancialTransactions.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1913,6 +1915,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TXHConductFinancialTransactions/TXHConductFinancialTransactions.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

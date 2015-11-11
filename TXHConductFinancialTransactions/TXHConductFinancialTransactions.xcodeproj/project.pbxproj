@@ -159,6 +159,9 @@
 		98BCD3B71BEE2FC500168B00 /* EarningsRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B61BEE2FC500168B00 /* EarningsRecordViewController.m */; };
 		98BCD3BA1BEE30CB00168B00 /* EarnDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */; };
 		98BCD3BD1BEE30F600168B00 /* EarnDetailAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */; };
+		98C4D4D51BF386650041BCF1 /* InterestRateCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4D4D41BF386650041BCF1 /* InterestRateCouponViewController.m */; };
+		98C4D4D81BF386840041BCF1 /* InterestRateCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4D4D71BF386840041BCF1 /* InterestRateCouponModel.m */; };
+		98C4D4DB1BF386A00041BCF1 /* InterestRateCouponAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4D4DA1BF386A00041BCF1 /* InterestRateCouponAPICmd.m */; };
 		98C9F43A1BEF3850009C46B5 /* HelpCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F4391BEF3850009C46B5 /* HelpCenterVC.m */; };
 		98C9F43D1BEF3E93009C46B5 /* ItemTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F43C1BEF3E93009C46B5 /* ItemTypeViewController.m */; };
 		98C9F4401BEF438F009C46B5 /* InvestmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */; };
@@ -484,6 +487,12 @@
 		98BCD3B91BEE30CB00168B00 /* EarnDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarnDetailModel.m; sourceTree = "<group>"; };
 		98BCD3BB1BEE30F600168B00 /* EarnDetailAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarnDetailAPICmd.h; sourceTree = "<group>"; };
 		98BCD3BC1BEE30F600168B00 /* EarnDetailAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarnDetailAPICmd.m; sourceTree = "<group>"; };
+		98C4D4D31BF386650041BCF1 /* InterestRateCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestRateCouponViewController.h; sourceTree = "<group>"; };
+		98C4D4D41BF386650041BCF1 /* InterestRateCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestRateCouponViewController.m; sourceTree = "<group>"; };
+		98C4D4D61BF386840041BCF1 /* InterestRateCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestRateCouponModel.h; sourceTree = "<group>"; };
+		98C4D4D71BF386840041BCF1 /* InterestRateCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestRateCouponModel.m; sourceTree = "<group>"; };
+		98C4D4D91BF386A00041BCF1 /* InterestRateCouponAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestRateCouponAPICmd.h; sourceTree = "<group>"; };
+		98C4D4DA1BF386A00041BCF1 /* InterestRateCouponAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestRateCouponAPICmd.m; sourceTree = "<group>"; };
 		98C9F4381BEF3850009C46B5 /* HelpCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCenterVC.h; sourceTree = "<group>"; };
 		98C9F4391BEF3850009C46B5 /* HelpCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCenterVC.m; sourceTree = "<group>"; };
 		98C9F43B1BEF3E93009C46B5 /* ItemTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTypeViewController.h; sourceTree = "<group>"; };
@@ -1144,6 +1153,8 @@
 				98C9F43F1BEF438F009C46B5 /* InvestmentViewController.m */,
 				98C9F4411BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.h */,
 				98C9F4421BEF69CF009C46B5 /* RechargeWithDrawDepositViewController.m */,
+				98C4D4D31BF386650041BCF1 /* InterestRateCouponViewController.h */,
+				98C4D4D41BF386650041BCF1 /* InterestRateCouponViewController.m */,
 			);
 			path = LoginConditionVC;
 			sourceTree = "<group>";
@@ -1248,6 +1259,8 @@
 				98CAC2A11BF1F2D600C39576 /* ConfigModel.m */,
 				98CAC2A31BF1F31E00C39576 /* PayPreModel.h */,
 				98CAC2A41BF1F31E00C39576 /* PayPreModel.m */,
+				98C4D4D61BF386840041BCF1 /* InterestRateCouponModel.h */,
+				98C4D4D71BF386840041BCF1 /* InterestRateCouponModel.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1289,6 +1302,8 @@
 				98CAC2A71BF2187700C39576 /* PayBankCardAPICmd.m */,
 				98CAC2A91BF218DC00C39576 /* FailedLogAPICmd.h */,
 				98CAC2AA1BF218DC00C39576 /* FailedLogAPICmd.m */,
+				98C4D4D91BF386A00041BCF1 /* InterestRateCouponAPICmd.h */,
+				98C4D4DA1BF386A00041BCF1 /* InterestRateCouponAPICmd.m */,
 			);
 			path = NetAPI;
 			sourceTree = "<group>";
@@ -1721,6 +1736,7 @@
 				98229FBF1BE8DD6B005210EC /* MJRefreshNormalHeader.m in Sources */,
 				98229FBA1BE8DD6B005210EC /* MJRefreshAutoStateFooter.m in Sources */,
 				98BCD3121BEDE2AF00168B00 /* FactoryManager.m in Sources */,
+				98C4D4DB1BF386A00041BCF1 /* InterestRateCouponAPICmd.m in Sources */,
 				98229FB61BE8DD6B005210EC /* MJRefreshFooter.m in Sources */,
 				98BCD2FA1BEDE24C00168B00 /* DealDetailViewController.m in Sources */,
 				98229EDF1BE8C479005210EC /* RYAPIManager.m in Sources */,
@@ -1731,6 +1747,7 @@
 				98229F801BE8DD46005210EC /* UIImage+GIF.m in Sources */,
 				98229F0E1BE8D6FE005210EC /* ZWIntroductionViewController.m in Sources */,
 				98BCD3011BEDE26200168B00 /* BaseViewController.m in Sources */,
+				98C4D4D81BF386840041BCF1 /* InterestRateCouponModel.m in Sources */,
 				98BCD3971BEDE99300168B00 /* InvestmentListAPICmd.m in Sources */,
 				98229F521BE8DD3D005210EC /* UIRefreshControl+AFNetworking.m in Sources */,
 				98229F511BE8DD3D005210EC /* UIProgressView+AFNetworking.m in Sources */,
@@ -1758,6 +1775,7 @@
 				98229F2D1BE8DCAF005210EC /* MMProgressHUDOverlayView.m in Sources */,
 				98229F2F1BE8DCAF005210EC /* MMProgressHUDWindow.m in Sources */,
 				98BCD3101BEDE2AF00168B00 /* EncryptionManager.m in Sources */,
+				98C4D4D51BF386650041BCF1 /* InterestRateCouponViewController.m in Sources */,
 				98BCD3681BEDE37700168B00 /* DealDetailAPICmd.m in Sources */,
 				98229F311BE8DCAF005210EC /* MMVectorImage.m in Sources */,
 				98CAC2A21BF1F2D600C39576 /* ConfigModel.m in Sources */,

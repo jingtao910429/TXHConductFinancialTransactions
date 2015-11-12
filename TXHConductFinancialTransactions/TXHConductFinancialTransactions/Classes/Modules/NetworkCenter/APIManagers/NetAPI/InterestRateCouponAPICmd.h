@@ -8,6 +8,6 @@
 
 #import "RYBaseAPICmd.h"
 
-@interface InterestRateCouponAPICmd : RYBaseAPICmd
+@interface InterestRateCouponAPICmd : RYBaseAPICmd <RYBaseAPICmdDelegate>
 
 @end

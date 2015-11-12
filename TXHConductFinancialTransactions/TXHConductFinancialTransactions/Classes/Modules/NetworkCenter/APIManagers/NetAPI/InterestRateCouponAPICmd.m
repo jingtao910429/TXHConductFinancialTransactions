@@ -10,4 +10,14 @@
 
 @implementation InterestRateCouponAPICmd
 
+- (RYBaseAPICmdRequestType)requestType
+{
+    return RYBaseAPICmdRequestTypePost;
+}
+
+- (NSString *)apiCmdDescription
+{
+    return @"加息体验卷";
+}
+
 @end

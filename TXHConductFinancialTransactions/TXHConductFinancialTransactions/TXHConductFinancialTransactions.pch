@@ -66,6 +66,8 @@
 #define API_PaySuceess @"nblc/api/pay/ll/payBankCard"
 //充值失败日志记录
 #define API_FailedLog  @"nblc/api/failLog/record"
+//加息体验卷
+#define API_ActiveLog  @"nblc/api/active/activeLog/list"
 
 //公告列表
 #define API_List      @"nblc/api/notice/list"

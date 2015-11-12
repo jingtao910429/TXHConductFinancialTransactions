@@ -23,6 +23,8 @@
 #import "DealDetailViewController.h"
 #import "InvestmentListViewController.h"
 #import "RechargeWithDrawDepositViewController.h"
+#import "InterestRateCouponViewController.h"
+#import "EarningsRecordViewController.h"
 
 #define TimerNumber 10
 
@@ -348,7 +350,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
                        [KxMenuItem menuItem:@" 我的账户 "
                                       image:[UIImage imageNamed:@"ic_login_num"]
                                      target:self
-                                     action:@selector(pushMenuItem:) tag:3 isSelect:NO]];
+                                     action:@selector(pushMenuItem:) tag:3 isSelect:NO],
+                       [KxMenuItem menuItem:@" 加息卷 " image:[UIImage imageNamed:@"ic_login_num"] target:self action:@selector(pushMenuItem:) tag:4 isSelect:NO]];
     
     CGRect rect = sender.frame;
     rect.origin.y = 54;
@@ -366,7 +369,11 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     KxMenuItem *item = (KxMenuItem *)sender;
     
     switch (item.tag) {
-        case 1:
+        case 1:{
+            
+            EarningsRecordViewController *earningsRecordViewController = [[EarningsRecordViewController alloc] init];
+            [self.navigationController pushViewController:earningsRecordViewController animated:YES];
+        }
             
             break;
         case 2:{
@@ -380,6 +387,11 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             [self.navigationController pushViewController:myaccountnumberVC animated:YES];
         }
             
+            break;
+        case 4:{
+            InterestRateCouponViewController *interestRateCouponViewController = [[InterestRateCouponViewController alloc] init];
+            [self.navigationController pushViewController:interestRateCouponViewController animated:YES];
+        }
             break;
         default:
             break;

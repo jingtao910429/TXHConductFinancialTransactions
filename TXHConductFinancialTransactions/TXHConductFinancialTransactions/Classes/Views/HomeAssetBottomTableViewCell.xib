@@ -41,6 +41,14 @@
                             <constraint firstAttribute="centerX" secondItem="AhN-jL-iRf" secondAttribute="centerX" constant="80" id="tax-ki-UtX"/>
                             <constraint firstAttribute="bottom" secondItem="44F-Fa-DZn" secondAttribute="bottom" constant="14" id="v9B-iD-D41"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="t10-yZ-1vD"/>
+                                <exclude reference="tax-ki-UtX"/>
+                                <exclude reference="U5A-Uw-7Ul"/>
+                                <exclude reference="iez-ds-r3m"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <constraints>

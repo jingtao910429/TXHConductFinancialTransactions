@@ -100,6 +100,11 @@
 		988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */; };
 		988EE3FC1BE9F0BC0064A75B /* ic_modify_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */; };
 		988EE4251BEA31F00064A75B /* bg_account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE4241BEA31F00064A75B /* bg_account@2x.png */; };
+		98924A9C1BF4C80900427A72 /* list_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98924A991BF4C80900427A72 /* list_red@2x.png */; };
+		98924A9D1BF4C80900427A72 /* list_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98924A9A1BF4C80900427A72 /* list_white@2x.png */; };
+		98924A9E1BF4C80900427A72 /* list_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98924A9B1BF4C80900427A72 /* list_green@2x.png */; };
+		98924AA21BF4C85A00427A72 /* CuponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98924AA01BF4C85A00427A72 /* CuponTableViewCell.m */; };
+		98924AA31BF4C85A00427A72 /* CuponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98924AA11BF4C85A00427A72 /* CuponTableViewCell.xib */; };
 		98AA6ABD1BECE1ED002439B8 /* ic_recharge.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AA6ABB1BECE1ED002439B8 /* ic_recharge.png */; };
 		98AA6ABE1BECE1ED002439B8 /* ic_withdrawals.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AA6ABC1BECE1ED002439B8 /* ic_withdrawals.png */; };
 		98AC79C01BEB6D1D0033F6D6 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79BF1BEB6D1D0033F6D6 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -376,6 +381,12 @@
 		988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_login_num@2x.png"; sourceTree = "<group>"; };
 		988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_modify_password@2x.png"; sourceTree = "<group>"; };
 		988EE4241BEA31F00064A75B /* bg_account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_account@2x.png"; sourceTree = "<group>"; };
+		98924A991BF4C80900427A72 /* list_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_red@2x.png"; sourceTree = "<group>"; };
+		98924A9A1BF4C80900427A72 /* list_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_white@2x.png"; sourceTree = "<group>"; };
+		98924A9B1BF4C80900427A72 /* list_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_green@2x.png"; sourceTree = "<group>"; };
+		98924A9F1BF4C85A00427A72 /* CuponTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CuponTableViewCell.h; sourceTree = "<group>"; };
+		98924AA01BF4C85A00427A72 /* CuponTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CuponTableViewCell.m; sourceTree = "<group>"; };
+		98924AA11BF4C85A00427A72 /* CuponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CuponTableViewCell.xib; sourceTree = "<group>"; };
 		98AA6ABB1BECE1ED002439B8 /* ic_recharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_recharge.png; sourceTree = "<group>"; };
 		98AA6ABC1BECE1ED002439B8 /* ic_withdrawals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_withdrawals.png; sourceTree = "<group>"; };
 		98AC79BE1BEB6D1D0033F6D6 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -728,6 +739,9 @@
 		98229ECE1BE8C424005210EC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				98924A991BF4C80900427A72 /* list_red@2x.png */,
+				98924A9A1BF4C80900427A72 /* list_white@2x.png */,
+				98924A9B1BF4C80900427A72 /* list_green@2x.png */,
 				987037B61BED90C000F1679E /* ic_empty.jpg */,
 				98AA6ABB1BECE1ED002439B8 /* ic_recharge.png */,
 				98AA6ABC1BECE1ED002439B8 /* ic_withdrawals.png */,
@@ -1336,6 +1350,9 @@
 				98BCD3A91BEDF52100168B00 /* InvestmentBottomMTableViewCell.m */,
 				98BCD3AF1BEDF78B00168B00 /* InvestmentBottomLTableViewCell.h */,
 				98BCD3B01BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m */,
+				98924A9F1BF4C85A00427A72 /* CuponTableViewCell.h */,
+				98924AA01BF4C85A00427A72 /* CuponTableViewCell.m */,
+				98924AA11BF4C85A00427A72 /* CuponTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1556,7 +1573,7 @@
 				TargetAttributes = {
 					98229E9F1BE8C381005210EC = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = NQ4P4JL6BH;
+						DevelopmentTeam = Y5TKRM6AF7;
 					};
 					98229EB81BE8C381005210EC = {
 						CreatedOnToolsVersion = 6.4;
@@ -1589,10 +1606,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				988EE3E91BE9D6240064A75B /* bg_prologue@2x.png in Resources */,
+				98924AA31BF4C85A00427A72 /* CuponTableViewCell.xib in Resources */,
 				98229EAF1BE8C381005210EC /* Main.storyboard in Resources */,
 				98229FE01BE8F062005210EC /* guide_1@2x.png in Resources */,
 				98BCD38C1BEDE3CD00168B00 /* HomeAssetTableViewCell.xib in Resources */,
+				98924A9C1BF4C80900427A72 /* list_red@2x.png in Resources */,
 				98229FE41BE8F0D8005210EC /* guide_3@2x.png in Resources */,
+				98924A9E1BF4C80900427A72 /* list_green@2x.png in Resources */,
+				98924A9D1BF4C80900427A72 /* list_white@2x.png in Resources */,
 				95319CF41BE9B75F00597AF8 /* img_account_head@2x.png in Resources */,
 				98229EB41BE8C381005210EC /* LaunchScreen.xib in Resources */,
 				988EE4251BEA31F00064A75B /* bg_account@2x.png in Resources */,
@@ -1677,6 +1698,7 @@
 				98229F7A1BE8DD46005210EC /* SDWebImageDecoder.m in Sources */,
 				98229EA91BE8C381005210EC /* AppDelegate.m in Sources */,
 				98229F391BE8DD1D005210EC /* Reachability.m in Sources */,
+				98924AA21BF4C85A00427A72 /* CuponTableViewCell.m in Sources */,
 				98C9F43A1BEF3850009C46B5 /* HelpCenterVC.m in Sources */,
 				98229FC21BE8DD6B005210EC /* MJRefreshConst.m in Sources */,
 				98229FB31BE8DD6B005210EC /* MJRefreshAutoFooter.m in Sources */,

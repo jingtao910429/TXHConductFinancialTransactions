@@ -15,6 +15,7 @@
 #import "NSString+Additions.h"
 #import "HelpCenterVC.h"
 #import "RegisterViewController.h"
+#import "TelPrompt.h"
 
 @interface MyaccountnumberVC () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
 
@@ -157,12 +158,19 @@
         
         
     }
-    if (indexPath.row==3) {
-        UIWebView*callWebview =[[UIWebView alloc] init];
-        NSString *telUrl = [NSString stringWithFormat:@"tel://%@", self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@""];
-        NSURL *telURL =[NSURL URLWithString:telUrl];
-        [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-        [self.view addSubview:callWebview];
+    if (indexPath.row == 3) {
+        
+        [TelPrompt callPhoneNumber:self.userInfoModel.kfPhone call:^(NSTimeInterval duration) {
+            
+        } cancel:^{
+            
+        }];
+        
+//        UIWebView*callWebview =[[UIWebView alloc] init];
+//        NSString *telUrl = [NSString stringWithFormat:@"tel://%@", self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@""];
+//        NSURL *telURL =[NSURL URLWithString:telUrl];
+//        [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+//        [self.view addSubview:callWebview];
     }
     
 }

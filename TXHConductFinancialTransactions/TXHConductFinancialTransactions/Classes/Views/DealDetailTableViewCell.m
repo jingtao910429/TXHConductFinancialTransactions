@@ -22,8 +22,8 @@
 
 - (void)updateUI {
     
-    self.moneyLabel.frame = CGRectMake(self.moneyLabel.frame.origin.x - 20, self.moneyLabel.frame.origin.y, self.moneyLabel.frame.size.width, self.moneyLabel.frame.size.height);
-    self.timeLabel.frame = CGRectMake(self.timeLabel.frame.origin.x - 20, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
+    self.moneyLabel.frame = CGRectMake(kScreenWidth - self.moneyLabel.frame.size.width - 30, self.moneyLabel.frame.origin.y, self.moneyLabel.frame.size.width, self.moneyLabel.frame.size.height);
+    self.timeLabel.frame = CGRectMake(kScreenWidth - self.timeLabel.frame.size.width - 30, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
 }
 

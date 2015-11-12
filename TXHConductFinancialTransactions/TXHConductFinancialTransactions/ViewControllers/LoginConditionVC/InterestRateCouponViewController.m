@@ -11,6 +11,7 @@
 #import "MJRefresh.h"
 #import "NSString+Additions.h"
 #import "InterestRateCouponModel.h"
+#import "CuponTableViewCell.h"
 
 @interface InterestRateCouponViewController () <UITableViewDataSource,UITableViewDelegate,APICmdApiCallBackDelegate>
 
@@ -54,6 +55,8 @@
 
 - (void)configUI {
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self navigationBarStyleWithTitle:@"加息体验卷" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
     [self.view addSubview:self.contentTableView];
@@ -80,7 +83,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (1 == indexPath.row % 2) {
-        return 60;
+        return 130;
     }
     
     return 5;
@@ -93,37 +96,98 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL_ID"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL_ID"];
+    if (1 == indexPath.row % 2) {
         
+        static NSString *cellID = @"CuponTableViewCellID";
+        
+        CuponTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"CuponTableViewCell" owner:self options:nil] lastObject];
+            
+            cell.layer.cornerRadius = 4;
+            cell.layer.masksToBounds = YES;
+        }
+        
+        /*
+         {
+         "id":3,// id
+         "activeId":6,// 活动ID
+         "type":1,// 类型（1=体验金，2=加息券）
+         "value":150// 值（体验金倍数/加成年利率）
+         "day":0,// 有效天数
+         "limit":1000,// 最少投资金额
+         "createDate":"2015-11-05 14:29:24",// 领取日期
+         }
+         
+         */
+        
+        InterestRateCouponModel *model = self.dataSource[indexPath.row/2];
+        
+        cell.backGroundImageView.image = [UIImage imageNamed:@"list_white"];
+        cell.takeLabel.text = @"已经领取";
+        
+        if ([model.value floatValue] > 0) {
+            cell.contentLabel.text = [NSString stringWithFormat:@"加息卷+%.1f%%",[model.value floatValue]/100.00];
+        }else{
+            cell.contentLabel.text = [NSString stringWithFormat:@"加息卷-%.1f%%",[model.value floatValue]/100.00];
+        }
+        
+        BOOL isTake = YES;
+        
+        if (1 == [model.type intValue]) {
+            
+            if ([model.day intValue] > 0) {
+                cell.takeLabel.text = @"立即领取";
+                cell.backGroundImageView.image = [UIImage imageNamed:@"list_red"];
+                isTake = NO;
+            }
+            
+        }else if (2 == [model.type intValue]) {
+            
+            if ([model.day intValue] > 0) {
+                cell.takeLabel.text = @"立即领取";
+                cell.backGroundImageView.image = [UIImage imageNamed:@"list_green"];
+                isTake = NO;
+            }
+            
+        }
+        
+        cell.createTimeLabel.text = [NSString stringWithFormat:@"领取日期：%@",model.createDate];
+        
+        if (!isTake) {
+            NSArray *times = [model.createDate componentsSeparatedByString:@"+"];
+            NSString *time = [NSString stringWithFormat:@"%@ %@",times[0],times[1]];
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            
+            NSTimeInterval now = [[formatter dateFromString:time] timeIntervalSinceNow];
+            
+            cell.restDayLabel.text = [NSString stringWithFormat:@"剩余天数：%d天",(int)(now / (24 * 60 * 60))];
+        }else{
+            cell.restDayLabel.text = @"剩余天数：0天";
+        }
+        
+       
+        
+        return cell;
+        
+        
+    }else{
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL_ID"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL_ID"];
+            
+        }
+        
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+        
+        return cell;
     }
     
-    cell.contentView.backgroundColor = COLOR(232, 232, 232, 1.0);
+    return nil;
     
-    return cell;
-    
-//    if (1 == indexPath.row % 2) {
-//        
-//        static NSString *cellID = @"DealDetailTableViewCellID";
-//        
-//        DealDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-//        if (!cell) {
-//            cell = [[[NSBundle mainBundle] loadNibNamed:@"DealDetailTableViewCell" owner:self options:nil] lastObject];
-//            [cell updateUI];
-//            cell.layer.cornerRadius = 4;
-//            cell.layer.masksToBounds = YES;
-//        }
-//        
-//        return cell;
-//        
-//        
-//    }else{
-//        
-//        
-//    }
-//    
-//    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -144,23 +208,25 @@
             
         }else{
             
-//            NSArray *data = tempDict[@"data"];
-//            
-//            if (data && ![data isKindOfClass:[NSNull class]] && data.count != 0) {
-//                
-//                self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
-//                
-////                for (NSDictionary *subDict in data) {
-////                    
-////                    DealDetailModel *model = [[DealDetailModel alloc] init];
-////                    [model setValuesForKeysWithDictionary:subDict];
-////                    [self.dataSource addObject:model];
-////                }
-//                
-//                [self.contentTableView reloadData];
-//            }else{
-//                [Tool ToastNotification:@"没有更多内容"];
-//            }
+            NSLog(@"responseData = %@",responseData);
+            
+            NSArray *data = tempDict[@"data"];
+
+            if (data && ![data isKindOfClass:[NSNull class]] && data.count != 0) {
+                
+                self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
+                
+                for (NSDictionary *subDict in data) {
+                    
+                    InterestRateCouponModel  *model = [[InterestRateCouponModel alloc] init];
+                    [model setValuesForKeysWithDictionary:subDict];
+                    [self.dataSource addObject:model];
+                }
+                
+                [self.contentTableView reloadData];
+            }else{
+                [Tool ToastNotification:@"没有更多内容"];
+            }
             
         }
         
@@ -200,6 +266,18 @@
 
 
 #pragma mark - getters and setters
+
+- (UITableView *)contentTableView {
+    if (!_contentTableView) {
+        _contentTableView = [[UITableView alloc] initWithFrame:CGRectMake(5, 0, self.view.frame.size.width - 10, self.view.frame.size.height) style:UITableViewStyleGrouped];
+        _contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _contentTableView.delegate = self;
+        _contentTableView.dataSource = self;
+        _contentTableView.backgroundColor = [UIColor clearColor];
+        _contentTableView.showsVerticalScrollIndicator = NO;
+    }
+    return _contentTableView;
+}
 
 - (InterestRateCouponAPICmd *)interestRateCouponAPICmd {
     if (!_interestRateCouponAPICmd) {

@@ -285,6 +285,16 @@
     return _contentTableView;
 }
 
+- (UIRefreshControl *)refreshControl {
+    
+    if (!_refreshControl) {
+        
+        _refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.contentTableView.frame.size.width, -40)];
+        [_refreshControl addTarget:self action:@selector(reload:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _refreshControl;
+}
+
 - (InterestRateCouponAPICmd *)interestRateCouponAPICmd {
     if (!_interestRateCouponAPICmd) {
         _interestRateCouponAPICmd = [[InterestRateCouponAPICmd alloc] init];

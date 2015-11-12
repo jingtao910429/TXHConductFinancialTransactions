@@ -169,7 +169,7 @@
         }
         
        
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
         
@@ -181,6 +181,7 @@
             
         }
         
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = [UIColor whiteColor];
         
         return cell;
@@ -192,6 +193,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    InterestRateCouponModel *model = self.dataSource[indexPath.row/2];
+    
+    
+    
 }
 
 #pragma mark - APICmdApiCallBackDelegate

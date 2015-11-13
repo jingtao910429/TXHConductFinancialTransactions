@@ -93,6 +93,27 @@
 		98229FE01BE8F062005210EC /* guide_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98229FDF1BE8F062005210EC /* guide_1@2x.png */; };
 		98229FE21BE8F0A1005210EC /* guide_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98229FE11BE8F0A1005210EC /* guide_2@2x.png */; };
 		98229FE41BE8F0D8005210EC /* guide_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98229FE31BE8F0D8005210EC /* guide_3@2x.png */; };
+		9858F5CA1BF6047A00EE64E1 /* LCInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5C41BF6047A00EE64E1 /* LCInfoView.m */; };
+		9858F5CB1BF6047A00EE64E1 /* LCLegendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5C61BF6047A00EE64E1 /* LCLegendView.m */; };
+		9858F5CC1BF6047A00EE64E1 /* LCLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5C81BF6047A00EE64E1 /* LCLineChartView.m */; };
+		9858F5CF1BF6048E00EE64E1 /* DLVersionCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5CE1BF6048E00EE64E1 /* DLVersionCheck.m */; };
+		9858F5FA1BF6049B00EE64E1 /* DLPopoverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5D41BF6049B00EE64E1 /* DLPopoverManager.m */; };
+		9858F5FB1BF6049B00EE64E1 /* UIPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5D61BF6049B00EE64E1 /* UIPlaceholderTextView.m */; };
+		9858F5FC1BF6049B00EE64E1 /* UITabBarController+HideableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5D81BF6049B00EE64E1 /* UITabBarController+HideableTabBar.m */; };
+		9858F5FD1BF6049B00EE64E1 /* InnerShadowDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5DB1BF6049B00EE64E1 /* InnerShadowDrawing.m */; };
+		9858F5FE1BF6049B00EE64E1 /* UIColor+DLHelperAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5DD1BF6049B00EE64E1 /* UIColor+DLHelperAdditions.m */; };
+		9858F5FF1BF6049B00EE64E1 /* UIImage+DLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5DF1BF6049B00EE64E1 /* UIImage+DLAdditions.m */; };
+		9858F6001BF6049B00EE64E1 /* UIKit+DrawingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5E11BF6049B00EE64E1 /* UIKit+DrawingHelpers.m */; };
+		9858F6011BF6049B00EE64E1 /* UIRoundedTintedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5E41BF6049B00EE64E1 /* UIRoundedTintedButton.m */; };
+		9858F6021BF6049B00EE64E1 /* UITintedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5E61BF6049B00EE64E1 /* UITintedButton.m */; };
+		9858F6031BF6049B00EE64E1 /* UITintedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5E81BF6049B00EE64E1 /* UITintedLabel.m */; };
+		9858F6041BF6049B00EE64E1 /* UITintedTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5EA1BF6049B00EE64E1 /* UITintedTextfield.m */; };
+		9858F6051BF6049B00EE64E1 /* UIControl+DLBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5ED1BF6049B00EE64E1 /* UIControl+DLBlockAdditions.m */; };
+		9858F6061BF6049B00EE64E1 /* UIGestureRecognizer+DLBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5EF1BF6049B00EE64E1 /* UIGestureRecognizer+DLBlockAdditions.m */; };
+		9858F6071BF6049B00EE64E1 /* UIKitHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5F21BF6049B00EE64E1 /* UIKitHelpers.m */; };
+		9858F6081BF6049B00EE64E1 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858F5F41BF6049B00EE64E1 /* UIView+Additions.m */; };
+		9858F60B1BF6049B00EE64E1 /* delete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9858F5F81BF6049B00EE64E1 /* delete_button.png */; };
+		9858F60C1BF6049B00EE64E1 /* delete_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9858F5F91BF6049B00EE64E1 /* delete_button@2x.png */; };
 		987037B71BED90C000F1679E /* ic_empty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987037B61BED90C000F1679E /* ic_empty.jpg */; };
 		987037BB1BED93EF00F1679E /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 987037BA1BED93EF00F1679E /* KxMenu.m */; };
 		988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E01BE991BD0064A75B /* BMAdScrollView.m */; };
@@ -372,6 +393,47 @@
 		98229FDF1BE8F062005210EC /* guide_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_1@2x.png"; sourceTree = "<group>"; };
 		98229FE11BE8F0A1005210EC /* guide_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_2@2x.png"; sourceTree = "<group>"; };
 		98229FE31BE8F0D8005210EC /* guide_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_3@2x.png"; sourceTree = "<group>"; };
+		9858F5C31BF6047A00EE64E1 /* LCInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCInfoView.h; sourceTree = "<group>"; };
+		9858F5C41BF6047A00EE64E1 /* LCInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCInfoView.m; sourceTree = "<group>"; };
+		9858F5C51BF6047A00EE64E1 /* LCLegendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCLegendView.h; sourceTree = "<group>"; };
+		9858F5C61BF6047A00EE64E1 /* LCLegendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLegendView.m; sourceTree = "<group>"; };
+		9858F5C71BF6047A00EE64E1 /* LCLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCLineChartView.h; sourceTree = "<group>"; };
+		9858F5C81BF6047A00EE64E1 /* LCLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLineChartView.m; sourceTree = "<group>"; };
+		9858F5C91BF6047A00EE64E1 /* LineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineChart.h; sourceTree = "<group>"; };
+		9858F5CD1BF6048E00EE64E1 /* DLVersionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLVersionCheck.h; sourceTree = "<group>"; };
+		9858F5CE1BF6048E00EE64E1 /* DLVersionCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLVersionCheck.m; sourceTree = "<group>"; };
+		9858F5D31BF6049B00EE64E1 /* DLPopoverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPopoverManager.h; sourceTree = "<group>"; };
+		9858F5D41BF6049B00EE64E1 /* DLPopoverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPopoverManager.m; sourceTree = "<group>"; };
+		9858F5D51BF6049B00EE64E1 /* UIPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceholderTextView.h; sourceTree = "<group>"; };
+		9858F5D61BF6049B00EE64E1 /* UIPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceholderTextView.m; sourceTree = "<group>"; };
+		9858F5D71BF6049B00EE64E1 /* UITabBarController+HideableTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+HideableTabBar.h"; sourceTree = "<group>"; };
+		9858F5D81BF6049B00EE64E1 /* UITabBarController+HideableTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+HideableTabBar.m"; sourceTree = "<group>"; };
+		9858F5DA1BF6049B00EE64E1 /* InnerShadowDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerShadowDrawing.h; sourceTree = "<group>"; };
+		9858F5DB1BF6049B00EE64E1 /* InnerShadowDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerShadowDrawing.m; sourceTree = "<group>"; };
+		9858F5DC1BF6049B00EE64E1 /* UIColor+DLHelperAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DLHelperAdditions.h"; sourceTree = "<group>"; };
+		9858F5DD1BF6049B00EE64E1 /* UIColor+DLHelperAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DLHelperAdditions.m"; sourceTree = "<group>"; };
+		9858F5DE1BF6049B00EE64E1 /* UIImage+DLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DLAdditions.h"; sourceTree = "<group>"; };
+		9858F5DF1BF6049B00EE64E1 /* UIImage+DLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DLAdditions.m"; sourceTree = "<group>"; };
+		9858F5E01BF6049B00EE64E1 /* UIKit+DrawingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+DrawingHelpers.h"; sourceTree = "<group>"; };
+		9858F5E11BF6049B00EE64E1 /* UIKit+DrawingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+DrawingHelpers.m"; sourceTree = "<group>"; };
+		9858F5E31BF6049B00EE64E1 /* UIRoundedTintedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoundedTintedButton.h; sourceTree = "<group>"; };
+		9858F5E41BF6049B00EE64E1 /* UIRoundedTintedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoundedTintedButton.m; sourceTree = "<group>"; };
+		9858F5E51BF6049B00EE64E1 /* UITintedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITintedButton.h; sourceTree = "<group>"; };
+		9858F5E61BF6049B00EE64E1 /* UITintedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITintedButton.m; sourceTree = "<group>"; };
+		9858F5E71BF6049B00EE64E1 /* UITintedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITintedLabel.h; sourceTree = "<group>"; };
+		9858F5E81BF6049B00EE64E1 /* UITintedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITintedLabel.m; sourceTree = "<group>"; };
+		9858F5E91BF6049B00EE64E1 /* UITintedTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITintedTextfield.h; sourceTree = "<group>"; };
+		9858F5EA1BF6049B00EE64E1 /* UITintedTextfield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITintedTextfield.m; sourceTree = "<group>"; };
+		9858F5EC1BF6049B00EE64E1 /* UIControl+DLBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+DLBlockAdditions.h"; sourceTree = "<group>"; };
+		9858F5ED1BF6049B00EE64E1 /* UIControl+DLBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+DLBlockAdditions.m"; sourceTree = "<group>"; };
+		9858F5EE1BF6049B00EE64E1 /* UIGestureRecognizer+DLBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+DLBlockAdditions.h"; sourceTree = "<group>"; };
+		9858F5EF1BF6049B00EE64E1 /* UIGestureRecognizer+DLBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+DLBlockAdditions.m"; sourceTree = "<group>"; };
+		9858F5F11BF6049B00EE64E1 /* UIKitHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKitHelpers.h; sourceTree = "<group>"; };
+		9858F5F21BF6049B00EE64E1 /* UIKitHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitHelpers.m; sourceTree = "<group>"; };
+		9858F5F31BF6049B00EE64E1 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		9858F5F41BF6049B00EE64E1 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		9858F5F81BF6049B00EE64E1 /* delete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_button.png; sourceTree = "<group>"; };
+		9858F5F91BF6049B00EE64E1 /* delete_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete_button@2x.png"; sourceTree = "<group>"; };
 		987037B61BED90C000F1679E /* ic_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ic_empty.jpg; sourceTree = "<group>"; };
 		987037B91BED93EF00F1679E /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		987037BA1BED93EF00F1679E /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
@@ -840,6 +902,7 @@
 		98229EE21BE8C503005210EC /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				9858F5C21BF6045C00EE64E1 /* ChatView */,
 				98BCD3AB1BEDF6BB00168B00 /* ZDProgressView */,
 				987037B81BED93D900F1679E /* KxMenu */,
 				98AC79BD1BEB6D1D0033F6D6 /* JSONKit */,
@@ -1204,6 +1267,118 @@
 				98229FDD1BE8F02C005210EC /* navigationbar_background_tall1@2x.png */,
 			);
 			path = navImages;
+			sourceTree = "<group>";
+		};
+		9858F5C21BF6045C00EE64E1 /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5D01BF6049B00EE64E1 /* uikit-utils */,
+				9858F5CD1BF6048E00EE64E1 /* DLVersionCheck.h */,
+				9858F5CE1BF6048E00EE64E1 /* DLVersionCheck.m */,
+				9858F5C31BF6047A00EE64E1 /* LCInfoView.h */,
+				9858F5C41BF6047A00EE64E1 /* LCInfoView.m */,
+				9858F5C51BF6047A00EE64E1 /* LCLegendView.h */,
+				9858F5C61BF6047A00EE64E1 /* LCLegendView.m */,
+				9858F5C71BF6047A00EE64E1 /* LCLineChartView.h */,
+				9858F5C81BF6047A00EE64E1 /* LCLineChartView.m */,
+				9858F5C91BF6047A00EE64E1 /* LineChart.h */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		9858F5D01BF6049B00EE64E1 /* uikit-utils */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5D11BF6049B00EE64E1 /* Classes */,
+				9858F5F71BF6049B00EE64E1 /* Resources */,
+			);
+			path = "uikit-utils";
+			sourceTree = "<group>";
+		};
+		9858F5D11BF6049B00EE64E1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5D21BF6049B00EE64E1 /* Controls */,
+				9858F5D91BF6049B00EE64E1 /* Drawing */,
+				9858F5E21BF6049B00EE64E1 /* TintedViews */,
+				9858F5EB1BF6049B00EE64E1 /* Utility */,
+				9858F5F01BF6049B00EE64E1 /* ViewUtil */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9858F5D21BF6049B00EE64E1 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5D31BF6049B00EE64E1 /* DLPopoverManager.h */,
+				9858F5D41BF6049B00EE64E1 /* DLPopoverManager.m */,
+				9858F5D51BF6049B00EE64E1 /* UIPlaceholderTextView.h */,
+				9858F5D61BF6049B00EE64E1 /* UIPlaceholderTextView.m */,
+				9858F5D71BF6049B00EE64E1 /* UITabBarController+HideableTabBar.h */,
+				9858F5D81BF6049B00EE64E1 /* UITabBarController+HideableTabBar.m */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		9858F5D91BF6049B00EE64E1 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5DA1BF6049B00EE64E1 /* InnerShadowDrawing.h */,
+				9858F5DB1BF6049B00EE64E1 /* InnerShadowDrawing.m */,
+				9858F5DC1BF6049B00EE64E1 /* UIColor+DLHelperAdditions.h */,
+				9858F5DD1BF6049B00EE64E1 /* UIColor+DLHelperAdditions.m */,
+				9858F5DE1BF6049B00EE64E1 /* UIImage+DLAdditions.h */,
+				9858F5DF1BF6049B00EE64E1 /* UIImage+DLAdditions.m */,
+				9858F5E01BF6049B00EE64E1 /* UIKit+DrawingHelpers.h */,
+				9858F5E11BF6049B00EE64E1 /* UIKit+DrawingHelpers.m */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		9858F5E21BF6049B00EE64E1 /* TintedViews */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5E31BF6049B00EE64E1 /* UIRoundedTintedButton.h */,
+				9858F5E41BF6049B00EE64E1 /* UIRoundedTintedButton.m */,
+				9858F5E51BF6049B00EE64E1 /* UITintedButton.h */,
+				9858F5E61BF6049B00EE64E1 /* UITintedButton.m */,
+				9858F5E71BF6049B00EE64E1 /* UITintedLabel.h */,
+				9858F5E81BF6049B00EE64E1 /* UITintedLabel.m */,
+				9858F5E91BF6049B00EE64E1 /* UITintedTextfield.h */,
+				9858F5EA1BF6049B00EE64E1 /* UITintedTextfield.m */,
+			);
+			path = TintedViews;
+			sourceTree = "<group>";
+		};
+		9858F5EB1BF6049B00EE64E1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5EC1BF6049B00EE64E1 /* UIControl+DLBlockAdditions.h */,
+				9858F5ED1BF6049B00EE64E1 /* UIControl+DLBlockAdditions.m */,
+				9858F5EE1BF6049B00EE64E1 /* UIGestureRecognizer+DLBlockAdditions.h */,
+				9858F5EF1BF6049B00EE64E1 /* UIGestureRecognizer+DLBlockAdditions.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		9858F5F01BF6049B00EE64E1 /* ViewUtil */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5F11BF6049B00EE64E1 /* UIKitHelpers.h */,
+				9858F5F21BF6049B00EE64E1 /* UIKitHelpers.m */,
+				9858F5F31BF6049B00EE64E1 /* UIView+Additions.h */,
+				9858F5F41BF6049B00EE64E1 /* UIView+Additions.m */,
+			);
+			path = ViewUtil;
+			sourceTree = "<group>";
+		};
+		9858F5F71BF6049B00EE64E1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9858F5F81BF6049B00EE64E1 /* delete_button.png */,
+				9858F5F91BF6049B00EE64E1 /* delete_button@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		987037B81BED93D900F1679E /* KxMenu */ = {
@@ -1608,6 +1783,7 @@
 				988EE3E91BE9D6240064A75B /* bg_prologue@2x.png in Resources */,
 				98924AA31BF4C85A00427A72 /* CuponTableViewCell.xib in Resources */,
 				98229EAF1BE8C381005210EC /* Main.storyboard in Resources */,
+				9858F60C1BF6049B00EE64E1 /* delete_button@2x.png in Resources */,
 				98229FE01BE8F062005210EC /* guide_1@2x.png in Resources */,
 				98BCD38C1BEDE3CD00168B00 /* HomeAssetTableViewCell.xib in Resources */,
 				98924A9C1BF4C80900427A72 /* list_red@2x.png in Resources */,
@@ -1622,6 +1798,7 @@
 				98BCD3881BEDE3CD00168B00 /* HomeAssetBottomTableViewCell.xib in Resources */,
 				98229FC11BE8DD6B005210EC /* MJRefresh.bundle in Resources */,
 				95D4703C1BEB24DF00EE3AE8 /* bg1.png in Resources */,
+				9858F60B1BF6049B00EE64E1 /* delete_button.png in Resources */,
 				98229FDE1BE8F02C005210EC /* navigationbar_background_tall1@2x.png in Resources */,
 				98D9EEA41BF0CAC0007C11D0 /* CHANGELIST.txt in Resources */,
 				98BCD38A1BEDE3CD00168B00 /* HomeAssetMiddleTableViewCell.xib in Resources */,
@@ -1653,9 +1830,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				98BCD3891BEDE3CD00168B00 /* HomeAssetMiddleTableViewCell.m in Sources */,
+				9858F6001BF6049B00EE64E1 /* UIKit+DrawingHelpers.m in Sources */,
 				98229F7F1BE8DD46005210EC /* UIButton+WebCache.m in Sources */,
 				98BCD38B1BEDE3CD00168B00 /* HomeAssetTableViewCell.m in Sources */,
 				98BCD2FE1BEDE24C00168B00 /* WithdrawdepositVC.m in Sources */,
+				9858F6041BF6049B00EE64E1 /* UITintedTextfield.m in Sources */,
 				98229F2B1BE8DCAF005210EC /* MMProgressHUD+Class.m in Sources */,
 				98D9EEAD1BF0CAC0007C11D0 /* NSDataEx.m in Sources */,
 				98229F351BE8DCFB005210EC /* TelPrompt.m in Sources */,
@@ -1665,8 +1844,10 @@
 				98BCD3B11BEDF78B00168B00 /* InvestmentBottomLTableViewCell.m in Sources */,
 				98BCD38D1BEDE3CD00168B00 /* RecentdynamicsCell.m in Sources */,
 				98229F4D1BE8DD3D005210EC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				9858F6051BF6049B00EE64E1 /* UIControl+DLBlockAdditions.m in Sources */,
 				98BCD3111BEDE2AF00168B00 /* EnumDefine.m in Sources */,
 				98229F831BE8DD46005210EC /* UIImageView+HighlightedWebCache.m in Sources */,
+				9858F5FF1BF6049B00EE64E1 /* UIImage+DLAdditions.m in Sources */,
 				98CAC2AB1BF218DC00C39576 /* FailedLogAPICmd.m in Sources */,
 				98BCD2E91BEDE23700168B00 /* LoginViewController.m in Sources */,
 				98229EF71BE8C54F005210EC /* AFHTTPRequestOperation.m in Sources */,
@@ -1675,6 +1856,7 @@
 				98229EFA1BE8C54F005210EC /* AFNetworkReachabilityManager.m in Sources */,
 				98229F291BE8DCAF005210EC /* MMLinearProgressView.m in Sources */,
 				98CAC2A51BF1F31E00C39576 /* PayPreModel.m in Sources */,
+				9858F6011BF6049B00EE64E1 /* UIRoundedTintedButton.m in Sources */,
 				98229F501BE8DD3D005210EC /* UIImageView+AFNetworking.m in Sources */,
 				98BCD36A1BEDE37700168B00 /* LoginAPICmd.m in Sources */,
 				98BCD36F1BEDE37700168B00 /* UserAssetAPICmd.m in Sources */,
@@ -1682,10 +1864,13 @@
 				98229EFF1BE8C54F005210EC /* AFURLSessionManager.m in Sources */,
 				98229F0D1BE8D6FE005210EC /* EAIntroView.m in Sources */,
 				98229F791BE8DD46005210EC /* SDWebImageCompat.m in Sources */,
+				9858F5FD1BF6049B00EE64E1 /* InnerShadowDrawing.m in Sources */,
 				98229FBB1BE8DD6B005210EC /* MJRefreshBackGifFooter.m in Sources */,
 				98229F7D1BE8DD46005210EC /* SDWebImageManager.m in Sources */,
+				9858F5CC1BF6047A00EE64E1 /* LCLineChartView.m in Sources */,
 				98BCD3311BEDE31300168B00 /* NoticeListModel.m in Sources */,
 				98229F031BE8C579005210EC /* WToast.m in Sources */,
+				9858F6061BF6049B00EE64E1 /* UIGestureRecognizer+DLBlockAdditions.m in Sources */,
 				98229F781BE8DD46005210EC /* SDImageCache.m in Sources */,
 				98229EFD1BE8C54F005210EC /* AFURLRequestSerialization.m in Sources */,
 				98BCD2BE1BEDB9A600168B00 /* NSString+Additions.m in Sources */,
@@ -1714,6 +1899,7 @@
 				98229F281BE8DCAF005210EC /* MMHud.m in Sources */,
 				98229F0C1BE8D6FE005210EC /* EAIntroPage.m in Sources */,
 				98C9F4401BEF438F009C46B5 /* InvestmentViewController.m in Sources */,
+				9858F6071BF6049B00EE64E1 /* UIKitHelpers.m in Sources */,
 				98BCD3671BEDE37700168B00 /* CheckSmsVerifyCodeAPICmd.m in Sources */,
 				98BCD2EA1BEDE23700168B00 /* RecentdynamicsVC.m in Sources */,
 				98229F811BE8DD46005210EC /* UIImage+MultiFormat.m in Sources */,
@@ -1725,6 +1911,7 @@
 				98BCD2F91BEDE24C00168B00 /* ActivityDetailViewController.m in Sources */,
 				98BCD3301BEDE31300168B00 /* DealDetailModel.m in Sources */,
 				98229F821BE8DD46005210EC /* UIImage+WebP.m in Sources */,
+				9858F6031BF6049B00EE64E1 /* UITintedLabel.m in Sources */,
 				98229EFE1BE8C54F005210EC /* AFURLResponseSerialization.m in Sources */,
 				988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */,
 				98229FCD1BE8DFB8005210EC /* UIViewController+NavigationBarStyle.m in Sources */,
@@ -1733,11 +1920,14 @@
 				98CAC2A81BF2187700C39576 /* PayBankCardAPICmd.m in Sources */,
 				98229FC51BE8DD6B005210EC /* UIView+MJExtension.m in Sources */,
 				98BCD36C1BEDE37700168B00 /* Recentdynamicsmd.m in Sources */,
+				9858F5CA1BF6047A00EE64E1 /* LCInfoView.m in Sources */,
 				98229FB41BE8DD6B005210EC /* MJRefreshBackFooter.m in Sources */,
 				98BCD36D1BEDE37700168B00 /* RegisterAPICmd.m in Sources */,
 				98229EDD1BE8C479005210EC /* RYBaseAPICmd.m in Sources */,
 				98BCD3691BEDE37700168B00 /* GetVertifyCodeAPICmd.m in Sources */,
+				9858F6081BF6049B00EE64E1 /* UIView+Additions.m in Sources */,
 				98229EF81BE8C54F005210EC /* AFHTTPRequestOperationManager.m in Sources */,
+				9858F5FE1BF6049B00EE64E1 /* UIColor+DLHelperAdditions.m in Sources */,
 				98229FB51BE8DD6B005210EC /* MJRefreshComponent.m in Sources */,
 				98229FC01BE8DD6B005210EC /* MJRefreshStateHeader.m in Sources */,
 				98BCD3AA1BEDF52100168B00 /* InvestmentBottomMTableViewCell.m in Sources */,
@@ -1767,6 +1957,7 @@
 				98229FB91BE8DD6B005210EC /* MJRefreshAutoNormalFooter.m in Sources */,
 				98229FBC1BE8DD6B005210EC /* MJRefreshBackNormalFooter.m in Sources */,
 				98229F801BE8DD46005210EC /* UIImage+GIF.m in Sources */,
+				9858F5CF1BF6048E00EE64E1 /* DLVersionCheck.m in Sources */,
 				98229F0E1BE8D6FE005210EC /* ZWIntroductionViewController.m in Sources */,
 				98BCD3011BEDE26200168B00 /* BaseViewController.m in Sources */,
 				98C4D4D81BF386840041BCF1 /* InterestRateCouponModel.m in Sources */,
@@ -1774,9 +1965,11 @@
 				98229F521BE8DD3D005210EC /* UIRefreshControl+AFNetworking.m in Sources */,
 				98229F511BE8DD3D005210EC /* UIProgressView+AFNetworking.m in Sources */,
 				98229F761BE8DD46005210EC /* MKAnnotationView+WebCache.m in Sources */,
+				9858F5FC1BF6049B00EE64E1 /* UITabBarController+HideableTabBar.m in Sources */,
 				98D9EEAF1BF0CAC0007C11D0 /* LLPayUtil.m in Sources */,
 				98BCD3941BEDE97F00168B00 /* InvestmentListModel.m in Sources */,
 				98D9EEB51BF0D6A2007C11D0 /* CashApplayAPICmd.m in Sources */,
+				9858F5CB1BF6047A00EE64E1 /* LCLegendView.m in Sources */,
 				98229FBD1BE8DD6B005210EC /* MJRefreshBackStateFooter.m in Sources */,
 				98BCD3131BEDE2AF00168B00 /* RYSmsManager.m in Sources */,
 				98BCD36E1BEDE37700168B00 /* TestAPICmd.m in Sources */,
@@ -1789,10 +1982,13 @@
 				98229FB71BE8DD6B005210EC /* MJRefreshHeader.m in Sources */,
 				98BCD3BD1BEE30F600168B00 /* EarnDetailAPICmd.m in Sources */,
 				98229F841BE8DD46005210EC /* UIImageView+WebCache.m in Sources */,
+				9858F5FB1BF6049B00EE64E1 /* UIPlaceholderTextView.m in Sources */,
 				98229FC31BE8DD6B005210EC /* UIScrollView+MJExtension.m in Sources */,
 				98BCD3911BEDE95900168B00 /* InvestmentListViewController.m in Sources */,
 				98229FC41BE8DD6B005210EC /* UIScrollView+MJRefresh.m in Sources */,
 				98BCD30F1BEDE2AF00168B00 /* ConstantString.m in Sources */,
+				9858F5FA1BF6049B00EE64E1 /* DLPopoverManager.m in Sources */,
+				9858F6021BF6049B00EE64E1 /* UITintedButton.m in Sources */,
 				98BCD3871BEDE3CD00168B00 /* HomeAssetBottomTableViewCell.m in Sources */,
 				98229F2D1BE8DCAF005210EC /* MMProgressHUDOverlayView.m in Sources */,
 				98229F2F1BE8DCAF005210EC /* MMProgressHUDWindow.m in Sources */,

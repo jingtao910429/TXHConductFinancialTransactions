@@ -196,8 +196,6 @@
     
     InterestRateCouponModel *model = self.dataSource[indexPath.row/2];
     
-    
-    
 }
 
 #pragma mark - APICmdApiCallBackDelegate

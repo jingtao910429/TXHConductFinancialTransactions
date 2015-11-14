@@ -106,6 +106,7 @@
     
     if (!_BackGroudView) {
         _BackGroudView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_prologue"]];
+        _BackGroudView.contentMode = UIViewContentModeScaleAspectFill;
         _BackGroudView.frame = CGRectMake(0, -64, kScreenWidth, kScreenHeight + 64);
     }
     return _BackGroudView;

@@ -184,8 +184,10 @@
                 cell = [[InvestmentBottomMTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             }
             
-            cell.zdProgressView.progress = [investmentListModel.rate floatValue] / 100.00;
-            cell.zdProgressView.text = [NSString stringWithFormat:@"%.2f%%",[investmentListModel.rate floatValue]];
+            cell.zdProgressView.progress = [investmentListModel.min floatValue] / [investmentListModel.max floatValue];
+            
+//            cell.zdProgressView.progress = [investmentListModel.rate floatValue] / 100.00;
+            cell.zdProgressView.text = [NSString stringWithFormat:@"%.2f%%",[investmentListModel.min floatValue] / [investmentListModel.max floatValue] * 100.00];
             
             cell.contentLabel.text =  [NSString stringWithFormat:@"还可以投资%@元",[[NSString stringWithFormat:@"%@",investmentListModel.realMoney?investmentListModel.realMoney:@"0.00"] changeYFormatWithMoneyAmount]];
             

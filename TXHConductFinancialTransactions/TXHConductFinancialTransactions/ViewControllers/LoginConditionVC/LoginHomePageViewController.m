@@ -153,7 +153,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetTableViewCell" owner:self options:nil] lastObject];
         }
         
-        self.totalMondyCell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeYFormatWithMoneyAmount];
+        cell.totalMoney.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.allAsset?self.userAssetModel.allAsset:@"0.00"] changeYFormatWithMoneyAmount];
+        
 //        if (self.userAssetModel) {
 //            
 //            cell.selectionStyle = UITableViewCellSelectionStyleNone;

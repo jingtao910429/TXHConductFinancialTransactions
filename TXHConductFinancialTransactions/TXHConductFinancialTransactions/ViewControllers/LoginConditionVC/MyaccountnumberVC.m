@@ -131,6 +131,8 @@
             
         }
 
+    }else{
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     return cell;
@@ -369,8 +371,8 @@
 - (UIView *)exitView {
     if (!_exitView) {
         
-        _exitView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 70)];
-        
+        _exitView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70)];
+        _exitView.userInteractionEnabled = YES;
         
         UIButton*baocunBTN=[[UIButton alloc] initWithFrame:CGRectMake(15, 10, kScreenWidth-30,44)];
         baocunBTN.backgroundColor=[UIColor orangeColor];

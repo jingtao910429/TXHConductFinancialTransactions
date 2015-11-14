@@ -404,7 +404,6 @@
     if(self.currentPosView.alpha == 0.0) {
         CGRect r = self.currentPosView.frame;
         r.origin.x = closestPos.x + 3 - 1;
-        r.origin.y -= 20;
         self.currentPosView.frame = r;
     }
 

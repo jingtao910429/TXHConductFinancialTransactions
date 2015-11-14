@@ -102,6 +102,8 @@
 - (NSInteger)callGETWithParams:(id)params urlString:(NSString *)urlString baseAPICmd:(RYBaseAPICmd *)baseAPICmd
 {
     
+    [Tool hideHUD];
+    
     NSMutableDictionary *paramters = [[NSMutableDictionary alloc] init];
     
     NSString *encodeStr = [[EncryptionManager shareManager] encodeWithData:params version:VERSION];
@@ -173,6 +175,8 @@
 - (NSInteger)callPOSTWithParams:(id)params urlString:(NSString *)urlString baseAPICmd:(RYBaseAPICmd *)baseAPICmd
 {
 
+    [Tool hideHUD];
+    
     NSMutableDictionary *paramters = [[NSMutableDictionary alloc] init];
     
     NSString *encodeStr = [[EncryptionManager shareManager] encodeWithData:params version:VERSION];

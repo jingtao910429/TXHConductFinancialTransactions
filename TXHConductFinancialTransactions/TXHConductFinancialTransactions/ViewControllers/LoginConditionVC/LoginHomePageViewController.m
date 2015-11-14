@@ -248,6 +248,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
 
 - (void)apiCmdDidSuccess:(RYBaseAPICmd *)baseAPICmd responseData:(id)responseData {
     
+    [Tool hideHUD];
+    
     if (baseAPICmd == self.noticeListAPICmd) {
         
         NSDictionary *tempDict = (NSDictionary *)responseData;

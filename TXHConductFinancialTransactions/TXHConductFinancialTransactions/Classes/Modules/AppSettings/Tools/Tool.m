@@ -7,6 +7,7 @@
 //
 
 #import "Tool.h"
+#import "MMProgressHUD.h"
 
 @implementation Tool
 
@@ -34,6 +35,35 @@
     NSString *userInfoStr = [[EncryptionManager shareManager] encodeWithData:[NSDictionary dictionary] version:VERSION];
     [defaults setValue:userInfoStr forKey:@"userInfo"];
     [defaults synchronize];
+}
+
+#pragma mark - MMProgressHUD
++ (void)showLoadingHUD:(NSString *)title andStatus:(NSString *)status type:(NSInteger)type
+{
+    [MMProgressHUD setDisplayStyle:MMProgressHUDDisplayStylePlain];
+    [MMProgressHUD setPresentationStyle:type];
+    [MMProgressHUD showWithTitle:title status:status];
+}
+
++ (void)showSuccessHUD:(NSString *)title andDelay:(float)delay type:(NSInteger)type
+{
+    [MMProgressHUD setDisplayStyle:MMProgressHUDDisplayStylePlain];
+    [MMProgressHUD setPresentationStyle:type];
+    [MMProgressHUD showWithTitle:nil];
+    [MMProgressHUD dismissWithSuccess:title title:nil afterDelay:delay];
+}
+
++ (void)showErrorHUD:(NSString *)title andDelay:(float)delay
+{
+    [MMProgressHUD setDisplayStyle:MMProgressHUDDisplayStylePlain];
+    [MMProgressHUD setPresentationStyle:MMProgressHUDPresentationStyleFade];
+    [MMProgressHUD showWithTitle:nil];
+    [MMProgressHUD dismissWithError:title afterDelay:delay];
+}
+
++ (void)hideHUD
+{
+    [MMProgressHUD dismiss];
 }
 
 @end

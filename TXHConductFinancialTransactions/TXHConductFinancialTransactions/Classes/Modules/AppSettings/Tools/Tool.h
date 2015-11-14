@@ -17,4 +17,9 @@
 + (NSDictionary *)getUserInfo;
 + (void)clearUserInfo;
 
+//HUD提示框状态样式
++ (void)showLoadingHUD:(NSString *)title andStatus:(NSString *)status type:(NSInteger)type;
++ (void)showSuccessHUD:(NSString *)title andDelay:(float)delay type:(NSInteger)type;
++ (void)hideHUD;
+
 @end

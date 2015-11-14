@@ -8,6 +8,7 @@
 
 #import "RYBaseAPICmd.h"
 #import "RYAPIManager.h"
+#import "MMProgressHUD.h"
 
 @interface RYBaseAPICmd ()
 @property (nonatomic, copy,readwrite) NSString *absouteUrlString;
@@ -102,6 +103,8 @@
  */
 - (void)loadData
 {
+    [Tool showLoadingHUD:nil andStatus:@"正在加载" type:MMProgressHUDPresentationStyleFade];
+    
     if ([self.paramSource respondsToSelector:@selector(paramsForApi:)]) {
         [self.paramSource paramsForApi:self];
     }

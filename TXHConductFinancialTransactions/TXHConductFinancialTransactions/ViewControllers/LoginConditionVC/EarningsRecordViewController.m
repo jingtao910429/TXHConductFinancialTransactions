@@ -239,7 +239,7 @@
             d1.xMax = [date2 timeIntervalSinceReferenceDate];
             d1.title = @"收益记录";
             d1.color = [UIColor whiteColor];
-            d1.itemCount = 6;
+            d1.itemCount = self.dataSource.count;
             NSMutableArray *arr = [NSMutableArray array];
             for(NSUInteger i = 0; i < 4; ++i) {
                 [arr addObject:@(d1.xMin + (rand() / (float)RAND_MAX) * (d1.xMax - d1.xMin))];
@@ -250,8 +250,10 @@
                 return [obj1 compare:obj2];
             }];
             NSMutableArray *arr2 = [NSMutableArray array];
-            for(NSUInteger i = 0; i < 6; ++i) {
-                [arr2 addObject:@((rand() / (float)RAND_MAX) * 6)];
+            for(NSUInteger i = 0; i < self.dataSource.count; ++i) {
+                
+                EarnDetailModel *earnDetailModel = (EarnDetailModel *)self.dataSource[i];
+                [arr2 addObject:@([earnDetailModel.rate floatValue])];
             }
             d1.getData = ^(NSUInteger item) {
                 float x = [arr[item] floatValue];
@@ -265,8 +267,8 @@
         });
         
         _chartView = [[LCLineChartView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 220)];
-        _chartView.yMin = 0;
-        _chartView.yMax = 6;
+        _chartView.yMin = 6;
+        _chartView.yMax = 16;
         _chartView.ySteps = @[@"6.00%",@"8.00%",@"10.00%",@"12.00%",@"14.00%",@"16.00%"];
         _chartView.data = @[d1x];
         _chartView.selectedItemCallback = ^(LCLineChartData *dat, NSUInteger item, CGPoint pos) {

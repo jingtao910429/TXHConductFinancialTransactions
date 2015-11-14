@@ -88,7 +88,7 @@
         
     }else if (2 == indexPath.row) {
         
-        return 70;
+        return 65;
         
     }
     return 50;
@@ -189,7 +189,7 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetMiddleTableViewCell" owner:self options:nil] lastObject];
             
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 49.5, kScreenWidth, 0.5)];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64.5, kScreenWidth, 0.5)];
             imageView.backgroundColor = COLOR(221, 221, 221, 1.0f);
             
             [cell.contentView addSubview:imageView];

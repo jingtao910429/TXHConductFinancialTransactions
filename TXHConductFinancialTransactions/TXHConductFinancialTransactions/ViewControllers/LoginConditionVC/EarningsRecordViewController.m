@@ -314,7 +314,7 @@
                 
                 float y = [arr2[item] floatValue];
                 NSString *label1 = [formatter stringFromDate:[[formatter dateFromString:firstTime] dateByAddingTimeInterval:0]];
-                NSString *label2 = [NSString stringWithFormat:@"%f", y];
+                NSString *label2 = [NSString stringWithFormat:@"%.2f", y];
                 
                 NSString *timeStr = [label1 componentsSeparatedByString:@" "][0];
                 NSArray *times = [timeStr componentsSeparatedByString:@"-"];

@@ -30,7 +30,7 @@
 
 - (void)setBodyUI{
     
-    [self navigationBarStyleWithTitle:@"活动详情" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"活动详情" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
     [self.contentWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
     

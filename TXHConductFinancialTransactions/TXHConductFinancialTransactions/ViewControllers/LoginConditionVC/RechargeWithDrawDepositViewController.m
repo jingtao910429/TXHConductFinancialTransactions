@@ -237,7 +237,7 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
         [cell.contentView addSubview:imageView];
         
         if (0 == indexPath.row || 1 == indexPath.row) {
-            UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(cell.leftLable.frame.size.width+10, 10, kScreenWidth-cell.leftLable.frame.size.width+10, 40)];
+            UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(cell.leftLable.frame.size.width+10, 5, kScreenWidth-cell.leftLable.frame.size.width+10, 40)];
             tempLabel.tag = indexPath.row + 11;
             [cell.contentView addSubview:tempLabel];
         }
@@ -664,13 +664,13 @@ static NSString *kLLPartnerKey = @"201408071000001543test_20140812";   // 密钥
     
     if (self.isDeposite) {
         
-        [self navigationBarStyleWithTitle:@"提现" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+        [self navigationBarStyleWithTitle:@"提现" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
         self.nameArr=@[@"账户余额(元):",@"银行卡:",@"提现金额(元):",];
         
         self.textArr=@[@"",@"",@"输入提现金额"];
         
     }else{
-        [self navigationBarStyleWithTitle:@"充值" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+        [self navigationBarStyleWithTitle:@"充值" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
         self.nameArr=@[@"账户余额(元):",@"银行卡:",@"充值金额(元):",];
         
         self.textArr=@[@"",@"",@"输入充值金额"];

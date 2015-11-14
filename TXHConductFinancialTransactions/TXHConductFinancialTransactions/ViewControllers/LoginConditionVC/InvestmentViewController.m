@@ -59,7 +59,7 @@
 
 - (void)configUI {
     
-    [self navigationBarStyleWithTitle:@"投资" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"投资" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
     [self.view addSubview:self.contentTableView];
     
@@ -85,6 +85,10 @@
     }else if (4 == indexPath.row) {
         
         return 90;
+        
+    }else if (2 == indexPath.row) {
+        
+        return 70;
         
     }
     return 50;
@@ -135,12 +139,20 @@
                 contentLabel.tag = indexPath.row * 11;
                 [cell.contentView addSubview:contentLabel];
                 
-                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 49.5, kScreenWidth, 0.5)];
-                imageView.backgroundColor = COLOR(221, 221, 221, 1.0f);
-                
-                [cell.contentView addSubview:imageView];
-                
-                
+                if (2 == indexPath.row) {
+                    
+                    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 69.5, kScreenWidth, 0.5)];
+                    imageView.backgroundColor = COLOR(221, 221, 221, 1.0f);
+                    
+                    [cell.contentView addSubview:imageView];
+                    
+                }else{
+                    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 49.5, kScreenWidth, 0.5)];
+                    imageView.backgroundColor = COLOR(221, 221, 221, 1.0f);
+                    
+                    [cell.contentView addSubview:imageView];
+                }
+
             }else if (3 == indexPath.row) {
                 
                 cell.textLabel.text = @"投资余额（元）";

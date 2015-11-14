@@ -76,16 +76,16 @@
         
         if (![Tool getUserInfo] || [[Tool getUserInfo] isKindOfClass:[NSNull class]] || [[Tool getUserInfo] count] == 0) {
             
-            [self navigationBarStyleWithTitle:@"重置密码" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:@"登录" rightImageName:nil rightAction:@selector(loginBtnClick)];
+            [self navigationBarStyleWithTitle:@"重置密码" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:@"登录" rightImageName:nil rightAction:@selector(loginBtnClick)];
 
         }else{
             
-            [self navigationBarStyleWithTitle:@"重置密码" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+            [self navigationBarStyleWithTitle:@"重置密码" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
 
         }
         
             }else{
-        [self navigationBarStyleWithTitle:@"注册" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:@"登录" rightImageName:nil rightAction:@selector(loginBtnClick)];
+        [self navigationBarStyleWithTitle:@"注册" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:@"登录" rightImageName:nil rightAction:@selector(loginBtnClick)];
     }
     
     self.alertView = [[UIAlertView alloc]initWithTitle:nil message:nil delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];

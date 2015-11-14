@@ -52,7 +52,7 @@
 
 - (void)configUI {
     
-    [self navigationBarStyleWithTitle:@"交易记录" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"交易记录" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
 
     [self.view addSubview:self.contentTableView];
     

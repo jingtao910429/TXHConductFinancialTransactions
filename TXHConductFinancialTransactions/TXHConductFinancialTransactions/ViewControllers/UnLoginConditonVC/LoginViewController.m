@@ -74,9 +74,9 @@
 - (void)configUI {
     
     if (self.isConfirmPassword) {
-        [self navigationBarStyleWithTitle:@"设置密码" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+        [self navigationBarStyleWithTitle:@"设置密码" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     }else{
-        [self navigationBarStyleWithTitle:@"登录" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:@"注册" rightImageName:nil rightAction:@selector(registeBtnClick)];
+        [self navigationBarStyleWithTitle:@"登录" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"back" leftAction:@selector(popVC) rightTitle:@"注册" rightImageName:nil rightAction:@selector(registeBtnClick)];
     }
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture)];

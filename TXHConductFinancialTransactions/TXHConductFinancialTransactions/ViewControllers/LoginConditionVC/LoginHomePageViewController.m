@@ -181,6 +181,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         
         cell.rateLabel.text = [NSString stringWithFormat:@"昨日年华收益率    %@%%",self.userAssetModel.rate?self.userAssetModel.rate:@"0.00"];
         
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         return cell;
         
     }else if (1 == indexPath.row) {
@@ -466,7 +468,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         
         _bmadScrollView = [[BMAdScrollView alloc] initWithNameArr:tempImages height:self.topBackGroudView.frame.size.height offsetY:0];
         _bmadScrollView.vDelegate = self;
-        _bmadScrollView.pageCenter = CGPointMake(kScreenWidth - 30, self.topBackGroudView.frame.size.height - 30);
+        _bmadScrollView.pageCenter = CGPointMake(kScreenWidth/2, self.topBackGroudView.frame.size.height - 30);
         
     }
     return _bmadScrollView;

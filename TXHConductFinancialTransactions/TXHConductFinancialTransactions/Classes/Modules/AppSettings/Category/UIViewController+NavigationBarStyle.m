@@ -34,7 +34,7 @@
         
     }else if (!leftTitle && leftImageName){
         
-        UIButton *leftBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(-5, 0, 40, 30) text:nil textColor:nil];
+        UIButton *leftBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(-8, 0, 30, 25) text:nil textColor:nil];
         [leftBtn setImage:[UIImage imageNamed:leftImageName] forState:UIControlStateNormal];
         leftBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [leftBtn addTarget:self action:leftAction forControlEvents:UIControlEventTouchUpInside];
@@ -54,7 +54,7 @@
         
     }else if (!rightTitle && rightImageName) {
         
-        UIButton *rightBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(0, 0, 40, 30) text:nil textColor:nil];
+        UIButton *rightBtn = [[FactoryManager shareManager] createBtnWithFrame:CGRectMake(-8, 0, 30, 25) text:nil textColor:nil];
         [rightBtn setImage:[UIImage imageNamed:rightImageName] forState:UIControlStateNormal];
         rightBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [rightBtn addTarget:self action:rightAction forControlEvents:UIControlEventTouchUpInside];

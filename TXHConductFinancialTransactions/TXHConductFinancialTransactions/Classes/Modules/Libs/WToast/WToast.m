@@ -85,19 +85,19 @@
 		}
     }
 	
-	CGFloat x = 10.0f;
+	CGFloat x = 15.0f;
 	CGFloat width = screenWidth - x * 2.0f;
     
 	UILabel *textLabel = [[UILabel alloc] init];
     textLabel.backgroundColor = [UIColor clearColor];
     textLabel.textAlignment = NSTextAlignmentCenter;
-    textLabel.font = [UIFont systemFontOfSize:14];
+    textLabel.font = [UIFont systemFontOfSize:14.5];
     textLabel.textColor = RGB(0, 0, 0);
     textLabel.numberOfLines = 0;
 	textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
 	CGRect tmpRect = CGRectZero;
-    CGSize sizeConstraint = CGSizeMake(width - 20.0f, FLT_MAX);
+    CGSize sizeConstraint = CGSizeMake(width - 30.0f, FLT_MAX);
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
 #pragma clang diagnostic push
@@ -115,13 +115,13 @@
                                      context:nil];
     }
 	tmpRect.size.width = width;
-	tmpRect.size.height = MAX(tmpRect.size.height + 20.0f, 38.0f);
+	tmpRect.size.height = MAX(tmpRect.size.height + 30.0f, 42.0f);
     
 	WToast *toast = [[WToast alloc] initWithFrame:tmpRect];
 	toast.backgroundColor = RGBA(220, 221, 222, 1.0f);
 	CALayer *layer = toast.layer;
 	layer.masksToBounds = YES;
-	layer.cornerRadius = 5.0f;
+	layer.cornerRadius = 3.0f;
     
 	textLabel.text = text;
 	tmpRect.origin.x = floor((toast.frame.size.width - tmpRect.size.width) / 2.0f);

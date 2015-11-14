@@ -135,6 +135,7 @@
 		987C725E1BF6F386007122EB /* ic_trading_record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C725D1BF6F386007122EB /* ic_trading_record@2x.png */; };
 		987C72601BF6F415007122EB /* ic_account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C725F1BF6F415007122EB /* ic_account@2x.png */; };
 		987C72621BF6F501007122EB /* ic_yesterday_rate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72611BF6F501007122EB /* ic_yesterday_rate@2x.png */; };
+		987C72641BF6FEAD007122EB /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72631BF6FEAD007122EB /* back@2x.png */; };
 		988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E01BE991BD0064A75B /* BMAdScrollView.m */; };
 		988EE3E91BE9D6240064A75B /* bg_prologue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */; };
 		988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */; };
@@ -473,6 +474,7 @@
 		987C725D1BF6F386007122EB /* ic_trading_record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_trading_record@2x.png"; sourceTree = "<group>"; };
 		987C725F1BF6F415007122EB /* ic_account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_account@2x.png"; sourceTree = "<group>"; };
 		987C72611BF6F501007122EB /* ic_yesterday_rate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_yesterday_rate@2x.png"; sourceTree = "<group>"; };
+		987C72631BF6FEAD007122EB /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		988EE3DF1BE991BD0064A75B /* BMAdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdScrollView.h; sourceTree = "<group>"; };
 		988EE3E01BE991BD0064A75B /* BMAdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAdScrollView.m; sourceTree = "<group>"; };
 		988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_prologue@2x.png"; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 		98229ECE1BE8C424005210EC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				987C72631BF6FEAD007122EB /* back@2x.png */,
 				987C725F1BF6F415007122EB /* ic_account@2x.png */,
 				987C72611BF6F501007122EB /* ic_yesterday_rate@2x.png */,
 				987C725D1BF6F386007122EB /* ic_trading_record@2x.png */,
@@ -1867,6 +1870,7 @@
 				98229FDE1BE8F02C005210EC /* navigationbar_background_tall1@2x.png in Resources */,
 				987C72411BF6EDC3007122EB /* ic_check_update.png in Resources */,
 				98D9EEA41BF0CAC0007C11D0 /* CHANGELIST.txt in Resources */,
+				987C72641BF6FEAD007122EB /* back@2x.png in Resources */,
 				98BCD38A1BEDE3CD00168B00 /* HomeAssetMiddleTableViewCell.xib in Resources */,
 				95319CF61BE9B86500597AF8 /* bg_account_asset_info.png in Resources */,
 				987C725C1BF6F372007122EB /* ic_income_record@2x.png in Resources */,

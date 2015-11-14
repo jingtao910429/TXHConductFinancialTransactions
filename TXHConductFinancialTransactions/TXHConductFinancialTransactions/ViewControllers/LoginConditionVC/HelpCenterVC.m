@@ -27,10 +27,6 @@
     
     NSString*url=@"";
     
-    
-
-    
-    
     if (self.isGTturl) {
         [self navigationBarStyleWithTitle:@"帮助中心" titleColor:[UIColor blackColor]  leftTitle:nil leftImageName:@"img_account_head" leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
         url=API_Help;

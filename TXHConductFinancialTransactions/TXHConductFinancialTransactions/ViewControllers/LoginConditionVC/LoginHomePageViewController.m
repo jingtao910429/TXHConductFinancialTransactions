@@ -201,6 +201,8 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         cell.putMoneyLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.remainAsset?self.userAssetModel.remainAsset:@"0.00"] changeYFormatWithMoneyAmount];
         cell.yestadyIncomeLabel.text = [[NSString stringWithFormat:@"%@",self.userAssetModel.yesterdayIncome?self.userAssetModel.yesterdayIncome:@"0.00"] changeYFormatWithMoneyAmount];
         
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         return cell;
         
     }else if (2 == indexPath.row) {

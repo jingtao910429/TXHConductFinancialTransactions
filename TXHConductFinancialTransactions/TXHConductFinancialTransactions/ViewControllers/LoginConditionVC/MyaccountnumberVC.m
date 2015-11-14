@@ -35,6 +35,9 @@
 @property (nonatomic, strong) UILabel*shouyiLable;//收益
 @property (nonatomic, strong) UILabel*lastDayiLable;//昨日收益
 
+//退出视图
+@property (nonatomic, strong) UIView *exitView;
+
 
 @end
 
@@ -56,8 +59,8 @@
     //添加视图
     [self.view addSubview:self.contentTableView];
     
-    self.leftDataArr=[[NSArray alloc] initWithObjects:@"身份证号",@"银行卡号",@"客服电话",@"QQ官方群",@"关于我们",@"检测更新", nil];
-    self.dataSource = [[NSArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"", nil];
+    self.leftDataArr=[[NSArray alloc] initWithObjects:@"身份证号",@"银行卡号",@"客服电话",@"QQ官方群",@"关于我们",@"检测更新",@"分享投小猴", nil];
+    self.dataSource = [[NSArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"", nil];
 }
 
 //代理方法
@@ -68,7 +71,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.leftDataArr.count + 1;
+    return self.leftDataArr.count + 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -78,42 +81,53 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (0 == indexPath.row) {
         return 200;
+    }else if (self.leftDataArr.count + 1 == indexPath.row) {
+        return 70;
     }
-    return 40;
+    return 45;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"MyaccountnumberCell";
     MyaccountnumberCell *cell = (MyaccountnumberCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (!cell) {
         
         cell = [[ MyaccountnumberCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
+        if (self.leftDataArr.count + 1 == indexPath.row) {
+            
+            [cell.contentView addSubview:self.exitView];
+            
+        }
+        
     }
     
-    if (0 == indexPath.row) {
+    if (self.leftDataArr.count + 1 != indexPath.row) {
         
-        [self.headview removeFromSuperview];
+        if (0 == indexPath.row) {
+            
+            [self.headview removeFromSuperview];
+            
+            [cell.contentView addSubview:self.headview];
+        }
         
-        [cell.contentView addSubview:self.headview];
-    }
-    
-    if (4 != indexPath.row) {
+        if (4 != indexPath.row) {
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
         
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    
-    if (0 != indexPath.row) {
+        if (0 != indexPath.row) {
+            
+            cell.leftimageview.image=[UIImage imageNamed:@"img_account_head"];
+            
+            cell.leftlable.text=self.leftDataArr[indexPath.row - 1];
+            
+            cell.rightlable.text = self.dataSource[indexPath.row - 1];
+            
+        }
 
-        cell.leftimageview.image=[UIImage imageNamed:@"img_account_head"];
-        
-        cell.leftlable.text=self.leftDataArr[indexPath.row - 1];
-        
-        cell.rightlable.text = self.dataSource[indexPath.row - 1];
-        
     }
-    
     
     return cell;
     
@@ -121,30 +135,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 70;
-}
-
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView* myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 70)];
-   
-    
-    UIButton*baocunBTN=[[UIButton alloc] initWithFrame:CGRectMake(15, 10, kScreenWidth-30,44)];
-    baocunBTN.backgroundColor=[UIColor orangeColor];
-    baocunBTN.layer.cornerRadius = 4;
-    baocunBTN.layer.masksToBounds = YES;
-    
-    [baocunBTN setTitle:@"退出账号" forState:UIControlStateNormal];
-    [baocunBTN addTarget:self action:@selector(onbaocunBTN) forControlEvents:UIControlEventTouchUpInside];
-    
-    [baocunBTN setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    [baocunBTN setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
-
-    [myView addSubview:baocunBTN];
-    
-    return myView;
-    
+    return 0.001;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -165,12 +156,6 @@
         } cancel:^{
             
         }];
-        
-//        UIWebView*callWebview =[[UIWebView alloc] init];
-//        NSString *telUrl = [NSString stringWithFormat:@"tel://%@", self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@""];
-//        NSURL *telURL =[NSURL URLWithString:telUrl];
-//        [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-//        [self.view addSubview:callWebview];
     }
     
 }
@@ -193,7 +178,7 @@
             
             [self.userInfoModel setValuesForKeysWithDictionary:tempDict[@"data"]];
             
-            self.dataSource = [[NSArray alloc] initWithObjects:self.userInfoModel.idCard?self.userInfoModel.idCard:@"",self.userInfoModel.bankCardNum?self.userInfoModel.bankCardNum:@"",self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@"",self.userInfoModel.idCard?self.userInfoModel.idCard:@"",@"",self.userInfoModel.appVersion?self.userInfoModel.appVersion:@"", nil];
+            self.dataSource = [[NSArray alloc] initWithObjects:self.userInfoModel.idCard?self.userInfoModel.idCard:@"",self.userInfoModel.bankCardNum?self.userInfoModel.bankCardNum:@"",self.userInfoModel.kfPhone?self.userInfoModel.kfPhone:@"",@"286379514",@"",self.userInfoModel.appVersion?self.userInfoModel.appVersion:@"",@"", nil];
             
             [self.contentTableView reloadData];
             
@@ -377,6 +362,30 @@
     [_headview addSubview:downview];
     
     return _headview;
+}
+
+- (UIView *)exitView {
+    if (!_exitView) {
+        
+        _exitView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 70)];
+        
+        
+        UIButton*baocunBTN=[[UIButton alloc] initWithFrame:CGRectMake(15, 10, kScreenWidth-30,44)];
+        baocunBTN.backgroundColor=[UIColor orangeColor];
+        baocunBTN.layer.cornerRadius = 4;
+        baocunBTN.layer.masksToBounds = YES;
+        
+        [baocunBTN setTitle:@"退出账号" forState:UIControlStateNormal];
+        [baocunBTN addTarget:self action:@selector(onbaocunBTN) forControlEvents:UIControlEventTouchUpInside];
+        
+        [baocunBTN setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [baocunBTN setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+        
+        [_exitView addSubview:baocunBTN];
+        
+    }
+    return _exitView;
 }
 
 

@@ -22,8 +22,11 @@
 
 @property (nonatomic, strong) UITableView *contentTableView;
 @property (nonatomic, strong) UIView*headview;
+
 @property (nonatomic, strong) NSArray *leftDataArr;
+@property (nonatomic, strong) NSArray *images;
 @property (nonatomic, strong) NSArray *dataSource;
+
 @property (nonatomic, strong) UILabel*nameLable;//账号名字
 
 @property (nonatomic, strong) UILabel*priceLable;//余额
@@ -60,6 +63,7 @@
     [self.view addSubview:self.contentTableView];
     
     self.leftDataArr=[[NSArray alloc] initWithObjects:@"身份证号",@"银行卡号",@"客服电话",@"QQ官方群",@"关于我们",@"检测更新",@"分享投小猴", nil];
+    self.images = [[NSArray alloc] initWithObjects:@"ic_identify_card",@"ic_bank_card",@"ic_service_tel",@"ic_qq_group",@"ic_about_us",@"ic_check_update",@"ic_share", nil];
     self.dataSource = [[NSArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"", nil];
 }
 
@@ -119,7 +123,7 @@
         
         if (0 != indexPath.row) {
             
-            cell.leftimageview.image=[UIImage imageNamed:@"img_account_head"];
+            cell.leftimageview.image=[UIImage imageNamed:self.images[indexPath.row - 1]];
             
             cell.leftlable.text=self.leftDataArr[indexPath.row - 1];
             
@@ -259,10 +263,12 @@
     _headview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
     _headview.backgroundColor = [UIColor whiteColor];
     
+    UIImage *tempImage = [UIImage imageNamed:@"img_account_head"];
+    
     UIView*topview=[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
     
-    UIImageView*topimageview=[[UIImageView alloc] initWithFrame:CGRectMake(6, 15, 40, 40)];
-    topimageview.image=[UIImage imageNamed:@"img_account_head"];
+    UIImageView*topimageview=[[UIImageView alloc] initWithFrame:CGRectMake(6, 20, 35, 35)];
+    topimageview.image = tempImage;
     
     
     [topview addSubview:topimageview];
@@ -278,15 +284,17 @@
     NSString *priceStr = [[NSString stringWithFormat:@"%@",self.userInfoModel.remainAsset?self.userInfoModel.remainAsset:@""] changeYFormatWithMoneyAmount];
     _priceLable.text = [NSString stringWithFormat:@"金额：%@",priceStr];
     _priceLable.textColor=[UIColor redColor];
+    _priceLable.font = [UIFont systemFontOfSize:16];
     
     
     [topview addSubview:_priceLable];
     
     //修改密码
-    UIButton*changeBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth-100, 25, 80, 25)];
+    UIButton*changeBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 100, 25, 80, 25)];
     
     [changeBtn setTitle:@"修改密码" forState:UIControlStateNormal];
     changeBtn.imageEdgeInsets = UIEdgeInsetsMake(5,13,21,changeBtn.titleLabel.bounds.size.width);
+    changeBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     changeBtn.imageView.frame =changeBtn.bounds;
     changeBtn.hidden = NO;
     
@@ -309,19 +317,13 @@
     downview.userInteractionEnabled=YES;
     
     //详细介绍
-    UIButton*xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth * 4.0 / 5.0, 80, 20, 20)];
+    UIButton* xiangxiBtn=[[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth * 4.5 / 5.0, 80, 23, 23)];
+    [xiangxiBtn setImage:[UIImage imageNamed:@"ic_help"] forState:UIControlStateNormal];
     
-    [xiangxiBtn setTitle:@" ？" forState:UIControlStateNormal];
-    xiangxiBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    xiangxiBtn.layer.cornerRadius = 10;
-    xiangxiBtn.layer.borderWidth = 0.1;
-    
-    
-    xiangxiBtn.userInteractionEnabled=YES;
+    xiangxiBtn.userInteractionEnabled = YES;
     [xiangxiBtn addTarget:self action:@selector(onxiangxiBtn) forControlEvents:UIControlEventTouchUpInside];
-    [xiangxiBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    xiangxiBtn.backgroundColor=[UIColor whiteColor];
     [downview addSubview:xiangxiBtn];
+    
     changeBtn.backgroundColor=[UIColor grayColor];
     
     

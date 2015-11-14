@@ -140,7 +140,14 @@
             [cell.contentView addSubview:imageView];
             
         }
-        cell.imageView.image = [UIImage imageNamed:@"ic_login_num"];
+        
+        if (3 == [investmentListModel.status intValue]) {
+            cell.imageView.image = [UIImage imageNamed:@"ic_project"];
+        }else{
+            cell.imageView.image = [UIImage imageNamed:@"ic_project_gray"];
+        }
+        
+        
         cell.textLabel.text = investmentListModel.name;
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

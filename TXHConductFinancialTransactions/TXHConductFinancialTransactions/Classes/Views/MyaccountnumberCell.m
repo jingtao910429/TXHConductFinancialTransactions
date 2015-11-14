@@ -16,13 +16,13 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-
+        UIImage *tempImage = [UIImage imageNamed:@"ic_service_tel"];
         
-        leftimageview=[[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 30, 35)];
+        leftimageview=[[UIImageView alloc] initWithFrame:CGRectMake(5, (45 - tempImage.size.height - 5)/2, tempImage.size.width + 5, tempImage.size.height + 5)];
         [self.contentView addSubview:leftimageview];
         
        
-        leftlable=[[UILabel alloc] initWithFrame:CGRectMake(leftimageview.frame.size.width+8, 5, 80, 35)];
+        leftlable=[[UILabel alloc] initWithFrame:CGRectMake(leftimageview.frame.size.width + 12, 5, 80, 35)];
         leftlable.font = [UIFont systemFontOfSize:16];
         
         [self.contentView addSubview:leftlable];

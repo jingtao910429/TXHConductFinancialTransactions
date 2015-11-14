@@ -116,6 +116,25 @@
 		9858F60C1BF6049B00EE64E1 /* delete_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9858F5F91BF6049B00EE64E1 /* delete_button@2x.png */; };
 		987037B71BED90C000F1679E /* ic_empty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987037B61BED90C000F1679E /* ic_empty.jpg */; };
 		987037BB1BED93EF00F1679E /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 987037BA1BED93EF00F1679E /* KxMenu.m */; };
+		987C723F1BF6EDC3007122EB /* ic_about_us.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72371BF6EDC3007122EB /* ic_about_us.png */; };
+		987C72401BF6EDC3007122EB /* ic_bank_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72381BF6EDC3007122EB /* ic_bank_card.png */; };
+		987C72411BF6EDC3007122EB /* ic_check_update.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72391BF6EDC3007122EB /* ic_check_update.png */; };
+		987C72421BF6EDC3007122EB /* ic_identify_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C723A1BF6EDC3007122EB /* ic_identify_card.png */; };
+		987C72431BF6EDC3007122EB /* ic_project_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C723B1BF6EDC3007122EB /* ic_project_gray.png */; };
+		987C72441BF6EDC3007122EB /* ic_project.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C723C1BF6EDC3007122EB /* ic_project.png */; };
+		987C72451BF6EDC3007122EB /* ic_qq_group.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C723D1BF6EDC3007122EB /* ic_qq_group.png */; };
+		987C72461BF6EDC3007122EB /* ic_service_tel.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C723E1BF6EDC3007122EB /* ic_service_tel.png */; };
+		987C72491BF6F017007122EB /* ic_recharge.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72471BF6F017007122EB /* ic_recharge.png */; };
+		987C724A1BF6F017007122EB /* ic_withdrawals.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72481BF6F017007122EB /* ic_withdrawals.png */; };
+		987C72521BF6F1A5007122EB /* ic_more_menu_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72511BF6F1A5007122EB /* ic_more_menu_red.png */; };
+		987C72541BF6F1B1007122EB /* ic_activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72531BF6F1B1007122EB /* ic_activity.png */; };
+		987C72561BF6F1B9007122EB /* ic_help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72551BF6F1B9007122EB /* ic_help@2x.png */; };
+		987C72581BF6F1C4007122EB /* bg_prologue.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72571BF6F1C4007122EB /* bg_prologue.png */; };
+		987C725A1BF6F1FB007122EB /* ic_modify_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72591BF6F1FB007122EB /* ic_modify_password.png */; };
+		987C725C1BF6F372007122EB /* ic_income_record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C725B1BF6F372007122EB /* ic_income_record@2x.png */; };
+		987C725E1BF6F386007122EB /* ic_trading_record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C725D1BF6F386007122EB /* ic_trading_record@2x.png */; };
+		987C72601BF6F415007122EB /* ic_account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C725F1BF6F415007122EB /* ic_account@2x.png */; };
+		987C72621BF6F501007122EB /* ic_yesterday_rate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 987C72611BF6F501007122EB /* ic_yesterday_rate@2x.png */; };
 		988EE3E11BE991BD0064A75B /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EE3E01BE991BD0064A75B /* BMAdScrollView.m */; };
 		988EE3E91BE9D6240064A75B /* bg_prologue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */; };
 		988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */; };
@@ -126,8 +145,6 @@
 		98924A9E1BF4C80900427A72 /* list_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98924A9B1BF4C80900427A72 /* list_green@2x.png */; };
 		98924AA21BF4C85A00427A72 /* CuponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98924AA01BF4C85A00427A72 /* CuponTableViewCell.m */; };
 		98924AA31BF4C85A00427A72 /* CuponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98924AA11BF4C85A00427A72 /* CuponTableViewCell.xib */; };
-		98AA6ABD1BECE1ED002439B8 /* ic_recharge.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AA6ABB1BECE1ED002439B8 /* ic_recharge.png */; };
-		98AA6ABE1BECE1ED002439B8 /* ic_withdrawals.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AA6ABC1BECE1ED002439B8 /* ic_withdrawals.png */; };
 		98AC79C01BEB6D1D0033F6D6 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AC79BF1BEB6D1D0033F6D6 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		98BCD2BE1BEDB9A600168B00 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2BD1BEDB9A600168B00 /* NSString+Additions.m */; };
 		98BCD2E91BEDE23700168B00 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BCD2E21BEDE23700168B00 /* LoginViewController.m */; };
@@ -437,6 +454,25 @@
 		987037B61BED90C000F1679E /* ic_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ic_empty.jpg; sourceTree = "<group>"; };
 		987037B91BED93EF00F1679E /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		987037BA1BED93EF00F1679E /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		987C72371BF6EDC3007122EB /* ic_about_us.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_about_us.png; sourceTree = "<group>"; };
+		987C72381BF6EDC3007122EB /* ic_bank_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_bank_card.png; sourceTree = "<group>"; };
+		987C72391BF6EDC3007122EB /* ic_check_update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check_update.png; sourceTree = "<group>"; };
+		987C723A1BF6EDC3007122EB /* ic_identify_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_identify_card.png; sourceTree = "<group>"; };
+		987C723B1BF6EDC3007122EB /* ic_project_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_project_gray.png; sourceTree = "<group>"; };
+		987C723C1BF6EDC3007122EB /* ic_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_project.png; sourceTree = "<group>"; };
+		987C723D1BF6EDC3007122EB /* ic_qq_group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_qq_group.png; sourceTree = "<group>"; };
+		987C723E1BF6EDC3007122EB /* ic_service_tel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_service_tel.png; sourceTree = "<group>"; };
+		987C72471BF6F017007122EB /* ic_recharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_recharge.png; sourceTree = "<group>"; };
+		987C72481BF6F017007122EB /* ic_withdrawals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_withdrawals.png; sourceTree = "<group>"; };
+		987C72511BF6F1A5007122EB /* ic_more_menu_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_more_menu_red.png; sourceTree = "<group>"; };
+		987C72531BF6F1B1007122EB /* ic_activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_activity.png; sourceTree = "<group>"; };
+		987C72551BF6F1B9007122EB /* ic_help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_help@2x.png"; sourceTree = "<group>"; };
+		987C72571BF6F1C4007122EB /* bg_prologue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_prologue.png; sourceTree = "<group>"; };
+		987C72591BF6F1FB007122EB /* ic_modify_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_modify_password.png; sourceTree = "<group>"; };
+		987C725B1BF6F372007122EB /* ic_income_record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_income_record@2x.png"; sourceTree = "<group>"; };
+		987C725D1BF6F386007122EB /* ic_trading_record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_trading_record@2x.png"; sourceTree = "<group>"; };
+		987C725F1BF6F415007122EB /* ic_account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_account@2x.png"; sourceTree = "<group>"; };
+		987C72611BF6F501007122EB /* ic_yesterday_rate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_yesterday_rate@2x.png"; sourceTree = "<group>"; };
 		988EE3DF1BE991BD0064A75B /* BMAdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdScrollView.h; sourceTree = "<group>"; };
 		988EE3E01BE991BD0064A75B /* BMAdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAdScrollView.m; sourceTree = "<group>"; };
 		988EE3E81BE9D6240064A75B /* bg_prologue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_prologue@2x.png"; sourceTree = "<group>"; };
@@ -449,8 +485,6 @@
 		98924A9F1BF4C85A00427A72 /* CuponTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CuponTableViewCell.h; sourceTree = "<group>"; };
 		98924AA01BF4C85A00427A72 /* CuponTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CuponTableViewCell.m; sourceTree = "<group>"; };
 		98924AA11BF4C85A00427A72 /* CuponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CuponTableViewCell.xib; sourceTree = "<group>"; };
-		98AA6ABB1BECE1ED002439B8 /* ic_recharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_recharge.png; sourceTree = "<group>"; };
-		98AA6ABC1BECE1ED002439B8 /* ic_withdrawals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_withdrawals.png; sourceTree = "<group>"; };
 		98AC79BE1BEB6D1D0033F6D6 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		98AC79BF1BEB6D1D0033F6D6 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		98BCD2BC1BEDB9A600168B00 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
@@ -801,12 +835,29 @@
 		98229ECE1BE8C424005210EC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				987C725F1BF6F415007122EB /* ic_account@2x.png */,
+				987C72611BF6F501007122EB /* ic_yesterday_rate@2x.png */,
+				987C725D1BF6F386007122EB /* ic_trading_record@2x.png */,
+				987C725B1BF6F372007122EB /* ic_income_record@2x.png */,
+				987C72591BF6F1FB007122EB /* ic_modify_password.png */,
+				987C72571BF6F1C4007122EB /* bg_prologue.png */,
+				987C72551BF6F1B9007122EB /* ic_help@2x.png */,
+				987C72531BF6F1B1007122EB /* ic_activity.png */,
+				987C72511BF6F1A5007122EB /* ic_more_menu_red.png */,
+				987C72471BF6F017007122EB /* ic_recharge.png */,
+				987C72481BF6F017007122EB /* ic_withdrawals.png */,
+				987C72371BF6EDC3007122EB /* ic_about_us.png */,
+				987C72381BF6EDC3007122EB /* ic_bank_card.png */,
+				987C72391BF6EDC3007122EB /* ic_check_update.png */,
+				987C723A1BF6EDC3007122EB /* ic_identify_card.png */,
+				987C723B1BF6EDC3007122EB /* ic_project_gray.png */,
+				987C723C1BF6EDC3007122EB /* ic_project.png */,
+				987C723D1BF6EDC3007122EB /* ic_qq_group.png */,
+				987C723E1BF6EDC3007122EB /* ic_service_tel.png */,
 				98924A991BF4C80900427A72 /* list_red@2x.png */,
 				98924A9A1BF4C80900427A72 /* list_white@2x.png */,
 				98924A9B1BF4C80900427A72 /* list_green@2x.png */,
 				987037B61BED90C000F1679E /* ic_empty.jpg */,
-				98AA6ABB1BECE1ED002439B8 /* ic_recharge.png */,
-				98AA6ABC1BECE1ED002439B8 /* ic_withdrawals.png */,
 				988EE4241BEA31F00064A75B /* bg_account@2x.png */,
 				988EE3F91BE9F0BC0064A75B /* ic_login_num@2x.png */,
 				988EE3FA1BE9F0BC0064A75B /* ic_modify_password@2x.png */,
@@ -1783,35 +1834,52 @@
 				988EE3E91BE9D6240064A75B /* bg_prologue@2x.png in Resources */,
 				98924AA31BF4C85A00427A72 /* CuponTableViewCell.xib in Resources */,
 				98229EAF1BE8C381005210EC /* Main.storyboard in Resources */,
+				987C72441BF6EDC3007122EB /* ic_project.png in Resources */,
 				9858F60C1BF6049B00EE64E1 /* delete_button@2x.png in Resources */,
 				98229FE01BE8F062005210EC /* guide_1@2x.png in Resources */,
+				987C723F1BF6EDC3007122EB /* ic_about_us.png in Resources */,
 				98BCD38C1BEDE3CD00168B00 /* HomeAssetTableViewCell.xib in Resources */,
 				98924A9C1BF4C80900427A72 /* list_red@2x.png in Resources */,
 				98229FE41BE8F0D8005210EC /* guide_3@2x.png in Resources */,
+				987C72541BF6F1B1007122EB /* ic_activity.png in Resources */,
+				987C72561BF6F1B9007122EB /* ic_help@2x.png in Resources */,
 				98924A9E1BF4C80900427A72 /* list_green@2x.png in Resources */,
+				987C725A1BF6F1FB007122EB /* ic_modify_password.png in Resources */,
 				98924A9D1BF4C80900427A72 /* list_white@2x.png in Resources */,
 				95319CF41BE9B75F00597AF8 /* img_account_head@2x.png in Resources */,
+				987C72461BF6EDC3007122EB /* ic_service_tel.png in Resources */,
+				987C72521BF6F1A5007122EB /* ic_more_menu_red.png in Resources */,
+				987C72491BF6F017007122EB /* ic_recharge.png in Resources */,
 				98229EB41BE8C381005210EC /* LaunchScreen.xib in Resources */,
 				988EE4251BEA31F00064A75B /* bg_account@2x.png in Resources */,
 				98BCD39C1BEDF1FE00168B00 /* InvestmentTopTableViewCell.xib in Resources */,
 				988EE3FB1BE9F0BC0064A75B /* ic_login_num@2x.png in Resources */,
 				98BCD3881BEDE3CD00168B00 /* HomeAssetBottomTableViewCell.xib in Resources */,
+				987C72401BF6EDC3007122EB /* ic_bank_card.png in Resources */,
+				987C72621BF6F501007122EB /* ic_yesterday_rate@2x.png in Resources */,
+				987C72601BF6F415007122EB /* ic_account@2x.png in Resources */,
 				98229FC11BE8DD6B005210EC /* MJRefresh.bundle in Resources */,
 				95D4703C1BEB24DF00EE3AE8 /* bg1.png in Resources */,
+				987C72581BF6F1C4007122EB /* bg_prologue.png in Resources */,
+				987C725E1BF6F386007122EB /* ic_trading_record@2x.png in Resources */,
+				987C72431BF6EDC3007122EB /* ic_project_gray.png in Resources */,
 				9858F60B1BF6049B00EE64E1 /* delete_button.png in Resources */,
 				98229FDE1BE8F02C005210EC /* navigationbar_background_tall1@2x.png in Resources */,
+				987C72411BF6EDC3007122EB /* ic_check_update.png in Resources */,
 				98D9EEA41BF0CAC0007C11D0 /* CHANGELIST.txt in Resources */,
 				98BCD38A1BEDE3CD00168B00 /* HomeAssetMiddleTableViewCell.xib in Resources */,
-				98AA6ABE1BECE1ED002439B8 /* ic_withdrawals.png in Resources */,
 				95319CF61BE9B86500597AF8 /* bg_account_asset_info.png in Resources */,
+				987C725C1BF6F372007122EB /* ic_income_record@2x.png in Resources */,
+				987C72421BF6EDC3007122EB /* ic_identify_card.png in Resources */,
 				98D9EEA71BF0CAC0007C11D0 /* walletResources.bundle in Resources */,
 				98229EB11BE8C381005210EC /* Images.xcassets in Resources */,
 				98BCD3861BEDE3CD00168B00 /* DealDetailTableViewCell.xib in Resources */,
+				987C724A1BF6F017007122EB /* ic_withdrawals.png in Resources */,
 				988EE3FC1BE9F0BC0064A75B /* ic_modify_password@2x.png in Resources */,
 				987037B71BED90C000F1679E /* ic_empty.jpg in Resources */,
 				98229FE21BE8F0A1005210EC /* guide_2@2x.png in Resources */,
 				98D9EEA61BF0CAC0007C11D0 /* Readme.txt in Resources */,
-				98AA6ABD1BECE1ED002439B8 /* ic_recharge.png in Resources */,
+				987C72451BF6EDC3007122EB /* ic_qq_group.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

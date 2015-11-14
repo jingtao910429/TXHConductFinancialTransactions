@@ -118,6 +118,8 @@
     UILabel *contentLabel = (UILabel *)[cell.contentView viewWithTag:12345];
     contentLabel.text = [NSString stringWithFormat:@"%.2f",[model.rate floatValue]/100.00];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 
 }

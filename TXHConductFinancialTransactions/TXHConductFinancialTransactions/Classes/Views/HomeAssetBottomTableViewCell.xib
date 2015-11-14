@@ -68,7 +68,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_recharge.png" width="68" height="91"/>
-        <image name="ic_withdrawals.png" width="68" height="91"/>
+        <image name="ic_recharge.png" width="153" height="204"/>
+        <image name="ic_withdrawals.png" width="153" height="206"/>
     </resources>
 </document>

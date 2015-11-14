@@ -346,17 +346,17 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     [[KxMenu sharedMenu] setIsShowPopView:YES];
     
     self.menuItems = @[[KxMenuItem menuItem:@" 收益记录 "
-                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                      image:[UIImage imageNamed:@"ic_income_record"]
                                      target:self
                                      action:@selector(pushMenuItem:) tag:1 isSelect:NO],
                        
                        [KxMenuItem menuItem:@" 交易记录 "
-                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                      image:[UIImage imageNamed:@"ic_trading_record"]
                                      target:self
                                      action:@selector(pushMenuItem:) tag:2 isSelect:NO],
                        
                        [KxMenuItem menuItem:@" 我的账户 "
-                                      image:[UIImage imageNamed:@"ic_login_num"]
+                                      image:[UIImage imageNamed:@"ic_account"]
                                      target:self
                                      action:@selector(pushMenuItem:) tag:3 isSelect:NO],
                        [KxMenuItem menuItem:@" 加息卷 " image:[UIImage imageNamed:@"ic_login_num"] target:self action:@selector(pushMenuItem:) tag:4 isSelect:NO]];

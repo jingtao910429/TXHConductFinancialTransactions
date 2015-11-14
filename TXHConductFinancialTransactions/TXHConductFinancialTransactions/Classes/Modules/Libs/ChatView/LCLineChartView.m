@@ -70,7 +70,7 @@
 @end
 
 
-#define X_AXIS_SPACE 15
+#define X_AXIS_SPACE 10
 #define PADDING 10
 
 
@@ -252,32 +252,36 @@
     if(yRangeLen == 0) yRangeLen = 1;
     for(LCLineChartData *data in self.data) {
         if (self.drawsDataLines) {
-            double xRangeLen = data.xMax - data.xMin;
+            //double xRangeLen = data.xMax - data.xMin;
+            double xRangeLen = (kScreenWidth - 20)/data.itemCount;
             if(xRangeLen == 0) xRangeLen = 1;
             if(data.itemCount >= 2) {
                 LCLineChartDataItem *datItem = data.getData(0);
                 CGMutablePathRef path = CGPathCreateMutable();
-                CGFloat prevX = xStart + round(((datItem.x - data.xMin) / xRangeLen) * availableWidth);
+                CGFloat prevX = xStart + round(xRangeLen);
                 CGFloat prevY = yStart + round((1.0 - (datItem.y - self.yMin) / yRangeLen) * availableHeight);
                 CGPathMoveToPoint(path, NULL, prevX, prevY);
-                for(NSUInteger i = 1; i < data.itemCount; ++i) {
+                CGFloat x = 0;
+                for(NSUInteger i = 0; i < data.itemCount; ++i) {
                     LCLineChartDataItem *datItem = data.getData(i);
-                    CGFloat x = xStart + round(((datItem.x - data.xMin) / xRangeLen) * availableWidth);
+                    x += round(xRangeLen);
                     CGFloat y = yStart + round((1.0 - (datItem.y - self.yMin) / yRangeLen) * availableHeight);
-                    CGFloat xDiff = x - prevX;
-                    CGFloat yDiff = y - prevY;
+//                    CGFloat xDiff = x - prevX;
+//                    CGFloat yDiff = y - prevY;
 
-                    if(xDiff != 0) {
-                        CGFloat xSmoothing = self.smoothPlot ? MIN(30,xDiff) : 0;
-                        CGFloat ySmoothing = 0.5;
-                        CGFloat slope = yDiff / xDiff;
-                        CGPoint controlPt1 = CGPointMake(prevX + xSmoothing, prevY + ySmoothing * slope * xSmoothing);
-                        CGPoint controlPt2 = CGPointMake(x - xSmoothing, y - ySmoothing * slope * xSmoothing);
-                        CGPathAddCurveToPoint(path, NULL, controlPt1.x, controlPt1.y, controlPt2.x, controlPt2.y, x, y);
-                    }
-                    else {
-                        CGPathAddLineToPoint(path, NULL, x, y);
-                    }
+//                    if(xDiff != 0) {
+//                        CGFloat xSmoothing = self.smoothPlot ? MIN(30,xDiff) : 0;
+//                        CGFloat ySmoothing = 0.5;
+//                        CGFloat slope = yDiff / xDiff;
+//                        CGPoint controlPt1 = CGPointMake(prevX + xSmoothing, prevY + ySmoothing * slope * xSmoothing);
+//                        CGPoint controlPt2 = CGPointMake(x - xSmoothing, y - ySmoothing * slope * xSmoothing);
+//                        CGPathAddCurveToPoint(path, NULL, controlPt1.x, controlPt1.y, controlPt2.x, controlPt2.y, x, y);
+//                    }
+//                    else {
+//                        CGPathAddLineToPoint(path, NULL, x, y);
+//                    }
+                    CGPathAddLineToPoint(path, NULL, x, y);
+                    
                     prevX = x;
                     prevY = y;
                 }
@@ -297,11 +301,13 @@
         } // draw actual chart data
         if (self.drawsDataPoints) {
           if (data.drawsDataPoints) {
-            double xRangeLen = data.xMax - data.xMin;
+            //double xRangeLen = data.xMax - data.xMin;
+            double xRangeLen = (kScreenWidth - 20)/data.itemCount;
             if(xRangeLen == 0) xRangeLen = 1;
+              CGFloat xVal = 0;
             for(NSUInteger i = 0; i < data.itemCount; ++i) {
                 LCLineChartDataItem *datItem = data.getData(i);
-                CGFloat xVal = xStart + round((xRangeLen == 0 ? 0.5 : ((datItem.x - data.xMin) / xRangeLen)) * availableWidth);
+                xVal += round(xRangeLen);
                 CGFloat yVal = yStart + round((1.0 - (datItem.y - self.yMin) / yRangeLen) * availableHeight);
                 [self.backgroundColor setFill];
                 CGContextFillEllipseInRect(c, CGRectMake(xVal - 5.5, yVal - 5.5, 11, 11));
@@ -339,10 +345,12 @@
         self.infoView = [[LCInfoView alloc] init];
         [self addSubview:self.infoView];
     }
+    
 
     CGPoint pos = [touch locationInView:self];
     CGFloat xStart = PADDING + self.yAxisLabelsWidth;
     CGFloat yStart = PADDING;
+    xStart = 0;
     CGFloat yRangeLen = self.yMax - self.yMin;
     if(yRangeLen == 0) yRangeLen = 1;
     CGFloat xPos = pos.x - xStart;
@@ -358,12 +366,13 @@
     CGPoint closestPos = CGPointZero;
 
     for(LCLineChartData *data in self.data) {
-        double xRangeLen = data.xMax - data.xMin;
-        
+        //double xRangeLen = data.xMax - data.xMin;
+        double xRangeLen = (kScreenWidth - 20)/data.itemCount;
         // note: if necessary, could use binary search here to speed things up
+        CGFloat xVal = 0;
         for(NSUInteger i = 0; i < data.itemCount; ++i) {
             LCLineChartDataItem *datItem = data.getData(i);
-            CGFloat xVal = round((xRangeLen == 0 ? 0.0 : ((datItem.x - data.xMin) / xRangeLen)) * availableWidth);
+            xVal += round(xRangeLen);
             CGFloat yVal = round((1.0 - (datItem.y - self.yMin) / yRangeLen) * availableHeight);
 
             double dist = fabsf(xVal - xPos);

@@ -158,6 +158,15 @@
                     [self.dataSource addObject:model];
                 }
                 
+                [self.dataSource sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                    
+                    EarnDetailModel *modelObject1 = (EarnDetailModel *)obj1;
+                    EarnDetailModel *modelObject2 = (EarnDetailModel *)obj2;
+                    
+                    return [modelObject1.createDate compare:modelObject2.createDate];
+                    
+                }];
+                
                 [self.contentTableView reloadData];
             }else{
                 [Tool ToastNotification:@"没有更多内容"];
@@ -224,6 +233,10 @@
 
 - (LCLineChartView *)chartView {
     
+    if (self.dataSource.count == 0) {
+        return _chartView;
+    }
+    
     {
         self.formatter = [[NSDateFormatter alloc] init];
         [self.formatter setDateFormat:[NSDateFormatter dateFormatFromTemplate:@"yyyyMMMd" options:0 locale:[NSLocale currentLocale]]];
@@ -233,22 +246,62 @@
     {
         LCLineChartData *d1x = ({
             LCLineChartData *d1 = [LCLineChartData new];
-            NSDate *date1 = [[NSDate date] dateByAddingTimeInterval:((-3) * SECS_PER_DAY)];
-            NSDate *date2 = [[NSDate date] dateByAddingTimeInterval:((2) * SECS_PER_DAY)];
-            d1.xMin = [date1 timeIntervalSinceReferenceDate];
-            d1.xMax = [date2 timeIntervalSinceReferenceDate];
+            
+            [self.dataSource sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                
+                EarnDetailModel *modelObject1 = (EarnDetailModel *)obj1;
+                EarnDetailModel *modelObject2 = (EarnDetailModel *)obj2;
+                
+                return [modelObject1.createDate compare:modelObject2.createDate];
+                
+            }];
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setLocale:[NSLocale currentLocale]];
+            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            
+            EarnDetailModel *firstModel = self.dataSource[0];
+            NSArray *firstTimesArr = [firstModel.createDate componentsSeparatedByString:@"+"];
+            NSString *firstTime = [NSString stringWithFormat:@"%@ %@",firstTimesArr[0],firstTimesArr[1]];
+            
+            if (self.dataSource.count > 2) {
+                
+                EarnDetailModel *lastModel = self.dataSource[self.dataSource.count - 1];
+                NSArray *lastTimesArr = [lastModel.createDate componentsSeparatedByString:@"+"];
+                NSString *lastTime = [NSString stringWithFormat:@"%@ %@",lastTimesArr[0],lastTimesArr[1]];
+                
+                d1.xMin = [[formatter dateFromString:firstTime] timeIntervalSince1970];
+                d1.xMax = [[formatter dateFromString:lastTime] timeIntervalSince1970];
+                
+            }else if (self.dataSource.count == 1){
+                
+                EarnDetailModel *firstModel = self.dataSource[0];
+                NSArray *firstTimesArr = [firstModel.createDate componentsSeparatedByString:@"+"];
+                NSString *firstTime = [NSString stringWithFormat:@"%@ %@",firstTimesArr[0],firstTimesArr[1]];
+                
+                d1.xMin = [[formatter dateFromString:firstTime] timeIntervalSince1970];
+                d1.xMax = [[formatter dateFromString:firstTime] timeIntervalSince1970];
+                
+            }else{
+                d1.xMin = 0;
+                d1.xMax = 0;
+            }
+            
+            
             d1.title = @"收益记录";
             d1.color = [UIColor whiteColor];
+            
             d1.itemCount = self.dataSource.count;
             NSMutableArray *arr = [NSMutableArray array];
-            for(NSUInteger i = 0; i < 4; ++i) {
-                [arr addObject:@(d1.xMin + (rand() / (float)RAND_MAX) * (d1.xMax - d1.xMin))];
+            
+            for(NSUInteger i = 0; i < self.dataSource.count; ++i) {
+                
+                EarnDetailModel *earnDetailModel = (EarnDetailModel *)self.dataSource[i];
+                NSArray *timesArr = [earnDetailModel.createDate componentsSeparatedByString:@"+"];
+                NSString *timeStr = [NSString stringWithFormat:@"%@ %@",timesArr[0],timesArr[1]];
+                
+                [arr addObject:@([[formatter dateFromString:timeStr] timeIntervalSince1970])];
             }
-            [arr addObject:@(d1.xMin)];
-            [arr addObject:@(d1.xMax)];
-            [arr sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                return [obj1 compare:obj2];
-            }];
             NSMutableArray *arr2 = [NSMutableArray array];
             for(NSUInteger i = 0; i < self.dataSource.count; ++i) {
                 
@@ -256,11 +309,18 @@
                 [arr2 addObject:@([earnDetailModel.rate floatValue])];
             }
             d1.getData = ^(NSUInteger item) {
+                
                 float x = [arr[item] floatValue];
+                
                 float y = [arr2[item] floatValue];
-                NSString *label1 = [self.formatter stringFromDate:[date1 dateByAddingTimeInterval:x]];
+                NSString *label1 = [formatter stringFromDate:[[formatter dateFromString:firstTime] dateByAddingTimeInterval:0]];
                 NSString *label2 = [NSString stringWithFormat:@"%f", y];
-                return [LCLineChartDataItem dataItemWithX:x y:y xLabel:label1 dataLabel:label2];
+                
+                NSString *timeStr = [label1 componentsSeparatedByString:@" "][0];
+                NSArray *times = [timeStr componentsSeparatedByString:@"-"];
+                timeStr = [NSString stringWithFormat:@"%@-%@",times[1],times[2]];
+                
+                return [LCLineChartDataItem dataItemWithX:x y:y xLabel:timeStr dataLabel:label2];
             };
             
             d1;

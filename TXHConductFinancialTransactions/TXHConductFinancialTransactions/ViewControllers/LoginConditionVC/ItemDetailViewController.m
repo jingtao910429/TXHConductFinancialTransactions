@@ -12,6 +12,7 @@
 #import "InvestmentBottomLTableViewCell.h"
 #import "NSString+Additions.h"
 #import "ItemTypeViewController.h"
+#import "InvestmentViewController.h"
 
 @interface ItemDetailViewController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -42,7 +43,7 @@
 
 - (void)configUI {
     
-    [self navigationBarStyleWithTitle:@"投资列表" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
+    [self navigationBarStyleWithTitle:@"投资" titleColor:[UIColor blackColor]  leftTitle:@"返回" leftImageName:nil leftAction:@selector(popVC) rightTitle:nil rightImageName:nil rightAction:nil];
     
     [self.view addSubview:self.contentTableView];
     
@@ -191,6 +192,10 @@
             cell.zdProgressView.progress = [self.investmentListModel.rate floatValue] / 100.00;
             cell.zdProgressView.text = [NSString stringWithFormat:@"%.2f%%",[self.investmentListModel.rate floatValue]];
             cell.contentLabel.text =  [NSString stringWithFormat:@"还可以投资%@元",[[NSString stringWithFormat:@"%@",self.investmentListModel.realMoney?self.investmentListModel.realMoney:@"0.00"] changeYFormatWithMoneyAmount]];
+            
+            cell.investmentButton.tag = indexPath.section;
+            
+            [cell.investmentButton addTarget:self action:@selector(investmentButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             return cell;
@@ -230,6 +235,14 @@
 }
 
 #pragma mark - private method
+
+- (void)investmentButtonClick:(UIButton *)sender {
+    
+    InvestmentViewController *investmentViewController = [[InvestmentViewController alloc] init];
+    investmentViewController.investmentListModel = self.investmentListModel;
+    [self.navigationController pushViewController:investmentViewController animated:YES];
+    
+}
 
 - (void)popVC {
     [self.navigationController popViewControllerAnimated:YES];

@@ -71,7 +71,7 @@
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 200;
+    return 220;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -97,11 +97,26 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CELL_ID"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL_ID"];
+        
+        UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth - 155, 5, 135, 40)];
+        contentLabel.font = [UIFont systemFontOfSize:15];
+        contentLabel.textAlignment = NSTextAlignmentRight;
+        contentLabel.tag = 12345;
+        [cell.contentView addSubview:contentLabel];
+        
     }
     
     EarnDetailModel *model = self.dataSource[indexPath.row];
     
-    cell.textLabel.text = model.createDate;
+    NSArray *arrs = [model.createDate componentsSeparatedByString:@"+"];
+    
+    NSString *createTime = [NSString stringWithFormat:@"%@ %@",arrs[0],arrs[1]];
+    
+    cell.textLabel.text = createTime;
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
+    
+    UILabel *contentLabel = (UILabel *)[cell.contentView viewWithTag:12345];
+    contentLabel.text = [NSString stringWithFormat:@"%.2f",[model.rate floatValue]/100.00];
     
     return cell;
 
@@ -130,7 +145,9 @@
             
             if (data && ![data isKindOfClass:[NSNull class]] && data.count != 0) {
                 
-                self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
+                if (1 == self.index) {
+                    self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
+                }
                 
                 for (NSDictionary *subDict in data) {
                     
@@ -193,6 +210,16 @@
     return _contentTableView;
 }
 
+- (UIRefreshControl *)refreshControl {
+    
+    if (!_refreshControl) {
+        
+        _refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.contentTableView.frame.size.width, -40)];
+        [_refreshControl addTarget:self action:@selector(reload:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _refreshControl;
+}
+
 - (LCLineChartView *)chartView {
     
     {
@@ -235,10 +262,10 @@
             d1;
         });
         
-        _chartView = [[LCLineChartView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+        _chartView = [[LCLineChartView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 220)];
         _chartView.yMin = 0;
         _chartView.yMax = 6;
-        _chartView.ySteps = @[@"1.0",@"2.0",@"3.0",@"4.0",@"5.0",@"6.0"];
+        _chartView.ySteps = @[@"6.00%",@"8.00%",@"10.00%",@"12.00%",@"14.00%",@"16.00%"];
         _chartView.data = @[d1x];
         _chartView.selectedItemCallback = ^(LCLineChartData *dat, NSUInteger item, CGPoint pos) {
             if(dat == d1x && item == 2) {

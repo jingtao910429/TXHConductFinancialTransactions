@@ -179,7 +179,9 @@
             
             if (data && ![data isKindOfClass:[NSNull class]] && data.count != 0) {
                 
-                self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
+                if (1 == index) {
+                    self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
+                }
                 
                 for (NSDictionary *subDict in data) {
                     

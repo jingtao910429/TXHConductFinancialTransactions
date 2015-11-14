@@ -117,7 +117,7 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
     if (0 == indexPath.row) {
         return 150;
     }else if (1 == indexPath.row) {
-        return 60;
+        return 70;
     }
     return 100;
 }
@@ -189,6 +189,12 @@ static NSString *HomeAssetBottomTableViewCellID = @"HomeAssetBottomTableViewCell
         
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeAssetMiddleTableViewCell" owner:self options:nil] lastObject];
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth/2 - 0.5, 5, 0.5, 60)];
+            imageView.backgroundColor = COLOR(221, 221, 221, 1.0f);
+            
+            [cell.contentView addSubview:imageView];
+            
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

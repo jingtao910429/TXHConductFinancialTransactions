@@ -212,14 +212,14 @@
             
         }else{
             
-            NSLog(@"responseData = %@",responseData);
-            
             NSArray *data = tempDict[@"data"];
 
             if (data && ![data isKindOfClass:[NSNull class]] && data.count != 0) {
                 
-                self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
-                
+                if (1 == self.index) {
+                    self.dataSource = [[NSMutableArray alloc] initWithCapacity:20];
+                }
+
                 for (NSDictionary *subDict in data) {
                     
                     InterestRateCouponModel  *model = [[InterestRateCouponModel alloc] init];

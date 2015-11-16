@@ -18,7 +18,7 @@
         
         UIImage *tempImage = [UIImage imageNamed:@"ic_service_tel"];
         
-        leftimageview=[[UIImageView alloc] initWithFrame:CGRectMake(5, (45 - tempImage.size.height - 5)/2, tempImage.size.width + 5, tempImage.size.height + 5)];
+        leftimageview=[[UIImageView alloc] initWithFrame:CGRectMake(5, (45 - 30 - 6)/2, 30, 30)];
         [self.contentView addSubview:leftimageview];
         
        

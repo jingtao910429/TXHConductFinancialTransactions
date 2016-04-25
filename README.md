@@ -1,2 +1,2 @@
 # TXHConductFinancialTransactions
-TXHConductFinancialTransactions of mySelf
+TXHConductFinancialTransactions Project
